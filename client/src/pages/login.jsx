@@ -1,5 +1,6 @@
+import".../App.css"
 const Login = () => {
-    return <></>;
+    return <> test lang </>;
 };
 
 export default Login;
