@@ -1,6 +1,6 @@
 import React from 'react';
 import './login.css';
-import { FaUser, FaLock } from "react-icons/fa";
+import { FaUser, FaLock, MdOutlineNumbers, } from "react-icons/fa";
 
 
 const Login = () => {
@@ -16,6 +16,10 @@ const Login = () => {
                     <input type="password" placeholder='Password' required />
                     <FaLock className='icon' />
                 </div>
+                <div className='input-box'>
+                    <input type="number" placeholder='Student Number' required />
+                    <MdOutlineNumbers className='icon' />
+                </div>
 
                 <div className="remember-forgot">
                     <label> <input type="checkbox" /> Remember me</label>
@@ -23,14 +27,10 @@ const Login = () => {
                 </div>
                 <button type='submit'>Login</button>
                 <div className='register-link'>
-                    <p>Don't have an coount? <a href="#">Register</a></p>
+                    <p>Don't have an account? <a href="#">Register</a></p>
                 </div>
             </form>
         </div>
     );
-
-
-
 };
-
 export default Login;
