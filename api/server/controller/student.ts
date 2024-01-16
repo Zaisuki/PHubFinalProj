@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import { HttpResponse } from '../models/http-response';
-import Student from '../models/user';
+import { Student } from '../models/user';
 
 export const findAllStudent = async (req: Request, res: Response) => {
     try {

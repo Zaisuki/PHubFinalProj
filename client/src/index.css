@@ -1,22 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
-
-body{
-
-    margin:0;
+=======
+* {
     font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: seagreen;
 }
 
-code{
-    font-family:'Courier New', Courier, monospace;
+#root {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
 }
+main {
+    width: auto;
+}
+>>>>>>> bea789c37c8974a3f63a1c020b70c50af1ba13c0
