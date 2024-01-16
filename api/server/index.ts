@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import entryRoutes from './routes/entry';
-import userRoutes from './routes/entry';
+import userRoutes from './routes/user';
 
 const app = express();
 const port = 3000;

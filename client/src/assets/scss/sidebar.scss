@@ -1,0 +1,47 @@
+@import 'variables';
+.sidebar-container {
+    background-color: $primary-color;
+    min-height: 100vh;
+    padding: 2vw;
+    width: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+
+    a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: $text-color;
+        width: 90%;
+        padding: 15px 0;
+        font-size: 25px;
+
+        i {
+            font-size: 1.5em;
+        }
+
+        span {
+            display: none;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+    }
+
+    ul {
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        list-style: none;
+    }
+}
+.sidebar-container:hover {
+    width: 300px;
+    a {
+        padding: 15px;
+        span {
+            display: block;
+        }
+    }
+}
