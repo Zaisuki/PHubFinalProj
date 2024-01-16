@@ -59,7 +59,7 @@ const SideBar = () => {
                     </Link>
                 </li>
             </ul>
-            <Link to='/logout'>
+            <Link to='/'>
                 <i className='bx bx-log-out'></i>
                 <span>Log out</span>
             </Link>

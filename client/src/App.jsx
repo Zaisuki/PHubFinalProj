@@ -1,13 +1,9 @@
 import './App.css';
+import Login from './pages/login';
 import MainContent from './pages/mainContent';
-// import Login from './pages/login';
 
 function App() {
-    return (
-        <>
-            <MainContent />
-        </>
-    );
+    return <>{window.location.pathname != '/login' ? <MainContent /> : <Login />}</>;
 }
 
 export default App;
