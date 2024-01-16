@@ -1,62 +1,37 @@
 import { Link } from 'react-router-dom';
 
 import '../assets/scss/sidebar.scss';
+import SideBarLink from './sidebarLink';
 
 const SideBar = () => {
     return (
         <div className='sidebar-container'>
-            <Link to='/profile'>
-                <i className='bx bxs-user-circle'></i>
-                <span>Profile</span>
-            </Link>
+            <SideBarLink direct='/profile' icon='bx bxs-user-circle' title='Profile' />
+
             <ul>
                 <li>
-                    <Link to='/'>
-                        <i className='bx bxs-dashboard'></i>
-                        <span>Dashboard</span>
-                    </Link>
+                    <SideBarLink direct='/' icon='bx bxs-dashboard' title='Dashboard' />
                 </li>
                 <li>
-                    <Link to='/'>
-                        <i className='bx bxs-notepad'></i>
-                        <span>Task</span>
-                    </Link>
+                    <SideBarLink direct='/' icon='bx bxs-notepad' title='Task' />
                 </li>
                 <li>
-                    <Link to='/'>
-                        <i className='bx bxs-bell'></i>
-                        <span>Notification</span>
-                    </Link>
+                    <SideBarLink direct='/' icon='bx bxs-bell' title='Notification' />
                 </li>
                 <li>
-                    <Link to='/'>
-                        <i className='bx bxs-chat'></i>
-                        <span>Inbox</span>
-                    </Link>
+                    <SideBarLink direct='/' icon='bx bxs-chat' title='Inbox' />
                 </li>
                 <li>
-                    <Link to='/'>
-                        <i className='bx bxs-calendar-alt'></i>
-                        <span>Calendar</span>
-                    </Link>
+                    <SideBarLink direct='/' icon='bx bxs-calendar-alt' title='Calendar' />
                 </li>
                 <li>
-                    <Link to='/'>
-                        <i className='bx bxs-calendar-alt'></i>
-                        <span>Para sa Iba</span>
-                    </Link>
+                    <SideBarLink direct='/' icon='bx bxs-notepad' title='ewan' />
                 </li>
                 <li>
-                    <Link to='/'>
-                        <i className='bx bxs-calendar-alt'></i>
-                        <span>Para sa Iba</span>
-                    </Link>
+                    <SideBarLink direct='/' icon='bx bxs-notepad' title='ewan' />
                 </li>
                 <li>
-                    <Link to='/'>
-                        <i className='bx bxs-calendar-alt'></i>
-                        <span>Para sa Iba</span>
-                    </Link>
+                    <SideBarLink direct='/' icon='bx bxs-calendar-alt' title='ewan' />
                 </li>
             </ul>
             <Link to='/'>

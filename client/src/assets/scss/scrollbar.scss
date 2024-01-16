@@ -1,0 +1,21 @@
+@import 'variables';
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #ffffff $primary-color;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: $primary-color;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 15px;
+    border: 5px solid $primary-color;
+}
