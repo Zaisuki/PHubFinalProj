@@ -13,19 +13,19 @@ const SideBar = () => {
                     <SideBarLink direct='/' icon='bx bxs-dashboard' title='Dashboard' />
                 </li>
                 <li>
-                    <SideBarLink direct='/' icon='bx bxs-notepad' title='Task' />
+                    <SideBarLink direct='/task' icon='bx bxs-notepad' title='Task' />
                 </li>
                 <li>
-                    <SideBarLink direct='/' icon='bx bxs-bell' title='Notification' />
+                    <SideBarLink direct='/notification' icon='bx bxs-bell' title='Notification' />
                 </li>
                 <li>
-                    <SideBarLink direct='/' icon='bx bxs-chat' title='Inbox' />
+                    <SideBarLink direct='/inbox' icon='bx bxs-chat' title='Inbox' />
                 </li>
                 <li>
-                    <SideBarLink direct='/' icon='bx bxs-calendar-alt' title='Calendar' />
+                    <SideBarLink direct='/calendar' icon='bx bxs-calendar-alt' title='Calendar' />
                 </li>
                 <li>
-                    <SideBarLink direct='/' icon='bx bxs-notepad' title='ewan' />
+                    <SideBarLink direct='/balls' icon='bx bxs-notepad' title='bowbow' />
                 </li>
                 <li>
                     <SideBarLink direct='/' icon='bx bxs-notepad' title='ewan' />

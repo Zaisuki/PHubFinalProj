@@ -4,6 +4,10 @@ import mongoose, { Schema, InferSchemaType } from 'mongoose';
 // Login Schema
 const userCredentialSchema = new Schema(
     {
+        username: {
+            type: String,
+            required: [true, 'Please enter your username.'],
+        },
         emailAddress: {
             type: String,
             required: [true, 'Please enter your email address.'],
@@ -19,6 +23,7 @@ const userCredentialSchema = new Schema(
         userInformation: {
             type: Schema.Types.ObjectId,
             required: true,
+            default: null,
         },
     },
     {
@@ -57,6 +62,7 @@ const studentSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'userCredentialSchema',
         required: true,
+        default: null,
     },
 });
 

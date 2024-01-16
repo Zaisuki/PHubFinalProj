@@ -2,44 +2,61 @@
 .sidebar-container {
     background-color: $primary-color;
     min-height: 100vh;
+    height: auto;
     padding: 2vw;
     width: 100px;
     overflow-y: auto;
     overflow-x: hidden;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     a {
         display: flex;
         align-items: center;
+        justify-content: center;
         text-decoration: none;
         color: $text-color;
         width: 90%;
         padding: 15px 0;
-        font-size: 25px;
+        font-size: 18px;
 
         i {
-            font-size: 1.5em;
+            font-size: 2em;
         }
 
         span {
             display: none;
-            font-weight: bold;
+            font-weight: 500;
             margin-left: 1rem;
         }
     }
 
     ul {
-        height: 80vh;
+        width: 100%;
+        height: 90vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         list-style: none;
+        li {
+            width: 90%;
+            a {
+                width: 100%;
+            }
+        }
     }
+    transition: all 0.3s ease-in-out;
 }
 .sidebar-container:hover {
     width: 300px;
     a {
         padding: 15px;
+        justify-content: flex-start;
+
         span {
             display: block;
         }
