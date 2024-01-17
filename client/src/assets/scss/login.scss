@@ -13,13 +13,14 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: rgb(8, 61, 8);
+    background-color: rgb(0, 0, 0);
 }
 
 .wrapper {
     width: 420px;
-    background-color: rgb(23, 146, 70);
+    background:transparent;
     color: #fff;
+    border: 2px solid rgba(255, 255, 255, .2);
     border-radius: 10px;
     padding: 30px 40px;
 }
