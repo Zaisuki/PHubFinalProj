@@ -1,0 +1,29 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import './assets/scss/variables';
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#root {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+main {
+    width: 100%;
+    background-color: $background-color;
+    overflow-x: hidden;
+}
+main.sidebar-main-open {
+    width: calc(100% - 300px);
+}
+
+@media (min-width: $md) {
+    main {
+        width: calc(100% - 100px);
+    }
+}

@@ -1,5 +1,19 @@
-$primary-color: #3498db;
-$secondary-color: #2ecc71;
-$tertiary-color: #2ecc71;
-$accent-color: #2ecc71;
+$background-color: rgb(179, 202, 169);
+$primary-color: linear-gradient(45deg, #09612a, #044a6b);
+$secondary-color: #064917;
+$tertiary-color: transparent;
+$accent-color: transparent;
 $text-color: black;
+$progress-bar-color: red;
+
+// Screen sizes
+$sm: '576px';
+$md: '768px';
+$lg: '1024px';
+$xl: '1280px';
+$xxl: '1536px';
+// @media screen and (min-width: $sm) {}
+// @media screen and (min-width: $md) {}
+// @media screen and (min-width: $lg) {}
+// @media screen and (min-width: $xl) {}
+// @media screen and (min-width: $xxl) {}

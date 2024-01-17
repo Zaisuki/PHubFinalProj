@@ -7,12 +7,45 @@ import Task from './task';
 import Inbox from './inbox';
 import Notification from './notification';
 import Calendar from './calendar';
+import { useEffect, useState } from 'react';
+import Header from '../components/header';
+import Course from './course';
 
 const MainContent = () => {
+    const [isHovered, setIsHovered] = useState(false);
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
+    const [isClicked, setIsClicked] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const handleMouseOver = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseOut = () => {
+        setIsHovered(false);
+    };
+    const handleOpenSideBar = () => {
+        setIsClicked(true);
+    };
+
+    const handleCloseSideBar = () => {
+        setIsClicked(false);
+    };
     return (
         <>
-            <SideBar />
-            <main>
+            <SideBar isClicked={isClicked} onClick={handleCloseSideBar} onHover={handleMouseOver} onUnhover={handleMouseOut} />
+            <main className={`${isHovered ? !isSmallScreen && 'sidebar-main-open' : ''}`}>
+                <Header onClick={handleOpenSideBar} />
                 <Routes className='sidebar-container'>
                     <Route path='/' element={<Dashboard />} />
                     <Route path='/profile' element={<Profile />} />
@@ -20,6 +53,7 @@ const MainContent = () => {
                     <Route path='/notification' element={<Notification />} />
                     <Route path='/inbox' element={<Inbox />} />
                     <Route path='/calendar' element={<Calendar />} />
+                    <Route path='/course' element={<Course />} />
                 </Routes>
             </main>
         </>
