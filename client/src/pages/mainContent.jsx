@@ -10,6 +10,7 @@ import Calendar from './calendar';
 import { useEffect, useState } from 'react';
 import Header from '../components/header';
 import Course from './course';
+import Evaluation from './evaluation';
 
 const MainContent = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -54,6 +55,7 @@ const MainContent = () => {
                     <Route path='/inbox' element={<Inbox />} />
                     <Route path='/calendar' element={<Calendar />} />
                     <Route path='/course' element={<Course />} />
+                    <Route path='/evaluation' element={<Evaluation />} />
                 </Routes>
             </main>
         </>

@@ -29,7 +29,7 @@ const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
                     <SideBarLink direct='/calendar' icon='bx bxs-calendar' title='Calendar' isClicked={isClicked} />
                 </li>
                 <li>
-                    <SideBarLink direct='/' icon='bx bxs-edit' title='Evaluation' isClicked={isClicked} />
+                    <SideBarLink direct='evaluation' icon='bx bxs-edit' title='Evaluation' isClicked={isClicked} />
                 </li>
             </ul>
             <SideBarLink direct='/' icon='bx bx-log-out' title='Log out' isClicked={isClicked} />
