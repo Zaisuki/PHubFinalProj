@@ -2,7 +2,7 @@ import express, { Express, Request, Response, Router } from 'express';
 
 import { checkCurrentUser, loginUserController, registerUserController } from '../controller/entry';
 // import { authenticateToken } from '../controller/auth';
-import { authenticateToken } from '../controller/authentication';
+import { authenticateToken } from '../middleware/authentication';
 
 const router = Router();
 

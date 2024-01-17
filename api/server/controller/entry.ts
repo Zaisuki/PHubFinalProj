@@ -1,5 +1,5 @@
 import express, { Express, Request, Response } from 'express';
-import { checkEmailAvailability, checkUsernameAvailability, getUserIDByEmailAddress, getUserIDByUsername, loginUsertoDatabase, registerUsertoDatabase } from '../services/entry';
+import { checkEmailAvailability, checkUsernameAvailability, getUserID, loginUsertoDatabase, registerUsertoDatabase } from '../services/entry';
 import { HttpResponse } from '../models/http-response';
 
 import jwt from 'jsonwebtoken';
@@ -29,11 +29,9 @@ export const loginUserController = async (req: Request, res: Response) => {
                 const user = { name: userIdentifier };
                 const accessTokenSecret: any = process.env.ACCESS_TOKEN_SECRET;
                 const accessToken = jwt.sign(user, accessTokenSecret);
-                if (userIdentifierType === 'Username') {
-                    userID = await getUserIDByUsername(userIdentifier);
-                } else {
-                    userID = await getUserIDByEmailAddress(userIdentifier);
-                }
+                console.log(data.message);
+                userID = await getUserID(userIdentifier);
+
                 loginUpdate = { ...loginUpdate, accessToken: accessToken, userID: userID };
             }
 
@@ -70,23 +68,10 @@ const checkEveryInputForLogin = async (userIdentifier: string, password: string,
 
 // Registrations
 export const registerUserController = async (req: Request, res: Response) => {
-    const firstName: string = req.body.firstName;
-    const middleName: string = req.body.middleName;
-    const lastName: string = req.body.lastName;
-    const course: string = req.body.course;
-    const section: string = req.body.section;
-    const birthday: string = req.body.birthday;
-    const enrolled: boolean = req.body.enrolled;
-    const username: string = req.body.username;
-    const emailAddress: string = req.body.emailAddress.toLowerCase();
-    const confirmationEmailAddress: string = req.body.confirmationEmailAddress.toLowerCase();
-    const password: string = req.body.password;
-    const confirmationPassword: string = req.body.confirmationPassword;
-    const userType: string = req.body.userType;
-
+    const { firstName, middleName, lastName, course, section, birthday, enrolled, username, emailAddress, confirmationEmailAddress, password, confirmationPassword, userType } = req.body;
     const checkerForInput = await checkEveryInputForSignup(username, emailAddress, confirmationEmailAddress, password, confirmationPassword);
     if (checkerForInput.message['message'] === 'success') {
-        const data = registerUsertoDatabase(username, emailAddress, password, userType);
+        const data = await registerUsertoDatabase(firstName, middleName, lastName, course, section, birthday, enrolled, username, emailAddress, password, userType);
         if (!data) {
             res.status(500).json({ 'message': 'Internal Server Error' });
             return;
@@ -122,7 +107,7 @@ const checkEveryInputForSignup = async (username: string, emailAddress: string, 
     return new HttpResponse({ 'message': 'success' }, 200);
 };
 
-const checkUsernameValidity = (username: string) => {
+const checkUsernameValidity = (username: String) => {
     // TODO: max 25 characters
     const regex = /^[a-zA-Z0-9]+$/;
 
