@@ -6,7 +6,7 @@ function Notification() {
     return (
         <div className='main-container'>
             <div className='title'>
-                <h2>Notifications</h2>
+                <h2>Notifications</h2>  
             </div>
             <ToastContainer className='toast-container'>
                 <Toast className='box'>

@@ -81,6 +81,7 @@
     }
 }
 .sidebar-close-btn {
+    display: block;
     position: absolute;
     top: 1%;
     right: 2%;
@@ -88,5 +89,8 @@
 @media (min-width: $md) {
     .sidebar-container {
         display: flex;
+    }
+    .sidebar-close-btn{
+        display: none;
     }
 }
