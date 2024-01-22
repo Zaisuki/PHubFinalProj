@@ -1,16 +1,16 @@
 import { Route, Routes } from "react-router-dom";
 
 import SideBar from "../components/sidebar";
-import Dashboard from "./dashboard";
-import Profile from "./profile";
+import Dashboard from "./student/dashboard";
+import Profile from "./student/profile";
 import Task from "./task";
-import Inbox from "./inbox";
-import Notification from "./notification";
-import Calendar from "./calendar";
+import Inbox from "./student/inbox";
+import Notification from "./student/notification";
+import Calendar from "./student/calendar";
 import { useEffect, useState } from "react";
 import Header from "../components/header";
-import Course from "./course";
-import Evaluation from "./evaluation";
+import Course from "./student/course";
+import Evaluation from "./student/evaluation";
 
 const MainContent = () => {
   const [isHovered, setIsHovered] = useState(false);

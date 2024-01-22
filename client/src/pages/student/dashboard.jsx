@@ -1,5 +1,5 @@
-import '../assets/scss/dashboard.scss';
-import SummaryTask from '../components/summaryTask';
+import '../../assets/scss/dashboard.scss';
+import SummaryTask from '../../components/summaryTask';
 
 function Dashboard() {
     return (

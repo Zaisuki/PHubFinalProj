@@ -1,5 +1,5 @@
 import Card from "react-bootstrap/Card";
-import "../assets/scss/course.scss";
+import "../../assets/scss/course.scss";
 
 function Course() {
   return (

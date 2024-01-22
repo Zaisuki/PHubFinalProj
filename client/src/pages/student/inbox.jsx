@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../assets/scss/inbox.scss";
+import "../../assets/scss/inbox.scss";
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);

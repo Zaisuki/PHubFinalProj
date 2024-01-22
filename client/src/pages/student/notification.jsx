@@ -1,6 +1,6 @@
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
-import '../assets/scss/notification.scss';
+import '../../assets/scss/notification.scss';
 
 function Notification() {
     return (

@@ -1,5 +1,5 @@
-import '../assets/scss/profile.scss';
-import profileIcon from '../assets/img/mygirl.jpg';
+import '../../assets/scss/profile.scss';
+import profileIcon from '../../assets/img/mygirl.jpg';
 
 const Profile = () => {
     return (
