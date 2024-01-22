@@ -1,12 +1,12 @@
-// import '../assets/scss/dashboard.scss';
-// import SummaryTask from '../../components/summaryTask';
+import '../../assets/scss/dashboard.scss';
+import SummaryTask from '../../components/summaryTask';
 
-// function Dashboard() {
-//     return (
-//         <div className='dashboard'>
-//             <SummaryTask />
-//         </div>
-//     );
-// }
+function DashboardProf() {
+    return (
+        <div className='dashboard'>
+            <SummaryTask />
+        </div>
+    );
+}
 
-// export default Dashboard;
+export default DashboardProf;

@@ -12,6 +12,13 @@ import Header from "../components/header";
 import Course from "./student/course";
 import Evaluation from "./student/evaluation";
 
+import DashboardProf from "./professor/dashboard";
+import ProfileProf from "./professor/profile";
+import InboxProf from "./professor/inbox";
+import NotificationProf from "./professor/notification";
+import CalendarProf from "./professor/calendar";
+import CourseProf from "./professor/course";
+
 const MainContent = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
@@ -55,14 +62,24 @@ const MainContent = () => {
       >
         <Header onClick={handleOpenSideBar} />
         <Routes className="sidebar-container">
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/task" element={<Task />} />
-          <Route path="/notification" element={<Notification />} />
-          <Route path="/inbox" element={<Inbox />} />
-          <Route path="/calendar" element={<Calendar />} />
-          <Route path="/course" element={<Course />} />
-          <Route path="/evaluation" element={<Evaluation />} />
+          {/* TODO */}
+          {/* Student */}
+          <Route path="/student/" element={<Dashboard />} />
+          <Route path="/student/profile" element={<Profile />} />
+          <Route path="/student/task" element={<Task />} />
+          <Route path="/student/notification" element={<Notification />} />
+          <Route path="/student/inbox" element={<Inbox />} />
+          <Route path="/student/calendar" element={<Calendar />} />
+          <Route path="/student/course" element={<Course />} />
+          <Route path="/student/evaluation" element={<Evaluation />} />
+          {/* Professor */}
+          
+          <Route path="/student/" element={<DashboardProf />} />
+          <Route path="/student/profile" element={<ProfileProf />} />
+          <Route path="/student/notification" element={<NotificationProf />} />
+          <Route path="/student/inbox" element={<InboxProf />} />
+          <Route path="/student/calendar" element={<CalendarProf />} />
+          <Route path="/student/course" element={<CourseProf />} />
         </Routes>
       </main>
     </>
@@ -88,6 +105,7 @@ export default MainContent;
 // Profile
 // Task
 // Evaluation
+// Notification
 // Dashboard
 // Subjects
 // Inbox
@@ -95,6 +113,7 @@ export default MainContent;
 
 // Prof view
 // Profile
+// Notification
 // Dashboard
 // Subjects
 // Inbox
