@@ -1,10 +1,12 @@
-import '../assets/scss/login.scss';
+import { useState, useRef } from 'react';
 import { FaUser, FaLock } from 'react-icons/fa';
 import { MdOutlineNumbers } from 'react-icons/md';
+import '../assets/scss/login.scss';
 
 const Login = () => {
+    const studentRef = useRef(false);
     return (
-        <div className='body'>
+        <div className='login-container'>
             <div className='wrapper'>
                 <form action=''>
                     <h1>Login</h1>
@@ -23,11 +25,14 @@ const Login = () => {
 
                     <div className='remember-forgot'>
                         <label>
-                            <input type='checkbox' /> Remember me
+                            {/* TODO: change Professor to Remember me */}
+                            <input type='checkbox' ref={studentRef} /> Professor?
                         </label>
                         <a href='#'> Forgot password?</a>
                     </div>
-                    <button type='submit'>Login</button>
+                    <button type='submit' onClick={() => {
+                        
+                    }}>Login</button>
                 </form>
             </div>
         </div>

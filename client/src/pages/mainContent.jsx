@@ -51,37 +51,42 @@ const MainContent = () => {
   };
   return (
     <>
-      <SideBar
-        isClicked={isClicked}
-        onClick={handleCloseSideBar}
-        onHover={handleMouseOver}
-        onUnhover={handleMouseOut}
-      />
-      <main
-        className={`${isHovered ? !isSmallScreen && "sidebar-main-open" : ""}`}
-      >
-        <Header onClick={handleOpenSideBar} />
-        <Routes className="sidebar-container">
-          {/* TODO */}
-          {/* Student */}
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/task" element={<Task />} />
-          <Route path="/notification" element={<Notification />} />
-          <Route path="/inbox" element={<Inbox />} />
-          <Route path="/calendar" element={<Calendar />} />
-          <Route path="/course" element={<Course />} />
-          <Route path="/evaluation" element={<Evaluation />} />
-          {/* Professor */}
-          
-          <Route path="/professor/" element={<DashboardProf />} />
-          <Route path="/professor/profile" element={<ProfileProf />} />
-          <Route path="/professor/notification" element={<NotificationProf />} />
-          <Route path="/professor/inbox" element={<InboxProf />} />
-          <Route path="/professor/calendar" element={<CalendarProf />} />
-          <Route path="/professor/course" element={<CourseProf />} />
-        </Routes>
-      </main>
+      <Routes className="sidebar-container">
+        {/* TODO */}
+        {/* Student */}
+        <Route path="/">
+          <SideBar
+            isClicked={isClicked}
+            onClick={handleCloseSideBar}
+            onHover={handleMouseOver}
+            onUnhover={handleMouseOut}
+          />
+          <main
+            className={`${
+              isHovered ? !isSmallScreen && "sidebar-main-open" : ""
+            }`}
+          >
+            <Header onClick={handleOpenSideBar} />
+            <Route index element={<Dashboard />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/task" element={<Task />} />
+            <Route path="/notification" element={<Notification />} />
+            <Route path="/inbox" element={<Inbox />} />
+            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/course" element={<Course />} />
+            <Route path="/evaluation" element={<Evaluation />} />
+          </main>
+        </Route>
+        {/* Professor */}
+        <Route path="/professor">
+          <Route index element={<DashboardProf />} />
+          <Route path="/profile" element={<ProfileProf />} />
+          <Route path="/notification" element={<NotificationProf />} />
+          <Route path="/inbox" element={<InboxProf />} />
+          <Route path="/calendar" element={<CalendarProf />} />
+          <Route path="/course" element={<CourseProf />} />
+        </Route>
+      </Routes>
     </>
   );
 };
@@ -124,3 +129,5 @@ export default MainContent;
 // register students and prof
 // delete students and prof
 // on and off of server for maintenance
+
+// NOT FOUND PAGE

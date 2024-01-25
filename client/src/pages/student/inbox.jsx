@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../assets/scss/inbox.scss";
 
-const Chat = () => {
+const Inbox = () => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
 
@@ -46,4 +46,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default Inbox;
