@@ -1,10 +1,12 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { FaUser, FaLock } from 'react-icons/fa';
 import { MdOutlineNumbers } from 'react-icons/md';
 import '../assets/scss/login.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const studentRef = useRef(false);
+    const navigate = useNavigate();
     return (
         <div className='login-container'>
             <div className='wrapper'>
@@ -30,9 +32,15 @@ const Login = () => {
                         </label>
                         <a href='#'> Forgot password?</a>
                     </div>
-                    <button type='submit' onClick={() => {
-                        
-                    }}>Login</button>
+                    <button
+                        type='button'
+                        onClick={() => {
+                            navigate(`${studentRef.current.checked ? '/professor' : '/'}`);
+                            window.location.reload();
+                        }}
+                    >
+                        Login
+                    </button>
                 </form>
             </div>
         </div>

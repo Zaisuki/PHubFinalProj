@@ -1,9 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const SideBarLink = ({ direct, icon, title, isClicked }) => {
+    const navigate = useNavigate();
     return (
-        <Link to={direct}>
+        <Link
+            to={direct}
+            onClick={() => {
+                navigate('/login');
+                direct === '/login' && window.location.reload();
+            }}
+        >
             <i className={icon}></i>
             <span className={`${isClicked ? 'show-block' : ''}`}>{title}</span>
         </Link>

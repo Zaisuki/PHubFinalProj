@@ -1,9 +1,9 @@
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Accordion from 'react-bootstrap/Accordion';
-import '../assets/scss/task.scss';
+import '../../assets/scss/task.scss';
 
-function Task() {
+export default function TaskProf() {
     return (
         <Tabs id='justify-tab' className='mb-3' justify>
             <Tab className='coach-tab' eventKey='coach' title='Coach'>
@@ -38,5 +38,3 @@ function Task() {
         </Tabs>
     );
 }
-
-export default Task;

@@ -1,12 +1,12 @@
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
-import '../../assets/scss/notification.scss';
+import '../assets/scss/notification.scss';
 
 function Notification() {
     return (
         <div className='main-container'>
             <div className='title'>
-                <h2>Notifications</h2>  
+                <h2>Notifications</h2>
             </div>
             <ToastContainer className='toast-container'>
                 <Toast className='box'>

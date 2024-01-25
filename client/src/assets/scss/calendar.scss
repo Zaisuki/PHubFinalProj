@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
     width: auto;
     height: 100vh;
     border: 1px solid black;
@@ -6,7 +6,7 @@
     margin: 5px;
 }
 
-.calendarHead{
+.calendarHead {
     width: 100%;
     height: 40px;
     display: flex;
@@ -15,26 +15,24 @@
     font-size: 24px;
 }
 
-.sevenColGrid{
+.sevenColGrid {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     height: 27px;
 }
-.headDay{
+.headDay {
     text-align: center;
     background: darkkhaki;
     font-size: 1.2rem;
 }
-.calenderBody{
+.calenderBody {
     height: calc(100% - 27px - 40px);
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(${({fourCol}) => (fourCol ? 4 : 5)}, 1fr);
 }
-.styledDay{
- border: 1px solid;   
- text-align: right;
-padding: 5px;
+.styledDay {
+    border: 1px solid;
+    text-align: right;
+    padding: 5px;
 }
-

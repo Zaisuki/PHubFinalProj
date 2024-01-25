@@ -1,7 +1,7 @@
 import CloseButton from 'react-bootstrap/CloseButton';
 import PropTypes from 'prop-types';
-import '../assets/scss/sidebar.scss';
-import SideBarLink from './sidebarLink';
+import '../../assets/scss/sidebar.scss';
+import SideBarLink from '../sidebarLink';
 
 const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
     return (
@@ -32,7 +32,7 @@ const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
                     <SideBarLink direct='evaluation' icon='bx bxs-edit' title='Evaluation' isClicked={isClicked} />
                 </li>
             </ul>
-            <SideBarLink direct='/' icon='bx bx-log-out' title='Log out' isClicked={isClicked} />
+            <SideBarLink direct='/login' icon='bx bx-log-out' title='Log out' isClicked={isClicked} />
         </div>
     );
 };

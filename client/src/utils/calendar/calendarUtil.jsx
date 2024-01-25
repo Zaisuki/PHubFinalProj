@@ -1,4 +1,4 @@
-import { DAYS } from "./conts";
+import { DAYS } from "./calendarConst";
 
 export const range = (end) => {
     const {result} = Array.from({length: end}).reduce(
