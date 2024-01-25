@@ -64,22 +64,22 @@ const MainContent = () => {
         <Routes className="sidebar-container">
           {/* TODO */}
           {/* Student */}
-          <Route path="/student/" element={<Dashboard />} />
-          <Route path="/student/profile" element={<Profile />} />
-          <Route path="/student/task" element={<Task />} />
-          <Route path="/student/notification" element={<Notification />} />
-          <Route path="/student/inbox" element={<Inbox />} />
-          <Route path="/student/calendar" element={<Calendar />} />
-          <Route path="/student/course" element={<Course />} />
-          <Route path="/student/evaluation" element={<Evaluation />} />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/task" element={<Task />} />
+          <Route path="/notification" element={<Notification />} />
+          <Route path="/inbox" element={<Inbox />} />
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/course" element={<Course />} />
+          <Route path="/evaluation" element={<Evaluation />} />
           {/* Professor */}
           
-          <Route path="/student/" element={<DashboardProf />} />
-          <Route path="/student/profile" element={<ProfileProf />} />
-          <Route path="/student/notification" element={<NotificationProf />} />
-          <Route path="/student/inbox" element={<InboxProf />} />
-          <Route path="/student/calendar" element={<CalendarProf />} />
-          <Route path="/student/course" element={<CourseProf />} />
+          <Route path="/professor/" element={<DashboardProf />} />
+          <Route path="/professor/profile" element={<ProfileProf />} />
+          <Route path="/professor/notification" element={<NotificationProf />} />
+          <Route path="/professor/inbox" element={<InboxProf />} />
+          <Route path="/professor/calendar" element={<CalendarProf />} />
+          <Route path="/professor/course" element={<CourseProf />} />
         </Routes>
       </main>
     </>

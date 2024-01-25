@@ -1,4 +1,14 @@
 .huh {
-  margin-top: 5vh;
-  margin-left: 20vh;
+  padding: 5em 2em;
 }
+
+.course-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 480px);
+    grid-gap: 2vh;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+

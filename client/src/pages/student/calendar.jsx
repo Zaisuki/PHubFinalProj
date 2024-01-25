@@ -1,48 +1,40 @@
-import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
-import Badge from "@mui/material/Badge";
-import { PickersDay } from "@mui/x-date-pickers/PickersDay";
-import CheckIcon from "@mui/icons-material/Check";
+import '../../assets/scss/calendar.scss';
+import { DAYS } from "./conts";
+import { range } from "./util"
 
-const Calendar = () => {
-  const [value, setValue] = useState(new Date());
-  const [highlightedDays, setHighlightedDays] = useState([1, 2, 13]);
-  return (
-    <>
-      {/* <LocalizationProvider dateAdapter={Adapter}>
-        <StaticDatePicker
-          variant="static"
-          orientation="portrait"
-          value={value}
-          disableFuture
-          onChange={(newValue) => setValue(newValue)}
-          renderInput={(params) => {
-            <TextField {...params} />;
-          }}
-          renderDay={(day, _value, DayComponentProps) => {
-            const isSelected =
-              !DayComponentProps.outsideCurrentMonth &&
-              highlightedDays.indexOf(day.getDate()) >= 0;
-
-            return (
-              <Badge
-                key={day.toString()}
-                overlap="circular"
-                badgeContent={
-                  isSelected ? <CheckIcon color="red" /> : undefined
-                }
-              >
-                <PickersDay {...DayComponentProps} />
-              </Badge>
-            );
-          }}
-        />
-      </LocalizationProvider> */}
-    </>
-  );
+const Calendar = ()=>{
+  const range = (end) => {
+    const {result} = Array.from({lenght: end}).reduce(
+        ({result, current}) => ({
+            result: [...result, current],
+            current: current + 1
+        }),
+        {result: [], current: 1}
+    );
+    
+    return result;
+};
+return (
+  <div className="wrapper">
+    <div className="calendarHead">
+    <ion-icon name="arrow-back-circle-outline"></ion-icon>
+    <p>Jan 2024</p>
+    <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+    </div>
+    <div className="sevenColGrid">
+      {DAYS.map((day) => (
+      <div className="headDay">{day}</div>
+      ))}
+      </div>
+      <div className="calenderBody">
+          {range(31).map((day) => ( 
+      <div className="styledDay">
+            {day}
+        </div>
+        ))} 
+    </div>
+  </div>
+);
 };
 
 export default Calendar;

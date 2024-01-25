@@ -25,6 +25,20 @@ function Notification() {
                 </Toast>
                 <Toast>
                     <Toast.Header>
+                        <strong className='me-auto'>Anakin Skywalker</strong>
+                        <small className='text-muted'>2 minutes ago</small>
+                    </Toast.Header>
+                    <Toast.Body>Sent a message</Toast.Body>
+                </Toast>
+                <Toast>
+                    <Toast.Header>
+                        <strong className='me-auto'>Ellie Williams</strong>
+                        <small className='text-muted'>2 days ago</small>
+                    </Toast.Header>
+                    <Toast.Body>Posted an assignment</Toast.Body>
+                </Toast>
+                <Toast>
+                    <Toast.Header>
                         <strong className='me-auto'>Nicola Tesla</strong>
                         <small className='text-muted'>82 years ago</small>
                     </Toast.Header>
