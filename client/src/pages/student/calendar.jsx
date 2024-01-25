@@ -1,23 +1,18 @@
+import { useState } from 'react';
 import '../../assets/scss/calendar.scss';
-import { DAYS } from "./conts";
+import { DAYS, MONTHS } from "./conts";
 import { range } from "./util"
 
 const Calendar = ()=>{
-  const range = (end) => {
-    const {result} = Array.from({length: end}).reduce(
-        ({result, current}) => ({
-            result: [...result, current],
-            current: current + 1
-        }),
-        {result: [], current: 1}
-    );
-    return result;
-};
+  
+  const startingdate = new Date()
+  const [currentMonth, setCurrentMonth] = useState(startingdate.getMonth())
+  const [currentYear, setCurrenyear] = useState(startingdate.getFullYear())
 return (
   <div className="wrapper">
     <div className="calendarHead">
     <ion-icon name="arrow-back-circle-outline"></ion-icon>
-    <p>Jan 2024</p>
+    <p>{MONTHS[currentMonth]} {currentYear}</p>
     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
     </div>
     <div className="sevenColGrid">
