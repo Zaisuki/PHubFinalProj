@@ -11,7 +11,7 @@ const Header = ({ onClick }) => {
                     <MDBIcon fas icon='bars' />
                 </div>
             </div>
-            <h3>PHIMHA HUB</h3>
+    
         </header>
     );
 };
