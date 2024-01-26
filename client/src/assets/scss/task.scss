@@ -1,18 +1,30 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .mb-3 {
-    background-color: rgb(243, 239, 234);
+  background-color: rgb(243, 239, 234);
 }
 
 .coach-content {
-    height: auto;
-    margin-top: 5vh;
-    justify-content: center;
-    align-items: center;
-    max-width: 97vh;
-    margin-left: 25%;
+  height: auto;
+  margin-top: 5vh;
+  justify-content: center;
+  align-items: center;
+  max-width: 97vh;
+  margin-left: 25%;
+}
+
+.text {
+  font-size: 15px;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.card-container {
+  margin-bottom: 2vh;
 }
