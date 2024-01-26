@@ -1,12 +1,12 @@
-import { DAYS } from "./calendarConst";
+import { DAYS } from './calendarConst';
 
 export const range = (end) => {
-    const {result} = Array.from({length: end}).reduce(
-        ({result, current}) => ({
+    const { result } = Array.from({ length: end }).reduce(
+        ({ result, current }) => ({
             result: [...result, current],
-            current: current + 1
+            current: current + 1,
         }),
-        {result: [], current: 1}
+        { result: [], current: 1 }
     );
     return result;
 };
@@ -24,10 +24,6 @@ export const getDateObj = (day, month, year) => {
     return new Date(year, month, day);
 };
 
-export const areDatestheSame = (first, yesecondar) => {
-    return (
-    first.getFullYear()=== second.getFullYear() && 
-    first.getMonth() === second.getMonth() && 
-    first.getDate === second.getDate() 
-    );
+export const areDatestheSame = (first, second) => {
+    return first.getFullYear() === second.getFullYear() && first.getMonth() === second.getMonth() && first.getDate === second.getDate();
 };
