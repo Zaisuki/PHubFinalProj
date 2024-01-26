@@ -1,0 +1,17 @@
+.course-new {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 350px);
+  grid-gap: 2vh;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  padding: 1em 1em;
+  display: flex;
+
+  .btn{
+    margin-top: 350px;
+    margin-right: 5px;
+  }
+
+
+}
