@@ -49,8 +49,10 @@ const Calendar = () => {
                 }}
             >
                 {range(DAYSINAMONTH).map((day) => (
-                    <div className='styledDay' active={areDatestheSame(new Date(), getDateObj(day, currentMonth, currentYear))} key={day + 'a'}>
-                        {day}
+                    <div className='styledDay' key={day + 'a'}>
+                        <span className={`${areDatestheSame(new Date(), getDateObj(day, currentMonth, currentYear)) ? 'active' : ''}`} key={day + 'a'}>
+                            {day}
+                        </span>
                     </div>
                 ))}
             </div>

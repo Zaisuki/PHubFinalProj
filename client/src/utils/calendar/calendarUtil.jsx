@@ -25,5 +25,5 @@ export const getDateObj = (day, month, year) => {
 };
 
 export const areDatestheSame = (first, second) => {
-    return first.getFullYear() === second.getFullYear() && first.getMonth() === second.getMonth() && first.getDate === second.getDate();
+    return first.getFullYear() === second.getFullYear() && first.getMonth() === second.getMonth() && first.getDate() === second.getDate();
 };
