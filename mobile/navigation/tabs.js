@@ -47,7 +47,7 @@ const Tabs = () => {
             tabBarStyle: {
                 position: 'absolute',
                 elevation: 0,
-                backgroundColor: '#ffffff',
+                backgroundColor: '#72d360',
                 borderRadius: 5,
                 height: 90,
                 ...styles.shadow
@@ -56,13 +56,12 @@ const Tabs = () => {
             <Tab.Screen name="Inbox" component={InboxScreen} options={{
                 tabBarIcon: ({focused}) => (
                     <View style= {{alignItems: 'center', justifyContent: 'center'}}>
-                        <AntDesignIcon
-                        name = 'inbox' 
+                        <Image
+                        source={require('../assets/inbox.png')}
                         resizeMode='contain'
-                        size={50}
-                        style={{
-                            // you must treat react-native-vector-icons as text when using styles
-                            color: focused ? '#000000' : '#000000',
+                        style = {{
+                        height: 80,
+                        width: 80
                         }}
                         />
                     </View>
@@ -71,13 +70,12 @@ const Tabs = () => {
             <Tab.Screen name="Course" component={CourseScreen} options={{
                 tabBarIcon: ({focused}) => (
                     <View style= {{alignItems: 'center', justifyContent: 'center'}}>
-                        <EntypoIcon
-                        name = 'chat' 
+                        <Image
+                        source={require('../assets/course.png')}
                         resizeMode='contain'
-                        size={50}
-                        style={{
-                            // you must treat react-native-vector-icons as text when using styles
-                            color: focused ? '#000000' : '#000000',
+                        style = {{
+                            height: 100,
+                            width: 100
                         }}
                         />
                     </View>
@@ -85,15 +83,14 @@ const Tabs = () => {
             }}/>
             <Tab.Screen name="Feed" component={FeedScreen} options={{
                 tabBarIcon: ({focused}) => (
-                        <FontAwesomeIcon
-                        name = 'newspaper-o' 
-                        resizeMode='contain'
-                        size={50}
-                        style={{
-                            // you must treat react-native-vector-icons as text when using styles
-                            color: focused ? '#000000' : '#000000',
-                        }}
-                        />
+                    <Image
+                    source={require('../assets/feed.png')}
+                    resizeMode='contain'
+                    style = {{
+                        height: 120,
+                        width: 120
+                    }}
+                    />
                 ),
                 tabBarButton: (props) => (
                     <CustomTabBarButton {...props}/>
@@ -103,13 +100,12 @@ const Tabs = () => {
             <Tab.Screen name="Statistics" component={StatisticScreen} options={{
                 tabBarIcon: ({focused}) => (
                     <View style= {{alignItems: 'center', justifyContent: 'center'}}>
-                        <MaterialIcon
-                        name = 'insert-chart-outlined' 
+                       <Image
+                        source={require('../assets/statistics.png')}
                         resizeMode='contain'
-                        size={50}
-                        style={{
-                            // you must treat react-native-vector-icons as text when using styles
-                            color: focused ? '##000000' : '#000000',
+                        style = {{
+                            height: 100,
+                            width: 100
                         }}
                         />
                     </View>
@@ -118,13 +114,12 @@ const Tabs = () => {
             <Tab.Screen name="Profile" component={ProfileScreen} options={{
                 tabBarIcon: ({focused}) => (
                     <View style= {{alignItems: 'center', justifyContent: 'center'}}>
-                         <FontAwesome6Icon
-                        name = 'circle-user' 
+                         <Image
+                        source={require('../assets/profile.png')}
                         resizeMode='contain'
-                        size={50}
-                        style={{
-                            // you must treat react-native-vector-icons as text when using styles
-                            color: focused ? '#000000' : '#000000',
+                        style = {{
+                        height: 100,
+                        width: 100
                         }}
                         />
                     </View>
