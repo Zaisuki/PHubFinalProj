@@ -16,6 +16,7 @@ export function authenticateToken(req: AuthenticatedRequest, res: Response, next
     verify(token, process.env.ACCESS_TOKEN_SECRET as string, (err, user) => {
         if (err) return res.sendStatus(403);
         req.user = user as User;
+        console.log(req.user);
         next();
     });
 }

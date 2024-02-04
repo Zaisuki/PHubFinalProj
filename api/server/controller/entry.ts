@@ -1,5 +1,5 @@
 import express, { Express, Request, Response } from 'express';
-import { checkEmailAvailability, checkUsernameAvailability, getUserID, loginUsertoDatabase, registerUsertoDatabase } from '../services/entry';
+import { checkEmailAvailability, checkUsernameAvailability, getUserIDandType, loginUsertoDatabase, registerUsertoDatabase } from '../services/entry';
 import { HttpResponse } from '../models/http-response';
 
 import jwt from 'jsonwebtoken';
@@ -21,18 +21,24 @@ export const loginUserController = async (req: Request, res: Response) => {
         const password: string = req.body.password;
         const userIdentifierType = await checkInputType(userIdentifier);
         const checkerForInput = await checkEveryInputForLogin(userIdentifier, password, userIdentifierType);
-        let userID;
+        let userID, userType;
         if (checkerForInput.message['message'] === 'success') {
             const data = await loginUsertoDatabase(userIdentifier, password);
             let loginUpdate = data.message;
             if (data.message['message'] === 'success') {
-                const user = { name: userIdentifier };
                 const accessTokenSecret: any = process.env.ACCESS_TOKEN_SECRET;
-                const accessToken = jwt.sign(user, accessTokenSecret);
-                console.log(data.message);
-                userID = await getUserID(userIdentifier);
+                const userData = await getUserIDandType(userIdentifier);
+                console.log(userData);
+                if (userData) {
+                    [userID, userType] = userData;
+                    const user = { userID, userName: userIdentifier, userType };
+                    const accessToken = jwt.sign(user, accessTokenSecret);
 
-                loginUpdate = { ...loginUpdate, accessToken: accessToken, userID: userID };
+                    loginUpdate = { ...loginUpdate, accessToken: accessToken };
+                } else {
+                    data.code = 400;
+                    loginUpdate = { message: 'User not found.' };
+                }
             }
 
             res.status(data.code).json(loginUpdate);
@@ -111,17 +117,16 @@ const checkUsernameValidity = (username: string) => {
     // TODO: max 25 characters
     const regex = /^[a-zA-Z0-9]+$/;
 
-    return username.match(regex);
+    return regex.test(username);
 };
 
 const checkEmailValidity = (emailAddress: string) => {
     const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
-
-    return emailAddress.match(regex);
+    return regex.test(emailAddress);
 };
 
 const checkPasswordValidity = (password: string) => {
     const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s)./;
     // least one lowercase letter, one uppercase letter, one numeric digit, and one special character
-    return password.match(regex);
+    return regex.test(password);
 };

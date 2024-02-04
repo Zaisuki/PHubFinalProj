@@ -9,7 +9,6 @@ export const loginUsertoDatabase = async (userIdentifier: string, password: stri
             $or: [{ username: { $regex: new RegExp(`^${userIdentifier}$`, 'i') } }, { emailAddress: { $regex: new RegExp(`^${userIdentifier}$`, 'i') } }],
         });
 
-        console.log(userIdentifier);
         if (result) {
             if (await bcrypt.compare(password, result.passwordHash)) {
                 return new HttpResponse({ 'message': 'success' }, 200);
@@ -25,7 +24,6 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
     try {
         const saltRounds = await bcrypt.genSalt();
         password = await bcrypt.hash(password, saltRounds);
-
         const userCredentialResult = await new UserCredentials({
             username,
             emailAddress,
@@ -49,16 +47,15 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
         userCredentialResult.userInformation = student._id;
 
         await student.save();
-        console.log('Saved');
         return true;
     } catch (error) {
-        console.log('Error:', error);
         return false;
     }
 };
 export const checkUsernameAvailability = async (username: string): Promise<boolean> => {
     try {
-        const result: boolean = (await Student.findOne({ username })) === null;
+        const result = (await UserCredentials.findOne({ username: { $regex: new RegExp(`^${username}$`, 'i') } })) === null;
+
         return result;
     } catch (error) {
         return false;
@@ -67,22 +64,36 @@ export const checkUsernameAvailability = async (username: string): Promise<boole
 
 export const checkEmailAvailability = async (emailAddress: string): Promise<boolean> => {
     try {
-        const result: boolean = (await Student.findOne({ emailAddress })) === null;
+        const result: boolean = (await UserCredentials.findOne({ emailAddress: { $regex: new RegExp(`^${emailAddress}$`, 'i') } })) === null;
         return result;
     } catch (error) {
         return false;
     }
 };
 
-export const getUserID = async (userIdentifier: string): Promise<ObjectId | boolean> => {
-    const result = await UserCredentials.findOne({ $or: [{ username: { $regex: new RegExp(userIdentifier, 'i') } }, { email: { $regex: new RegExp(userIdentifier, 'i') } }] });
+export const getUserIDandType = async (userIdentifier: string): Promise<ObjectId[] | null> => {
+    const result = await UserCredentials.findOne({ $or: [{ username: { $regex: new RegExp(userIdentifier, 'i') } }, { emailAddress: { $regex: new RegExp(userIdentifier, 'i') } }] });
     if (result) {
         const userID: unknown = result._id;
-        return userID as ObjectId;
+        const userType: unknown = result.userType;
+        return [userID as ObjectId, userType as ObjectId];
     }
-    return false;
+    return null;
 };
 
+// export const getUserIDByUsername = async (username: String): Promise<boolean> => {
+// const [result] : Array<any> = await pool.query(`SELECT UserID FROM user_login_data WHERE Username = ?;`, username)
+
+// return result[0]["UserID"]
+//     return false;
+// };
+
+// export const getUserIDByEmailAddress = async (email: String): Promise<boolean> => {
+// const [result] : Array<any> = await pool.query(`SELECT UserID FROM user_login_data WHERE EmailAddress = ?;`, email)
+
+// return result[0]["UserID"]
+//     return false;
+// };
 // export const addRefreshToken = async (refreshToken : string) => {
 //     try{
 //         const [result] : Array<any> = await pool.query(`INSERT INTO refresh_token (token) VALUES (?)`, refreshToken)
