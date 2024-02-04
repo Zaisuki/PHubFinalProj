@@ -23,7 +23,7 @@ export const loginUserController = async (req: Request, res: Response) => {
         const checkerForInput = await checkEveryInputForLogin(userIdentifier, password, userIdentifierType);
         let userID;
         if (checkerForInput.message['message'] === 'success') {
-            const data = await loginUsertoDatabase(userIdentifier, password, userIdentifierType);
+            const data = await loginUsertoDatabase(userIdentifier, password);
             let loginUpdate = data.message;
             if (data.message['message'] === 'success') {
                 const user = { name: userIdentifier };
@@ -107,7 +107,7 @@ const checkEveryInputForSignup = async (username: string, emailAddress: string, 
     return new HttpResponse({ 'message': 'success' }, 200);
 };
 
-const checkUsernameValidity = (username: String) => {
+const checkUsernameValidity = (username: string) => {
     // TODO: max 25 characters
     const regex = /^[a-zA-Z0-9]+$/;
 

@@ -3,9 +3,13 @@ import { HttpResponse } from '../models/http-response';
 import { Student, UserCredentials } from '../models/user';
 import * as bcrypt from 'bcrypt';
 
-export const loginUsertoDatabase = async (userIdentifier: string, password: string, userIdentifierType: string) => {
+export const loginUsertoDatabase = async (userIdentifier: string, password: string) => {
     try {
-        let result = await UserCredentials.findOne({ $or: [{ username: { $regex: new RegExp(userIdentifier, 'i') } }, { email: { $regex: new RegExp(userIdentifier, 'i') } }] });
+        let result = await UserCredentials.findOne({
+            $or: [{ username: { $regex: new RegExp(`^${userIdentifier}$`, 'i') } }, { emailAddress: { $regex: new RegExp(`^${userIdentifier}$`, 'i') } }],
+        });
+
+        console.log(userIdentifier);
         if (result) {
             if (await bcrypt.compare(password, result.passwordHash)) {
                 return new HttpResponse({ 'message': 'success' }, 200);
