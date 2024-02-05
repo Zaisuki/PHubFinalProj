@@ -1,30 +1,69 @@
-.profile {
-    width: auto;
+
+.card-header{
+    text-align: center;
+    height: 50px;
+
+
+}
+
+.cardT{
+    text-align: center;
+}
+.main{
+    height: 400px;
     margin: 20px;
-    border-radius: 4px;
-    padding-bottom: 20px;
-    background: #1c6b2f;
-    align-items: center;
-    text-align: justify;
-    color: black;
+}
+
+
+.bg{
+    background-color: rgb(192, 192, 192);
+    
+}
+.border{
+    border-radius: 50px;
+}
+.card-booty{
+    height: 900px;
+    width: 20%;
+    
+    
+}
+
+.card-body h1{
+    font-size: 30px;
+    position: relative;
+    top: 60px;
+}
+.card-body .one{
+    height: 600px;
+    width: 600px;
     border-radius: 20px;
-
-    .profile-down1 {
-        height: auto;
-        text-align: center;
-        img {
-            height: 200px;
-            border-radius: 500px;
-            margin-top: 47px;
-            margin-left: 10px;
-            padding: 0px;
-            background: white;
-            border: 5px solid;
-        }
-    }
-
-    .profile-down1 {
-        font-size: 30px;
-        text-align: center;
-    }
+    
+}
+.card-body .two{
+    height: 300px;
+    width: 960px;
+    border-radius: 20px;
+    position: relative;
+    left: 620px;
+    bottom: 600px;
+    
+}
+.card-body .three{
+    height: 280px;
+    width: 960px;
+    border-radius: 20px;
+    position: relative;
+    left: 620px;
+    bottom: 600px;
+    margin-top: 15px;
+    
+}
+img{
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    position: relative;
+    top: 30px;
+    left: 170px;
 }

@@ -1,17 +1,37 @@
 import '../assets/scss/profile.scss';
-import profileIcon from '../assets/img/mygirl.jpg';
+import ProfileIcon from '../assets/img/mygirl.jpg';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
-const Profile = () => {
-    return (
-        <div className='profile'>
-            <div className='profile-down1'>
-                <img src={profileIcon} alt='profile' />
-                <div className='name'>Zai Alicoben</div>
-                <div className='status'>2nd Year</div>
-                <div className='id'>03-2223-040667</div>
-                <div className='acc'>glba.alicoben.up@phinmaed.com</div>
-            </div>
-        </div>
-    );
-};
+function Profile() {
+  return (
+    
+    <Card className='main'>
+        <div className='border'></div>
+        
+      <Card.Header className='cardT'>Profile</Card.Header>
+      <div className='bg'>
+      <Card.Body className='card-booty'>
+      <Card className='one'>
+
+      <img src={ProfileIcon} alt='profile' />
+      </Card>
+      <Card className='two'>
+
+      </Card>
+      <Card className='three'>
+
+      </Card>
+      
+
+    
+     
+        
+      </Card.Body>
+      </div>
+      
+    </Card>
+    
+  );
+}
 export default Profile;
