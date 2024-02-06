@@ -38,6 +38,7 @@
     
 }
 .card-booty h1{
+    font-weight: bold;
     font-size: 30px;
     position: relative;
     top: 60px;
@@ -47,6 +48,7 @@
 }
 .card-booty h2{
     font-size: 20px;
+    font-weight: bold;
     position: relative;
     top: 60px;
     position: relative;
@@ -55,6 +57,7 @@
 }
 .card-booty h3{
     font-size: 20px;
+    font-weight: bold;
     top: 130px;
     left:133px;
     position: relative;
@@ -97,6 +100,13 @@
     top: 18px;
 }
 
+.card-booty .three h2{
+    font-weight: bold;
+    font-size: 20px;
+    left:95px;
+    top: -13px;
+}
+
 .card-booty .four{
     width: 600px;
     height: 120px;
@@ -116,13 +126,27 @@
     color: gray;
     font-size: 20px;
     left:30px;
-    top: 40px;
+    top: 45px;
+}
+
+.card-booty .four h3{
+    font-weight: bold;
+    font-size: 20px;
+    left:113px;
+    top: -46px; 
+}
+
+.card-booty .four h4{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: -42px;
+    margin-left: 138px;
 }
 
 .card-booty .five{
     bottom: 740px;
-    left: 650px;
-    width: 658px;
+    left: 620px;
+    width: 690px;
     height: 703px;
 }
 
@@ -134,13 +158,148 @@
 }
 
 .card-booty .five h2{
-    color: gray;
     font-size: 20px;
     left:30px;
     top: 40px;
 }
+.card-booty .six{
+    background-color: gray;
+    left: 650px;
+    bottom: 1330px;
+    width: 280px;
+    height: 35px;
+}
+.card-booty .six h1{
+    font-weight: bold;
+    font-size: 20px;
+    left: 5px;
+    top: 5px;
+}
 
+.card-booty .seven{
+    background-color: gray;
+    left: 1000px;
+    bottom: 1365px;
+    width: 280px;
+    height: 35px;
+}
 
+.card-booty .seven h1{
+    font-size: 20px;
+    left: -1px;
+    top: -27px;
+}
+
+.card-booty .seven h2{
+    font-weight: bold;
+    font-size: 20px;
+    top: -27px;
+    left: 5px;
+}
+
+.card-booty .eight{
+    background-color: gray;
+    bottom: 1330px;
+    left: 650px;
+    width: 280px;
+    height: 35px;
+}
+
+.card-booty .eight h1{
+    font-size: 20px;
+    top: -27px;
+    left: -1px;
+}
+
+.card-booty .eight h2{
+    font-size: 20px;
+    top: -27px;
+    left: 5px;
+}
+
+.card-booty .nine{
+    background-color: gray;
+    bottom: 1250px;
+    left: 650px;
+    width: 280px;
+    height: 35px;
+}
+
+.card-booty .nine h1{
+    font-size: 20px;
+    top: -25px;
+    left: 0px;
+}
+
+.card-booty .nine h2{
+    font-size: 20px;
+    font-weight: bold;
+    top: -25px;
+    left: 5px;
+}
+
+.card-booty .ten{
+    background-color: gray;
+    bottom: 1285px;
+    left: 1000px;
+    width: 280px;
+    height: 35px;
+    font-weight: bold;
+}
+
+.card-booty .ten h1{
+    font-size: 20px;
+    top: -25px;
+    left: -1px;
+}
+
+.card-booty .ten h2{
+    font-size: 20px;
+    top: -25px;
+    left: 5px;
+}
+
+.card-booty .eleven{
+    background-color: gray;
+    bottom: 1200px;
+    left: 650px;
+    width: 630px;
+    height: 35px;
+}
+
+.card-booty .eleven h1{
+    font-size: 20px;
+    top: -25px;
+    left: 1px;
+}
+
+.card-booty .eleven h2{
+    font-size: 20px;
+    font-weight: bold;
+    top: -25px;
+    left: 5px;
+}
+
+.card-booty .twelve{
+    background-color: gray;
+    bottom: 1100px;
+    left: 650px;
+    width: 630px;
+    height: 35px;
+}
+
+.card-booty .twelve h1{
+    font-size: 20px;
+    top: -25px;
+    left: 1px;
+}
+
+.card-booty .twelve h2{
+    font-size: 20px;
+    font-weight: bold;
+    top: -25px;
+    left: 5px;
+}
 
 img{
     height: 200px;
