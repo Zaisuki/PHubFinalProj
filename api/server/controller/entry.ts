@@ -25,10 +25,10 @@ export const loginUserController = async (req: Request, res: Response) => {
         if (checkerForInput.message['message'] === 'success') {
             const data = await loginUsertoDatabase(userIdentifier, password);
             let loginUpdate = data.message;
-            if (data.message['message'] === 'success') {
+            if (loginUpdate['message'] === 'success') {
                 const accessTokenSecret: any = process.env.ACCESS_TOKEN_SECRET;
+                console.log(userIdentifier);
                 const userData = await getUserIDandType(userIdentifier);
-                console.log(userData);
                 if (userData) {
                     [userID, userType] = userData;
                     const user = { userID, userName: userIdentifier, userType };

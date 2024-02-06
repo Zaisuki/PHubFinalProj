@@ -6,9 +6,8 @@ import * as bcrypt from 'bcrypt';
 export const loginUsertoDatabase = async (userIdentifier: string, password: string) => {
     try {
         let result = await UserCredentials.findOne({
-            $or: [{ username: { $regex: new RegExp(`^${userIdentifier}$`, 'i') } }, { emailAddress: { $regex: new RegExp(`^${userIdentifier}$`, 'i') } }],
+            $or: [{ username: { $regex: new RegExp(`^${userIdentifier}$`, 'i') } }, { personalEmail: { $regex: new RegExp(`^${userIdentifier}$`, 'i') } }, { schoolEmail: { $regex: new RegExp(`^${userIdentifier}$`, 'i') } }],
         });
-
         if (result) {
             if (await bcrypt.compare(password, result.passwordHash)) {
                 return new HttpResponse({ 'message': 'success' }, 200);
@@ -84,7 +83,7 @@ export const checkEmailAvailability = async (emailAddress: string): Promise<bool
 };
 
 export const getUserIDandType = async (userIdentifier: string): Promise<ObjectId[] | null> => {
-    const result = await UserCredentials.findOne({ $or: [{ username: { $regex: new RegExp(userIdentifier, 'i') } }, { emailAddress: { $regex: new RegExp(userIdentifier, 'i') } }] });
+    const result = await UserCredentials.findOne({ $or: [{ username: { $regex: new RegExp(userIdentifier, 'i') } }, { personalEmail: { $regex: new RegExp(userIdentifier, 'i') } }, { schoolEmail: { $regex: new RegExp(userIdentifier, 'i') } }] });
     if (result) {
         const userID: unknown = result._id;
         const userType: unknown = result.userType;

@@ -34,52 +34,47 @@ const userCredentialSchema = new Schema({
 
 export const UserCredentials = mongoose.model('UserCredentials', userCredentialSchema);
 
-// User schema
-export const userSchema = new Schema({
-    firstName: {
-        type: String,
-        required: [true, 'Please enter your first name'],
-    },
-    middleName: {
-        type: String,
-    },
-    lastName: {
-        type: String,
-        required: [true, 'Please enter your last name'],
-    },
-    personalEmail: {
-        type: String,
-        required: [true, 'Please enter your personal email'],
-        unique: true,
-    },
-    schoolEmail: {
-        type: String,
-        required: [true, 'Please enter your school email'],
-        unique: true,
-    },
-    personalNumber: {
-        type: String,
-        required: [true, 'Please enter your personal number'],
-        unique: true,
-    },
-    schoolNumber: {
-        type: String,
-        unique: true,
-    },
-    address: {
-        type: String,
-        required: [true, 'Please enter your address'],
-    },
-    birthday: {
-        type: Date,
-        required: [true, 'Please enter your Birthday'],
-    },
-});
-
 //Student schema
 const studentSchema = new Schema(
     {
-        // ...userSchema,
+        firstName: {
+            type: String,
+            required: [true, 'Please enter your first name'],
+        },
+        middleName: {
+            type: String,
+        },
+        lastName: {
+            type: String,
+            required: [true, 'Please enter your last name'],
+        },
+        personalEmail: {
+            type: String,
+            required: [true, 'Please enter your personal email'],
+            unique: true,
+        },
+        schoolEmail: {
+            type: String,
+            required: [true, 'Please enter your school email'],
+            unique: true,
+        },
+        personalNumber: {
+            type: String,
+            required: [true, 'Please enter your personal number'],
+            unique: true,
+        },
+        schoolNumber: {
+            type: String,
+            unique: true,
+        },
+        address: {
+            type: String,
+            required: [true, 'Please enter your address'],
+        },
+        birthday: {
+            type: Date,
+            required: [true, 'Please enter your Birthday'],
+        },
         studentID: {
             type: String,
             required: [true, 'Please enter your student id number'],
@@ -111,19 +106,43 @@ const studentSchema = new Schema(
 //Professor schema
 const professorSchema = new Schema(
     {
-        // ...userSchema,
-        studentID: {
+        firstName: {
+            type: String,
+            required: [true, 'Please enter your first name'],
+        },
+        middleName: {
             type: String,
         },
-        course: {
+        lastName: {
             type: String,
+            required: [true, 'Please enter your last name'],
         },
-        section: {
+        personalEmail: {
             type: String,
+            required: [true, 'Please enter your personal email'],
+            unique: true,
         },
-        enrolled: {
-            type: Boolean,
-            required: true,
+        schoolEmail: {
+            type: String,
+            required: [true, 'Please enter your school email'],
+            unique: true,
+        },
+        personalNumber: {
+            type: String,
+            required: [true, 'Please enter your personal number'],
+            unique: true,
+        },
+        schoolNumber: {
+            type: String,
+            unique: true,
+        },
+        address: {
+            type: String,
+            required: [true, 'Please enter your address'],
+        },
+        birthday: {
+            type: Date,
+            required: [true, 'Please enter your Birthday'],
         },
         userCredentials: {
             type: Schema.Types.ObjectId,
