@@ -6,7 +6,7 @@ Developed exclusively for PHINMA-UPang, Phinma Hub (PHub) is an interactive educ
 
 ## Target Users
 
-Students of Phinma UPang
+Students and Professors of Phinma UPang
 
 ## Objectives
 
