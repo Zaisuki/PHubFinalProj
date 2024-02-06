@@ -1,6 +1,6 @@
 import { ObjectId, Types } from 'mongoose';
 import { HttpResponse } from '../models/http-response';
-import { Student, UserCredentials } from '../models/user';
+import { UserCredentials, Student, Professor } from '../models/user';
 import * as bcrypt from 'bcrypt';
 
 export const loginUsertoDatabase = async (userIdentifier: string, password: string) => {
@@ -20,36 +20,48 @@ export const loginUsertoDatabase = async (userIdentifier: string, password: stri
         return new HttpResponse({ 'message': 'Internal Server Error.' }, 500);
     }
 };
-export const registerUsertoDatabase = async (firstName: string, middleName: string, lastName: string, course: string, section: string, birthday: string, enrolled: boolean, username: string, emailAddress: string, password: string, userType: string) => {
+
+export const registerUsertoDatabase = async (firstName: string, middleName: string, lastName: string, username: string, personalEmail: string, schoolEmail: string, personalNumber: string, schoolNumber: string, address: string, birthday: string, studentID: string, course: string, section: string, enrolled: string, password: string, userType: string) => {
     try {
         const saltRounds = await bcrypt.genSalt();
         password = await bcrypt.hash(password, saltRounds);
         const userCredentialResult = await new UserCredentials({
             username,
-            emailAddress,
+            personalEmail,
+            schoolEmail,
             passwordHash: password,
             userType,
             userInformation: null,
         }).save();
-
-        const studentData = {
-            firstName,
-            middleName,
-            lastName,
-            course,
-            section,
-            birthday: new Date(birthday),
-            enrolled,
-            userCredentials: userCredentialResult._id,
-        };
-
-        const student = new Student(studentData);
-        userCredentialResult.userInformation = student._id;
-
-        await student.save();
-        return true;
+        let user;
+        if (userType.toLowerCase() === 'student') {
+            const userData = {
+                firstName,
+                middleName,
+                lastName,
+                personalEmail,
+                schoolEmail,
+                personalNumber,
+                schoolNumber,
+                address,
+                birthday,
+                studentID,
+                course,
+                section,
+                enrolled,
+                userCredentials: userCredentialResult._id,
+            };
+            user = new Student(userData);
+        }
+        if (user) {
+            userCredentialResult.userInformation = user._id;
+            await user.save();
+            return { message: 'User saved to the database', httpCode: 200 };
+        } else {
+            return { message: 'Error on saving the user', httpCode: 500 };
+        }
     } catch (error) {
-        return false;
+        return { message: error, httpCode: 500 };
     }
 };
 export const checkUsernameAvailability = async (username: string): Promise<boolean> => {

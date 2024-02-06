@@ -71,29 +71,29 @@ const checkEveryInputForLogin = async (userIdentifier: string, password: string,
     }
     return new HttpResponse({ 'message': 'success' }, 200);
 };
-
 // Registrations
 export const registerUserController = async (req: Request, res: Response) => {
-    const { firstName, middleName, lastName, course, section, birthday, enrolled, username, emailAddress, confirmationEmailAddress, password, confirmationPassword, userType } = req.body;
-    const checkerForInput = await checkEveryInputForSignup(username, emailAddress, confirmationEmailAddress, password, confirmationPassword);
+    const { firstName, middleName, lastName, personalEmail, schoolEmail, personalNumber, schoolNumber, address, birthday, studentID, course, section, enrolled, username, password, userType } = req.body;
+    const checkerForInput = await checkEveryInputForSignup(username, personalEmail, schoolEmail, password);
     if (checkerForInput.message['message'] === 'success') {
-        const data = await registerUsertoDatabase(firstName, middleName, lastName, course, section, birthday, enrolled, username, emailAddress, password, userType);
-        if (!data) {
-            res.status(500).json({ 'message': 'Internal Server Error' });
-            return;
-        }
+        const data = await registerUsertoDatabase(firstName, middleName, lastName, username, personalEmail, schoolEmail, personalNumber, schoolNumber, address, birthday, studentID, course, section, enrolled, password, userType);
+        res.status(data.httpCode).json({ message: data.message });
+        return;
     }
 
     res.status(checkerForInput.code).json(checkerForInput.message);
     return;
 };
 
-const checkEveryInputForSignup = async (username: string, emailAddress: string, confirmationEmailAddress: string, password: string, confirmationPassword: string): Promise<HttpResponse> => {
+const checkEveryInputForSignup = async (username: string, personalEmail: string, schoolEmail: string, password: string): Promise<HttpResponse> => {
     if (!checkUsernameValidity(username)) {
         return new HttpResponse({ 'message': 'Username must only contains letters and numbers.' }, 200);
     }
-    if (!checkEmailValidity(emailAddress)) {
-        return new HttpResponse({ 'message': 'Invalid Email.' }, 200);
+    if (!checkEmailValidity(personalEmail)) {
+        return new HttpResponse({ 'message': 'Invalid personal email.' }, 200);
+    }
+    if (!checkEmailValidity(schoolEmail)) {
+        return new HttpResponse({ 'message': 'Invalid school email.' }, 200);
     }
     if (!checkPasswordValidity(password)) {
         return new HttpResponse({ 'message': 'Password must have at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.' }, 200);
@@ -101,14 +101,11 @@ const checkEveryInputForSignup = async (username: string, emailAddress: string, 
     if (!(await checkUsernameAvailability(username))) {
         return new HttpResponse({ 'message': 'This username is being used.' }, 200);
     }
-    if (!(await checkEmailAvailability(emailAddress))) {
-        return new HttpResponse({ 'message': 'This email address is being used.' }, 200);
+    if (!(await checkEmailAvailability(personalEmail))) {
+        return new HttpResponse({ 'message': 'This personal email address is being used.' }, 200);
     }
-    if (emailAddress !== confirmationEmailAddress) {
-        return new HttpResponse({ 'message': "Those email address didn't match. Try again." }, 200);
-    }
-    if (password !== confirmationPassword) {
-        return new HttpResponse({ 'message': "Those password didn't match. Try again." }, 200);
+    if (!(await checkEmailAvailability(schoolEmail))) {
+        return new HttpResponse({ 'message': 'This school email address is being used.' }, 200);
     }
     return new HttpResponse({ 'message': 'success' }, 200);
 };
