@@ -1,5 +1,5 @@
 import '../assets/scss/profile.scss';
-import ProfileIcon from '../assets/img/mygirl.jpg';
+import picon from '../assets/img/mygirl.jpg';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -13,10 +13,14 @@ function Profile() {
       <div className='bg'>
       <Card.Body className='card-booty'>
       <Card className='one'>
-
-      <img src={ProfileIcon} alt='profile' />
+      <img src={picon} alt='profile' />
+      <h1>Neeguh Paterno</h1>
+      <h2>098763340965</h2>
+      <h3>niga.paterno.up@phinmaed.com</h3>
+      <div className='line'></div>
       </Card>
       <Card className='two'>
+        <h1>Year/Grade:</h1>
 
       </Card>
       <Card className='three'>

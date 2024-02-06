@@ -25,6 +25,7 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            
 
             img {
                 box-sizing: border-box;
@@ -33,6 +34,9 @@
                 padding: 0px;
                 background: white;
                 border: 5px solid;
+                position: relative;
+                right: 100  vh;
+                
             }
 
             .profile-description {
