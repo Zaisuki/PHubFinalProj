@@ -4,14 +4,7 @@ import ProfileIcon from '../assets/img/mygirl.jpg';
 const SummaryTask = () => {
     return (
         <div className='summary-task'>
-            <div className='profile-down'>
-                <img src={ProfileIcon} alt='profile' />
-                <div className='profile-description'>
-                    <p className='title'>Zai Alicoben</p>
-                    <p className='description'>Bachelor of Science in Information Technology</p>
-                    <p className='email'>glba.alicoben.up@phinmaed.com</p>
-                </div>
-            </div>
+            
 
             <div className='progress-bar'>
                 <h1>Completed Task</h1>

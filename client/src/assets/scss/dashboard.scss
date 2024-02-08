@@ -6,61 +6,20 @@
 
     .summary-task {
         width: 100%;
-        border-radius: 4px;
-        padding: 20px;
-        background: transparent;
-        align-items: center;
-        color: rgb(0, 0, 0);
+        align-items: left;
+        padding-top: 150px;
+        color: black;
+        border: 1px solid black;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        border: 3px solid;
-        height: 600px;
+        justify-content: flex-start;
+        height: 650px;
+        position: relative;
+        
 
-        .profile-down {
-            width: 100%;
-            height: 45%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            
+        
 
-            img {
-                box-sizing: border-box;
-                height: 70%;
-                border-radius: 500px;
-                padding: 0px;
-                background: white;
-                border: 5px solid;
-                position: relative;
-                right: 100  vh;
-                
-            }
-
-            .profile-description {
-                width: 90%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                p {
-                    margin: 0;
-                }
-                .title {
-                    font-size: 1.8em;
-                    font-weight: bold;
-                }
-                .description {
-                    font-size: 1.2em;
-                }
-                .email {
-                    font-size: 1em;
-                    overflow-wrap: break-word;
-                }
-            }
-        }
     }
 
     .statistics {
@@ -70,7 +29,7 @@
         background-image: transparent;
         align-items: center;
         text-align: justify;
-        color: black;
+        color: red;
         border-radius: 20px;
         margin-top: 150px;
         margin-left: 1400px;
@@ -93,20 +52,26 @@
         text-align: center;
 
         h1 {
-            font-size: 1.2em;
+            font-size:40px;
             border-radius: 20px;
             align-items: center;
             margin: 0;
+            color: black;
+            margin-right: 350px;
         }
         h2 {
             text-align: left;
-            font-size: 1em;
+            font-size: 20px;
             margin: 0;
+            color: black;
+            margin-left: 50px;
         }
         .test {
             border: 1px solid;
-            height: 30px;
+            height: 50px;
             border-radius: 20px;
+            width: 500px;
+            margin-left: 50px;
         }
     }
 }
@@ -116,6 +81,7 @@
         .summary-task {
             .profile-down {
                 font-size: 10px;
+                
 
                 img {
                     height: 80%;
@@ -138,10 +104,11 @@
     .dashboard {
         font-size: 13px;
         .summary-task {
-            width: 45%;
+            // width: 45%;
             .profile-down {
                 font-size: 13px;
                 flex-direction: row;
+                
 
                 img {
                     width: 40%;
