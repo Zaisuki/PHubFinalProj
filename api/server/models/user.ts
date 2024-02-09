@@ -30,6 +30,15 @@ const userCredentialSchema = new Schema({
         type: Schema.Types.ObjectId,
         default: null,
     },
+    inbox: [
+        {
+            userInformation: {
+                type: Schema.Types.ObjectId,
+                ref: 'Inbox',
+                default: null,
+            },
+        },
+    ],
 });
 
 export const UserCredentials = mongoose.model('UserCredentials', userCredentialSchema);
@@ -78,7 +87,7 @@ const studentSchema = new Schema(
         studentID: {
             type: String,
             required: [true, 'Please enter your student id number'],
-            // unique: true,
+            unique: true,
         },
         course: {
             type: String,
@@ -95,6 +104,11 @@ const studentSchema = new Schema(
         userCredentials: {
             type: Schema.Types.ObjectId,
             ref: 'UserCredentials',
+            default: null,
+        },
+        studentSubjects: {
+            type: Schema.Types.ObjectId,
+            ref: 'StudentSubjects',
             default: null,
         },
     },
@@ -147,6 +161,11 @@ const professorSchema = new Schema(
         userCredentials: {
             type: Schema.Types.ObjectId,
             ref: 'UserCredentials',
+            default: null,
+        },
+        professorHandledClass: {
+            type: Schema.Types.ObjectId,
+            ref: 'ProfessorHandledClass',
             default: null,
         },
     },
