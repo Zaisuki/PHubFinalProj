@@ -22,17 +22,24 @@
 }
 
 .card-within {
-  margin: 8px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   cursor: pointer;
 
   h4 {
     font-size: 20px;
+    font-family: poppins;
 
     span {
-      font-size: 29px;
+      font-size: 20px;
+      color: grey;
     }
   }
-  
+  h5 {
+    font-size: 13px;
+    color: grey;
+    font-family: sans-serif;
+  }
 }
 
 /* RESPONSIVENESS */
