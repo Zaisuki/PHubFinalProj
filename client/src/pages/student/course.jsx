@@ -7,24 +7,24 @@ function Course() {
     return (
         <div className='course-main-container'>
             <div className='course-container'>
-                <Card border='success' className='course-card'>
-                    <Card.Header>UP-FA1-BSIT2-03</Card.Header>
+                <Card border='secondary' className='course-card'>
+                    <Card.Header className='subject-code'>ITE 400: <span className='block'>BSIT2-03</span></Card.Header>
                     <Card.Body>
-                        <Card.Title>ITE 400 Title </Card.Title>
-                        <Card.Text>Stephen Bautista</Card.Text>
+                        <Card.Title> Instructor </Card.Title>
+                        <Card.Text className='instructor-name'>Stephen Bautista</Card.Text>
                         <button onClick={()=> navigate ("/course-new")} type="button" class="btn btn-dark" data-mdb-ripple-init>View</button>
                     </Card.Body>
                 </Card>
-                <Card border='success' className='course-card'>
-                    <Card.Header>UP-FA1-BSIT2-03</Card.Header>
+                <Card border='secondary' className='course-card'>
+                    <Card.Header className='subject-code'>SSP 006: <span className='block'>BSIT2-03</span></Card.Header>
                     <Card.Body>
-                        <Card.Title>SSP 006</Card.Title>
-                        <Card.Text>Personal Growth</Card.Text>
+                        <Card.Title> Instructor </Card.Title>
+                        <Card.Text>Glaiza Joyce Alicoben</Card.Text>
                         <button onClick={()=> navigate ("/course-new")} type="button" class="btn btn-dark" data-mdb-ripple-init>View</button>
                     </Card.Body>
                 </Card>
 
-                <Card border='success' className='course-card'>
+                <Card border='secondary' className='course-card'>
                     <Card.Header>UP-FA1-BSIT2-03</Card.Header>
                     <Card.Body>
                         <Card.Title>SCE 002</Card.Title>
@@ -34,7 +34,7 @@ function Course() {
                     </Card.Body>
                 </Card>
 
-                <Card border='success' className='course-card'>
+                <Card border='secondary' className='course-card'>
                     <Card.Header>UP-FA1-BSIT2-03</Card.Header>
                     <Card.Body>
                         <Card.Title>ENG213</Card.Title>
@@ -43,7 +43,7 @@ function Course() {
                     </Card.Body>
                 </Card>
 
-                <Card border='success' className='course-card'>
+                <Card border='secondary' className='course-card'>
                     <Card.Header>UP-FA1-BSIT2-03</Card.Header>
                     <Card.Body>
                         <Card.Title>ITE 143</Card.Title>
@@ -52,7 +52,7 @@ function Course() {
                     </Card.Body>
                 </Card>
 
-                <Card border='success' className='course-card'>
+                <Card border='secondary' className='course-card'>
                     <Card.Header>UP-FA1-BSIT2-03</Card.Header>
                     <Card.Body>
                         <Card.Title>GEN 002</Card.Title>
@@ -61,7 +61,7 @@ function Course() {
                     </Card.Body>
                 </Card>
 
-                <Card border='success' className='course-card'>
+                <Card border='secondary' className='course-card'>
                     <Card.Header>UP-FA1-BSIT2-03</Card.Header>
                     <Card.Body>
                         <Card.Title>HIS 010</Card.Title>
@@ -70,7 +70,7 @@ function Course() {
                     </Card.Body>
                 </Card>
 
-                <Card border='success' className='course-card'>
+                <Card border='secondary' className='course-card'>
                     <Card.Header>UP-FA1-BSIT2-03</Card.Header>
                     <Card.Body>
                         <Card.Title>ITE 393</Card.Title>
@@ -79,7 +79,7 @@ function Course() {
                     </Card.Body>
                 </Card>
 
-                <Card border='success' className='course-card'>
+                <Card border='secondary' className='course-card'>
                     <Card.Header>UP-FA1-BSIT2-03</Card.Header>
                     <Card.Body>
                         <Card.Title>GEN 069</Card.Title>

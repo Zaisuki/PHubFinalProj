@@ -7,7 +7,7 @@ import Card from "react-bootstrap/Card";
 export default function Task() {
   return (
     <Tabs id="justify-tab" className="mb-3" justify>
-      
+
       {/* COACH TAB */}
       <Tab className="coach-tab" eventKey="coach" title="Coach">
         <Accordion defaultActiveKey="0" className="main-holder">
