@@ -1,181 +1,157 @@
-
-.card-header{
+.card-header {
     text-align: center;
     height: 50px;
     border-radius: 20px;
-
-
 }
 
-.cardT{
+.cardT {
     text-align: center;
 }
-.main{
+.main {
     height: 400px;
     margin: 20px;
 }
 
-
-.bg{
+.bg {
     background-color: rgb(192, 192, 192);
-    
 }
-.border{
+.border {
     border-radius: 50px;
 }
-.card-booty{
+.card-booty {
     height: 750px;
     width: 20%;
-    
-    
 }
 
-
-.card-booty .one{
+.card-booty .one {
     height: 500px;
     width: 600px;
     border-radius: 20px;
-    
 }
-.card-booty h1{
-    font-weight: bold;
+.card-booty h1 {
     font-size: 30px;
     position: relative;
     top: 60px;
     position: relative;
     left: 178px;
-
 }
-.card-booty h2{
+.card-booty h2 {
     font-size: 20px;
-    font-weight: bold;
     position: relative;
     top: 60px;
     position: relative;
     left: 220px;
-
 }
-.card-booty h3{
+.card-booty h3 {
     font-size: 20px;
-    font-weight: bold;
     top: 130px;
-    left:133px;
+    left: 133px;
     position: relative;
 }
-.card-booty .two{
+.card-booty .two {
     height: 60px;
     width: 290px;
     border-radius: 90px;
     left: 2px;
     bottom: -10px;
 }
-.card-booty .two h1{
+.card-booty .two h1 {
     color: gray;
     font-size: 20px;
-    left:30px;
+    left: 30px;
     top: 18px;
 }
 
-.card-booty .two h2{
+.card-booty .two h2 {
     font-size: 20px;
-    font-weight: bold;
-    left:160px;
+    left: 160px;
     top: -14px;
 }
 
-.card-booty .three{
-    
-
+.card-booty .three {
     height: 60px;
     width: 300px;
     border-radius: 90px;
     left: 298px;
     bottom: 50px;
-    
 }
 
-.card-booty .three h1{
+.card-booty .three h1 {
     color: gray;
     font-size: 20px;
-    left:30px;
+    left: 30px;
     top: 18px;
 }
 
-.card-booty .three h2{
-    font-weight: bold;
+.card-booty .three h2 {
     font-size: 20px;
-    left:95px;
+    left: 95px;
     top: -13px;
 }
 
-.card-booty .four{
+.card-booty .four {
     width: 600px;
     height: 120px;
     top: -38px;
     border-radius: 25px;
 }
 
-.card-booty .four h1{
+.card-booty .four h1 {
     color: gray;
     font-size: 20px;
-    left:30px;
+    left: 30px;
     top: 18px;
-    
 }
 
-.card-booty .four h2{
+.card-booty .four h2 {
     color: gray;
     font-size: 20px;
-    left:30px;
+    left: 30px;
     top: 45px;
 }
 
-.card-booty .four h3{
+.card-booty .four h3 {
     font-weight: bold;
     font-size: 20px;
-    left:113px;
-    top: -46px; 
+    left: 113px;
+    top: -46px;
 }
 
-.card-booty .four h4{
+.card-booty .four h4 {
     font-weight: bold;
     font-size: 20px;
     margin-top: -42px;
     margin-left: 138px;
 }
 
-.card-booty .five{
+.card-booty .five {
     bottom: 740px;
     left: 620px;
     width: 860px;
     height: 703px;
     border-radius: 20px;
-    
-    
-    
 }
 
-.card-booty .five h1{
+.card-booty .five h1 {
     font-size: 30px;
-    left:330px;
+    left: 330px;
     top: 18px;
-    font-weight:bold;
+    font-weight: bold;
 }
 
-.card-booty .five h2{
+.card-booty .five h2 {
     font-size: 20px;
-    left:30px;
+    left: 30px;
     top: 40px;
 }
-.card-booty .six{
-    
+.card-booty .six {
     left: 650px;
     bottom: 1330px;
     width: 280px;
     height: 35px;
     border: none;
 }
-.card-booty .six h1{
+.card-booty .six h1 {
     font-weight: bold;
     font-size: 20px;
     left: 5px;
@@ -185,7 +161,7 @@
     border-radius: 50px;
 }
 
-.card-booty .seven{
+.card-booty .seven {
     border: none;
     left: 1000px;
     bottom: 1365px;
@@ -193,14 +169,13 @@
     height: 35px;
 }
 
-.card-booty .seven h1{
+.card-booty .seven h1 {
     font-size: 20px;
     left: -1px;
     top: -27px;
-    
 }
 
-.card-booty .seven h2{
+.card-booty .seven h2 {
     font-weight: bold;
     font-size: 20px;
     top: -27px;
@@ -208,10 +183,9 @@
     border: 2px solid;
     border-radius: 50px;
     padding: 10px;
-
 }
 
-.card-booty .eight{
+.card-booty .eight {
     border: none;
     bottom: 1300px;
     left: 650px;
@@ -219,25 +193,22 @@
     height: 35px;
 }
 
-.card-booty .eight h1{
+.card-booty .eight h1 {
     font-size: 20px;
     top: -27px;
     left: -1px;
-
 }
 
-.card-booty .eight h2{
+.card-booty .eight h2 {
     font-size: 20px;
     top: -27px;
     left: 5px;
     border: 2px solid;
     border-radius: 50px;
     padding: 10px;
-
-    
 }
 
-.card-booty .nine{
+.card-booty .nine {
     border: none;
     bottom: 1250px;
     left: 650px;
@@ -245,15 +216,13 @@
     height: 35px;
 }
 
-.card-booty .nine h1{
+.card-booty .nine h1 {
     font-size: 20px;
     top: -15px;
     left: 0px;
-    
-
 }
 
-.card-booty .nine h2{
+.card-booty .nine h2 {
     font-size: 20px;
     font-weight: bold;
     top: -15px;
@@ -263,7 +232,7 @@
     padding: 10px;
 }
 
-.card-booty .ten{
+.card-booty .ten {
     border: none;
     bottom: 1285px;
     left: 1000px;
@@ -272,13 +241,13 @@
     font-weight: bold;
 }
 
-.card-booty .ten h1{
+.card-booty .ten h1 {
     font-size: 20px;
     top: -15px;
     left: -1px;
 }
 
-.card-booty .ten h2{
+.card-booty .ten h2 {
     font-size: 20px;
     top: -15px;
     left: 5px;
@@ -287,7 +256,7 @@
     padding: 10px;
 }
 
-.card-booty .eleven{
+.card-booty .eleven {
     border: none;
     bottom: 1200px;
     left: 650px;
@@ -295,13 +264,13 @@
     height: 35px;
 }
 
-.card-booty .eleven h1{
+.card-booty .eleven h1 {
     font-size: 20px;
     top: -20px;
     left: 1px;
 }
 
-.card-booty .eleven h2{
+.card-booty .eleven h2 {
     font-size: 20px;
     font-weight: bold;
     top: -15px;
@@ -311,7 +280,7 @@
     padding: 10px;
 }
 
-.card-booty .twelve{
+.card-booty .twelve {
     border: none;
     bottom: 1100px;
     left: 650px;
@@ -319,13 +288,13 @@
     height: 35px;
 }
 
-.card-booty .twelve h1{
+.card-booty .twelve h1 {
     font-size: 20px;
     top: -40px;
     left: 1px;
 }
 
-.card-booty .twelve h2{
+.card-booty .twelve h2 {
     font-size: 20px;
     font-weight: bold;
     top: -26px;
@@ -335,7 +304,7 @@
     padding: 10px;
 }
 
-img{
+img {
     height: 200px;
     width: 200px;
     border-radius: 100%;
@@ -345,7 +314,7 @@ img{
     margin: 1rem;
     text-align: center;
 }
-.line{
+.line {
     background-color: black;
     height: 3px;
     width: 400px;

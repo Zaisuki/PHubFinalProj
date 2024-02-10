@@ -1,79 +1,83 @@
-
-
-
-
-.stat-card .stat-one{
+.stat-card .stat-one {
     height: 200px;
-    width: 1330px;
+    width: 700px;
     background-color: rgb(255, 255, 255);
     margin: 20px;
-    border-radius: 40px;
+    border-radius: 20px;
 }
-.stat-one h1{
+.stat-one h1 {
     font-size: 30px;
     color: black;
     position: relative;
     top: 30px;
     left: 60px;
 }
-.stat-card .stat-one .num-one{
+.stat-card .stat-one .num-one {
     position: relative;
-    left: 150px;
+    left: 120px;
     top: 50px;
     color: black;
 }
-.stat-card .stat-one .text-one{
+.stat-card .stat-one .text-one {
     position: relative;
-    left: 170px;
+    left: 140px;
     top: -120px;
     font-size: 20px;
 }
-.stat-card .stat-one .num-two{
+.stat-card .stat-one .num-two {
     position: relative;
-    left: 350px;
+    left: 250px;
     top: 4px;
     color: black;
 }
-.stat-card .stat-one .text-two{
+.stat-card .stat-one .text-two {
     position: relative;
-    left: 370px;
+    left: 270px;
     top: -152px;
     font-size: 20px;
 }
 
-.stat-card .stat-one .num-three{
+.stat-card .stat-one .num-three {
     position: relative;
-    left: 550px;
+    left: 390px;
     top: -42px;
     color: black;
 }
-.stat-card .stat-one .text-three{
+.stat-card .stat-one .text-three {
     position: relative;
-    left: 570px;
+    left: 410px;
     top: -184px;
     font-size: 20px;
 }
-.stat-card .stat-one .num-four{
+.stat-card .stat-one .num-four {
     position: relative;
-    left: 750px;
+    left: 520px;
     top: -88px;
     color: black;
 }
-.stat-card .stat-one .text-four{
+.stat-card .stat-one .text-four {
     position: relative;
-    left: 770px;
+    left: 540px;
     top: -216px;
     font-size: 20px;
 }
 
-.stat-card .stat-two{
+.stat-card .stat-two {
     height: 200px;
     width: 590px;
     background-color: rgb(255, 255, 255);
     margin: 20px;
-    border-radius: 40px;
-    left: 915px;
-    top: 300px;
+    border-radius: 20px;
+    left: 720px;
+    top: -220px;
 }
-
-
+.stat-card .stat-two h1 {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.stat-card .stat-two h2 {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-left: 50px;
+}
