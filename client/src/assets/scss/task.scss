@@ -17,14 +17,43 @@
   margin-left: 25%;
 }
 
-.text {
-  font-size: 15px;
+.main-holder {
+  padding: 5vh 15vh 5vh 15vh;
 }
 
-.title {
-  font-size: 20px;
+/* RESPONSIVENESS */
+@media (max-width: 600px) {
+  .main-holder {
+    padding: 5vh 5vh 5vh 5vh;
+  }
 }
 
-.card-container {
-  margin-bottom: 2vh;
+@media (min-width: 601px) and (max-width: 992px) {
+  .main-holder {
+    padding: 5vh 9vh 5vh 9vh;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1028px) {
+  .main-holder {
+    padding: 5vh 15vh 5vh 15vh;
+  }
+}
+
+@media (min-width: 1029px) and (max-width : 1223px) {
+  .main-holder {
+    padding: 5vh 20vh 5vh 20vh;
+  }
+}
+
+@media (min-width: 1224px) and (max-width : 1480px) {
+  .main-holder {
+    padding: 5vh 25vh 5vh 25vh;
+  }
+}
+
+@media (min-width: 1481px) and (max-width : 1992px) {
+  .main-holder {
+    padding: 5vh 30vh 5vh 30vh;
+  }
 }

@@ -1,86 +1,114 @@
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import Accordion from "react-bootstrap/Accordion";
 import "../../assets/scss/task.scss";
-import { MDBAccordion, MDBAccordionItem } from "mdb-react-ui-kit";
-import {
-  MDBCard,
-  MDBCardHeader,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBBtn,
-} from "mdb-react-ui-kit";
+import Accordion from "react-bootstrap/Accordion";
 
 export default function Task() {
   return (
     <Tabs id="justify-tab" className="mb-3" justify>
+
       <Tab className="coach-tab" eventKey="coach" title="Coach">
-        <div className="coach-content">
-          <MDBAccordion initialActive={1}>
-            <MDBAccordionItem collapseId={1} headerTitle="This Week">
-              <MDBCard className="card-container">
-                <MDBCardHeader>ITE 400</MDBCardHeader>
-                <MDBCardBody>
-                  <MDBCardTitle className="title">
-                    Create a proposal
-                  </MDBCardTitle>
-                  <MDBCardText className="text">
-                    With supporting text below as a natural lead-in to
-                    additional content.
-                  </MDBCardText>
-                </MDBCardBody>
-              </MDBCard>
-              <MDBCard>
-                <MDBCardHeader>HIS 069</MDBCardHeader>
-                <MDBCardBody>
-                  <MDBCardTitle className="title">Make a poster</MDBCardTitle>
-                  <MDBCardText className="text">
-                    With supporting text below as a natural lead-in to
-                    additional content.
-                  </MDBCardText>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBAccordionItem>
-            <MDBAccordionItem collapseId={2} headerTitle="Next Week">
-              <MDBCard className="card-container">
-                <MDBCardHeader>ITE 400</MDBCardHeader>
-                <MDBCardBody>
-                  <MDBCardTitle className="title">
-                    Create a proposal
-                  </MDBCardTitle>
-                  <MDBCardText className="text">
-                    With supporting text below as a natural lead-in to
-                    additional content.
-                  </MDBCardText>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBAccordionItem>
-            <MDBAccordionItem collapseId={3} headerTitle="Later">
-              <MDBCard className="card-container">
-                <MDBCardHeader>ITE 400</MDBCardHeader>
-                <MDBCardBody>
-                  <MDBCardTitle className="title">
-                    Create a proposal
-                  </MDBCardTitle>
-                  <MDBCardText className="text">
-                    With supporting text below as a natural lead-in to
-                    additional content.
-                  </MDBCardText>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBAccordionItem>
-          </MDBAccordion>
-        </div>
+        <Accordion defaultActiveKey="0" className="main-holder">
+          <Accordion.Item eventKey="0" className="1st">
+            <Accordion.Header>This Week</Accordion.Header>
+            <Accordion.Body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="1" className="2nd">
+            <Accordion.Header>Next Week</Accordion.Header>
+            <Accordion.Body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="2" className="3rd">
+            <Accordion.Header>Later</Accordion.Header>
+            <Accordion.Body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
       </Tab>
+
       <Tab className="connect-tab" eventKey="connect" title="Connect">
-        Tab content for Connect
+        <Accordion defaultActiveKey="0" className="main-holder">
+          <Accordion.Item eventKey="0" className="1st">
+            <Accordion.Header>This Week</Accordion.Header>
+            <Accordion.Body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="1" className="2nd">
+            <Accordion.Header>Next Week</Accordion.Header>
+            <Accordion.Body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="2" className="3rd">
+            <Accordion.Header>Later</Accordion.Header>
+            <Accordion.Body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
       </Tab>
+
       <Tab className="check-tab" eventKey="check" title="Check">
-        Tab content for Check
+        <Accordion defaultActiveKey="0" className="main-holder">
+          <Accordion.Item eventKey="0" className="1st">
+            <Accordion.Header>This Week</Accordion.Header>
+            <Accordion.Body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="1" className="2nd">
+            <Accordion.Header>Next Week</Accordion.Header>
+            <Accordion.Body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="2" className="3rd">
+            <Accordion.Header>Later</Accordion.Header>
+            <Accordion.Body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
       </Tab>
+
       <Tab className="missing-tab" eventKey="missing" title="Missing">
-        Tab content for Missing
+        <Accordion defaultActiveKey="0" className="main-holder">
+          <Accordion.Item eventKey="0" className="1st">
+            <Accordion.Header>This Week</Accordion.Header>
+            <Accordion.Body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="1" className="2nd">
+            <Accordion.Header>Next Week</Accordion.Header>
+            <Accordion.Body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="2" className="3rd">
+            <Accordion.Header>Earlier</Accordion.Header>
+            <Accordion.Body>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
       </Tab>
     </Tabs>
   );
