@@ -21,6 +21,15 @@
   padding: 5vh 15vh 5vh 15vh;
 }
 
+.card-within {
+  margin: 8px;
+  cursor: pointer;
+
+  h4 {
+    font-size: 20px;
+  }
+}
+
 /* RESPONSIVENESS */
 @media (max-width: 600px) {
   .main-holder {
@@ -40,19 +49,19 @@
   }
 }
 
-@media (min-width: 1029px) and (max-width : 1223px) {
+@media (min-width: 1029px) and (max-width: 1223px) {
   .main-holder {
     padding: 5vh 20vh 5vh 20vh;
   }
 }
 
-@media (min-width: 1224px) and (max-width : 1480px) {
+@media (min-width: 1224px) and (max-width: 1480px) {
   .main-holder {
     padding: 5vh 25vh 5vh 25vh;
   }
 }
 
-@media (min-width: 1481px) and (max-width : 1992px) {
+@media (min-width: 1481px) and (max-width: 1992px) {
   .main-holder {
     padding: 5vh 30vh 5vh 30vh;
   }
