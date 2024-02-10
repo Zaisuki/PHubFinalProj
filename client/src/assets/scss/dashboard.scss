@@ -1,6 +1,6 @@
 .stat-card .stat-one {
     height: 200px;
-    width: 700px;
+    width: 900px;
     background-color: rgb(255, 255, 255);
     margin: 20px;
     border-radius: 20px;
@@ -64,20 +64,163 @@
 
 .stat-card .stat-two {
     height: 200px;
-    width: 590px;
+    width: 600px;
     background-color: rgb(255, 255, 255);
     margin: 20px;
     border-radius: 20px;
-    left: 720px;
+    left: 906px;
     top: -220px;
 }
 .stat-card .stat-two h1 {
     font-size: 30px;
-    margin-top: 30px;
-    margin-left: 50px;
+    position: relative;
+    left: 150px;
+    top: 90px;
 }
 .stat-card .stat-two h2 {
-    font-size: 30px;
-    margin-top: 30px;
-    margin-left: 50px;
+    font-size: 100px;
+    position: relative;
+    left: 250px;
+    top: -20px;
+    color: rgb(2, 100, 39);
 }
+
+
+
+.ButtonGroup .bg-p{
+    width: 500px;
+    top: 600px;
+}
+.stat-card .stat-three {
+    height: 100;
+    width: 1510px;
+    background-color: rgb(2, 100, 39);
+    margin: 20px;
+    border-radius: 20px;
+    left: 0px;
+    top: -230px;
+}
+
+.stat-three .select-stat{
+    height: 40px;
+    width: 50%;
+    position: relative;
+    top: -0px;
+    left: 0px;
+    border: none;
+    border-radius: 90px;
+    background-color: white;
+}
+.stat-three .select-stat .op{
+    text-align: center;
+
+}
+.stat-three .select-stat .op:hover{
+    color: black;
+
+}
+
+
+.stat-card .stat-four{
+    height: 600px;
+    width: 750px;
+    background-color: rgb(255, 255, 255);
+    margin: 20px;
+    border-radius: 20px;
+    left: 0px;
+    top: -240px;
+}
+
+.stat-card .stat-four h1{
+    left: 50px;
+    bottom: -60px;
+    position: relative;
+    color: black;
+
+}
+.stat-card .stat-four .score-one{
+    height: 50px;
+    width: 700px;
+    border: 2px solid;
+    border-radius: 90px;
+    top: 100px;
+    left: 30px;
+    margin-bottom: 10px;
+}
+.stat-card .stat-four .score-one h1{
+    font-size: 30px;
+    color: black;
+    bottom: -5px;
+    left: 100px;
+}
+.stat-card .stat-four .score-one .score{
+    font-size: 30px;
+    color: black;
+    top: -40px;
+    left: 500px;
+}
+.stat-card .stat-four .score-two{
+    height: 50px;
+    width: 700px;
+    border: 2px solid;
+    border-radius: 90px;
+    top: 100px;
+    left: 30px;
+}
+.stat-card .stat-four .score-two h1{
+    font-size: 50px;
+    color: black;
+    bottom: -5px;
+    left: 100px;
+}
+.stat-card .stat-four .score-two .score{
+    font-size: 30px;
+    color: black;
+    top: -40px;
+    left: 500px;
+}
+
+.stat-card .stat-five{
+    height: 600px;
+    width: 750px;
+    background-color: rgb(255, 255, 255);
+    margin: 20px;
+    border-radius: 20px;
+    left: 760px;
+    top: -860px;
+}
+.stat-card .stat-five h1{
+    position: relative;
+    top: 50px;
+    left: 90px;
+    color: black;
+}
+.stat-card .stat-five .score-one{
+    height: 50px;
+    width: 700px;
+    border: 2px solid;
+    border-radius: 90px;
+    top: 100px;
+    left: 30px;
+    margin-bottom: 10px;
+}
+.stat-card .stat-five .score-two{
+    height: 50px;
+    width: 700px;
+    border: 2px solid;
+    border-radius: 90px;
+    top: 100px;
+    left: 30px;
+    margin-bottom: 10px;
+}
+.stat-card .stat-five .score-three{
+    height: 50px;
+    width: 700px;
+    border: 2px solid;
+    border-radius: 90px;
+    top: 100px;
+    left: 30px;
+    margin-bottom: 10px;
+}
+
+
