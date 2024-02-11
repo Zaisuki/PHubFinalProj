@@ -1,0 +1,82 @@
+.feed-post {
+    position: relative;
+    padding-bottom: 100px;
+    height: fit-content;
+    
+}
+.feed-post .feed-one{
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    margin: 40px;
+    border-radius: 25px;
+}
+
+.feed-post .feed-two{
+    position: absolute;
+    top: 330px;
+    width: 600px;
+    height: 300px;
+    margin: 40px;
+    border-radius: 25px;
+}
+
+.feed-post .feed-three{
+    position: absolute;
+    top: 670px;
+    width: 600px;
+    height: 300px;
+    margin: 40px;
+    border-radius: 25px;
+    
+}
+
+.feed-post .feed-post-one{
+    height: 600px;
+    top: 45px;
+    width: 650px;
+    left: 680px;
+    border-radius: 25px;
+    
+
+}
+.feed-post .feed-post-one .text-one{
+    position: absolute;
+    left:60px;
+    top: 40px;
+}
+.feed-post .feed-post-one .h2-text{
+    position: absolute;
+    left:60px;
+    top: 120px;
+    color: gray;
+}
+.feed-post .feed-post-one .input-placeholder{
+    position: absolute;
+    top: 170px;
+    width: 500px;
+    left: 60px;
+}
+
+.feed-post .feed-post-one .h2-text-one{
+    position: absolute;
+    left:60px;
+    top: 240px;
+    color: gray;
+}
+.feed-post .feed-post-one .input-placeholder-one{
+    position: absolute;
+    top: 290px;
+    width: 500px;
+    height: 200px;
+    left: 60px;
+}
+.feed-post-one .create-post{
+    width: 150px;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 520px;
+    left: 410px;
+    font-size: 25px;
+}
