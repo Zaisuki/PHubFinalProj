@@ -1,51 +1,40 @@
-import Toast from 'react-bootstrap/Toast';
-import ToastContainer from 'react-bootstrap/ToastContainer';
+import Card from 'react-bootstrap/Card';
 import '../assets/scss/notification.scss';
 
 function Notification() {
     return (
-        <div className='main-container'>
-            <div className='title'>
-                <h2>Notifications</h2>
-            </div>
-            <ToastContainer className='toast-container'>
-                <Toast className='box'>
-                    <Toast.Header>
-                        <strong className='me-auto'>Bill Gates</strong>
-                        <small className='text-muted'>just now</small>
-                    </Toast.Header>
-                    <Toast.Body>Posted an assignment</Toast.Body>
-                </Toast>
-                <Toast>
-                    <Toast.Header>
-                        <strong className='me-auto'>Mark Zuckerburg</strong>
-                        <small className='text-muted'>45 seconds ago</small>
-                    </Toast.Header>
-                    <Toast.Body>Sent a message</Toast.Body>
-                </Toast>
-                <Toast>
-                    <Toast.Header>
-                        <strong className='me-auto'>Anakin Skywalker</strong>
-                        <small className='text-muted'>2 minutes ago</small>
-                    </Toast.Header>
-                    <Toast.Body>Sent a message</Toast.Body>
-                </Toast>
-                <Toast>
-                    <Toast.Header>
-                        <strong className='me-auto'>Ellie Williams</strong>
-                        <small className='text-muted'>2 days ago</small>
-                    </Toast.Header>
-                    <Toast.Body>Posted an assignment</Toast.Body>
-                </Toast>
-                <Toast>
-                    <Toast.Header>
-                        <strong className='me-auto'>Nicola Tesla</strong>
-                        <small className='text-muted'>82 years ago</small>
-                    </Toast.Header>
-                    <Toast.Body>Sent a message</Toast.Body>
-                </Toast>
-            </ToastContainer>
-        </div>
+        <Card.Body className='container'>
+            
+            <Card className='content'>
+            <h1>CHECK: Module 20 Niggakha...</h1>
+            </Card>
+            <Card className='sub'>
+            <h1>GFY 069</h1>
+            </Card>
+            <Card className='date'>
+            <h1>Jan</h1>
+            </Card>
+
+            <Card className='content2'>
+            <h1>CHECK: Module 20 Niggakha...</h1>
+            </Card>
+            <Card className='sub2'>
+            <h1>GFY 069</h1>
+            </Card>
+            <Card className='date2'>
+            <h1>Jan</h1>
+            </Card>
+
+            <Card className='content3'>
+            <h1>CHECK: Module 20 Niggakha...</h1>
+            </Card>
+            <Card className='sub3'>
+            <h1>GFY 069</h1>
+            </Card>
+            <Card className='date3'>
+            <h1>Jan</h1>
+            </Card>
+        </Card.Body>
     );
 }
 

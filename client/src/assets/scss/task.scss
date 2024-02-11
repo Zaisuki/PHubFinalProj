@@ -8,6 +8,16 @@
   background-color: rgb(243, 239, 234);
 }
 
+.card-within {
+  background-color: white;
+  border-radius: 20px;
+}
+.card-within .cb {
+  background-color: white;
+}
+.card-within .cb:hover {
+  background-color: rgb(211, 211, 211);
+}
 .coach-content {
   height: auto;
   margin-top: 5vh;
