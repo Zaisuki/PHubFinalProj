@@ -1,13 +1,82 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+
+.container .content {
+    width: 1553px;
+    border-color: black;
+    margin-left: -116px;
+    
+    
+    h1{
+       text-align: center;
+    }
 }
 
-.main-container {
-    margin-left: 5%;
-    margin-top: 5vh;
+.container .sub{
+    width: 250px;
+    text-align: center;
+    bottom: 57px;
+    border-color: black;
+    right: 116px;
 }
-.title {
-    margin-bottom: 2vh;
+.container .date{
+    width: 250px;
+    text-align: center;
+    top: -115px;
+    left: 1186px;
+    border-color: black;
+}
+
+.container .content2 {
+    width: 1553px;
+    border-color: black;
+    margin-top: -115px;
+    margin-left: -116px;
+
+    
+    h1{
+        text-align: center;
+        
+    }
+}
+
+.container .sub2{
+    width: 250px;
+    text-align: center;
+    bottom: 58px;
+    border-color: black;
+    right: 116px;
+}
+.container .date2{
+    width: 250px;
+    text-align: center;
+    top: -116px;
+    left: 1186px;
+    border-color: black;
+}
+
+.container .content3 {
+    width: 1553px;
+    border-color: black;
+    margin-top: -116px;
+    margin-left: -116px;
+    
+    h1{
+        text-align: center;
+        
+    }
+}
+
+.container .sub3{
+    width: 250px;
+    text-align: center;
+    bottom: 58px;
+    border-color: black;
+    right: 116px;
+}
+.container .date3{
+    width: 250px;
+    text-align: center;
+    top: -115px;
+    left: 1186px;
+    border-color: black;
 }
