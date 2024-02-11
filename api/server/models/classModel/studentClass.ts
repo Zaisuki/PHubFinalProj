@@ -58,10 +58,6 @@ const studentConnectSubmissionSchema = new Schema(
 export const StudentConnectSubmission = mongoose.model('StudentConnectSubmission', studentConnectSubmissionSchema);
 export const StudentCheckSubmission = mongoose.model('StudentCheckSubmission', studentCheckSubmissionSchema);
 
-const subjectSchema = new Schema({});
-
-export const Subject = mongoose.model('Subject', subjectSchema);
-
 const studentSubjectsSchema = new Schema({
     student: {
         type: Schema.Types.ObjectId,

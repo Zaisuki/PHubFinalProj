@@ -7,7 +7,7 @@ export const findAllUsers = async (req: Request, res: Response) => {
         const students = await Student.find({}).populate('userCredentials').exec();
         const professor = await Professor.find({}).populate('userCredentials').exec();
 
-        res.status(200).json(students);
+        res.status(200).json({ students, professor });
     } catch (error) {
         res.status(500).json('No Students found');
     }

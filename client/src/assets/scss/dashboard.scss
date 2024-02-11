@@ -1,226 +1,72 @@
-.stat-card .stat-one {
-    height: 200px;
-    width: 900px;
-    background-color: rgb(255, 255, 255);
-    margin: 20px;
-    border-radius: 20px;
-}
-.stat-one h1 {
-    font-size: 30px;
-    color: black;
-    position: relative;
-    top: 30px;
-    left: 60px;
-}
-.stat-card .stat-one .num-one {
-    position: relative;
-    left: 120px;
-    top: 50px;
-    color: black;
-}
-.stat-card .stat-one .text-one {
-    position: relative;
-    left: 140px;
-    top: -120px;
-    font-size: 20px;
-}
-.stat-card .stat-one .num-two {
-    position: relative;
-    left: 250px;
-    top: 4px;
-    color: black;
-}
-.stat-card .stat-one .text-two {
-    position: relative;
-    left: 270px;
-    top: -152px;
-    font-size: 20px;
-}
+.stat-card{
 
-.stat-card .stat-one .num-three {
-    position: relative;
-    left: 390px;
-    top: -42px;
-    color: black;
-}
-.stat-card .stat-one .text-three {
-    position: relative;
-    left: 410px;
-    top: -184px;
-    font-size: 20px;
-}
-.stat-card .stat-one .num-four {
-    position: relative;
-    left: 520px;
-    top: -88px;
-    color: black;
-}
-.stat-card .stat-one .text-four {
-    position: relative;
-    left: 540px;
-    top: -216px;
-    font-size: 20px;
-}
+    .card{
+        padding: 20px
+    }
+    .top-card, .bottom-card{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0;
+    }
+     .stat-one {
+        height: 200px;
+        width: 75%;
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        h1{
+            text-align: center;
+        }
+        h2 {
+            color: black;
+            font-size: 25px;
+            display: inline;
+            width: 20%;
+        }
+        h3{
+            font-size: 40px;
+        }
+        .task-description{
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+    }
+     .stat-two {
+        height: 200px;
+        width: 20%;
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        h1 {
+            font-size: 30px;
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+            font-size: 70px;
+            color: rgb(2, 100, 39);
+        }
+    }
 
-.stat-card .stat-two {
-    height: 200px;
-    width: 600px;
-    background-color: rgb(255, 255, 255);
-    margin: 20px;
-    border-radius: 20px;
-    left: 906px;
-    top: -220px;
-}
-.stat-card .stat-two h1 {
-    font-size: 30px;
-    position: relative;
-    left: 150px;
-    top: 90px;
-}
-.stat-card .stat-two h2 {
-    font-size: 100px;
-    position: relative;
-    left: 250px;
-    top: -20px;
-    color: rgb(2, 100, 39);
-}
+    .stat-three{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 10px;
+        select{
 
-
-
-.ButtonGroup .bg-p{
-    width: 500px;
-    top: 600px;
-}
-.stat-card .stat-three {
-    height: 100;
-    width: 1510px;
-    background-color: rgb(2, 100, 39);
-    margin: 20px;
-    border-radius: 20px;
-    left: 0px;
-    top: -230px;
-}
-
-.stat-three .select-stat{
-    height: 40px;
-    width: 50%;
-    position: relative;
-    top: -0px;
-    left: 0px;
-    border: none;
-    border-radius: 90px;
-    background-color: white;
-}
-.stat-three .select-stat .op{
-    text-align: center;
-
-}
-.stat-three .select-stat .op:hover{
-    color: black;
-
-}
-
-
-.stat-card .stat-four{
-    height: 600px;
-    width: 750px;
-    background-color: rgb(255, 255, 255);
-    margin: 20px;
-    border-radius: 20px;
-    left: 0px;
-    top: -240px;
-}
-
-.stat-card .stat-four h1{
-    left: 50px;
-    bottom: -60px;
-    position: relative;
-    color: black;
-
-}
-.stat-card .stat-four .score-one{
-    height: 50px;
-    width: 700px;
-    border: 2px solid;
-    border-radius: 90px;
-    top: 100px;
-    left: 30px;
-    margin-bottom: 10px;
-}
-.stat-card .stat-four .score-one h1{
-    font-size: 30px;
-    color: black;
-    bottom: -5px;
-    left: 100px;
-}
-.stat-card .stat-four .score-one .score{
-    font-size: 30px;
-    color: black;
-    top: -40px;
-    left: 500px;
-}
-.stat-card .stat-four .score-two{
-    height: 50px;
-    width: 700px;
-    border: 2px solid;
-    border-radius: 90px;
-    top: 100px;
-    left: 30px;
-}
-.stat-card .stat-four .score-two h1{
-    font-size: 50px;
-    color: black;
-    bottom: -5px;
-    left: 100px;
-}
-.stat-card .stat-four .score-two .score{
-    font-size: 30px;
-    color: black;
-    top: -40px;
-    left: 500px;
-}
-
-.stat-card .stat-five{
-    height: 600px;
-    width: 750px;
-    background-color: rgb(255, 255, 255);
-    margin: 20px;
-    border-radius: 20px;
-    left: 760px;
-    top: -860px;
-}
-.stat-card .stat-five h1{
-    position: relative;
-    top: 50px;
-    left: 90px;
-    color: black;
-}
-.stat-card .stat-five .score-one{
-    height: 50px;
-    width: 700px;
-    border: 2px solid;
-    border-radius: 90px;
-    top: 100px;
-    left: 30px;
-    margin-bottom: 10px;
-}
-.stat-card .stat-five .score-two{
-    height: 50px;
-    width: 700px;
-    border: 2px solid;
-    border-radius: 90px;
-    top: 100px;
-    left: 30px;
-    margin-bottom: 10px;
-}
-.stat-card .stat-five .score-three{
-    height: 50px;
-    width: 700px;
-    border: 2px solid;
-    border-radius: 90px;
-    top: 100px;
-    left: 30px;
-    margin-bottom: 10px;
-}
-
-
+            display: inline-block;
+            width: 49%;
+        }
+    }
+    .stat-four, .stat-five{
+        width: 50%;
+        margin: 20px;
+        height: 300px;
+        p{
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 150px;
+        }
+    }
+}    

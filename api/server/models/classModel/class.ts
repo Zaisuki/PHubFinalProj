@@ -168,6 +168,13 @@ const classSchema = new Schema({
             default: null,
         },
     ],
+    announcement: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Announcement',
+            default: null,
+        },
+    ],
 });
 
 export const Class = mongoose.model('Class', classSchema);
