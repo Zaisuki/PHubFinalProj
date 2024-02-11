@@ -8,9 +8,8 @@ function Profile() {
   return (
     
     <Card className='main'>
-        <div className='border'></div>
         
-      <Card.Header className='cardT'>Profile</Card.Header>
+ 
       <div className='bg'>
       <Card.Body className='card-booty'>
       <Card className='one'>
