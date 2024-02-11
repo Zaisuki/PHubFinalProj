@@ -18,7 +18,8 @@ function Evaluation() {
           constructively.
         </p>
 
-        <span>Course Information</span>
+        <span>STUDENT DETAILS</span>
+        <div className="details">
         <InputGroup size="sm" className="mb-3">
           <InputGroup.Text id="inputGroup-sizing-sm">
             Student Name{" "}
@@ -27,7 +28,18 @@ function Evaluation() {
             aria-label="Small"
             aria-describedby="inputGroup-sizing-sm"
           />
-        </InputGroup>
+        </InputGroup></div>
+
+        <div className="details2">
+        <InputGroup size="sm" className="mb-3">
+          <InputGroup.Text id="inputGroup-sizing-sm">
+            Student Name{" "}
+          </InputGroup.Text>
+          <Form.Control
+            aria-label="Small"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+        </InputGroup></div>
         <Form.Select className="select" aria-label="Default select example">
           <option>Select a Course</option>
           <option value="1">ITE 30</option>
@@ -40,7 +52,7 @@ function Evaluation() {
         </span>
         <div class="card">
           <div class="card-body">
-            This is some text within a card body.
+          My professor always answer my questions during class hours with respect.
             <div class="form-check">
               <input
                 class="form-check-input"
@@ -50,7 +62,34 @@ function Evaluation() {
               />
               <label class="form-check-label" for="flexRadioDefault1">
                 {" "}
-                Default radio{" "}
+                Strongly agree{" "}
+              </label>
+            </div>
+            
+            
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                {" "}
+                Agree{" "}
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                {" "}
+                Neutral{" "}
               </label>
             </div>
             <div class="form-check">
@@ -62,7 +101,88 @@ function Evaluation() {
               />
               <label class="form-check-label" for="flexRadioDefault1">
                 {" "}
-                Default radio{" "}
+                Disagree{" "}
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                {" "}
+                Strongly Disagree{" "}
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+          My professor always answer my questions during class hours with respect.
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                {" "}
+                Strongly agree{" "}
+              </label>
+            </div>
+            
+            
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                {" "}
+                Agree{" "}
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                {" "}
+                Neutral{" "}
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                {" "}
+                Disagree{" "}
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                {" "}
+                Strongly Disagree{" "}
               </label>
             </div>
           </div>
