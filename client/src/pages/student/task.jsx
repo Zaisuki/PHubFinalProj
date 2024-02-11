@@ -34,7 +34,7 @@ export default function Task() {
                 </Card>
              
               <Card className="card-within">
-                <Card.Body>
+                <Card.Body className="cb">
                   <h4 className="task-type">
                     CHECK: <span className="task-title">Module 20</span>
                   </h4>
