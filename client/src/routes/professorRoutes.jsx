@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
-import DashboardProf from '../pages/professor/dashboard';
+import FeedProf from '../pages/professor/feed';
 import Profile from '../pages/profile';
 import Inbox from '../pages/inbox';
 import Notification from '../pages/notification';
@@ -13,7 +13,7 @@ export default function ProfessorRoutes() {
     return (
         <Routes className='sidebar-container'>
             <Route path='professor' element={<ProfessorLayout />}>
-                <Route index element={<DashboardProf />} />
+                <Route index element={<FeedProf />} />
                 <Route path='profile' element={<Profile />} />
                 <Route path='notification' element={<Notification />} />
                 <Route path='inbox' element={<Inbox />} />

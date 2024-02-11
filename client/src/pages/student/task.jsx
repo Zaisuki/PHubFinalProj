@@ -3,8 +3,10 @@ import Tabs from "react-bootstrap/Tabs";
 import "../../assets/scss/task.scss";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
+import { useNavigate } from 'react-router-dom';
 
 export default function Task() {
+  const navigate = useNavigate();
   return (
     <Tabs id="justify-tab" className="mb-3" justify>
       {/* COACH TAB */}
@@ -20,17 +22,19 @@ export default function Task() {
                 type="button"
                 data-mdb-ripple-init
               >
-                  <Card.Body>
+                  <Card.Body className="cb">
                     <h4 className="task-type">
                       CHECK: <span className="task-title">Module 21</span>
                     </h4>
                     <h5 className="date-posted">February 10, 2024</h5>
                   </Card.Body>
+
+                  
                   </button>
                 </Card>
              
               <Card className="card-within">
-                <Card.Body>
+                <Card.Body className="cb">
                   <h4 className="task-type">
                     CHECK: <span className="task-title">Module 20</span>
                   </h4>
@@ -56,11 +60,7 @@ export default function Task() {
           <Accordion.Item eventKey="2" className="3rd">
             <Accordion.Header>Later</Accordion.Header>
             <Accordion.Body>
-              <button
-                onClick={() => navigate("/course-new")}
-                type="button"
-                data-mdb-ripple-init
-              >
+              
                 <Card className="card-within">
                   <Card.Body>
                     <h4 className="task-type">
@@ -70,7 +70,7 @@ export default function Task() {
                     <h5 className="date-posted">February 10, 2024</h5>
                   </Card.Body>
                 </Card>
-              </button>
+             
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>

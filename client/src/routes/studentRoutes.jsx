@@ -11,6 +11,7 @@ import Calendar from '../pages/calendar';
 import Course from '../pages/student/course';
 import Evaluation from '../pages/student/evaluation';
 import CourseNew from '../pages/student/course-new';
+import TaskNew from '../pages/student/task-new';
 
 export default function StudentRoutes() {
     return (
@@ -25,7 +26,7 @@ export default function StudentRoutes() {
                 <Route path='course' element={<Course />} />
                 <Route path='evaluation' element={<Evaluation />} />
                 <Route path='course-new' element={<CourseNew />} />
-                <Route path='task-new' element={<CourseNew />} />
+                <Route path='task-new' element={<TaskNew/>} />
             </Route>
         </Routes>
     );
