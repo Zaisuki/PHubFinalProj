@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.NewTask-container {
+  display: flexbox;
+  margin: 3vh;
+
+  .upper-container {
+    padding: 3vh;
+    margin: 3vh;
+    position: absolute;
+    width: 50%;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+
+    h5 {
+      font-size: 13px;
+      color: grey;
+      font-family: sans-serif;
+    }
+  }
+  .middle-container {
+    padding: 3vh;
+    margin: 3vh;
+    margin-top: 22vh;
+    position: absolute;
+    width: 50%;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+  }
+  .bottom-container {
+    padding: 3vh;
+    margin: 3vh;
+    margin-top: 55vh;
+    position: absolute;
+    width: 50vw;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+
+    h4 {
+      font-size: 17px;
+    }
+  }
+}
