@@ -7,21 +7,28 @@ import Card from "react-bootstrap/Card";
 export default function Task() {
   return (
     <Tabs id="justify-tab" className="mb-3" justify>
-
       {/* COACH TAB */}
       <Tab className="coach-tab" eventKey="coach" title="Coach">
         <Accordion defaultActiveKey="0" className="main-holder">
           <Accordion.Item eventKey="0" className="1st">
             <Accordion.Header>This Week</Accordion.Header>
             <Accordion.Body>
-              <Card className="card-within">
-                <Card.Body>
-                  <h4 className="task-type">
-                    CHECK: <span className="task-title">Module 21</span>
-                  </h4>
-                  <h5 className="date-posted">February 10, 2024</h5>
-                </Card.Body>
-              </Card>
+              
+                <Card className="card-within">
+                <button
+                onClick={() => navigate("/task-new")}
+                type="button"
+                data-mdb-ripple-init
+              >
+                  <Card.Body>
+                    <h4 className="task-type">
+                      CHECK: <span className="task-title">Module 21</span>
+                    </h4>
+                    <h5 className="date-posted">February 10, 2024</h5>
+                  </Card.Body>
+                  </button>
+                </Card>
+             
               <Card className="card-within">
                 <Card.Body>
                   <h4 className="task-type">
@@ -30,6 +37,7 @@ export default function Task() {
                   <h5 className="date-posted">February 11, 2024</h5>
                 </Card.Body>
               </Card>
+
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="1" className="2nd">
@@ -48,14 +56,21 @@ export default function Task() {
           <Accordion.Item eventKey="2" className="3rd">
             <Accordion.Header>Later</Accordion.Header>
             <Accordion.Body>
-              <Card className="card-within">
-                <Card.Body>
-                  <h4 className="task-type">
-                    CHECK: <span className="task-title">Module 21</span>
-                  </h4>
-                  <h5 className="date-posted">February 10, 2024</h5>
-                </Card.Body>
-              </Card>
+              <button
+                onClick={() => navigate("/course-new")}
+                type="button"
+                data-mdb-ripple-init
+              >
+                <Card className="card-within">
+                  <Card.Body>
+                    <h4 className="task-type">
+                      CHECK: <span className="task-title">Module 21</span>
+                    </h4>
+
+                    <h5 className="date-posted">February 10, 2024</h5>
+                  </Card.Body>
+                </Card>
+              </button>
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>

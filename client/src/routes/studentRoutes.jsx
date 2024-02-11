@@ -25,6 +25,7 @@ export default function StudentRoutes() {
                 <Route path='course' element={<Course />} />
                 <Route path='evaluation' element={<Evaluation />} />
                 <Route path='course-new' element={<CourseNew />} />
+                <Route path='task-new' element={<CourseNew />} />
             </Route>
         </Routes>
     );

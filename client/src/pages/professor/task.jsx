@@ -27,7 +27,7 @@ export default function TaskProf() {
                 </div>
             </Tab>
             <Tab className='connect-tab' eventKey='connect' title='Connect'>
-                Tab content for Connect
+                Tab content for Connect 
             </Tab>
             <Tab className='check-tab' eventKey='check' title='Check'>
                 Tab content for Check
