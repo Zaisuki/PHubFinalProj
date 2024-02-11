@@ -3,7 +3,9 @@ import { verify } from 'jsonwebtoken';
 
 export interface User {
     id: string;
-    username: string;
+    userID: string;
+    userName: string;
+    userType: string;
 }
 interface AuthenticatedRequest extends Request {
     user?: User;

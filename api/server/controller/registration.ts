@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import { HttpResponse } from '../models/http-response';
 import { User } from '../middleware/authentication';
-import { addSubject, checkSubjectAvailability, deleteAllSubject, getSubject } from '../services/registration';
+import { addClass, addSubject, checkSubjectAvailability, deleteAllSubject, getSubject } from '../services/registration';
 
 export const addSubjectController = async (req: Request, res: Response) => {
     try {
@@ -34,3 +34,13 @@ export const deleteAllSubjectController = async (req: Request, res: Response) =>
         res.status(500).json({ 'message': 'Internal Server Error' });
     }
 };
+export const addClassController = async (req: Request, res: Response) => {
+    try{
+        const { professorID, block, subjectID } = req.body;
+        // check auth and if not empty
+        const result = await addClass(professorID, block, subjectID);
+        return res.status(result.httpCode).json({ 'message': result.message });
+    }catch{
+        res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+}

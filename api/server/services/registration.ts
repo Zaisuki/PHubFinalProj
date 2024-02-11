@@ -1,3 +1,4 @@
+import { Class } from '../models/classModel/class';
 import { Subject } from '../models/classModel/subject';
 
 export const addSubject = async (subjectCode: string, subjectDescription: string) => {
@@ -6,7 +7,7 @@ export const addSubject = async (subjectCode: string, subjectDescription: string
             subjectCode,
             subjectDescription,
         }).save();
-        return { message: 'User saved to the database', httpCode: 200 };
+        return { message: 'Subject saved to the database', httpCode: 200 };
     } catch (error) {
         return { message: error, httpCode: 500 };
     }
@@ -31,10 +32,23 @@ export const deleteAllSubject = async () => {
     try {
         const subject = await Subject.deleteMany({});
         if (subject.deletedCount > 0) {
-            return { message: 'All users deleted successfully', httpCode: 200 };
+            return { message: 'All subject deleted successfully', httpCode: 200 };
         } else {
-            return { message: 'No users found to delete', httpCode: 200 };
+            return { message: 'No subjects found to delete', httpCode: 200 };
         }
+    } catch (error) {
+        return { message: error, httpCode: 500 };
+    }
+};
+
+export const addClass = async (professorID: string, block: string, subjectID: string) => {
+    try {
+       await new Class({
+            professor: professorID,
+            block: block,
+            subject: subjectID
+        }).save();
+        return { message: 'Class saved to the database', httpCode: 200 };
     } catch (error) {
         return { message: error, httpCode: 500 };
     }

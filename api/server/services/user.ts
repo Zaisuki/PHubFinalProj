@@ -26,3 +26,13 @@ export const deleteAllUsers = async (req: Request, res: Response) => {
         res.status(500).json('Error deleting All users');
     }
 };
+
+export const findProfessorByID = async (id: string) => {
+    try{
+        const professor = await Professor.findById(id);
+
+        return professor;
+    }catch (error) {
+        return {"message":'No professor found', "httpCode": 500};
+    }
+}
