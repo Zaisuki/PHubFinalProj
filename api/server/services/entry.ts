@@ -64,6 +64,7 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
         }
         if (user) {
             userCredentialResult.userInformation = user._id;
+            await userCredentialResult.save();
             await user.save();
             return { message: 'User saved to the database', httpCode: 200 };
         } else {
