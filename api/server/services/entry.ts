@@ -20,7 +20,7 @@ export const loginUsertoDatabase = async (userIdentifier: string, password: stri
     }
 };
 
-export const registerUsertoDatabase = async (firstName: string, middleName: string, lastName: string, username: string, personalEmail: string, schoolEmail: string, personalNumber: string, schoolNumber: string, address: string, birthday: string, studentID: string, course: string, section: string, enrolled: string, password: string, userType: string) => {
+export const registerUsertoDatabase = async (firstName: string, middleName: string, lastName: string, username: string, personalEmail: string, schoolEmail: string, personalNumber: string, schoolNumber: string, address: string, birthday: string, password: string, userType: string, enrolled: boolean, course: string, section: string, studentID: string, department: string, active: boolean) => {
     try {
         const saltRounds = await bcrypt.genSalt();
         password = await bcrypt.hash(password, saltRounds);
@@ -34,12 +34,10 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
         }).save();
         let user;
         if (userType.toLowerCase() === 'student') {
-            const userData = {
+            user = new Student({
                 firstName,
                 middleName,
                 lastName,
-                personalEmail,
-                schoolEmail,
                 personalNumber,
                 schoolNumber,
                 address,
@@ -49,14 +47,27 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
                 section,
                 enrolled,
                 userCredentials: userCredentialResult._id,
-            };
-            user = new Student(userData);
+            });
+        } else if (userType.toLowerCase() === 'professor') {
+            user = new Professor({
+                firstName,
+                middleName,
+                lastName,
+                personalNumber,
+                schoolNumber,
+                address,
+                birthday,
+                department,
+                active,
+                userCredentials: userCredentialResult._id,
+            });
         }
         if (user) {
             userCredentialResult.userInformation = user._id;
             await user.save();
             return { message: 'User saved to the database', httpCode: 200 };
         } else {
+            await UserCredentials.deleteOne({ _id: userCredentialResult._id });
             return { message: 'Error on saving the user', httpCode: 500 };
         }
     } catch (error) {

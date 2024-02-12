@@ -57,16 +57,6 @@ const studentSchema = new Schema(
             type: String,
             required: [true, 'Please enter your last name'],
         },
-        personalEmail: {
-            type: String,
-            required: [true, 'Please enter your personal email'],
-            unique: true,
-        },
-        schoolEmail: {
-            type: String,
-            required: [true, 'Please enter your school email'],
-            unique: true,
-        },
         personalNumber: {
             type: String,
             required: [true, 'Please enter your personal number'],
@@ -131,15 +121,9 @@ const professorSchema = new Schema(
             type: String,
             required: [true, 'Please enter your last name'],
         },
-        personalEmail: {
+        department: {
             type: String,
-            required: [true, 'Please enter your personal email'],
-            unique: true,
-        },
-        schoolEmail: {
-            type: String,
-            required: [true, 'Please enter your school email'],
-            unique: true,
+            required: [true, 'Please enter your department'],
         },
         personalNumber: {
             type: String,
@@ -157,6 +141,11 @@ const professorSchema = new Schema(
         birthday: {
             type: Date,
             required: [true, 'Please enter your Birthday'],
+        },
+        active: {
+            type: Boolean,
+            default: true,
+            required: [true, 'Please enter your status'],
         },
         userCredentials: {
             type: Schema.Types.ObjectId,
