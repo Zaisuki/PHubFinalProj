@@ -6,6 +6,7 @@ import { deleteAllUsers, findAllUsers } from '../services/user';
 
 const router = Router();
 
+// JUST FOR CHECKING
 router.get('/all', findAllUsers);
 router.delete('/all', deleteAllUsers);
 

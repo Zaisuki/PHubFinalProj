@@ -2,7 +2,7 @@ import mongoose, { Schema, InferSchemaType } from 'mongoose';
 
 const studentCheckSubmissionSchema = new Schema(
     {
-        students: {
+        student: {
             type: Schema.Types.ObjectId,
             ref: 'Student',
             default: null,
@@ -28,7 +28,7 @@ const studentCheckSubmissionSchema = new Schema(
 );
 const studentConnectSubmissionSchema = new Schema(
     {
-        students: {
+        student: {
             type: Schema.Types.ObjectId,
             ref: 'Student',
             default: null,
@@ -54,9 +54,26 @@ const studentConnectSubmissionSchema = new Schema(
         timestamps: true,
     }
 );
-
+const studentCoachViewSchema = new Schema(
+    {
+        student: {
+            type: Schema.Types.ObjectId,
+            ref: 'Student',
+            default: null,
+        },
+        class: {
+            type: Schema.Types.ObjectId,
+            ref: 'Class',
+            default: null,
+        },
+    },
+    {
+        timestamps: true,
+    }
+);
 export const StudentConnectSubmission = mongoose.model('StudentConnectSubmission', studentConnectSubmissionSchema);
 export const StudentCheckSubmission = mongoose.model('StudentCheckSubmission', studentCheckSubmissionSchema);
+export const StudentCoachView = mongoose.model('StudentCoachView', studentCoachViewSchema);
 
 const studentSubjectsSchema = new Schema({
     student: {
@@ -82,6 +99,13 @@ const studentSubjectsSchema = new Schema({
         {
             type: Schema.Types.ObjectId,
             ref: 'StudentConnectSubmission',
+            default: null,
+        },
+    ],
+    studentCoachView: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'StudentCoachView',
             default: null,
         },
     ],

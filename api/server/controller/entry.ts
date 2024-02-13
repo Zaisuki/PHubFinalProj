@@ -73,10 +73,10 @@ const checkEveryInputForLogin = async (userIdentifier: string, password: string,
 };
 // Registrations
 export const registerUserController = async (req: Request, res: Response) => {
-    const { firstName, middleName, lastName, personalEmail, schoolEmail, personalNumber, schoolNumber, address, birthday, studentID, course, section, enrolled, username, password, userType } = req.body;
+    const { firstName, middleName, lastName, personalEmail, schoolEmail, personalNumber, schoolNumber, address, birthday, studentID, course, section, enrolled, username, password, userType, active, department } = req.body;
     const checkerForInput = await checkEveryInputForSignup(username, personalEmail, schoolEmail, password);
     if (checkerForInput.message['message'] === 'success') {
-        const data = await registerUsertoDatabase(firstName, middleName, lastName, username, personalEmail, schoolEmail, personalNumber, schoolNumber, address, birthday, studentID, course, section, enrolled, password, userType);
+        const data = await registerUsertoDatabase(firstName, middleName, lastName, username, personalEmail, schoolEmail, personalNumber, schoolNumber, address, birthday, password, userType, enrolled, course, section, studentID, department, active);
         res.status(data.httpCode).json({ message: data.message });
         return;
     }
