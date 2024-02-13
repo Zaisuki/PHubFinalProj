@@ -1,103 +1,101 @@
 .dropdown-container {
-  margin-left: 9vh;
-  margin-top: 3vh;
+    margin-left: 9vh;
+    margin-top: 3vh;
 }
 
 .first {
-  img {
-    border-radius: 50px;
-    max-width: 90px;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: 0;
-    margin-bottom: 3vh;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
-  }
+    img {
+        border-radius: 50px;
+        max-width: 90px;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: 0;
+        margin-bottom: 3vh;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        -ms-border-radius: 50px;
+        -o-border-radius: 50px;
+    }
 }
 
 .second {
-  img {
-    border-radius: 50px;
-    max-width: 90px;
-    height: auto;
-    display: block;
-    margin-left: 0;
-    margin-right: auto;
-    margin-bottom: 3vh;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
-  }
+    img {
+        border-radius: 50px;
+        max-width: 90px;
+        height: auto;
+        display: block;
+        margin-left: 0;
+        margin-right: auto;
+        margin-bottom: 3vh;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        -ms-border-radius: 50px;
+        -o-border-radius: 50px;
+    }
 }
-
 
 .page {
-  width: 70%;
-  margin-top: 100px;
-  margin-left: 165px;
+    width: 70%;
+    margin-top: 100px;
+    margin-left: 165px;
 }
 
-.container{
-  width: 65%;
-  height: 500px;
- border: 1px solid black;
-  border-radius: 10px;
-  margin-left: 195px;
-
+.container {
+    width: 65%;
+    height: 500px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: 195px;
 }
 
-.chat{
-margin-left: -11px;
-border-top-left-radius: 9px;
-border-top-right-radius: 9px;
-width: 919px;
-height: 30px;
-background-color: lightgreen;
+.chat {
+    margin-left: -11px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    width: 919px;
+    height: 30px;
+    background-color: lightgreen;
 }
 
-.chat span{
-  padding: 10px;
+.chat span {
+    padding: 10px;
 }
 
-.messages{
-  background-color: #ddddf7;
-  padding: 10px;
-  height: calc(583px - 160px)
+.messages {
+    background-color: #ddddf7;
+    padding: 10px;
+    height: calc(583px - 160px);
 }
 
-.input{
-  background-color: white;
-  height: 50px;
-  padding: 10px;
-  border-bottom-left-radius: 9px ;
-  border-bottom-right-radius: 9px ;
- justify-content: space-between;
+.input {
+    background-color: white;
+    height: 50px;
+    padding: 10px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    justify-content: space-between;
 
- input{
-  width: 100%;
-  border: none;
-  outline: none;
-  color: #2f2d52;
-  font-size: 18px;
+    input {
+        width: 100%;
+        border: none;
+        outline: none;
+        color: #2f2d52;
+        font-size: 18px;
 
-  &::placeholder{
-    color: lightgray;
+        &::placeholder {
+            color: lightgray;
 
-    .send{
-      display: flex;
-      align-items: center;
-      gap: 10px; 
+            .send {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        }
     }
-  }
- }
 }
 
-img {
+img.inbox-img {
     height: 30px;
     width: 30px;
     border-radius: 0px;
@@ -109,10 +107,9 @@ img {
     cursor: pointer;
 }
 
-button{
-  border: none;
-  padding: 10px 15px;
-  color: white;
-  background: #8da4f1;
+button {
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    background: #8da4f1;
 }
-

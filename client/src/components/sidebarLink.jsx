@@ -11,7 +11,7 @@ const SideBarLink = ({ direct, icon, title, isClicked }) => {
                 direct === '/login' && window.location.reload();
             }}
         >
-            <i className={icon}></i>
+            <img className='sidebar-img' src={icon}></img>
             <span className={`${isClicked ? 'show-block' : ''}`}>{title}</span>
         </Link>
     );
