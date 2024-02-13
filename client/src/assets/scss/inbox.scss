@@ -34,3 +34,85 @@
     -o-border-radius: 50px;
   }
 }
+
+
+.page {
+  width: 70%;
+  margin-top: 100px;
+  margin-left: 165px;
+}
+
+.container{
+  width: 65%;
+  height: 500px;
+ border: 1px solid black;
+  border-radius: 10px;
+  margin-left: 195px;
+
+}
+
+.chat{
+margin-left: -11px;
+border-top-left-radius: 9px;
+border-top-right-radius: 9px;
+width: 919px;
+height: 30px;
+background-color: lightgreen;
+}
+
+.chat span{
+  padding: 10px;
+}
+
+.messages{
+  background-color: #ddddf7;
+  padding: 10px;
+  height: calc(583px - 160px)
+}
+
+.input{
+  background-color: white;
+  height: 50px;
+  padding: 10px;
+  border-bottom-left-radius: 9px ;
+  border-bottom-right-radius: 9px ;
+ justify-content: space-between;
+
+ input{
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #2f2d52;
+  font-size: 18px;
+
+  &::placeholder{
+    color: lightgray;
+
+    .send{
+      display: flex;
+      align-items: center;
+      gap: 10px; 
+    }
+  }
+ }
+}
+
+img {
+    height: 30px;
+    width: 30px;
+    border-radius: 0px;
+    position: relative;
+    top: -45px;
+    left: 780px;
+    margin: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+button{
+  border: none;
+  padding: 10px 15px;
+  color: white;
+  background: #8da4f1;
+}
+
