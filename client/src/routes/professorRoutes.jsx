@@ -7,7 +7,7 @@ import Notification from '../pages/notification';
 import Calendar from '../pages/calendar';
 import CourseProf from '../pages/professor/course';
 import ProfessorLayout from '../layout/professorLayout';
-import Task from '../pages/student/task';
+import TaskProf from '../pages/professor/task';
 
 export default function ProfessorRoutes() {
     return (
@@ -19,7 +19,7 @@ export default function ProfessorRoutes() {
                 <Route path='inbox' element={<Inbox />} />
                 <Route path='calendar' element={<Calendar />} />
                 <Route path='course' element={<CourseProf />} />
-                <Route path='task' element={<Task />} />
+                <Route path='task' element={<TaskProf />} />
             </Route>
         </Routes>
     );

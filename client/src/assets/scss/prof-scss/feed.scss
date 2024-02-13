@@ -32,11 +32,12 @@
 }
 
 .feed-post .feed-post-one{
-    height: 600px;
+    height: 500px;
     top: 45px;
     width: 650px;
     left: 680px;
     border-radius: 25px;
+
     
 
 }
@@ -51,11 +52,15 @@
     top: 120px;
     color: gray;
 }
-.feed-post .feed-post-one .input-placeholder{
+.feed-post .feed-post-one .input-placeholder .textArea{
     position: absolute;
-    top: 170px;
-    width: 500px;
-    left: 60px;
+    top: 160px;
+    width: 1000px;
+    height: 0px;
+    left: 50px;
+    resize: none;
+    outline: none;
+    padding: 10px;  
 }
 
 .feed-post .feed-post-one .h2-text-one{
@@ -66,17 +71,48 @@
 }
 .feed-post .feed-post-one .input-placeholder-one{
     position: absolute;
-    top: 290px;
-    width: 500px;
-    height: 200px;
+    top: 50px;
+    width: 900px;
+    height: 0px;
     left: 60px;
+    resize: none;
+    outline: none;
+    padding: 10px;  
+}
+.feed-post .feed-post-one .input-placeholder-one .textArea{
+    position: absolute;
+    top: 10px;
+    width: 1000px;
+    height: 0px;
+    left: -70px;
+    resize: none;
+    outline: none;
+    padding: 10px;  
+}
+
+
+
+      
+
+
+
+
+.feed-post .feed-post-one .input-placeholder-one :is(:focus, :valid){
+    border-color: rgb(156, 156, 156);
+    border-width: 2px;
+    padding: 14px;
+
+
+    
 }
 .feed-post-one .create-post{
-    width: 150px;
-    height: 50px;
+    width: 100px;
+    height: 40px;
     color: rgb(255, 255, 255);
     position: absolute;
-    top: 520px;
+    top: 420px;
     left: 410px;
     font-size: 25px;
+    border-radius: 30px;
+    position: absolute;
 }
