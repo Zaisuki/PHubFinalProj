@@ -7,8 +7,9 @@ dotenv.config();
 
 import entryRoutes from './routes/entry';
 import userRoutes from './routes/user';
-import feedRoutes from './routes/feed';
 import registrationRoutes from './routes/registration';
+import professorRoutes from './routes/professor';
+import studentRoutes from './routes/student';
 
 const app = express();
 const port = 3000;
@@ -33,8 +34,9 @@ app.use(
 
 app.use('/entry/', entryRoutes);
 app.use('/user/', userRoutes);
-app.use('/feed/', feedRoutes);
 app.use('/registration/', registrationRoutes);
+app.use('/professor/', professorRoutes);
+app.use('/student/', studentRoutes);
 
 app.get('/', (req, res) => {
     res.send('Hello from your Node.js Express server!');

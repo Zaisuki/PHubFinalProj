@@ -1,7 +1,9 @@
 import { ObjectId, Types } from 'mongoose';
 import { HttpResponse } from '../models/http-response';
-import { UserCredentials, Student, Professor } from '../models/user';
+import { UserCredentials, Student, Professor, Admin } from '../models/user';
 import * as bcrypt from 'bcrypt';
+import { ProfessorHandledClass } from '../models/classModel/professorClass';
+import { StudentSubjects } from '../models/classModel/studentClass';
 
 export const loginUsertoDatabase = async (userIdentifier: string, password: string) => {
     try {
@@ -34,6 +36,7 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
         }).save();
         let user;
         if (userType.toLowerCase() === 'student') {
+            const studentSubjects = await new StudentSubjects({}).save();
             user = new Student({
                 firstName,
                 middleName,
@@ -47,8 +50,12 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
                 section,
                 enrolled,
                 userCredentials: userCredentialResult._id,
+                studentSubjects: studentSubjects._id,
             });
+            studentSubjects.student = user._id;
+            await studentSubjects.save();
         } else if (userType.toLowerCase() === 'professor') {
+            const professorClass = await new ProfessorHandledClass({}).save();
             user = new Professor({
                 firstName,
                 middleName,
@@ -59,6 +66,22 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
                 birthday,
                 department,
                 active,
+                userCredentials: userCredentialResult._id,
+                professorHandledClass: professorClass._id,
+            });
+            professorClass.professor = user._id;
+            await professorClass.save();
+        } else if (userType.toLowerCase() === 'admin') {
+            user = new Admin({
+                firstName,
+                middleName,
+                lastName,
+                personalNumber,
+                schoolNumber,
+                address,
+                birthday,
+                active,
+                department,
                 userCredentials: userCredentialResult._id,
             });
         }
@@ -97,7 +120,7 @@ export const checkEmailAvailability = async (emailAddress: string): Promise<bool
 export const getUserIDandType = async (userIdentifier: string): Promise<ObjectId[] | null> => {
     const result = await UserCredentials.findOne({ $or: [{ username: { $regex: new RegExp(userIdentifier, 'i') } }, { personalEmail: { $regex: new RegExp(userIdentifier, 'i') } }, { schoolEmail: { $regex: new RegExp(userIdentifier, 'i') } }] });
     if (result) {
-        const userID: unknown = result._id;
+        const userID: unknown = result.userInformation;
         const userType: unknown = result.userType;
         return [userID as ObjectId, userType as ObjectId];
     }

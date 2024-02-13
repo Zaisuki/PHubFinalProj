@@ -16,7 +16,7 @@ const professorHandledClassSchema = new Schema({
     announcement: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'announcement',
+            ref: 'Announcement',
             default: null,
         },
     ],

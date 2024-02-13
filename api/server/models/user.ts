@@ -162,5 +162,55 @@ const professorSchema = new Schema(
         timestamps: true,
     }
 );
+const adminSchema = new Schema(
+    {
+        firstName: {
+            type: String,
+            required: [true, 'Please enter your first name'],
+        },
+        middleName: {
+            type: String,
+        },
+        lastName: {
+            type: String,
+            required: [true, 'Please enter your last name'],
+        },
+        personalNumber: {
+            type: String,
+            required: [true, 'Please enter your personal number'],
+            unique: true,
+        },
+        schoolNumber: {
+            type: String,
+            unique: true,
+        },
+        address: {
+            type: String,
+            required: [true, 'Please enter your address'],
+        },
+        birthday: {
+            type: Date,
+            required: [true, 'Please enter your Birthday'],
+        },
+        active: {
+            type: Boolean,
+            default: true,
+            required: [true, 'Please enter your status'],
+        },
+        department: {
+            type: String,
+            required: [true, 'Please enter your department'],
+        },
+        userCredentials: {
+            type: Schema.Types.ObjectId,
+            ref: 'UserCredentials',
+            default: null,
+        },
+    },
+    {
+        timestamps: true,
+    }
+);
 export const Student = mongoose.model('Student', studentSchema);
 export const Professor = mongoose.model('Professor', professorSchema);
+export const Admin = mongoose.model('Admin', adminSchema);

@@ -1,12 +1,17 @@
 import express, { Express, Request, Response, Router } from 'express';
 
 import { authenticateToken } from '../middleware/authentication';
-import { addSubjectController, deleteAllSubjectController, getSubjectController } from '../controller/registration';
+import { addClassController, addSubjectController, deleteAllClassController, deleteAllSubjectController, enrollStudentInClassController, getSubjectController } from '../controller/registration';
 
 const router = Router();
-
-router.get('/add/subject', addSubjectController);
+// add authentication admins only
+router.post('/add/subject', addSubjectController);
 router.delete('/delete/subject', deleteAllSubjectController);
 router.get('/subject', getSubjectController);
+
+router.post('/add/class', addClassController);
+router.get('/delete/class', deleteAllClassController);
+
+router.post('/enroll/student/class', enrollStudentInClassController);
 
 export default router;

@@ -5,8 +5,9 @@ import { authenticateToken } from '../middleware/authentication';
 
 const router = Router();
 
-router.post('/signup', registerUserController);
 router.post('/login', loginUserController);
 router.post('/checkcurrentuser', authenticateToken, checkCurrentUser);
+// authenticate where only admins can register users
+router.post('/signup', registerUserController);
 
 export default router;
