@@ -1,10 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native';
-import Tabs from './navigation/tabs';
+import AuthNavigator from './navigation/AuthNavigator'
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Tabs />
+      <AuthNavigator />
     </NavigationContainer>
   )
 }

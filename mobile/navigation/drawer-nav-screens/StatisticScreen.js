@@ -1,14 +1,14 @@
 import React from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 import HorizontalBarGraph from '@chartiful/react-native-horizontal-bar-graph';
-import BarChartable from '../statistic-charts/BarChartable';
+import BarChartable from '../../statistic-charts/BarChartable';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import BarChartSubs from '../statistic-charts/BarChartSubs';
+import BarChartSubs from '../../statistic-charts/BarChartSubs';
 import * as Progress from 'react-native-progress';
 
 const StatisticScreen = ({navigation}) => {
     return (
-        <SafeAreaView>
+        <SafeAreaView edges={['top', 'left', 'right', 'bottom']}>
             <Text style = {{
                 fontSize: 20,
                 paddingLeft: 70
