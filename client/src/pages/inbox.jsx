@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 import '../assets/scss/inbox.scss';
-import Message from './student/Messages';
-import Input from './student/Input';
+import Chat from './student/Chat';
 
 function Inbox() {
     return (
+        <div className='home'>
         <Dropdown className='dropdown-container'>
             <Dropdown.Toggle variant='success' id='dropdown-basic'>
                 Available Instructors Today
@@ -16,18 +16,15 @@ function Inbox() {
                 <Dropdown.Item href='#/action-2'>Chico Lachowski</Dropdown.Item>
                 <Dropdown.Item href='#/action-3'>Bill Gates</Dropdown.Item>
             </Dropdown.Menu>
-            
-            <div className='page'>
-                <div className='container'>
-                    <div className='chat'>
-                    <span>Chikaboo</span>
-                    <Message/>
-                    <Input/>
-                    </div>
-                </div>
-            </div>
-
         </Dropdown>
+        
+        <div className='home2'>
+        <div className='container'>
+            <Chat/>
+            </div>
+            </div>
+        </div>
+        
 
     );
 }
