@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { logout } from '../services/entry';
 
 const SideBarLink = ({ direct, icon, title, isClicked }) => {
     const navigate = useNavigate();
@@ -7,8 +8,11 @@ const SideBarLink = ({ direct, icon, title, isClicked }) => {
         <Link
             to={direct}
             onClick={() => {
-                navigate('/login');
-                direct === '/login' && window.location.reload();
+                if (direct === '/login') {
+                    navigate('/');
+                    logout();
+                    window.location.reload();
+                }
             }}
         >
             <img className='sidebar-img' src={icon}></img>

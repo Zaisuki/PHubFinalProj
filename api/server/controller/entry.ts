@@ -27,7 +27,6 @@ export const loginUserController = async (req: Request, res: Response) => {
             let loginUpdate = data.message;
             if (loginUpdate['message'] === 'success') {
                 const accessTokenSecret: any = process.env.ACCESS_TOKEN_SECRET;
-                console.log(userIdentifier);
                 const userData = await getUserIDandType(userIdentifier);
                 if (userData) {
                     [userID, userType] = userData;
@@ -41,6 +40,7 @@ export const loginUserController = async (req: Request, res: Response) => {
                 }
             }
 
+            console.log(loginUpdate);
             res.status(data.code).json(loginUpdate);
             return;
         }
