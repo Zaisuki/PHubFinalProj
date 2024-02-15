@@ -12,7 +12,7 @@ import TaskProf from '../pages/professor/task';
 export default function ProfessorRoutes() {
     return (
         <Routes className='sidebar-container'>
-            <Route path='professor' element={<ProfessorLayout />}>
+            <Route path='' element={<ProfessorLayout />}>
                 <Route index element={<FeedProf />} />
                 <Route path='profile' element={<Profile />} />
                 <Route path='notification' element={<Notification />} />

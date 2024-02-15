@@ -15,11 +15,11 @@ const Login = () => {
             const response = await login({ userIdentifier, password });
             if (response.message === 'success') {
                 cookies.set('authorization', response.accessToken);
+                cookies.set('userType', response.userType);
                 navigate('/');
-                console.log('Login success');
                 window.location.reload();
             } else {
-                console.log('Login failed');
+                console.log(response);
             }
         } catch (error) {
             console.error('Error during login:', error);

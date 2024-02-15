@@ -1,13 +1,14 @@
 import StudentRoutes from '../routes/studentRoutes';
 import ProfessorRoutes from '../routes/professorRoutes';
+import { cookies } from '../services/entry';
 
 const MainContent = () => {
+    const userType = cookies.get('userType');
     return (
         <>
             {/* TODO */}
             {/* Student */}
-            <StudentRoutes />
-            <ProfessorRoutes />
+            {userType === 'E2jF8sG5dH9tY3kL4zX7pQ6wR1oV0mCqB6nI8bT7yU5iA3gD2fS4hJ9uMlKoP1e' ? <StudentRoutes /> : userType === 'r9LsT6kQ3jWfZ1pY4xN7hM2cV8gB5dI0eJ4uF2oD3iG5vX6mC1aS7tR9yU3lK8w' ? <ProfessorRoutes /> : 'admin'}
             {/* Professor */}
         </>
     );

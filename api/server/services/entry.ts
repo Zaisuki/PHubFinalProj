@@ -117,12 +117,12 @@ export const checkEmailAvailability = async (emailAddress: string): Promise<bool
     }
 };
 
-export const getUserIDandType = async (userIdentifier: string): Promise<ObjectId[] | null> => {
+export const getUserIDandType = async (userIdentifier: string): Promise<String[] | null> => {
     const result = await UserCredentials.findOne({ $or: [{ username: { $regex: new RegExp(userIdentifier, 'i') } }, { personalEmail: { $regex: new RegExp(userIdentifier, 'i') } }, { schoolEmail: { $regex: new RegExp(userIdentifier, 'i') } }] });
     if (result) {
         const userID: unknown = result.userInformation;
         const userType: unknown = result.userType;
-        return [userID as ObjectId, userType as ObjectId];
+        return [userID as String, userType as String];
     }
     return null;
 };
