@@ -1,65 +1,91 @@
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
+.container {
+  border: none;
+  margin: 2%;
+  padding: none;
 
-.upper-left-container {
-  padding: 3vh;
-  margin-bottom: 2%;
-  position: absolute;
-  width: 100%;
-  border-radius: 50px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-
-  h5 {
-    font-size: 13px;
-    color: grey;
-    font-family: sans-serif;
+  .main-left-card-container {
+    border: none;
   }
-}
-.middle-left-container {
-  padding: 3vh;
-  margin-bottom: 2%;
-  position: absolute;
-  width: 100%;
-  border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
-}
-.bottom-left-container {
-  padding: 3vh;
-  margin-bottom: 2%;
-  position: absolute;
-  width: 100%;
-  border-radius: 30px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
 
-  h4 {
-    font-size: 17px;
+  .header-container {
+    padding: 3vh;
+    margin-bottom: 2%;
+    width: 100%;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    h5: {
+      font-size: 2px;
+      color: grey;
+      font-family: sans-serif;
+    }
   }
-}
 
-.right-container {
-  padding: 3vh;
-  margin-bottom: 2%;
-  position: relative;
-  width: 100%;
-  border-radius: 30px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
+  .content-container {
+    padding: 3vh;
+    margin-bottom: 2%;
+    width: 100%;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+  }
 
-  h5 {
-    font-size: 17px;
+  .attachment-container {
+    padding: 3vh;
+    margin-bottom: 2%;
+    width: 100%;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    h4: {
+      font-size: 17px;
+    }
+  }
+
+  .main-right-card-container {
+    border: none;
+
+    .submission-card {
+      padding: 3vh;
+      margin-bottom: 2%;
+      width: 100%;
+      border-radius: 15px;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      -ms-border-radius: 15px;
+      -o-border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .student-work-container {
+      margin-bottom: 4%;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 4%;
+  }
+
+  button {
+    background-color: rgb(155, 155, 155);
+    border-color: rgb(119, 116, 116);
+  }
+
+  .submit-button {
+    width: 100%;
   }
 }
