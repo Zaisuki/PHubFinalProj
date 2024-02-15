@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-
+import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -25,6 +25,12 @@ mongoose
         console.log(error);
     });
 
+app.use(
+    cors({
+        origin: 'http://127.0.0.1:5173',
+        credentials: true,
+    })
+);
 app.use(express.json());
 app.use(
     bodyParser.urlencoded({
