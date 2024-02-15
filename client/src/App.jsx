@@ -6,7 +6,7 @@ import { authenticateToken } from './services/authentication';
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
 
     useEffect(() => {
         authenticateToken()
