@@ -15,8 +15,7 @@ export const authenticateToken = async () => {
         )
         .then((response) => response.data)
         .catch((error) => {
-            throw error;
+            return error.message;
         });
-    console.log('s', response);
     return response.message === 'valid';
 };

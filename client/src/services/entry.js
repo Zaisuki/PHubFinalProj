@@ -22,5 +22,6 @@ export const logout = async () => {
     //         throw error;
     //     });
     cookies.remove('authorization');
+    cookies.remove('userType');
     // return response;
 };
