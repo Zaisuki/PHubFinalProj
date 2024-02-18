@@ -16,6 +16,7 @@ import LogoutImg from '../../assets/img/calendar.png';
 const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
     return (
         <div className={`sidebar-container ${isClicked ? 'sidebar-open' : ''}`} onMouseOver={onHover} onMouseOut={onUnhover}>
+            {/* TODO: Crop niyo img dapat same ang width and height neto */}
             <CloseButton className='sidebar-close-btn' onClick={onClick} />
             <SideBarLink direct='/profile' icon={ProfileImg} title='Profile' isClicked={isClicked} />
             <ul className='iconS'>

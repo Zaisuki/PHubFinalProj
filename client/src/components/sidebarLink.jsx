@@ -15,7 +15,9 @@ const SideBarLink = ({ direct, icon, title, isClicked }) => {
                 }
             }}
         >
-            <img className='sidebar-img' src={icon}></img>
+            <div className='image-container'>
+                <img className='sidebar-img' src={icon}></img>
+            </div>
             <span className={`${isClicked ? 'show-block' : ''}`}>{title}</span>
         </Link>
     );
