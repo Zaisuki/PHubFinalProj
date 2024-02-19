@@ -65,7 +65,7 @@ function FeedProf() {
                 </div>
                 <div className="input-placeholder">
                   <textarea
-                    className="p-2 bg-neutral-700 active active:outline-none focus:outline-none w-50 h-80"
+                    className="p-2 bg-neutral-700 active active:outline-none focus:outline-none w-100 h-80"
                     placeholder="Type something.."
                     value={titleVal}
                     onChange={handleTitleChange}
@@ -79,7 +79,7 @@ function FeedProf() {
                   <div className="input-placeholder-one">
                     <div className="textArea">
                       <textarea
-                        className="p-2 bg-neutral-700 active active:outline-none focus:outline-none w-50 h-80"
+                        className="p-2 bg-neutral-700 active active:outline-none focus:outline-none w-100 h-80"
                         placeholder="Type something.."
                         value={descriptionVal}
                         onChange={handleDescriptionChange}
