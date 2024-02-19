@@ -2,34 +2,43 @@ import CloseButton from 'react-bootstrap/CloseButton';
 import PropTypes from 'prop-types';
 import '../../assets/scss/sidebar.scss';
 import SideBarLink from '../sidebarLink';
+import CalendarImg from '../../assets/img/calendar.png';
+import InboxImg from '../../assets/img/inbox.png';
+import CourseImg from '../../assets/img/course.png';
+import FeedImg from '../../assets/img/feed.png';
+import ProfileImg from '../../assets/img/profile.png';
+import TaskImg from '../../assets/img/task.png';
+import NotificationImg from '../../assets/img/calendar.png';
+import LogoutImg from '../../assets/img/calendar.png';
+
 
 export default function SideBar({ isClicked, onClick, onHover, onUnhover }) {
     return (
         <div className={`sidebar-container ${isClicked ? 'sidebar-open' : ''}`} onMouseOver={onHover} onMouseOut={onUnhover}>
             <CloseButton className='sidebar-close-btn' onClick={onClick} />
-            <SideBarLink direct='/professor/profile' icon='bx bxs-user-circle' title='Profile' isClicked={isClicked} />
+            <SideBarLink direct='/profile' icon={ProfileImg} title='Profile' isClicked={isClicked} />
 
-            <ul>
+            <ul className='iconS'>
                 <li>
-                    <SideBarLink direct='/professor/' icon='bx bxs-dashboard' title='Dashboard' isClicked={isClicked} />
+                    <SideBarLink direct='/' icon={FeedImg} title='Feed' isClicked={isClicked} />
                 </li>
                 <li>
-                    <SideBarLink direct='/professor/task' icon='bx bx-task' title='Task' isClicked={isClicked} />
+                    <SideBarLink direct='/task' icon={TaskImg} title='Task' isClicked={isClicked} />
                 </li>
                 <li>
-                    <SideBarLink direct='/professor/course' icon='bx bxs-notepad' title='Course' isClicked={isClicked} />
+                    <SideBarLink direct='/course' icon={CourseImg} title='Course' isClicked={isClicked} />
                 </li>
                 <li>
-                    <SideBarLink direct='/professor/notification' icon='bx bxs-bell' title='Notification' isClicked={isClicked} />
+                    <SideBarLink direct='/notification' icon={NotificationImg} title='Notification' isClicked={isClicked} />
                 </li>
                 <li>
-                    <SideBarLink direct='/professor/inbox' icon='bx bxs-chat' title='Inbox' isClicked={isClicked} />
+                    <SideBarLink direct='/inbox' icon={InboxImg} title='Inbox' isClicked={isClicked} />
                 </li>
                 <li>
-                    <SideBarLink direct='/professor/calendar' icon='bx bxs-calendar' title='Calendar' isClicked={isClicked} />
+                    <SideBarLink direct='/calendar' icon={CalendarImg} title='Calendar' isClicked={isClicked} />
                 </li>
             </ul>
-            <SideBarLink direct='/login' icon='bx bx-log-out' title='Log out' isClicked={isClicked} />
+            <SideBarLink direct='/login' icon={LogoutImg} title='Log out' isClicked={isClicked} />
         </div>
     );
 }
