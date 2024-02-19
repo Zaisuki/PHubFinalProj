@@ -10,6 +10,7 @@ import userRoutes from './routes/user';
 import registrationRoutes from './routes/registration';
 import professorRoutes from './routes/professor';
 import studentRoutes from './routes/student';
+import feedRoutes from './routes/feed';
 
 const app = express();
 const port = 3000;
@@ -40,6 +41,7 @@ app.use(
 
 app.use('/entry/', entryRoutes);
 app.use('/user/', userRoutes);
+app.use('/feed/', feedRoutes);
 app.use('/registration/', registrationRoutes);
 app.use('/professor/', professorRoutes);
 app.use('/student/', studentRoutes);

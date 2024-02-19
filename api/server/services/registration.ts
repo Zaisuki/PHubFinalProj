@@ -1,7 +1,9 @@
+import { Types } from 'mongoose';
 import { Class } from '../models/classModel/class';
 import { ProfessorHandledClass } from '../models/classModel/professorClass';
 import { StudentSubjects } from '../models/classModel/studentClass';
 import { Subject } from '../models/classModel/subject';
+import { Student } from '../models/user';
 
 export const addSubject = async (subjectCode: string, subjectDescription: string) => {
     try {
@@ -69,12 +71,51 @@ export const deleteAllClass = async () => {
         return { message: error, httpCode: 500 };
     }
 };
-
+export const deleteClass = async (classID: string) => {
+    try {
+        const subject = await Class.deleteOne({_id: classID});
+        if (subject.deletedCount > 0) {
+            return { message: 'Class deleted successfully', httpCode: 200 };
+        } else {
+            return { message: 'No class found to delete', httpCode: 200 };
+        }
+    } catch (error) {
+        return { message: error, httpCode: 500 };
+    }
+};
 export const enrollStudentInClass = async (studentID: string, classID: string) => {
     try {
         await StudentSubjects.findOneAndUpdate({ student: studentID }, { $push: { class: classID } });
         await Class.findByIdAndUpdate(classID, { $push: { students: studentID } });
         return { message: 'Student enrolled', httpCode: 200 };
+    } catch (error) {
+        return { message: error, httpCode: 500 };
+    }
+};
+
+export const checkStudentInClass = async (studentID: string, classID: string) => {
+    try {
+        const classResult = (await Class.findById(classID))
+        let result = true
+        const studentObjectID = await Student.findById(studentID);
+        if (classResult && studentObjectID){
+            result = classResult.students.includes(studentObjectID._id);
+        }
+        return result;
+    } catch (error) {
+        return { message: error, httpCode: 500 };
+    }
+};
+
+export const removeStudentInClass = async (studentID: string, classID: string) => {
+    try {
+        const result = await Class.updateOne({ _id: classID }, { $pull: { students: studentID } });
+        await StudentSubjects.updateOne({student: studentID},  { $pull: { class: classID } })
+        if (result.modifiedCount === 1) {
+            return { message: 'Student removed from class successfully.', success: true };
+        } else {
+            return { message: 'Student not found in class.', success: false };
+        }
     } catch (error) {
         return { message: error, httpCode: 500 };
     }
