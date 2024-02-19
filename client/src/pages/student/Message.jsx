@@ -3,7 +3,7 @@ import mygirl from '../../assets/img/mygirl.jpg';
 
 function Message() {
   return (
-    <div className='message'>
+    <div className='message owner'>
       <div className='messageInfo'>
       <img src={mygirl} alt=""/>
         <span>just now</span>
