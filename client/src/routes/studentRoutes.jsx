@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 import StudentLayout from "../layout/studentLayout";
 
-import Dashboard from "../pages/student/dashboard";
+import Feed from "../pages/student/feed";
 import Profile from "../pages/profile";
 import Task from "../pages/student/task";
 import Inbox from "../pages/inbox";
@@ -12,12 +12,14 @@ import Course from "../pages/student/course";
 import Evaluation from "../pages/student/evaluation";
 import CourseNew from "../pages/student/course-new";
 import TaskNew from "../pages/student/taskNew";
+import Statistics from "../pages/student/statistics";
+
 
 export default function StudentRoutes() {
   return (
     <Routes>
       <Route path="/" element={<StudentLayout />}>
-        <Route index element={<Dashboard />} />
+        <Route index element={<Feed />} />
         <Route path="profile" element={<Profile />} />
         <Route path="task" element={<Task />} />
         <Route path="notification" element={<Notification />} />
@@ -27,6 +29,7 @@ export default function StudentRoutes() {
         <Route path="evaluation" element={<Evaluation />} />
         <Route path="course-new" element={<CourseNew />} />
         <Route path="task-new" element={<TaskNew />} />
+        <Route path="statistics" element={<Statistics />} />
       </Route>
     </Routes>
   );
