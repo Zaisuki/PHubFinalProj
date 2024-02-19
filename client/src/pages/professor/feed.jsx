@@ -4,72 +4,102 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useEffect, useRef, useState } from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function FeedProf() {
-  const textAreaRef = useRef(null);
-  const [val, setVal] = useState("");
-  const handleChange = (e) => {
-    setVal(e.target.value);
+  const titleTextAreaRef = useRef(null);
+  const descriptionTextAreaRef = useRef(null);
+  const [titleVal, setTitleVal] = useState("");
+  const [descriptionVal, setDescriptionVal] = useState("");
+
+  const handleTitleChange = (e) => {
+    setTitleVal(e.target.value);
   };
+
+  const handleDescriptionChange = (e) => {
+    setDescriptionVal(e.target.value);
+  };
+
   useEffect(() => {
-    textAreaRef.current.style.height = "auto";
-    textAreaRef.current.style.height = textAreaRef.current.scrollHeight + "px";
-  }, [val]);
+    if (titleTextAreaRef.current) {
+      titleTextAreaRef.current.style.height = "auto";
+      titleTextAreaRef.current.style.height =
+        titleTextAreaRef.current.scrollHeight + "px";
+    }
+    if (descriptionTextAreaRef.current) {
+      descriptionTextAreaRef.current.style.height = "auto";
+      descriptionTextAreaRef.current.style.height =
+        descriptionTextAreaRef.current.scrollHeight + "px";
+    }
+  }, [titleVal, descriptionVal]);
 
   return (
-    <Card.Body className="feed-post">
-      <Card className="feed-one">
-        <h1></h1>
-      </Card>
+    <Container className="feed-post">
+      <Row>
+        <Col sm={7}>
+          <Card className="feed-one">
+            <h1></h1>
+          </Card>
 
-      <Card className="feed-two">
-        <h1></h1>
-      </Card>
+          <Card className="feed-two">
+            <h1></h1>
+          </Card>
 
-      <Card className="feed-three">
-        <h1></h1>
-      </Card>
+          <Card className="feed-three">
+            <h1></h1>
+          </Card>
+        </Col>
 
-      <Card className="feed-post-one">
-        <div className="text-one">
-          <h1>CREATE A POST</h1>
-        </div>
+        <Col>
+          <Card className="feed-post-one">
+            <Row>
+              <Col>
+                <div className="text-one">
+                  <h1>CREATE A POST</h1>
+                </div>
 
-        <div className="h2-text">
-          <h2>Title</h2>
-        </div>
-        <div className="input-placeholder">
-          <div className="textArea">
-            <textarea
-              className="p-2 bg-neutral-700 active active:outline-none focus:outline-none w-50 h-80"
-              placeholder="Type something.."
-              value={val}
-              onChange={handleChange}
-              rows="1"
-              ref={textAreaRef}
-            ></textarea>
-          </div>
-        </div>
-        <Button className="create-post" variant="success"></Button>
+                <div className="h2-text">
+                  <h2>Title</h2>
+                </div>
+                <div className="input-placeholder">
+                  <textarea
+                    className="p-2 bg-neutral-700 active active:outline-none focus:outline-none w-100 h-80"
+                    placeholder="Type something.."
+                    value={titleVal}
+                    onChange={handleTitleChange}
+                    rows="1"
+                    ref={titleTextAreaRef}
+                  ></textarea>
+                </div>
+                <div className="h2-text-one">
+                  <h2>Description</h2>
 
-        <div className="h2-text-one">
-          <h2>Description</h2>
+                  <div className="input-placeholder-one">
+                    <div className="textArea">
+                      <textarea
+                        className="p-2 bg-neutral-700 active active:outline-none focus:outline-none w-100 h-80"
+                        placeholder="Type something.."
+                        value={descriptionVal}
+                        onChange={handleDescriptionChange}
+                        rows="1"
+                        ref={descriptionTextAreaRef}
+                      ></textarea>
 
-          <div className="input-placeholder-one">
-            <div className="textArea">
-              <textarea
-                className="p-2 bg-neutral-700 active active:outline-none focus:outline-none w-50 h-80"
-                placeholder="Type something.."
-                value={val}
-                onChange={handleChange}
-                rows="1"
-                ref={textAreaRef}
-              ></textarea>
-            </div>
-          </div>
-        </div>
-      </Card>
-    </Card.Body>
+                      <Button
+                        className="create-post"
+                        variant="success"
+                      ></Button>
+                    </div>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
