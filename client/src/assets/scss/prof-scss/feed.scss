@@ -1,100 +1,46 @@
-.feed-post {
-    position: relative;
-    padding-bottom: 100px;
-    height: fit-content;
-    
-}
 .feed-post .feed-one{
-    position: absolute;
-    width: 600px;
-    height: 300px;
-    margin: 40px;
     border-radius: 25px;
+    min-height: 250px;
+    margin-bottom: 2%;
 }
 
 .feed-post .feed-two{
-    position: absolute;
-    top: 330px;
-    width: 600px;
-    height: 300px;
-    margin: 40px;
     border-radius: 25px;
+    min-height: 250px;
+    margin-bottom: 2%;
 }
 
 .feed-post .feed-three{
-    position: absolute;
-    top: 670px;
-    width: 600px;
-    height: 300px;
-    margin: 40px;
     border-radius: 25px;
+    min-height: 250px;
+    margin-bottom: 2%;
     
 }
 
 .feed-post .feed-post-one{
-    height: 500px;
-    top: 45px;
-    width: 650px;
-    left: 680px;
     border-radius: 25px;
+    padding: 7%;
 
     
 
 }
-.feed-post .feed-post-one .text-one{
-    position: absolute;
-    left:60px;
-    top: 40px;
-}
 .feed-post .feed-post-one .h2-text{
-    position: absolute;
-    left:60px;
-    top: 120px;
     color: gray;
 }
 .feed-post .feed-post-one .input-placeholder .textArea{
-    position: absolute;
-    top: 160px;
-    width: 1000px;
-    height: 0px;
-    left: 50px;
     resize: none;
     outline: none;
     padding: 10px;  
 }
 
 .feed-post .feed-post-one .h2-text-one{
-    position: absolute;
-    left:60px;
-    top: 240px;
     color: gray;
 }
-.feed-post .feed-post-one .input-placeholder-one{
-    position: absolute;
-    top: 50px;
-    width: 900px;
-    height: 0px;
-    left: 60px;
-    resize: none;
-    outline: none;
-    padding: 10px;  
-}
 .feed-post .feed-post-one .input-placeholder-one .textArea{
-    position: absolute;
-    top: 10px;
-    width: 1000px;
-    height: 0px;
-    left: -70px;
     resize: none;
     outline: none;
     padding: 10px;  
 }
-
-
-
-      
-
-
 
 
 .feed-post .feed-post-one .input-placeholder-one :is(:focus, :valid){
@@ -106,13 +52,7 @@
     
 }
 .feed-post-one .create-post{
-    width: 100px;
-    height: 40px;
     color: rgb(255, 255, 255);
-    position: absolute;
-    top: 420px;
-    left: 410px;
     font-size: 25px;
     border-radius: 30px;
-    position: absolute;
 }
