@@ -5,7 +5,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import { useState } from "react";
 
-function Dashboard() {
+function Feed() {
   const [checked, setChecked] = useState(false);
   const [radioValue, setRadioValue] = useState("1");
 
@@ -17,35 +17,27 @@ function Dashboard() {
   return (
     <Card.Body className="stat-card">
       <div className="top-card">
-
-      <Card className="stat-one">
-        <h1>This Week</h1>
-        <div className="task-description">
-
-        <h2 className="text-one">Check 
-        </h2>
-        <h2 className="text-two">Connect 
-        </h2>
-        <h2 className="text-three">Coach 
-        </h2>
-        <h2 className="text-four">Missing 
-        </h2>
-        </div>
-        <div className="task-description">
-
-        <h3>1</h3>
-        <h3>4</h3>
-        <h3>3</h3>
-        <h3>0</h3>
-        </div>
-      </Card>
-
-      <Card className="stat-two">
-        
-        <h1>Grade</h1>
-        <h2>90%</h2>
-      </Card>
+        <Card className="stat-one">
+          <h1>This Week</h1>
+          <div className="task-description">
+            <h2 className="text-one">Check</h2>
+            <h2 className="text-two">Connect</h2>
+            <h2 className="text-three">Coach</h2>
+            <h2 className="text-four">Missing</h2>
           </div>
+          <div className="task-description">
+            <h3>1</h3>
+            <h3>4</h3>
+            <h3>3</h3>
+            <h3>0</h3>
+          </div>
+        </Card>
+
+        <Card className="stat-two">
+          <h1>Grade</h1>
+          <h2>90%</h2>
+        </Card>
+      </div>
       <Card className="stat-three">
         <Form.Select className="select-stat" aria-label="def">
           <option className="op">Select a Course</option>
@@ -71,28 +63,27 @@ function Dashboard() {
               value={radio.value}
               checked={radioValue === radio.value}
               onChange={(e) => setRadioValue(e.currentTarget.value)}
-              >
+            >
               {radio.name}
             </ToggleButton>
           ))}
         </ButtonGroup>
       </Card>
       <div className="bottom-card">
-
-      <Card className="stat-four">
-        <h1>Quizzes</h1>
+        <Card className="stat-four">
+          <h1>Quizzes</h1>
           <p className="score">First Quiz 10/10</p>
-        <p className="score">Second Quiz 10/10</p>
-      </Card>
-      <Card className="stat-five">
-        <h1>Exams</h1>
-        <p className="score-one">First Exam 10/10</p>
-        <p className="score-two">Second Exam 10/10</p>
-        <p className="score-three">Third Exam 10/10</p>
-      </Card>
+          <p className="score">Second Quiz 10/10</p>
+        </Card>
+        <Card className="stat-five">
+          <h1>Exams</h1>
+          <p className="score-one">First Exam 10/10</p>
+          <p className="score-two">Second Exam 10/10</p>
+          <p className="score-three">Third Exam 10/10</p>
+        </Card>
       </div>
     </Card.Body>
   );
 }
 
-export default Dashboard;
+export default Feed;

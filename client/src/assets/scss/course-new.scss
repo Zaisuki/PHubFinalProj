@@ -1,18 +1,14 @@
-.course-new {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 350px);
-  grid-gap: 2vh;
-  align-items: center;
-  justify-items: center;
-  justify-content: center;
-  padding: 1em 1em;
-  display: flex;
-  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .btn{
-    margin-top: 350px;
-    margin-right: 5px;
+.classwork-container {
+  margin: 2% 0 0 2%;
+
+  .card-within {
+    margin-top: 1%;
+    margin-bottom: 1%;
   }
-
-
 }
