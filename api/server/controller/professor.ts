@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import { User } from '../middleware/authentication';
-import { addAnnouncement, addCheck, addCoach, addConnect, deleteAllCheck, deleteCheck } from '../services/professor';
+import { addAnnouncement, addCheck, addCoach, addConnect, deleteAllCheck, deleteAllConnect, deleteCheck, deleteCoach, deleteConnect } from '../services/professor';
 
 export const addAnnouncementController = async (req: Request & { user?: User }, res: Response) => {
     try {
@@ -75,7 +75,7 @@ export const deleteAllCoachController = async (req: Request, res: Response) => {
 export const deleteCoachController = async (req: Request, res: Response) => {
     try {
         const {classID, coachID} = req.body
-        const result = await deleteCheck(classID, coachID);
+        const result = await deleteCoach(classID, coachID);
         
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error: any) {
@@ -85,7 +85,7 @@ export const deleteCoachController = async (req: Request, res: Response) => {
 export const deleteAllConnectController = async (req: Request, res: Response) => {
     try {
         const {classID} = req.body
-        const result = await deleteAllCheck(classID);
+        const result = await deleteAllConnect(classID);
         
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error: any) {
@@ -95,7 +95,7 @@ export const deleteAllConnectController = async (req: Request, res: Response) =>
 export const deleteConnectController = async (req: Request, res: Response) => {
     try {
         const {classID, connectID} = req.body
-        const result = await deleteCheck(classID, connectID);
+        const result = await deleteConnect(classID, connectID);
         
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error: any) {

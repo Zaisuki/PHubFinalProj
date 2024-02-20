@@ -214,11 +214,11 @@ export const addConnect = async (classID: string, postTitle: string, postDescrip
         if (!classScheme) {
             return { message: 'Class not found', httpCode: 404 };
         }
+        newConnect.class = classScheme._id;
         await Promise.all(choices.map((choice) => {
             const connectChoice = new ConnectChoices({choice});
             newConnect.postChoices.push(connectChoice._id);
         }));
-        newConnect.class = classScheme._id;
         classScheme.connect.push(newConnect._id)
         await classScheme.save();
         await newConnect.save();

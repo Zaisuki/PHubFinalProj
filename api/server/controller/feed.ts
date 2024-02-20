@@ -17,7 +17,7 @@ export const postAnnoucementController = async (req: Request & { user?: User }, 
         const { userID, userName, userType } = req.user || {};
         const { header, announcement, classID } = req.body;
         if (!userID) {
-            return res.status(400).json({ message: 'User ID not provided' });
+            return res.status(400).json({ message: 'Unauthorize' });
         }
         if (userType === 'Professor') {
             const announcementResult = await postAnnouncement(header, announcement, userID, classID);

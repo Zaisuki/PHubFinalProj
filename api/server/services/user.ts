@@ -8,6 +8,7 @@ import { Subject } from '../models/classModel/subject';
 import { Inbox } from '../models/inbox';
 import { Message } from '../models/message';
 
+// TODO: remove this, this is temporary
 export const findAllUsers = async (req: Request, res: Response) => {
     try {
         const students = await Student.find({})
@@ -86,3 +87,14 @@ export const findProfessorByID = async (id: string) => {
         return { 'message': 'No professor found', 'httpCode': 500 };
     }
 };
+
+
+// Profile
+export const getUserProfile = async (userID: string) => {
+    try {
+        const userDetails = await UserCredentials.findOne({userInformation: userID}).populate('userInformation').exec();
+        return {message: userDetails, httpCode: 200};
+    } catch (error) {
+        return { 'message': 'No professor found', 'httpCode': 500 };
+    }
+}
