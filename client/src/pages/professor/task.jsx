@@ -65,7 +65,7 @@ function TaskProf() {
       <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
       <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
     </DropdownButton>
-    <img src={calendar} alt=""/>
+    <img className="calendar-task" src={calendar} alt=""/>
     </div>
 
     <div className="form">

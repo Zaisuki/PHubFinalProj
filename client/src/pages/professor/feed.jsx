@@ -1,9 +1,7 @@
+import React, { useEffect, useRef, useState } from "react";
 import "../../assets/scss/prof-scss/feed.scss";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
-import { useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -13,13 +11,29 @@ function FeedProf() {
   const descriptionTextAreaRef = useRef(null);
   const [titleVal, setTitleVal] = useState("");
   const [descriptionVal, setDescriptionVal] = useState("");
+  const [characterCount, setCharacterCount] = useState(0);
+  const characterLimit = 500;
 
   const handleTitleChange = (e) => {
-    setTitleVal(e.target.value);
+    const input = e.target.value;
+    if (input.length <= characterLimit) {
+      setTitleVal(input);
+      setCharacterCount(input.length);
+    }
   };
 
   const handleDescriptionChange = (e) => {
-    setDescriptionVal(e.target.value);
+    const input = e.target.value;
+    if (input.length <= characterLimit) {
+      setDescriptionVal(input);
+      setCharacterCount(input.length);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.target.value.length >= characterLimit && e.key !== "Backspace") {
+      e.preventDefault();
+    }
   };
 
   useEffect(() => {
@@ -69,9 +83,11 @@ function FeedProf() {
                     placeholder="Type something.."
                     value={titleVal}
                     onChange={handleTitleChange}
+                    onKeyDown={handleKeyDown}
                     rows="1"
                     ref={titleTextAreaRef}
                   ></textarea>
+                  <p className="word-count">{titleVal.length}/{characterLimit}</p>
                 </div>
                 <div className="h2-text-one">
                   <h2>Description</h2>
@@ -83,10 +99,11 @@ function FeedProf() {
                         placeholder="Type something.."
                         value={descriptionVal}
                         onChange={handleDescriptionChange}
+                        onKeyDown={handleKeyDown}
                         rows="1"
                         ref={descriptionTextAreaRef}
                       ></textarea>
-
+                      <p className="word-count">{characterCount}/{characterLimit}</p>
                       <Button
                         className="create-post"
                         variant="success"
