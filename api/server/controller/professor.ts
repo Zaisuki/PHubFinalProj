@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import { User } from '../middleware/authentication';
-import { addAnnouncement, addCheck, addCoach, addConnect } from '../services/professor';
+import { addAnnouncement, addCheck, addCoach, addConnect, deleteAllCheck, deleteCheck } from '../services/professor';
 
 export const addAnnouncementController = async (req: Request & { user?: User }, res: Response) => {
     try {
@@ -39,6 +39,26 @@ export const addConnectController = async (req: Request, res: Response) => {
         const result = await addConnect(classID, postTitle, postDescription, dueDate, attachment, choicesArr);
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error) {
+        return res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+export const deleteAllCheckController = async (req: Request, res: Response) => {
+    try {
+        const {classID} = req.body
+        const result = await deleteAllCheck(classID);
+        
+        return res.status(result.httpCode).json({ 'message': result.message });
+    } catch (error: any) {
+        return res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+export const deleteCheckController = async (req: Request, res: Response) => {
+    try {
+        const {classID, checkID} = req.body
+        const result = await deleteCheck(classID, checkID);
+        
+        return res.status(result.httpCode).json({ 'message': result.message });
+    } catch (error: any) {
         return res.status(500).json({ 'message': 'Internal Server Error' });
     }
 };

@@ -123,6 +123,36 @@ export const addCheck = async (classID: string, postTitle: string, postDescripti
         return { message: error.message, httpCode: 500 };
     }
 };
+export const deleteAllCheck = async (classID: string) => {
+    try {
+        const classClass = await Class.findById(classID);
+        if(classClass){
+            await Promise.all(classClass.check.map(async (objID) => {
+                const result = await Check.deleteOne({ _id: objID._id });
+            }));
+            classClass.check = []
+            await classClass.save()
+            return { message: 'Deleted all check', httpCode: 200 };
+        }
+        return { message: 'Deleted none', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
+export const deleteCheck = async (classID: string, checkID: string) => {
+    try {
+        const classClass = await Class.findById(classID);
+        if(classClass){
+            await Check.deleteOne({ _id: checkID });
+            classClass.check = classClass.check.filter(check => check._id.toString() !== checkID);
+            await classClass.save()
+            return { message: 'Check deleted', httpCode: 200 };
+        }
+        return { message: 'Deleted none', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
 export const addCoach = async (classID: string, postTitle: string, postDescription: string, attachment: string[]) => {
     try {
         let newCoach = await new Check({
