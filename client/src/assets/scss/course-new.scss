@@ -5,10 +5,105 @@
 }
 
 .classwork-container {
-  margin: 2% 0 0 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .card-within {
-    margin-top: 1%;
-    margin-bottom: 1%;
+    width: 70%;
+    margin-bottom: 10px;
+
+    h4 {
+      font-size: 17px;
+
+      span {
+        font-size: 17px;
+      }
+    }
+
+    h5 {
+      font-size: 12px;
+    }
+  }
+
+  .card-within:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+.people-tab {
+  padding: 2% 18% 2% 18%;
+  .instructor-card {
+    .card-header {
+      font-size: 20px;
+      font-weight: 450;
+      text-align: left;
+    }
+    .card-body:hover {
+      cursor: pointer;
+      background-color: #f0f0f0;
+    }
+
+    .card-body {
+      display: flex;
+      align-items: center;
+
+      .name {
+        padding: 0;
+        margin: 0;
+        padding-left: 10px;
+      }
+
+      .bx {
+        color: rgb(122, 122, 122);
+        font-size: 40px;
+      }
+    }
+  }
+
+  .student-card {
+    margin-top: 3%;
+
+    .card-header {
+      font-size: 20px;
+      font-weight: 450;
+      text-align: left;
+    }
+
+    .list-group-item {
+      border-top: none !important;
+      border-left: none !important;
+      border-right: none !important;
+      transition: all 0.3s ease;
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      width: 880px;
+    }
+
+    .info1 {
+      margin-left: 50px;
+    }
+
+    .list-group-item:hover {
+      cursor: pointer;
+      background-color: #f0f0f0;
+    }
+    .card-body {
+      display: flex;
+      align-items: center;
+
+      .name {
+        padding: 0;
+        margin: 0;
+        padding-left: 10px;
+      }
+
+      .bx {
+        color: rgb(122, 122, 122);
+        font-size: 40px;
+      }
+    }
   }
 }

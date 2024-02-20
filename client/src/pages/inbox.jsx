@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { StreamChat } from 'stream-chat';
+import React, { useEffect, useState } from "react";
+import { StreamChat } from "stream-chat";
 import {
   Chat,
   Channel,
@@ -9,10 +9,10 @@ import {
   MessageInput,
   Thread,
   Window,
-} from 'stream-chat-react';
-import 'stream-chat-react/dist/css/v2/index.css';
+} from "stream-chat-react";
+import "stream-chat-react/dist/css/v2/index.css";
 
-const filters = { type: 'messaging' };
+const filters = { type: "messaging" };
 const options = { state: true, presence: true, limit: 10 };
 const sort = { last_message_at: -1 };
 
@@ -20,27 +20,27 @@ const inbox = () => {
   const [client, setClient] = useState(null);
 
   useEffect(() => {
-    const newClient = new StreamChat('2sgdxg7zqddx');
+    const newClient = new StreamChat("2sgdxg7zqddx");
 
     const handleConnectionChange = ({ online = false }) => {
-      if (!online) return console.log('connection lost');
+      if (!online) return console.log("connection lost");
       setClient(newClient);
     };
 
-    newClient.on('connection.changed', handleConnectionChange);
+    newClient.on("connection.changed", handleConnectionChange);
 
     newClient.connectUser(
       {
-        id: 'tian', // change id name, look at comment below
-        name: 'tian', // change name, look at comment below
+        id: chatUserId, // change id name, look at comment below
+        name: chatUserName, // change name, look at comment below
       },
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidGlhbiJ9.2FNBqakcpsDmj5bcZdDkALqEjI2cwWRu7wOxj-ZGOJg',
+      chatUserToken
       // change token, look at comment below
     );
 
     return () => {
-      newClient.off('connection.changed', handleConnectionChange);
-      newClient.disconnectUser().then(() => console.log('connection closed'));
+      newClient.off("connection.changed", handleConnectionChange);
+      newClient.disconnectUser().then(() => console.log("connection closed"));
     };
   }, []);
 
@@ -69,9 +69,10 @@ const inbox = () => {
 // chatUserToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZ2xhaSJ9.MET1LWaTy9TLgjcRKIj6Xx_ZpAvMexEcWEeJG94cIJA';
 // chatUserName = 'glai';
 
-// chatUserId = 'ley';
-// chatUserToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoibGV5In0.AEY82cfu50qEEWymQ2Belg1k_daFpUD4wulwy9Of_L8';
-// chatUserName = 'ley';
+const chatUserId = "ley";
+const chatUserToken =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoibGV5In0.AEY82cfu50qEEWymQ2Belg1k_daFpUD4wulwy9Of_L8";
+const chatUserName = "ley";
 
 // chatUserId = 'stephen';
 // chatUserToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic3RlcGhlbiJ9.LaDhU8ohMau7z0kSrXZO5ignL6mYrVHd60CHtxYd98Q';

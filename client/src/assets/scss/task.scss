@@ -1,122 +1,75 @@
-.task-prof-one .dropdown button {
-  width: 700px;
-  height: 86px;
-  font-size: 40px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.mb-3 {
+  background-color: rgb(243, 239, 234);
+}
+.coach-content {
+  height: auto;
+  margin-top: 5vh;
+  justify-content: center;
+  align-items: center;
+  max-width: 97vh;
+  margin-left: 25%;
+}
+.main-holder {
+  padding: 5vh 15vh 5vh 15vh;
 }
 
-.task-prof-one .dropdown2 button {
-  width: 700px;
-  height: 86px;
-  margin-left: 790px;
-  margin-top: -120px;
-  font-size: 40px;
-}
+.card-within {
+  margin: 8px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  cursor: pointer;
 
-.tcontainer {
-  margin-top: 50px;
-  display: grid;
-  place-items: center;
-}
-.tcontainer .con {
-  width: 1100px;
-  height: 800px;
-  border: 1px solid;
-  border-radius: 20px;
-}
+  h4 {
+    font-size: 20px;
+    font-family: poppins;
 
-.indrop {
-  padding: 20px;
-  height: 100px;
-
-
-  button {
-    font-size: 30px;
+    span {
+      font-size: 29px;
+      font-size: 20px;
+      color: grey;
+    }
   }
 
-  img {
-    height: 150px;
-    margin-left: 250px;
-    margin-top: -105px;
-    cursor: pointer;
+  h5 {
+    font-size: 13px;
+    color: grey;
+    font-family: sans-serif;
   }
 }
 
-.form .default {
-    font-size: 25px;
-    margin-top: -10px;
-    padding: 10px 0px 10px 50px;
+/* RESPONSIVENESS */
+@media (max-width: 600px) {
+  .main-holder {
+    padding: 5vh 5vh 5vh 5vh;
+  }
 }
-
-.tcontainer2{
-    margin-top: 50px;
-    display: grid;
-    place-items: center;
+@media (min-width: 601px) and (max-width: 992px) {
+  .main-holder {
+    padding: 5vh 9vh 5vh 9vh;
+  }
 }
-
-.tcontainer2 .con2{
-    width: 1000px;
-    height: 510px;
-    margin-top: -70px;
-    background-color: gray;
-    
-    
-    h1{
-    text-align: center;
-    padding: 10px;
-    height:20px;
-    margin-top: 10px;
+@media (min-width: 993px) and (max-width: 1028px) {
+  .main-holder {
+    padding: 5vh 15vh 5vh 15vh;
+  }
 }
-
-
-.taskt{
-    width: 900px;
-    height: 30px;
-    margin-left: 20px;
-    background-color: rgb(165, 165, 165);
+@media (min-width: 1029px) and (max-width: 1223px) {
+  .main-holder {
+    padding: 5vh 20vh 5vh 20vh;
+  }
 }
-
-    .task-title{
-        padding: 20px;
-        height: 60px;
-        
-    }   
-    
+@media (min-width: 1224px) and (max-width: 1480px) {
+  .main-holder {
+    padding: 5vh 25vh 5vh 25vh;
+  }
 }
-
-.points{
-    text-align: left;
-    margin-left: 25px;
-    margin-top: 20px;
+@media (min-width: 1481px) and (max-width: 1992px) {
+  .main-holder {
+    padding: 5vh 30vh 5vh 30vh;
+  }
 }
-
-.tcontainer2 .con2 .taskt2{
-  width: 500px;
-    height: 30px;
-    margin-left: 20px;
-    background-color: rgb(165, 165, 165);
-}
-
-.description{
-  text-align: left;
-    margin-left: 25px;
-    margin-top: 20px;
-}
-
-.tcontainer2 .con2 .taskt3{
-  width: 960px;
-    height: 200px;
-    margin-left: 20px;
-    background-color: rgb(165, 165, 165);
-}
-
-.post{
-    text-align: center;
-    border-radius: 20px;
-    width: 100px;
-    height: 50px;
-    margin-left: 900px;
-    margin-top: 30px;
-    background-color: rgb(165, 165, 165);
-    cursor: pointer;
-}
-

@@ -1,9 +1,8 @@
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Card from "react-bootstrap/Card";
-import Dropdown from "react-bootstrap/Dropdown";
+import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
-import DropdownButton from "react-bootstrap/DropdownButton";
 import "../../assets/scss/course-new.scss";
 
 function CourseNew() {
@@ -57,7 +56,43 @@ function CourseNew() {
       </Tab>
 
       {/* PEOPLE TAB */}
-      <Tab className="people-tab" eventKey="people" title="People"></Tab>
+      <Tab className="people-tab" eventKey="people" title="People">
+        <Card className="instructor-card">
+          <Card.Header>Instructor</Card.Header>
+          <Card.Body>
+            <i className="bx bxs-user-circle"></i>
+            <p className="name">Padme Naberie Amidala Skywalker</p>
+          </Card.Body>
+        </Card>
+
+        <Card className="student-card">
+          <Card.Header>Students</Card.Header>
+          <Card.Body>
+            <ListGroup className="lists">
+              <ListGroup.Item>
+                <i className="bx bxs-user-circle"></i>
+                <p className="name">Glaiza Joyce Bauzon Alicoben</p>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <i className="bx bxs-user-circle"></i>
+                <p className="name">Stephen Paul Bautista Bautista</p>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <i className="bx bxs-user-circle"></i>
+                <p className="name">Jaydeebryann Estrada Ang</p>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <i className="bx bxs-user-circle"></i>
+                <p className="name">Leanne Main Dela Cruz</p>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <i className="bx bxs-user-circle"></i>
+                <p className="name">Christian Quimsim Munar</p>
+              </ListGroup.Item>
+            </ListGroup>
+          </Card.Body>
+        </Card>
+      </Tab>
     </Tabs>
   );
 }
