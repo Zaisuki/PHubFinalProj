@@ -3,6 +3,7 @@ import './App.css';
 import Login from './pages/login';
 import MainContent from './pages/mainContent';
 import { authenticateToken } from './services/authentication';
+import Loading from './pages/loading';
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +19,7 @@ function App() {
                 setIsLoading(false);
             });
     }, []);
-    return <>{isLoading ? <div>Loading...</div> : <>{isLoggedIn ? <MainContent /> : <Login />}</>}</>;
+    return <>{isLoading ? <Loading /> : <>{isLoggedIn ? <MainContent /> : <Login />}</>}</>;
 }
 
 export default App;
