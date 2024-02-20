@@ -1,6 +1,5 @@
 import '../assets/scss/profile.scss';
 import picon from '../assets/img/mygirl.jpg';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 function Profile() {

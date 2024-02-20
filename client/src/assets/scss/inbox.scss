@@ -51,18 +51,19 @@
         display: flex;
         align-items: center;
         padding: 10px;
+        font-size: 30px;
 
         span{
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         
         .messages{
             width: 1000px;
             margin-top: 650px;
-            margin-left: -65px;
+            margin-left: -110px;
             background-color: #ddddf7;
             padding: 10px;
-            height: 630px;
+            height: 600px;
             overflow: scroll;
 
             .message{
@@ -96,7 +97,7 @@
                         max-width: max-content;
                     }
                     img{
-                        width: 50%;
+                        width: 40%;
                     }
                 }
 
@@ -105,11 +106,14 @@
 
                     .messageContent{
                         align-items: flex-end;
+                        flex-direction: column;
                     }
 
                     p{
                         background-color: #8da4f1;
                         color: white;
+                        font-size: 20px;
+                        padding: 10px 20px;
                         border-radius: 10px 0px 10px 10px;
                     }
                 }
@@ -143,7 +147,7 @@
 .send img{
     height: 30px;
     margin-left: 800px;
-    margin-top: -20px;
+    margin-top: -80px;
     cursor: pointer;
 
     
@@ -151,7 +155,7 @@
 
 .button button{
     margin-left: 900px;
-    margin-top: -90px;
+    margin-top: -100px;
     border: none;
     color: white;
     background-color: #8da4f1;
