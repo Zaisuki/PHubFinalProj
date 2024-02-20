@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { StreamChat } from 'stream-chat';
+import React, { useEffect, useState } from "react";
+import { StreamChat } from "stream-chat";
 import {
   Chat,
   Channel,
@@ -9,10 +9,11 @@ import {
   MessageInput,
   Thread,
   Window,
-} from 'stream-chat-react';
-import 'stream-chat-react/dist/css/v2/index.css';
+} from "stream-chat-react";
+import "stream-chat-react/dist/css/v2/index.css";
+import "../assets/scss/inbox.scss"
 
-const filters = { type: 'messaging' };
+const filters = { type: "messaging" };
 const options = { state: true, presence: true, limit: 10 };
 const sort = { last_message_at: -1 };
 
@@ -20,14 +21,14 @@ const inbox = () => {
   const [client, setClient] = useState(null);
 
   useEffect(() => {
-    const newClient = new StreamChat('2sgdxg7zqddx');
+    const newClient = new StreamChat("2sgdxg7zqddx");
 
     const handleConnectionChange = ({ online = false }) => {
-      if (!online) return console.log('connection lost');
+      if (!online) return console.log("connection lost");
       setClient(newClient);
     };
 
-    newClient.on('connection.changed', handleConnectionChange);
+    newClient.on("connection.changed", handleConnectionChange);
 
     newClient.connectUser(
       {
@@ -39,24 +40,31 @@ const inbox = () => {
     );
 
     return () => {
-      newClient.off('connection.changed', handleConnectionChange);
-      newClient.disconnectUser().then(() => console.log('connection closed'));
+      newClient.off("connection.changed", handleConnectionChange);
+      newClient.disconnectUser().then(() => console.log("connection closed"));
     };
   }, []);
 
   if (!client) return null;
 
   return (
+    
     <Chat client={client}>
-      <ChannelList filters={filters} sort={sort} options={options} />
-      <Channel>
-        <Window>
-          <ChannelHeader />
-          <MessageList />
-          <MessageInput />
-        </Window>
-        <Thread />
-      </Channel>
+      <div className="inbox">
+      <div className="channel-list">
+        <ChannelList filters={filters} sort={sort} options={options} />
+      </div>
+      <div className="main-chat">
+        <Channel>
+          <Window>
+            <ChannelHeader />
+            <MessageList />
+            <MessageInput />
+          </Window>
+          <Thread />
+        </Channel>
+      </div>
+    </div>
     </Chat>
   );
 };
