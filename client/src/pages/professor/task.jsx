@@ -106,12 +106,15 @@ function TaskProf() {
         <h1>CREATE TASK</h1>
         <h2 className="task-title">Task Title</h2>
         <Card className="taskt">
+          <textarea className="task-text"></textarea>
         </Card>
         <h3 className="points">Points</h3>
         <Card className="taskt2">
+        <textarea></textarea>
         </Card>
         <h4 className="description">Description</h4>
         <Card className="taskt3">
+        <textarea></textarea>
         </Card>
         </Card>
         
