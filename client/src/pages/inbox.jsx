@@ -11,6 +11,10 @@ import {
   Window,
 } from "stream-chat-react";
 import "stream-chat-react/dist/css/v2/index.css";
+<<<<<<< HEAD
+=======
+import "../assets/scss/inbox.scss"
+>>>>>>> a7582984fc3517907df53c762df9a9e0ae1a05e0
 
 const filters = { type: "messaging" };
 const options = { state: true, presence: true, limit: 10 };
@@ -47,16 +51,23 @@ const inbox = () => {
   if (!client) return null;
 
   return (
+    
     <Chat client={client}>
-      <ChannelList filters={filters} sort={sort} options={options} />
-      <Channel>
-        <Window>
-          <ChannelHeader />
-          <MessageList />
-          <MessageInput />
-        </Window>
-        <Thread />
-      </Channel>
+      <div className="inbox">
+      <div className="channel-list">
+        <ChannelList filters={filters} sort={sort} options={options} />
+      </div>
+      <div className="main-chat">
+        <Channel>
+          <Window>
+            <ChannelHeader />
+            <MessageList />
+            <MessageInput />
+          </Window>
+          <Thread />
+        </Channel>
+      </div>
+    </div>
     </Chat>
   );
 };

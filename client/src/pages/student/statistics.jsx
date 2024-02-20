@@ -1,4 +1,4 @@
-import "../../assets/scss/dashboard.scss";
+import "../../assets/scss/statistics.scss";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
