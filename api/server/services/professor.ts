@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import { Professor } from '../models/user';
 import { Announcement } from '../models/classModel/announcement';
-import { Class } from '../models/classModel/class';
+import { Check, Class, Connect, ConnectChoices } from '../models/classModel/class';
 import { ProfessorHandledClass } from '../models/classModel/professorClass';
 
 // export const findAllProfessor = async (req: Request, res: Response) => {
@@ -90,7 +90,7 @@ export const addAnnouncement = async (header: string, announcement: string, prof
         return { message: error.message, httpCode: 500 };
     }
 };
-
+// TODO: temporary delete all announcement, add delete announcement that can be deleted by the professor that posted
 export const deleteAnnouncement = async (req: Request, res: Response) => {
     try {
         const announcement = await Announcement.deleteMany({});
@@ -98,5 +98,72 @@ export const deleteAnnouncement = async (req: Request, res: Response) => {
         res.status(200).json(announcement);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
+    }
+};
+
+export const addCheck = async (classID: string, postTitle: string, postDescription: string, dueDate: Date, attachment: string[]) => {
+    try {
+        let newCheck = await new Check({
+            postTitle, postDescription, dueDate
+        }).save();
+        if (attachment) {
+            newCheck.attachment.push(...attachment)
+            await newCheck.save()
+        } 
+        let classScheme = await Class.findById(classID);
+        if (!classScheme) {
+            return { message: 'Class not found', httpCode: 404 };
+        }
+        newCheck.class = classScheme._id;
+        classScheme.check.push(newCheck._id)
+        await classScheme.save();
+        await newCheck.save();
+        return { message: 'Check posted', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
+export const addCoach = async (classID: string, postTitle: string, postDescription: string, attachment: string[]) => {
+    try {
+        let newCoach = await new Check({
+            postTitle, postDescription
+        }).save();
+        if (attachment) {
+            newCoach.attachment.push(...attachment)
+            await newCoach.save()
+        } 
+        let classScheme = await Class.findById(classID);
+        if (!classScheme) {
+            return { message: 'Class not found', httpCode: 404 };
+        }
+        newCoach.class = classScheme._id;
+        classScheme.coach.push(newCoach._id)
+        await classScheme.save();
+        await newCoach.save();
+        return { message: 'Coach posted', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
+export const addConnect = async (classID: string, postTitle: string, postDescription: string, dueDate: Date, attachment: string[], choices: string[]) => {
+    try {
+        let newConnect = await new Connect({
+            postTitle, dueDate, postDescription
+        }).save();
+        let classScheme = await Class.findById(classID);
+        if (!classScheme) {
+            return { message: 'Class not found', httpCode: 404 };
+        }
+        await Promise.all(choices.map((choice) => {
+            const connectChoice = new ConnectChoices({choice});
+            newConnect.postChoices.push(connectChoice._id);
+        }));
+        newConnect.class = classScheme._id;
+        classScheme.connect.push(newConnect._id)
+        await classScheme.save();
+        await newConnect.save();
+        return { message: 'Connect posted', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
     }
 };

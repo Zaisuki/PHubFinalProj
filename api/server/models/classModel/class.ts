@@ -4,7 +4,7 @@ const checkSchema = new Schema(
     {
         class: {
             type: Schema.Types.ObjectId,
-            ref: 'ConnectChoices',
+            ref: 'Class',
             default: null,
         },
         postTitle: {
@@ -19,7 +19,7 @@ const checkSchema = new Schema(
         },
         attachment: [
             {
-                type: Buffer,
+                type: String,
             },
         ],
         respondents: {
@@ -45,7 +45,7 @@ const coachSchema = new Schema(
     {
         class: {
             type: Schema.Types.ObjectId,
-            ref: 'ConnectChoices',
+            ref: 'Class',
             default: null,
         },
         postTitle: {
@@ -57,7 +57,7 @@ const coachSchema = new Schema(
         },
         attachment: [
             {
-                type: Buffer,
+                type: String,
             },
         ],
         view: {
@@ -77,6 +77,10 @@ const connectChoicesSchema = new Schema({
         type: String,
         required: [true, 'Please enter the choice.'],
     },
+    respondents: {
+        type: Number,
+        default: 0,
+    },
 });
 
 export const ConnectChoices = mongoose.model('ConnectChoices', connectChoicesSchema);
@@ -85,7 +89,7 @@ const connectSchema = new Schema(
     {
         class: {
             type: Schema.Types.ObjectId,
-            ref: 'ConnectChoices',
+            ref: 'Class',
             default: null,
         },
         postTitle: {
