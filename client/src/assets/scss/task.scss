@@ -57,7 +57,7 @@
     width: 1000px;
     height: 510px;
     margin-top: -70px;
-    background-color: gray;
+    background-color: rgb(255, 255, 255);
     
     
     h1{
@@ -72,12 +72,15 @@
     width: 900px;
     height: 30px;
     margin-left: 20px;
-    background-color: rgb(165, 165, 165);
+    background-color: rgb(255, 255, 255);
 }
 
     .task-title{
         padding: 20px;
         height: 60px;
+        .task-text{
+          border-radius: 100px;
+        }
         
     }   
     
@@ -93,7 +96,7 @@
   width: 500px;
     height: 30px;
     margin-left: 20px;
-    background-color: rgb(165, 165, 165);
+    background-color: rgb(255, 255, 255);
 }
 
 .description{
@@ -106,7 +109,7 @@
   width: 960px;
     height: 200px;
     margin-left: 20px;
-    background-color: rgb(165, 165, 165);
+    background-color: rgb(255, 255, 255);
 }
 
 .post{
@@ -119,4 +122,5 @@
     background-color: rgb(165, 165, 165);
     cursor: pointer;
 }
+
 

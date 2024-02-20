@@ -11,28 +11,24 @@ function FeedProf() {
   const descriptionTextAreaRef = useRef(null);
   const [titleVal, setTitleVal] = useState("");
   const [descriptionVal, setDescriptionVal] = useState("");
-  const [characterCount, setCharacterCount] = useState(0);
-  const characterLimit = 500;
+  const [titleCharacterCount, setTitleCharacterCount] = useState(0);
+  const [descriptionCharacterCount, setDescriptionCharacterCount] = useState(0);
+  const titleCharacterLimit = 30;
+  const descriptionCharacterLimit = 200;
 
   const handleTitleChange = (e) => {
     const input = e.target.value;
-    if (input.length <= characterLimit) {
+    if (input.length <= titleCharacterLimit) {
       setTitleVal(input);
-      setCharacterCount(input.length);
+      setTitleCharacterCount(input.length);
     }
   };
 
   const handleDescriptionChange = (e) => {
     const input = e.target.value;
-    if (input.length <= characterLimit) {
+    if (input.length <= descriptionCharacterLimit) {
       setDescriptionVal(input);
-      setCharacterCount(input.length);
-    }
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.target.value.length >= characterLimit && e.key !== "Backspace") {
-      e.preventDefault();
+      setDescriptionCharacterCount(input.length);
     }
   };
 
@@ -83,11 +79,10 @@ function FeedProf() {
                     placeholder="Type something.."
                     value={titleVal}
                     onChange={handleTitleChange}
-                    onKeyDown={handleKeyDown}
                     rows="1"
                     ref={titleTextAreaRef}
                   ></textarea>
-                  <p className="word-count">{titleVal.length}/{characterLimit}</p>
+                  <p className="word-count">{titleCharacterCount}/{titleCharacterLimit}</p>
                 </div>
                 <div className="h2-text-one">
                   <h2>Description</h2>
@@ -99,11 +94,10 @@ function FeedProf() {
                         placeholder="Type something.."
                         value={descriptionVal}
                         onChange={handleDescriptionChange}
-                        onKeyDown={handleKeyDown}
                         rows="1"
                         ref={descriptionTextAreaRef}
                       ></textarea>
-                      <p className="word-count">{characterCount}/{characterLimit}</p>
+                      <p className="word-count">{descriptionCharacterCount}/{descriptionCharacterLimit}</p>
                       <Button
                         className="create-post"
                         variant="success"

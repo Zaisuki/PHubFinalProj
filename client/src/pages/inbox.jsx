@@ -32,10 +32,10 @@ const inbox = () => {
 
     newClient.connectUser(
       {
-        id: "stephen", // change id name, look at comment below
-        name: "stephen", // change name, look at comment below
+        id: chatUserId, // change id name, look at comment below
+        name: chatUserName, // change name, look at comment below
       },
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic3RlcGhlbiJ9.LaDhU8ohMau7z0kSrXZO5ignL6mYrVHd60CHtxYd98Q"
+      chatUserToken,
       // change token, look at comment below
     );
 
@@ -73,9 +73,9 @@ const inbox = () => {
 // chatUserToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoicmVuZWsifQ.92NK8Q4keQCHit2IpjKfVYAD80UVYubMB_y9gIpNkqY';
 // chatUserName = 'renek';
 
-// chatUserId = 'glai';
-// chatUserToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZ2xhaSJ9.MET1LWaTy9TLgjcRKIj6Xx_ZpAvMexEcWEeJG94cIJA';
-// chatUserName = 'glai';
+const chatUserId = 'glai';
+const chatUserToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZ2xhaSJ9.MET1LWaTy9TLgjcRKIj6Xx_ZpAvMexEcWEeJG94cIJA';
+const chatUserName = 'glai';
 
 // chatUserId = 'ley';
 // chatUserToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoibGV5In0.AEY82cfu50qEEWymQ2Belg1k_daFpUD4wulwy9Of_L8';
