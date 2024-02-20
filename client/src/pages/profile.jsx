@@ -4,10 +4,10 @@ import Card from 'react-bootstrap/Card';
 
 function Profile() {
     return (
-        <Card className='main'>
-            <div className='border'></div>
+       
+           
 
-            <div className='bg'>
+            
                 <Card.Body className='card-booty'>
                     <Card className='one'>
                         <img className='profile-img' src={picon} alt='profile' />
@@ -69,8 +69,8 @@ function Profile() {
                         <h2>Shanong@gmail.com</h2>
                     </Card>
                 </Card.Body>
-            </div>
-        </Card>
+            
+     
     );
 }
 export default Profile;
