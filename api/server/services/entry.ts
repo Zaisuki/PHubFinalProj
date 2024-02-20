@@ -34,8 +34,9 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
             userType,
             userInformation: null,
         }).save();
-        let user;
+        let user, userTypeID = 0;
         if (userType.toLowerCase() === 'student') {
+            userTypeID = 0;
             const studentSubjects = await new StudentSubjects({}).save();
             user = new Student({
                 firstName,
@@ -55,6 +56,7 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
             studentSubjects.student = user._id;
             await studentSubjects.save();
         } else if (userType.toLowerCase() === 'professor') {
+            userTypeID = 1;
             const professorClass = await new ProfessorHandledClass({}).save();
             user = new Professor({
                 firstName,
@@ -72,6 +74,7 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
             professorClass.professor = user._id;
             await professorClass.save();
         } else if (userType.toLowerCase() === 'admin') {
+            userTypeID = 2;
             user = new Admin({
                 firstName,
                 middleName,
@@ -86,7 +89,7 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
             });
         }
         if (user) {
-            userCredentialResult.userInformation = user._id;
+            userCredentialResult.userInformation[userTypeID] = user._id;
             await userCredentialResult.save();
             await user.save();
             return { message: 'User saved to the database', httpCode: 200 };
