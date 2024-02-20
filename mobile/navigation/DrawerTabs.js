@@ -13,6 +13,7 @@ import EvaluationScreen from './drawer-nav-screens/EvaluationScreen';
 import CalendarScreen from './drawer-nav-screens/CalendarScreen';
 import AboutEnigmaScreen from './drawer-nav-screens/AboutEnigmaScreen';
 import CustomDrawer from './CustomDrawerComponent/CustomDrawer';
+import NotificationScreen from './drawer-nav-screens/NotificationScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -26,15 +27,15 @@ function DrawerTabs() {
       drawerItemStyle: {borderRadius: 15, height: 80, },
       drawerLabelStyle: {alignItems: 'center', }
     }}>
-      <Drawer.Screen name='Feed' component={FeedScreen} options={{
+      <Drawer.Screen name='Profile' component={ProfileScreen} options={{
         drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50,}} source={feedIcon} />
+          return <Image style= {{height: 50, width: 50,}} source={profileIcon} />
         }
       }}/>
 
-      <Drawer.Screen name='Inbox' component={InboxScreen} options={{
+      <Drawer.Screen name='Feed' component={FeedScreen} options={{
         drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50}} source={inboxIcon} />
+          return <Image style= {{height: 50, width: 50}} source={feedIcon} />
         }
       }}/>
 
@@ -50,15 +51,21 @@ function DrawerTabs() {
         }
       }}/>
 
-      <Drawer.Screen name='Statistics' component={StatisticScreen} options={{
+      <Drawer.Screen name='Notification' component={NotificationScreen} options={{
         drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50}} source={statisticsIcon} />
+          return <Image style= {{height: 50, width: 50}} source={profileIcon} />
         }
       }}/>
 
-      <Drawer.Screen name='Profile' component={ProfileScreen} options={{
+      <Drawer.Screen name='Inbox' component={InboxScreen} options={{
         drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50}} source={profileIcon} />
+          return <Image style= {{height: 50, width: 50}} source={inboxIcon} />
+        }
+      }}/>
+
+      <Drawer.Screen name='Calendar' component={CalendarScreen} options={{
+        drawerIcon: ({color, size, focused}) => {
+          return <Image style= {{height: 50, width: 50}} source={calendarIcon} />
         }
       }}/>
 
@@ -68,9 +75,9 @@ function DrawerTabs() {
         }
       }}/>
 
-      <Drawer.Screen name='Calendar' component={CalendarScreen} options={{
+      <Drawer.Screen name='Statistics' component={StatisticScreen} options={{
         drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50}} source={calendarIcon} />
+          return <Image style= {{height: 50, width: 50}} source={statisticsIcon} />
         }
       }}/>
 

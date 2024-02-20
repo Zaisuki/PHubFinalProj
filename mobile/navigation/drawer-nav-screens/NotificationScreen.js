@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 
-const CalendarScreen = ({navigation}) => {
+const NotificationScreen = ({navigation}) => {
     return (
         <View style={styles.container}>
-            <Text>Course Screen</Text>
+            <Text>Feed Screen</Text>
             <Button
             title='Click Here'
             onPress={() => ('Button Clicked!')}
@@ -13,7 +13,7 @@ const CalendarScreen = ({navigation}) => {
     )
 };
 
-export default CalendarScreen;
+export default NotificationScreen;
 
 const styles = StyleSheet.create({
     container: {
