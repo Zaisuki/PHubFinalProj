@@ -1,8 +1,8 @@
 .wrapper {
     width: auto;
     height: 100vh;
-    border: 1px solid black;
-    color: black;
+    border: 1px;
+    color: rgb(0, 0, 0);
     margin: 5px;
 }
 
@@ -41,6 +41,6 @@
         height: 100%;
     }
     .active {
-        background-color: white;
+        background-color: gray;
     }
 }
