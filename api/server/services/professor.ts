@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import { Professor } from '../models/user';
 import { Announcement } from '../models/classModel/announcement';
-import { Check, Class, Connect, ConnectChoices } from '../models/classModel/class';
+import { Check, Class, Coach, Connect, ConnectChoices } from '../models/classModel/class';
 import { ProfessorHandledClass } from '../models/classModel/professorClass';
 
 // export const findAllProfessor = async (req: Request, res: Response) => {
@@ -175,6 +175,36 @@ export const addCoach = async (classID: string, postTitle: string, postDescripti
         return { message: error.message, httpCode: 500 };
     }
 };
+export const deleteAllCoach = async (classID: string) => {
+    try {
+        const classClass = await Class.findById(classID);
+        if(classClass){
+            await Promise.all(classClass.coach.map(async (objID) => {
+                const result = await Coach.deleteOne({ _id: objID._id });
+            }));
+            classClass.coach = []
+            await classClass.save()
+            return { message: 'Deleted all coach', httpCode: 200 };
+        }
+        return { message: 'Deleted none', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
+export const deleteCoach = async (classID: string, coachID: string) => {
+    try {
+        const classClass = await Class.findById(classID);
+        if(classClass){
+            await Coach.deleteOne({ _id: coachID });
+            classClass.coach = classClass.coach.filter(coach => coach._id.toString() !== coachID);
+            await classClass.save()
+            return { message: 'Coach deleted', httpCode: 200 };
+        }
+        return { message: 'Deleted none', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
 export const addConnect = async (classID: string, postTitle: string, postDescription: string, dueDate: Date, attachment: string[], choices: string[]) => {
     try {
         let newConnect = await new Connect({
@@ -193,6 +223,37 @@ export const addConnect = async (classID: string, postTitle: string, postDescrip
         await classScheme.save();
         await newConnect.save();
         return { message: 'Connect posted', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
+
+export const deleteAllConnect = async (classID: string) => {
+    try {
+        const classClass = await Class.findById(classID);
+        if(classClass){
+            await Promise.all(classClass.connect.map(async (objID) => {
+                const result = await Connect.deleteOne({ _id: objID._id });
+            }));
+            classClass.connect = []
+            await classClass.save()
+            return { message: 'Deleted all connect', httpCode: 200 };
+        }
+        return { message: 'Deleted none', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
+export const deleteConnect = async (classID: string, connectID: string) => {
+    try {
+        const classClass = await Class.findById(classID);
+        if(classClass){
+            await Connect.deleteOne({ _id: connectID });
+            classClass.connect = classClass.connect.filter(connect => connect._id.toString() !== connectID);
+            await classClass.save()
+            return { message: 'Connect deleted', httpCode: 200 };
+        }
+        return { message: 'Deleted none', httpCode: 200 };
     } catch (error: any) {
         return { message: error.message, httpCode: 500 };
     }
