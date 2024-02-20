@@ -48,7 +48,6 @@
     padding: 5vh 5vh 5vh 5vh;
   }
 }
-<<<<<<< HEAD
 @media (min-width: 601px) and (max-width: 992px) {
   .main-holder {
     padding: 5vh 9vh 5vh 9vh;
@@ -74,96 +73,3 @@
     padding: 5vh 30vh 5vh 30vh;
   }
 }
-=======
-
-.tcontainer2{
-    margin-top: 50px;
-    display: grid;
-    place-items: center;
-    
-}
-
-.tcontainer2 .con2{
-    width: 1000px;
-    height: 510px;
-    margin-top: -70px;
-    border: 1px solid;
-    background-color: rgb(255, 255, 255);
-  
-    
-    
-    h1{
-    text-align: center;
-    padding: 10px;
-    height:20px;
-    margin-top: 10px;
-}
-
-
-.taskt{
-    width: 900px;
-    height: 30px;
-    margin-left: 20px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid;
-}
-
-    .task-title{
-        padding: 20px;
-        height: 60px;
-        .task-text{
-          border-radius: 100px;
-          
-        }
-        
-    }   
-    
-}
-
-.points{
-    text-align: left;
-    margin-left: 25px;
-    margin-top: 20px;
-    
-}
-
-.tcontainer2 .con2 .taskt2{
-  width: 500px;
-    height: 30px;
-    margin-left: 20px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid;
-}
-
-.description{
-  text-align: left;
-    margin-left: 25px;
-    margin-top: 20px;
-}
-
-.tcontainer2 .con2 .taskt3{
-  width: 960px;
-    height: 200px;
-    margin-left: 20px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid;
-
-    textarea{
-      height: 300px;
-    }
-}
-
-.post{
-    text-align: center;
-    border-radius: 20px;
-    width: 100px;
-    height: 50px;
-    margin-left: 900px;
-    margin-top: 30px;
-    background-color: rgb(165, 165, 165);
-    cursor: pointer;
-    border: 1px solid;
-}
-
-
->>>>>>> a7582984fc3517907df53c762df9a9e0ae1a05e0
