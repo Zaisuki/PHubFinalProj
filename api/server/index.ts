@@ -11,6 +11,7 @@ import registrationRoutes from './routes/registration';
 import professorRoutes from './routes/professor';
 import studentRoutes from './routes/student';
 import feedRoutes from './routes/feed';
+import { UserCredentials } from './models/user';
 
 const app = express();
 const port = 3000;
@@ -38,6 +39,15 @@ app.use(
         extended: true,
     })
 );
+// TODO: delete before pushing
+app.put('/update', async (req, res) => {
+    const userID = req.body.userID;
+    const change = req.body.change;
+
+    const result = await UserCredentials.updateOne({ _id: userID }, { $unset: { userInformation: 1 } });
+    console.log(result);
+    return res.status(200).json(result);
+});
 
 app.use('/entry/', entryRoutes);
 app.use('/user/', userRoutes);

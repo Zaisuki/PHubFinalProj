@@ -40,7 +40,6 @@ export const loginUserController = async (req: Request, res: Response) => {
                 }
             }
 
-            console.log(loginUpdate);
             res.status(data.code).json(loginUpdate);
             return;
         }

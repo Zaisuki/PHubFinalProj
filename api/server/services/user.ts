@@ -89,20 +89,22 @@ export const findProfessorByID = async (id: string) => {
     }
 };
 
-
 // Profile
-export const getUserProfile = async (userID: string) => {
+export const getUserProfile = async (userID: string, userType: string) => {
     try {
-        const userObjectID = new Types.ObjectId(userID)
-        console.log(userObjectID)
-        const userDetails = await UserCredentials.findOne({userInformation: userObjectID});//.populate('userInformation').exec();
-        if(userDetails){
+        const userObjectID = new Types.ObjectId(userID);
+        console.log(userObjectID);
+        const populateDataByType = userType === 'student' ? 'studentInformation' : userType === 'professor' ? 'professorInformation' : 'adminInformation';
+        console.log(populateDataByType);
+        const findDataByType = userType === 'student' ? { studentInformation: userObjectID } : userType === 'professor' ? { professorInformation: userObjectID } : { adminInformation: userObjectID };
+        const userDetails = await UserCredentials.findOne(findDataByType).populate(populateDataByType).exec();
 
-            return {message: userDetails, httpCode: 200};
+        if (userDetails) {
+            return { message: userDetails, httpCode: 200 };
         }
 
         return { 'message': 'No user found', 'httpCode': 500 };
     } catch (error) {
         return { 'message': 'No user found', 'httpCode': 500 };
     }
-}
+};
