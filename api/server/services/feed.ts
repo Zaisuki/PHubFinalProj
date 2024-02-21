@@ -1,11 +1,11 @@
 import express, { Express, Request, Response } from 'express';
-import { Student } from '../models/user';
+import { Professor, Student } from '../models/user';
 import { Announcement } from '../models/classModel/announcement';
 import { StudentSubjects } from '../models/classModel/studentClass';
 
-export const getAllAnouncement = async (id: string) => {
+export const getAllStudentAnouncement = async (id: string) => {
     try {
-        const result = await Student.find({}, 'studentSubjects')
+        const result = await Student.findOne({ _id: id }, 'studentSubjects')
             .populate({
                 path: 'studentSubjects',
                 populate: {
@@ -16,6 +16,25 @@ export const getAllAnouncement = async (id: string) => {
                 },
             })
             .exec();
+        return result;
+    } catch (error) {
+        return { 'message': 'No Announcement' };
+    }
+};
+export const getAllProfessorAnouncement = async (professorID: string) => {
+    try {
+        const result = await Announcement.find({ professor: professorID, class: null });
+        console.log(result);
+        // .populate({
+        //     path: 'studentSubjects',
+        //     populate: {
+        //         path: 'class',
+        //         populate: {
+        //             path: 'announcement',
+        //         },
+        //     },
+        // })
+        // .exec();
         return result;
     } catch (error) {
         return { 'message': 'No Announcement' };

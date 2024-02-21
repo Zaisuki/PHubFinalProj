@@ -1,12 +1,22 @@
 import express, { Express, Request, Response } from 'express';
 import { User } from '../middleware/authentication';
 import { findProfessorByID } from '../services/user';
-import { postAnnouncement } from '../services/feed';
+import { getAllProfessorAnouncement, getAllStudentAnouncement, postAnnouncement } from '../services/feed';
 
 export const getAnnouncementController = async (req: Request & { user?: User }, res: Response) => {
     try {
-        console.log('Data', req.user);
-        return res.status(200).json({ 'message': 'Data' });
+        const { userID, userType } = req.user || {};
+        if (userID) {
+            let result;
+            if (userType === 'student') {
+                result = await getAllStudentAnouncement(userID);
+            } else {
+                result = await getAllProfessorAnouncement(userID);
+            }
+            return res.status(200).json({ 'message': result });
+        }
+
+        return res.status(401).json({ 'message': 'Unauthorize' });
     } catch {
         res.status(500).json({ 'message': 'Internal Server Error' });
     }
