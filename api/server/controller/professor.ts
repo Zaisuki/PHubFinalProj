@@ -5,6 +5,12 @@ import { addAnnouncement, addCheck, addCoach, addConnect, deleteAllCheck, delete
 export const addAnnouncementController = async (req: Request & { user?: User }, res: Response) => {
     try {
         const { header, announcement, classID } = req.body;
+        if (!header) {
+            return res.status(400).json({ 'message': 'Add Title' });
+        }
+        if (!announcement) {
+            return res.status(400).json({ 'message': 'Add Description' });
+        }
         const professorID = req.user?.userID;
         const result = await addAnnouncement(header, announcement, professorID, classID);
         return res.status(result.httpCode).json({ 'message': result.message });
@@ -44,9 +50,9 @@ export const addConnectController = async (req: Request, res: Response) => {
 };
 export const deleteAllCheckController = async (req: Request, res: Response) => {
     try {
-        const {classID} = req.body
+        const { classID } = req.body;
         const result = await deleteAllCheck(classID);
-        
+
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error: any) {
         return res.status(500).json({ 'message': 'Internal Server Error' });
@@ -54,9 +60,9 @@ export const deleteAllCheckController = async (req: Request, res: Response) => {
 };
 export const deleteCheckController = async (req: Request, res: Response) => {
     try {
-        const {classID, checkID} = req.body
+        const { classID, checkID } = req.body;
         const result = await deleteCheck(classID, checkID);
-        
+
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error: any) {
         return res.status(500).json({ 'message': 'Internal Server Error' });
@@ -64,9 +70,9 @@ export const deleteCheckController = async (req: Request, res: Response) => {
 };
 export const deleteAllCoachController = async (req: Request, res: Response) => {
     try {
-        const {classID} = req.body
+        const { classID } = req.body;
         const result = await deleteAllCheck(classID);
-        
+
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error: any) {
         return res.status(500).json({ 'message': 'Internal Server Error' });
@@ -74,9 +80,9 @@ export const deleteAllCoachController = async (req: Request, res: Response) => {
 };
 export const deleteCoachController = async (req: Request, res: Response) => {
     try {
-        const {classID, coachID} = req.body
+        const { classID, coachID } = req.body;
         const result = await deleteCoach(classID, coachID);
-        
+
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error: any) {
         return res.status(500).json({ 'message': 'Internal Server Error' });
@@ -84,9 +90,9 @@ export const deleteCoachController = async (req: Request, res: Response) => {
 };
 export const deleteAllConnectController = async (req: Request, res: Response) => {
     try {
-        const {classID} = req.body
+        const { classID } = req.body;
         const result = await deleteAllConnect(classID);
-        
+
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error: any) {
         return res.status(500).json({ 'message': 'Internal Server Error' });
@@ -94,9 +100,9 @@ export const deleteAllConnectController = async (req: Request, res: Response) =>
 };
 export const deleteConnectController = async (req: Request, res: Response) => {
     try {
-        const {classID, connectID} = req.body
+        const { classID, connectID } = req.body;
         const result = await deleteConnect(classID, connectID);
-        
+
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error: any) {
         return res.status(500).json({ 'message': 'Internal Server Error' });

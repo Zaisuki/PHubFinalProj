@@ -33,12 +33,15 @@ function FeedProf() {
         }
     };
     const handleSubmit = async () => {
-        const result = await postAnnouncement(titleVal, descriptionVal);
-        if (result.message === 'Announcement posted') {
-            // Todo: show gui for success notif
-            setTitleVal('');
-            setDescriptionVal('');
+        if (titleVal !== '' && descriptionVal !== '') {
+            const result = await postAnnouncement(titleVal, descriptionVal);
+            if (result.message === 'Announcement posted') {
+                // Todo: show gui for success notif
+                setTitleVal('');
+                setDescriptionVal('');
+            }
         }
+        // Todo: show gui empty inputs
     };
     useEffect(() => {
         if (titleTextAreaRef.current) {
