@@ -7,6 +7,7 @@ import { StudentCheckSubmission, StudentCoachView, StudentConnectSubmission, Stu
 import { Subject } from '../models/classModel/subject';
 import { Inbox } from '../models/inbox';
 import { Message } from '../models/message';
+import { Types } from 'mongoose';
 
 // TODO: remove this, this is temporary
 export const findAllUsers = async (req: Request, res: Response) => {
@@ -92,9 +93,16 @@ export const findProfessorByID = async (id: string) => {
 // Profile
 export const getUserProfile = async (userID: string) => {
     try {
-        const userDetails = await UserCredentials.findOne({userInformation: userID}).populate('userInformation').exec();
-        return {message: userDetails, httpCode: 200};
+        const userObjectID = new Types.ObjectId(userID)
+        console.log(userObjectID)
+        const userDetails = await UserCredentials.findOne({userInformation: userObjectID});//.populate('userInformation').exec();
+        if(userDetails){
+
+            return {message: userDetails, httpCode: 200};
+        }
+
+        return { 'message': 'No user found', 'httpCode': 500 };
     } catch (error) {
-        return { 'message': 'No professor found', 'httpCode': 500 };
+        return { 'message': 'No user found', 'httpCode': 500 };
     }
 }

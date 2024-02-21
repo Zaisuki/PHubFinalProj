@@ -26,6 +26,7 @@ const userCredentialSchema = new Schema({
     type: String,
     required: [true, "Please enter user type."],
   },
+//   TODO: here
   userInformation: {
     type: [
       { type: mongoose.Schema.Types.ObjectId, ref: "Student" },

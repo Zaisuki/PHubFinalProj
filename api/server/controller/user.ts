@@ -8,7 +8,7 @@ export const getUserProfileController = async (req: Request & { user?: User }, r
         if (!userID) {
             return res.status(400).json({ message: 'User ID not provided' });
         }
-        const result = await getUserProfile(userID)
+        const result = await getUserProfile(userID[0])
         return res.status(result.httpCode).json(result.message);
     } catch (error) {
         return res.status(500).json({ 'message': 'Internal Server Error' });
