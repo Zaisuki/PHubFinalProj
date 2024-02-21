@@ -35,7 +35,7 @@ function Profile() {
                     {userInformation.firstName} {userInformation.middleName} {userInformation.lastName}
                 </h1>
                 <h2>{userInformation.personalNumber}</h2>
-                <h3>{data.personalEmail}</h3>
+                <h3 className='email'>{data.personalEmail}</h3>
                 <div className='line'></div>
             </Card>
             <Card className='two'>

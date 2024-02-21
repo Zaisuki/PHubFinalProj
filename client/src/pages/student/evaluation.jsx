@@ -33,7 +33,7 @@ function Evaluation() {
         <div className="details2">
         <InputGroup size="sm" className="mb-3">
           <InputGroup.Text id="inputGroup-sizing-sm">
-            Student Name{" "}
+            Student ID{" "}
           </InputGroup.Text>
           <Form.Control
             aria-label="Small"
