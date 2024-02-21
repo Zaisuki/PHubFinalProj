@@ -32,6 +32,7 @@
     "react": "18.2.0",
     "react-native": "0.73.2",
     "react-native-animatable": "^1.4.0",
+    "react-native-big-calendar": "^4.10.0",
     "react-native-calendars": "^1.1303.0",
     "react-native-chart-kit": "^6.12.0",
     "react-native-document-picker": "^9.1.0",
@@ -55,7 +56,11 @@
     "stream-chat": "^8.14.5",
     "stream-chat-expo": "^5.24.0",
     "stream-chat-react": "^11.4.0",
-    "typescript": "^5.3.0"
+    "typescript": "^5.3.0",
+    "expo-av": "~13.10.5",
+    "expo-sharing": "~11.10.0",
+    "expo-clipboard": "~5.0.1",
+    "expo-document-picker": "~11.10.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

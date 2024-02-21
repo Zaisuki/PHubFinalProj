@@ -8,9 +8,9 @@ import Day from 'react-native-calendars/src/calendar/day';
 import { Grid } from 'stream-chat-expo';
 
 const {width} = Dimensions.get('screen');
-const renderItem = (item) => {
+const renderItem = (reservation: AgendaEntry, isFirst: boolean) => {
   return (
-    <TouchableOpacity  onPress={() => Alert.alert(renderItem)} 
+    <TouchableOpacity  onPress={() => Alert.alert(reservation.name)} 
     style={{marginRight: 10, marginTop: 17}}>
       <Card>
         <Card.Content>
@@ -20,7 +20,7 @@ const renderItem = (item) => {
               justifyContent: 'space-between',
               alignItems: 'center',
             }}>
-            <Text>{item.name}</Text>
+            <Text>{reservation.name}</Text>
             <Avatar.Text label="J" />
           </View>
         </Card.Content>
@@ -92,6 +92,7 @@ const CalendarScreen = props =>  {
         showClosingKnob={true}
         initialNumToRender={4}
         renderEmptyData={renderEmptyDate}
+
         // markingType={'period'}
         // markedDates={{
         //    '2017-05-08': {textColor: '#43515c'},
