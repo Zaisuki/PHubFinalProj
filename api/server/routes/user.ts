@@ -4,7 +4,7 @@ import express, { Express, Request, Response, Router } from 'express';
 import { registerUserController } from '../controller/entry';
 import { deleteAllUsers, findAllUsers } from '../services/user';
 import { authenticateToken } from '../middleware/authentication';
-import { getUserProfileController, getUserSubjectsController } from '../controller/user';
+import { getUserNotificationController, getUserProfileController, getUserSubjectsController } from '../controller/user';
 
 const router = Router();
 
@@ -14,5 +14,6 @@ router.delete('/all', deleteAllUsers);
 
 router.get('/profile', authenticateToken, getUserProfileController);
 router.get('/course', authenticateToken, getUserSubjectsController);
+router.get('/notification', authenticateToken, getUserNotificationController);
 
 export default router;

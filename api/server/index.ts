@@ -13,7 +13,9 @@ import professorRoutes from './routes/professor';
 import studentRoutes from './routes/student';
 import feedRoutes from './routes/feed';
 import { UserCredentials } from './models/user';
-import { addNotification } from './services/notification';
+import { addReminderNotification } from './services/notification';
+import { Notification } from './models/notification';
+import { Check } from './models/classModel/class';
 
 const app = express();
 const port = 3000;
@@ -43,11 +45,7 @@ app.use(
 );
 // TODO: delete before pushing
 app.put('/update', async (req, res) => {
-    const userID = req.body.userID;
-    const change = req.body.change;
-
-    const result = await UserCredentials.updateOne({ _id: userID }, { $unset: { userInformation: 1 } });
-    console.log(result);
+    const result = await Notification.deleteMany();
     return res.status(200).json(result);
 });
 
@@ -58,8 +56,8 @@ app.use('/registration/', registrationRoutes);
 app.use('/professor/', professorRoutes);
 app.use('/student/', studentRoutes);
 
-schedule.scheduleJob('*/5 * * * * *', () => {
-    // addNotification();
+schedule.scheduleJob('*/1 * * * *', () => {
+    addReminderNotification();
 });
 
 app.get('/', (req, res) => {
