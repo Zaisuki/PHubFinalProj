@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import schedule from 'node-schedule';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -12,6 +13,7 @@ import professorRoutes from './routes/professor';
 import studentRoutes from './routes/student';
 import feedRoutes from './routes/feed';
 import { UserCredentials } from './models/user';
+import { addNotification } from './services/notification';
 
 const app = express();
 const port = 3000;
@@ -55,6 +57,10 @@ app.use('/feed/', feedRoutes);
 app.use('/registration/', registrationRoutes);
 app.use('/professor/', professorRoutes);
 app.use('/student/', studentRoutes);
+
+schedule.scheduleJob('*/5 * * * * *', () => {
+    // addNotification();
+});
 
 app.get('/', (req, res) => {
     res.send('Hello from your Node.js Express server!');

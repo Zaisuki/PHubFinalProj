@@ -48,6 +48,13 @@ const userCredentialSchema = new Schema({
             default: null,
         },
     ],
+    notification: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Notification',
+            default: null,
+        },
+    ],
 });
 
 export const UserCredentials = mongoose.model('UserCredentials', userCredentialSchema);
