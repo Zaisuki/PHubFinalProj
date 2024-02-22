@@ -122,6 +122,15 @@ export const getUserSubject = async (userID: string, userType: string) => {
                               },
                           },
                       })
+                      .populate({
+                          path: 'studentSubjects',
+                          populate: {
+                              path: 'class',
+                              populate: {
+                                  path: 'professor',
+                              },
+                          },
+                      })
                       .exec()
                 : await Professor.findById(userID, 'professorHandledClass')
                       .populate({
@@ -133,10 +142,19 @@ export const getUserSubject = async (userID: string, userType: string) => {
                               },
                           },
                       })
+                      .populate({
+                          path: 'professorHandledClass',
+                          populate: {
+                              path: 'class',
+                              populate: {
+                                  path: 'professor',
+                              },
+                          },
+                      })
                       .exec();
 
         if (userDetails) {
-            return { message: userDetails, httpCode: 200 };
+            return { message: { userDetails, userType }, httpCode: 200 };
         }
 
         return { 'message': 'No user found', 'httpCode': 500 };

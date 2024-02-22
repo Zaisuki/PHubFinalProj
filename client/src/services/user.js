@@ -29,6 +29,20 @@ export const feed = async () => {
         .catch((error) => {
             throw error;
         });
+    return response;
+};
+export const course = async () => {
+    const response = await axios
+        .get(`${apiURL}/user/course`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
     console.log(response);
     return response;
 };

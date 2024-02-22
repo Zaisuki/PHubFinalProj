@@ -5,7 +5,7 @@ import Profile from '../pages/profile';
 import Inbox from '../pages/inbox';
 import Notification from '../pages/notification';
 import Calendar from '../pages/calendar';
-import CourseProf from '../pages/professor/course';
+import CourseProf from '../pages/course';
 import ProfessorLayout from '../layout/professorLayout';
 import TaskProf from '../pages/professor/task';
 
