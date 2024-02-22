@@ -2,62 +2,71 @@ import { useState } from 'react';
 import '../assets/scss/calendar.scss';
 import { MONTHS } from '../utils/calendar/calendarConst';
 import { areDatestheSame, getDateObj, getDaysInMonth, getSortedDays, range } from '../utils/calendar/calendarUtil';
+import { Calendar, momentLocalizer } from 'react-big-calendar'
+import moment from 'moment'
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import React, { Component } from 'react';
+    
+const localizer = momentLocalizer(moment);
 
-const Calendar = () => {
-    const startingdate = new Date();
-    const [currentMonth, setCurrentMonth] = useState(startingdate.getMonth());
-    const [currentYear, setCurrentYear] = useState(startingdate.getFullYear());
-    const DAYSINAMONTH = getDaysInMonth(currentMonth, currentYear);
+class Calendarness extends Component {
+  state = {
+    events: [
+        {
+            start: moment("2024-02-10T00:00:00").toDate(),
+            end: moment("2024-02-10T23:59:59").toDate(),
+            title: "Birthday ni Glai"
+        },
 
-    const nextMonth = (date) => {
-        if (date < 11) {
-            setCurrentMonth((prev) => prev + 1);
-        } else {
-            setCurrentMonth(0);
-            setCurrentYear((prev) => prev + 1);
+        {
+            start: moment("2024-02-14T00:00:00").toDate(),
+            end: moment("2024-02-14T23:59:59").toDate(),
+            title: "Valentine's Day"
+        },
+
+        {
+            start: moment("2024-02-19T10:59:00").toDate(),
+            end: moment("2024-02-21T23:59:59").toDate(),
+            title: "Sleepover sa bahay ni Renek"
+        },
+
+        {
+            start: moment("2024-02-22T09:30:00").toDate(),
+            end: moment("2024-02-22T16:00:00").toDate(),
+            title: "Practice ko para sa zumba"
+        },
+
+        {
+            start: moment("2024-02-23T07:30:00").toDate(),
+            end: moment("2024-02-23T15:00:00").toDate(),
+            title: "May pasok"
+        },
+        {
+            start: moment("2024-02-24T07:30:00").toDate(),
+            end: moment("2024-02-24T16:30:00").toDate(),
+            title: "May pasok ulit"
+        },
+
+        {
+        start: moment("2024-02-25T10:00:00").toDate(),
+        end: moment("2024-02-26T15:00:00").toDate(),
+        title: "Basta Feb 25 - Feb 26"
         }
-    };
-    const prevMonth = (date) => {
-        if (date > 0) {
-            setCurrentMonth((prev) => prev - 1);
-        } else {
-            setCurrentMonth(11);
-            setCurrentYear((prev) => prev - 1);
-        }
-    };
+    ]
+  };
 
+  render() {
     return (
-        <div className='wrapper'>
-            <div className='calendarHead'>
-                <ion-icon onClick={() => prevMonth(currentMonth)} name='arrow-back-circle-outline'></ion-icon>
-                <p>
-                    {MONTHS[currentMonth]} {currentYear}
-                </p>
-                <ion-icon onClick={() => nextMonth(currentMonth)} name='arrow-forward-circle-outline'></ion-icon>
-            </div>
-            <div className='sevenColGrid'>
-                {getSortedDays(currentMonth, currentYear).map((day) => (
-                    <div className='headDay' key={day}>
-                        {day}
-                    </div>
-                ))}
-            </div>
-            <div
-                className='calenderBody'
-                style={{
-                    gridTemplateRows: `repeat(${DAYSINAMONTH === 28}) => (fourCol ? 4 : 5)}, 1fr)`,
-                }}
-            >
-                {range(DAYSINAMONTH).map((day) => (
-                    <div className='styledDay' key={day + 'a'}>
-                        <span className={`${areDatestheSame(new Date(), getDateObj(day, currentMonth, currentYear)) ? 'active' : ''}`} key={day + 'a'}>
-                            {day}
-                        </span>
-                    </div>
-                ))}
-            </div>
-        </div>
+      <div className="App">
+        <Calendar
+          localizer={localizer}
+          defaultDate={new Date()}
+          defaultView="month"
+          events={this.state.events}
+          style={{ height: "100vh" }}
+        />
+      </div>
     );
-};
-
-export default Calendar;
+  }
+}
+export default Calendarness;
