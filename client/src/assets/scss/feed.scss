@@ -17,11 +17,22 @@
     }
 
     .feed-content {
-        min-height: 20vh;
+        min-height: 50vh;
         width: 90%;
         border-radius: 30px;
         align-items: center;
         display: flex;
+        margin-bottom: 100px;
+        .announce{
+            width: 90%;
+            margin: 20px;
+        }
+        
+        
+        .professor{
+          margin-top: 250px;
+          margin-left: 1000px;
+        }
 
         .fc-greetings {
             background-color: rgb(230, 230, 230);
@@ -177,3 +188,14 @@
         }
     }
 }
+
+.header-time{
+margin-left: 1100px;
+margin-top: -45px;
+}
+
+.header-announcement h1{
+    text-align: center;
+    margin: 10px;
+}
+
