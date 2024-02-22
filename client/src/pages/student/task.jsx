@@ -94,38 +94,56 @@ export default function Task() {
             <Accordion.Header>This Week</Accordion.Header>
             <Accordion.Body>
               <Card className="card-within">
+                <button
+                  onClick={() => navigate("/task-new")}
+                  type="button"
+                  data-mdb-ripple-init
+                >
                 <Card.Body>
                   <h4 className="task-type">
                     CHECK: <span className="task-title">Module 21</span>
                   </h4>
                   <h5 className="date-posted">February 10, 2024</h5>
                 </Card.Body>
+                </button>
               </Card>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="1" className="2nd">
             <Accordion.Header>Next Week</Accordion.Header>
             <Accordion.Body>
-              <Card className="card-within">
+            <Card className="card-within">
+                <button
+                  onClick={() => navigate("/task-new")}
+                  type="button"
+                  data-mdb-ripple-init
+                >
                 <Card.Body>
                   <h4 className="task-type">
                     CHECK: <span className="task-title">Module 21</span>
                   </h4>
                   <h5 className="date-posted">February 10, 2024</h5>
                 </Card.Body>
+                </button>
               </Card>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2" className="3rd">
             <Accordion.Header>Later</Accordion.Header>
             <Accordion.Body>
-              <Card className="card-within">
+            <Card className="card-within">
+                <button
+                  onClick={() => navigate("/task-new")}
+                  type="button"
+                  data-mdb-ripple-init
+                >
                 <Card.Body>
                   <h4 className="task-type">
                     CHECK: <span className="task-title">Module 21</span>
                   </h4>
                   <h5 className="date-posted">February 10, 2024</h5>
                 </Card.Body>
+                </button>
               </Card>
             </Accordion.Body>
           </Accordion.Item>
@@ -138,39 +156,57 @@ export default function Task() {
           <Accordion.Item eventKey="0" className="1st">
             <Accordion.Header>This Week</Accordion.Header>
             <Accordion.Body>
-              <Card className="card-within">
+            <Card className="card-within">
+                <button
+                  onClick={() => navigate("/task-new")}
+                  type="button"
+                  data-mdb-ripple-init
+                >
                 <Card.Body>
                   <h4 className="task-type">
                     CHECK: <span className="task-title">Module 21</span>
                   </h4>
                   <h5 className="date-posted">February 10, 2024</h5>
                 </Card.Body>
+                </button>
               </Card>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="1" className="2nd">
             <Accordion.Header>Next Week</Accordion.Header>
             <Accordion.Body>
-              <Card className="card-within">
+            <Card className="card-within">
+                <button
+                  onClick={() => navigate("/task-new")}
+                  type="button"
+                  data-mdb-ripple-init
+                >
                 <Card.Body>
                   <h4 className="task-type">
                     CHECK: <span className="task-title">Module 21</span>
                   </h4>
                   <h5 className="date-posted">February 10, 2024</h5>
                 </Card.Body>
+                </button>
               </Card>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2" className="3rd">
             <Accordion.Header>Later</Accordion.Header>
             <Accordion.Body>
-              <Card className="card-within">
+            <Card className="card-within">
+                <button
+                  onClick={() => navigate("/task-new")}
+                  type="button"
+                  data-mdb-ripple-init
+                >
                 <Card.Body>
                   <h4 className="task-type">
                     CHECK: <span className="task-title">Module 21</span>
                   </h4>
                   <h5 className="date-posted">February 10, 2024</h5>
                 </Card.Body>
+                </button>
               </Card>
             </Accordion.Body>
           </Accordion.Item>
@@ -183,39 +219,57 @@ export default function Task() {
           <Accordion.Item eventKey="0" className="1st">
             <Accordion.Header>This Week</Accordion.Header>
             <Accordion.Body>
-              <Card className="card-within">
+            <Card className="card-within">
+                <button
+                  onClick={() => navigate("/task-new")}
+                  type="button"
+                  data-mdb-ripple-init
+                >
                 <Card.Body>
                   <h4 className="task-type">
                     CHECK: <span className="task-title">Module 21</span>
                   </h4>
                   <h5 className="date-posted">February 10, 2024</h5>
                 </Card.Body>
+                </button>
               </Card>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="1" className="2nd">
             <Accordion.Header>Next Week</Accordion.Header>
             <Accordion.Body>
-              <Card className="card-within">
+            <Card className="card-within">
+                <button
+                  onClick={() => navigate("/task-new")}
+                  type="button"
+                  data-mdb-ripple-init
+                >
                 <Card.Body>
                   <h4 className="task-type">
                     CHECK: <span className="task-title">Module 21</span>
                   </h4>
                   <h5 className="date-posted">February 10, 2024</h5>
                 </Card.Body>
+                </button>
               </Card>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2" className="3rd">
             <Accordion.Header>Earlier</Accordion.Header>
             <Accordion.Body>
-              <Card className="card-within">
+            <Card className="card-within">
+                <button
+                  onClick={() => navigate("/task-new")}
+                  type="button"
+                  data-mdb-ripple-init
+                >
                 <Card.Body>
                   <h4 className="task-type">
                     CHECK: <span className="task-title">Module 21</span>
                   </h4>
                   <h5 className="date-posted">February 10, 2024</h5>
                 </Card.Body>
+                </button>
               </Card>
             </Accordion.Body>
           </Accordion.Item>

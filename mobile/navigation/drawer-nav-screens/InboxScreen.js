@@ -8,6 +8,11 @@ import { useChatClient } from '../../chatFiles/useChatClient';
 import {createStackNavigator} from '@react-navigation/stack'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
+import { LogBox } from 'react-native';
+
+LogBox.ignoreLogs([
+  'Non-serializable values were found in the navigation state',
+]);
 
 const chatClient = StreamChat.getInstance(chatApiKey);
 const Stack = createStackNavigator();

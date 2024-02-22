@@ -56,6 +56,8 @@ export default function NewTask() {
                             </div>
                             <div>
                                 <Button className='submit-button'>Submit</Button>
+                            </div><div>
+                                <Button className='mark-button'>Mark as done</Button>
                             </div>
                         </Card>
                     </Card>
