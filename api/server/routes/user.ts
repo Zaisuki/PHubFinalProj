@@ -4,7 +4,7 @@ import express, { Express, Request, Response, Router } from 'express';
 import { registerUserController } from '../controller/entry';
 import { deleteAllUsers, findAllUsers } from '../services/user';
 import { authenticateToken } from '../middleware/authentication';
-import { getUserProfileController } from '../controller/user';
+import { getUserProfileController, getUserSubjectsController } from '../controller/user';
 
 const router = Router();
 
@@ -12,6 +12,7 @@ const router = Router();
 router.get('/all', findAllUsers);
 router.delete('/all', deleteAllUsers);
 
-router.get('/profile', authenticateToken, getUserProfileController)
+router.get('/profile', authenticateToken, getUserProfileController);
+router.get('/course', authenticateToken, getUserSubjectsController);
 
 export default router;
