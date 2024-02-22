@@ -93,11 +93,47 @@ export const findProfessorByID = async (id: string) => {
 export const getUserProfile = async (userID: string, userType: string) => {
     try {
         const userObjectID = new Types.ObjectId(userID);
-        console.log(userObjectID);
         const populateDataByType = userType === 'student' ? 'studentInformation' : userType === 'professor' ? 'professorInformation' : 'adminInformation';
-        console.log(populateDataByType);
         const findDataByType = userType === 'student' ? { studentInformation: userObjectID } : userType === 'professor' ? { professorInformation: userObjectID } : { adminInformation: userObjectID };
         const userDetails = await UserCredentials.findOne(findDataByType).populate(populateDataByType).exec();
+
+        if (userDetails) {
+            return { message: userDetails, httpCode: 200 };
+        }
+
+        return { 'message': 'No user found', 'httpCode': 500 };
+    } catch (error) {
+        return { 'message': 'No user found', 'httpCode': 500 };
+    }
+};
+// Course
+export const getUserSubject = async (userID: string, userType: string) => {
+    try {
+        const userObjectID = new Types.ObjectId(userID);
+        const userDetails =
+            userType === 'student'
+                ? await Student.findById(userID, 'studentSubjects')
+                      .populate({
+                          path: 'studentSubjects',
+                          populate: {
+                              path: 'class',
+                              populate: {
+                                  path: 'subject',
+                              },
+                          },
+                      })
+                      .exec()
+                : await Professor.findById(userID, 'professorHandledClass')
+                      .populate({
+                          path: 'professorHandledClass',
+                          populate: {
+                              path: 'class',
+                              populate: {
+                                  path: 'subject',
+                              },
+                          },
+                      })
+                      .exec();
 
         if (userDetails) {
             return { message: userDetails, httpCode: 200 };
