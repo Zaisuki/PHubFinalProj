@@ -5,17 +5,28 @@ import { StudentSubjects } from '../models/classModel/studentClass';
 
 export const getAllStudentAnouncement = async (id: string) => {
     try {
-        const result = await Student.findOne({ _id: id }, 'studentSubjects')
+        const professorID: string[] = [];
+        const announcementID = [];
+        const studentResult = await Student.findOne({ _id: id }, 'studentSubjects/class')
             .populate({
                 path: 'studentSubjects',
                 populate: {
                     path: 'class',
-                    populate: {
-                        path: 'announcement',
-                    },
                 },
             })
             .exec();
+        for (const classObj of (studentResult?.studentSubjects as any)?.class) {
+            announcementID.push(...classObj.announcement);
+            const professorIDString = classObj.professor.toString();
+            if (!professorID.includes(professorIDString)) {
+                professorID.push(professorIDString);
+            }
+        }
+        for (const professor of professorID) {
+            const professorResult = await Professor.findOne({ _id: professor }).populate('professorHandledClass');
+            announcementID.push(...(professorResult?.professorHandledClass as any).announcement);
+        }
+        const result = await Announcement.find({ _id: { $in: announcementID } }).sort({ createdAt: -1 });
         return result;
     } catch (error) {
         return { 'message': 'No Announcement' };
