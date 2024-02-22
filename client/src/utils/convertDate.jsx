@@ -1,15 +1,31 @@
-export const convertDate = (inputDate) => {
-    const date = new Date(inputDate);
-
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-
-    const outputDate = `${month}/${day}/${year}`;
-
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    const seconds = String(date.getSeconds()).padStart(2, '0');
-    const outputTime = `${hours}:${minutes}:${seconds}`;
-    return [outputDate, outputTime];
+export const convertDate = (dateString) => {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffMs = now - date;
+    
+    const minutes = Math.floor(diffMs / (1000 * 60));
+    
+    if (minutes < 60) {
+      return `${minutes} minute${minutes !== 1 ? 's' : ''} ago`;
+    } else {
+      const hours = Math.floor(minutes / 60);
+      
+      if (hours < 24) {
+        return `${hours} hour${hours !== 1 ? 's' : ''} ago`;
+      } else {
+        const days = Math.floor(hours / 24);
+        
+        if (days < 7) {
+          return `${days} day${days !== 1 ? 's' : ''} ago`;
+        } else {
+          const weeks = Math.floor(days / 7);
+          if (weeks < 4) {
+            return `${weeks} week${weeks !== 1 ? 's' : ''} ago`;
+          } else {
+            const months = Math.floor(weeks / 4);
+            return `${months} month${months !== 1 ? 's' : ''} ago`;
+          }
+        }
+      }
+    }
 };
