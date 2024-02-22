@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { postAnnouncement } from '../../services/professor';
+import { feed } from '../../services/user';
+import { convertDate } from '../../utils/convertDate';
 
 function FeedProf() {
     const titleTextAreaRef = useRef(null);
@@ -16,6 +18,7 @@ function FeedProf() {
     const [descriptionCharacterCount, setDescriptionCharacterCount] = useState(0);
     const titleCharacterLimit = 30;
     const descriptionCharacterLimit = 500;
+    const [announcements, setAnnouncements] = useState([]);
 
     const handleTitleChange = (e) => {
         const input = e.target.value;
@@ -36,7 +39,7 @@ function FeedProf() {
         if (titleVal !== '' && descriptionVal !== '') {
             const result = await postAnnouncement(titleVal, descriptionVal);
             if (result.message === 'Announcement posted') {
-                // Todo: show gui for success notif
+                // Todo: show gui for success notif add it to announcements
                 setTitleVal('');
                 setDescriptionVal('');
             }
@@ -54,21 +57,45 @@ function FeedProf() {
         }
     }, [titleVal, descriptionVal]);
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await feed();
+                setAnnouncements(response.message);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+    useEffect(() => {
+        console.log(announcements);
+    }, [announcements]);
     return (
         <Container className='feed-post'>
             <Row>
                 <Col sm={7}>
-                    <Card className='feed-one'>
-                        <h1></h1>
-                    </Card>
-
-                    <Card className='feed-two'>
-                        <h1></h1>
-                    </Card>
-
-                    <Card className='feed-three'>
-                        <h1></h1>
-                    </Card>
+                    {announcements ? (
+                        announcements.map((announcement) => (
+                            <Card className='feed-announcement' key={announcement._id}>
+                                <div className='header-announcement'>
+                                    <h1>{announcement.header}</h1>
+                                    <div className='header-time'>
+                                        <h6>{convertDate(announcement.createdAt)[0]}</h6>
+                                        <h6>{convertDate(announcement.createdAt)[1]}</h6>
+                                    </div>
+                                </div>
+                                <p>{announcement.announcement}</p>
+                                <h1>{announcement.class}</h1>
+                                <h1>
+                                    {announcement.professor.firstName} {announcement.professor.lastName}
+                                </h1>
+                            </Card>
+                        ))
+                    ) : (
+                        <p className='feed-no-announcement'></p>
+                    )}
                 </Col>
 
                 <Col>

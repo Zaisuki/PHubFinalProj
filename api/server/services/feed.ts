@@ -23,18 +23,8 @@ export const getAllStudentAnouncement = async (id: string) => {
 };
 export const getAllProfessorAnouncement = async (professorID: string) => {
     try {
-        const result = await Announcement.find({ professor: professorID, class: null });
-        console.log(result);
-        // .populate({
-        //     path: 'studentSubjects',
-        //     populate: {
-        //         path: 'class',
-        //         populate: {
-        //             path: 'announcement',
-        //         },
-        //     },
-        // })
-        // .exec();
+        const result = await Announcement.find({ professor: professorID, class: null }).populate('professor');
+
         return result;
     } catch (error) {
         return { 'message': 'No Announcement' };

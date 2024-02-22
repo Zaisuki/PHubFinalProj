@@ -15,6 +15,20 @@ export const profile = async () => {
         .catch((error) => {
             throw error;
         });
+    return response;
+};
+export const feed = async () => {
+    const response = await axios
+        .get(`${apiURL}/feed/feed`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
     console.log(response);
     return response;
 };

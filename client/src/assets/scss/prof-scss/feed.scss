@@ -1,63 +1,55 @@
-.feed-post .feed-one{
-    border-radius: 25px;
-    min-height: 250px;
-    margin-bottom: 2%;
+.feed-post {
+    .feed-announcement {
+        border-radius: 25px;
+        min-height: 250px;
+        margin-bottom: 2%;
+        padding: 5vw;
+        .header-announcement {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h6 {
+                text-align: center;
+                font-size: 0.5em;
+                margin: 0;
+            }
+        }
+    }
+    .feed-post-one {
+        .h2-text {
+            color: gray;
+        }
+        .input-placeholder .textArea {
+            resize: none;
+            outline: none;
+            padding: 10px;
+        }
+
+        .h2-text-one {
+            color: gray;
+        }
+        .input-placeholder-one {
+            .textArea {
+                resize: none;
+                outline: none;
+                padding: 10px;
+            }
+
+            :is(:focus, :valid) {
+                border-color: rgb(156, 156, 156);
+                border-width: 2px;
+                padding: 14px;
+            }
+        }
+        .create-post {
+            color: rgb(255, 255, 255);
+            font-size: 25px;
+            border-radius: 30px;
+        }
+    }
 }
 
-.feed-post .feed-two{
-    border-radius: 25px;
-    min-height: 250px;
-    margin-bottom: 2%;
-}
-
-.feed-post .feed-three{
-    border-radius: 25px;
-    min-height: 250px;
-    margin-bottom: 2%;
-    
-}
-
-.feed-post .feed-post-one{
-    border-radius: 25px;
-    padding: 7%;
-
-    
-
-}
-.feed-post .feed-post-one .h2-text{
-    color: gray;
-}
-.feed-post .feed-post-one .input-placeholder .textArea{
-    resize: none;
-    outline: none;
-    padding: 10px;  
-}
-
-.feed-post .feed-post-one .h2-text-one{
-    color: gray;
-}
-.feed-post .feed-post-one .input-placeholder-one .textArea{
-    resize: none;
-    outline: none;
-    padding: 10px;  
-    
-}
-
-
-.feed-post .feed-post-one .input-placeholder-one :is(:focus, :valid){
-    border-color: rgb(156, 156, 156);
-    border-width: 2px;
-    padding: 14px;
-
-
-    
-}
-.feed-post-one .create-post{
-    color: rgb(255, 255, 255);
-    font-size: 25px;
-    border-radius: 30px;
-}
-.word-count{
+.word-count {
     text-align: right;
     width: 100%;
     margin-top: 15px;
