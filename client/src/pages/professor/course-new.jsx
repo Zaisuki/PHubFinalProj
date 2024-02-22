@@ -4,8 +4,10 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
 import "../../assets/scss/course-new.scss";
+import { useNavigate } from 'react-router-dom';
 
 function CourseNew() {
+  const navigate = useNavigate();
   return (
     <Tabs id="justify-tab" className="mb-3" justify>
       {/* CLASSWORK TAB */}
@@ -13,7 +15,7 @@ function CourseNew() {
         <Container className="classwork-container">
           {/* CARDS within classwork tab*/}
           <Card className="card-within">
-            <Card.Body>
+            <Card.Body onClick={() => navigate('/work-page')}>
               <h4 className="task-type">
                 CHECK: <span className="task-title">Module 21</span>
               </h4>
