@@ -9,6 +9,7 @@ import CourseProf from '../pages/course';
 import ProfessorLayout from '../layout/professorLayout';
 import TaskProf from '../pages/professor/task';
 import CourseNew from '../pages/professor/course-new';
+import WorkPage from '../pages/professor/workpage';
 
 export default function ProfessorRoutes() {
     return (
@@ -22,6 +23,7 @@ export default function ProfessorRoutes() {
                 <Route path='course' element={<CourseProf />} />
                 <Route path='course-new/:id' element={<CourseNew />} />
                 <Route path='task' element={<TaskProf />} />
+                <Route path='work-page' element={<WorkPage />} />
             </Route>
         </Routes>
     );

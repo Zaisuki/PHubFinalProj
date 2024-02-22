@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.nav-tab .nav-item {
+  background-color: #eae9e9;
+  color: #333;
+}
+
+.instruction-container {
+  margin-top: 2%;
+  display: grid;
+  place-items: center;
+
+  .header-container {
+    max-width: 850px;
+    padding: 3vh;
+    margin-bottom: 1%;
+    width: 100%;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    h5: {
+      font-size: 2px;
+      color: grey;
+      font-family: sans-serif;
+    }
+  }
+
+  .content-container {
+    max-width: 850px;
+    padding: 3vh;
+    margin-bottom: 1%;
+    width: 100%;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+  }
+
+  .attachment-container {
+    max-width: 850px;
+    padding: 3vh;
+    margin-bottom: 1%;
+    width: 100%;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    h4: {
+      font-size: 17px;
+    }
+  }
+}
