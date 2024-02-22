@@ -26,7 +26,15 @@ export const getAllStudentAnouncement = async (id: string) => {
             const professorResult = await Professor.findOne({ _id: professor }).populate('professorHandledClass');
             announcementID.push(...(professorResult?.professorHandledClass as any).announcement);
         }
-        const result = await Announcement.find({ _id: { $in: announcementID } }).sort({ createdAt: -1 });
+        const result = await Announcement.find({ _id: { $in: announcementID } })
+            .populate('professor')
+            .populate({
+                path: 'class',
+                populate: {
+                    path: 'subject',
+                },
+            })
+            .sort({ createdAt: -1 });
         return result;
     } catch (error) {
         return { 'message': 'No Announcement' };

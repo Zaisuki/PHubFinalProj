@@ -1,30 +1,24 @@
 .feed-student {
-    padding: 0%;
+    padding: 5vw;
 
     .feed-student-body {
         min-height: 100vh;
-        margin: 20vh;
         display: flex;
         justify-content: center;
-        width: 180vh;
-        left: -10vh;
-        top: -100px;
+        align-items: center;
+        width: 100%;
         border-radius: 20px;
         background-image: linear-gradient(45deg, #044a6b, #09612a, #044a6b);
         .feed-img {
             height: 170px;
             width: 120px;
-            display: flex;
-            position: absolute;
-            left: 635px;
-            top: 1%;
+            position: relative;
         }
     }
 
     .feed-content {
-        height: 50vh;
+        min-height: 20vh;
         width: 90%;
-        margin-left: 65px;
         border-radius: 30px;
         align-items: center;
         display: flex;
