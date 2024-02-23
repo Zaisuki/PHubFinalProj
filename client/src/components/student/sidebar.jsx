@@ -20,7 +20,7 @@ const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
       onMouseOver={onHover}
       onMouseOut={onUnhover}
     >
-      {/* TODO: Crop niyo img dapat same ang width and height neto */}
+      {/* TODO: Crop niyo img dapat same ang width and height neto .. sige  */}
       <CloseButton className="sidebar-close-btn" onClick={onClick} />
       <SideBarLink
         direct="/profile"
@@ -97,7 +97,7 @@ const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
       <SideBarLink
         direct="/login"
         icon={LogoutImg}
-        title="Log out"
+        title="Logout"
         isClicked={isClicked}
       />
     </div>
