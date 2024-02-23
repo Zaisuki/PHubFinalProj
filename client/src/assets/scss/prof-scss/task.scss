@@ -1,4 +1,6 @@
-.task {
+
+
+.dropdown-task {
   .task-prof-one .dropdown button {
     width: 700px;
     height: 86px;
@@ -17,102 +19,130 @@
     display: grid;
     place-items: center;
     margin: 3% 10% 0% 10%;
+    position: relative;
   }
-  .tcontainer .con {
+
+  .connect {
     width: 1100px;
-    height: 800px;
+    height: 50vh;
     border: 1px solid;
     border-radius: 20px;
-  }
+    margin-bottom: 30px;
+    margin-top: 150px;
+    position: relative;
 
-  .indrop {
-    padding: 20px;
-    height: 100px;
 
-    button {
+    .connect-title{
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 25px;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+    }
+    .block{
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 25px;
+      position: absolute;
+      top: 100px;
+      left: 720px;
+    }
+    .due{
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 25px;
+      position: absolute;
+      top: 100px;
+      left: 950px;
+    }
+
+    .connect-text {
       font-size: 30px;
+      position: absolute;
+      left: 40px;
+      top: 30px;
     }
 
-    img {
-      height: 150px;
-      margin-left: 250px;
-      margin-top: -105px;
-      cursor: pointer;
-    }
+    
   }
 
-  .form .default {
-    font-size: 25px;
-    margin-top: -10px;
-    padding: 10px 0px 10px 50px;
-  }
-
-  .tcontainer2 {
-    margin-top: 50px;
-    display: grid;
-    place-items: center;
-  }
-
-  .tcontainer2 .con2 {
-    width: 1000px;
-    height: 510px;
-    margin-top: -70px;
-    background-color: gray;
-
-    h1 {
-      text-align: center;
-      padding: 10px;
-      height: 20px;
-      margin-top: 10px;
-    }
-
-    .taskt {
-      width: 900px;
-      height: 30px;
-      margin-left: 20px;
-      background-color: rgb(165, 165, 165);
-    }
-
-    .task-title {
-      padding: 20px;
-      height: 60px;
-    }
-  }
-
-  .points {
-    text-align: left;
-    margin-left: 25px;
-    margin-top: 20px;
-  }
-
-  .tcontainer2 .con2 .taskt2 {
-    width: 500px;
-    height: 30px;
-    margin-left: 20px;
-    background-color: rgb(165, 165, 165);
-  }
-
-  .description {
-    text-align: left;
-    margin-left: 25px;
-    margin-top: 20px;
-  }
-
-  .tcontainer2 .con2 .taskt3 {
-    width: 960px;
-    height: 200px;
-    margin-left: 20px;
-    background-color: rgb(165, 165, 165);
-  }
-
-  .post {
-    text-align: center;
+  .check {
+    width: 1100px;
+    height: 50vh;
+    border: 1px solid;
     border-radius: 20px;
-    width: 100px;
-    height: 50px;
-    margin-left: 900px;
-    margin-top: 30px;
-    background-color: rgb(165, 165, 165);
-    cursor: pointer;
+    margin-bottom: 30px;
+  }
+
+  .coach {
+    width: 1100px;
+    height: 50vh;
+    border: 1px solid;
+    border-radius: 20px;
+    margin-bottom: 30px;
+  }
+
+  .plus {
+    position: absolute;
+    top: 100px;
+    left: 1150px;
+  }
+
+  .floating-window {
+    animation: fadeIn 0.3s ease forwards;
+    box-shadow: 1999px 11000px 2100px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 52.5%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0);
+    height: 200%;
+    width: 93%;
+    backdrop-filter: blur(5px);
+
+    .eks{
+      position: absolute;
+      left: 1200px;
+      font-size: 40px;
+      z-index: 1000;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  .taskN {
+    font-size: 25px;
+    color: gray;
+    position: absolute;
+    top: 90px;
+    left: 120px;
+  }
+
+  .assigned {
+    font-size: 25px;
+    color: gray;
+    top: 90px;
+    left: 800px;
+    position: absolute;
+  }
+
+  .dueD {
+    font-size: 25px;
+    color: gray;
+    top: 90px;
+    left: 1040px;
+    position: absolute;
   }
 }

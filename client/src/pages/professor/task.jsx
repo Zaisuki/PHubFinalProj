@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import "../../assets/scss/prof-scss/task.scss";
 import Card from "react-bootstrap/Card";
 import Container from 'react-bootstrap/Container';
@@ -8,132 +9,101 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import calendar from '../../assets/img/calendar.png';
 import Form from 'react-bootstrap/Form';
+import { BiTask } from "react-icons/bi";
+import { FaPlus, FaTimes } from "react-icons/fa"; 
 
 function TaskProf() {
+  const [showWindow, setShowWindow] = useState(false);
+
+  const handlePlusClick = () => {
+    setShowWindow(true);
+  };
+
+  const handleCloseClick = () => {
+    setShowWindow(false);
+  };
+
   return (
-    <div className="task">
-    <Navbar variant="dark" bg="dark" expand="lg">
-    <Container fluid>
-      <Navbar.Brand href="#home">Task</Navbar.Brand>
-      <Navbar.Toggle aria-controls="navbar-dark-example" />
-      <Navbar.Collapse id="navbar-dark-example">
-        <Nav>
-          <NavDropdown
-            id="nav-dropdown-dark-example"
-            title="Course"
-            menuVariant="dark"
-          >
-            <NavDropdown.Item href="#action/3.1">BSIT</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              BSN
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">BSA</NavDropdown.Item>
+    <div className="dropdown-task">
+      <Navbar variant="dark" bg="dark" expand="lg">
+        <Container fluid>
+          <Navbar.Brand href="#home">Task</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbar-dark-example" />
+          <Navbar.Collapse id="navbar-dark-example">
+            <Nav>
+              <NavDropdown
+                id="nav-dropdown-dark-example"
+                title="Course"
+                menuVariant="dark"
+              >
+                <NavDropdown.Item href="#action/3.1">BSIT</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">BSN</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">BSA</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
 
+            <Nav>
+              <NavDropdown
+                id="nav-dropdown-dark-example"
+                title="Block"
+                menuVariant="dark"
+              > 
+                <NavDropdown.Item href="#action/3.1">Block 1</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Block 2</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Block 3</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      <div className="tcontainer">
+        <h1 className="taskN">TASK NAME</h1>
+        <h1 className="assigned">ASSIGNED</h1>
+        <h1 className="dueD">DUE</h1>
+        <FaPlus className="plus" onClick={handlePlusClick} />
+        
+        {showWindow && (
+          <div className="floating-window">
+            <button className="close-button" onClick={handleCloseClick}><FaTimes className='eks' /></button> 
+            <Card className="connect">
+              <h1 className="connect-text"><BiTask />saasssdss</h1>
+            </Card>
+          </div>
+        )}
+
+        <Card className="connect">
+          <h1 className="connect-text"><BiTask />Connect</h1>
           
-          </NavDropdown>
-
+          <Card className='info'>
+            <h2 className='connect-title'>Basic shit</h2>
+            <h2 className='block'>BSIT2-03</h2>
+            <h2 className='due'>today</h2>
+          </Card> 
+          <br />
           
-        </Nav>
+       
+          <Card className='info-one'>
+            <h2 className='connect-title'>Basic shit</h2>
+            <h2 className='block'>BSIT2-03</h2>
+            <h2 className='due'>today</h2>
+          </Card> 
+          <br />
 
-        <Nav>
-          <NavDropdown
-            id="nav-dropdown-dark-example"
-            title="Block"
-            menuVariant="dark"
-          >
-            <NavDropdown.Item href="#action/3.1">Block 1</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Block 2
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Block 3</NavDropdown.Item>
+      
 
-          
-          </NavDropdown>
+          <Card className='info-two'>
+            <h2 className='connect-title'>Basic shit</h2>
+            <h2 className='block'>BSIT2-03</h2>
+            <h2 className='due'>today</h2>
+          </Card> 
+        </Card>
 
-          
-        </Nav>
-      </Navbar.Collapse>
-    </Container>
-  </Navbar>
-  
+        <Card className="check"></Card>
 
-  <div className="tcontainer">
-  <Card className="con">
-    <div className="indrop">    
-  <DropdownButton id="dropdown-basic-button" title="TYPE OF TASK" variant="secondary">
-      <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-      <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-      <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-    </DropdownButton>
-    <img className="calendar-task" src={calendar} alt=""/>
+        <Card className="coach"></Card>
+      </div>
     </div>
-
-    <div className="form">
-    <Form>
-      {['radio'].map((type) => (
-        <div key={`inline-${type}`} className="mb-3">
-          
-          
-          <Form.Check className="default"
-            inline
-            label="Default"
-            name="group1"
-            type={type}
-            id={`inline-${type}-1`}
-          />
-          <Form.Check className="default"
-            inline
-            label="Quiz"
-            name="group1"
-            type={type}
-            id={`inline-${type}-2`}
-          />
-          <Form.Check className="default"
-            inline
-            label="Exam "
-            name="group1"
-            type={type}
-            id={`inline-${type}-3`}
-          />
-         
-        </div>
-      ))}
-    </Form>
-   </div>
-
-   <div className="tcontainer2">
-        <Card className="con2">
-        <h1>CREATE TASK</h1>
-        <h2 className="task-title">Task Title</h2>
-        <Card className="taskt">
-          <textarea className="task-text"></textarea>
-        </Card>
-        <h3 className="points">Points</h3>
-        <Card className="taskt2">
-        <textarea></textarea>
-        </Card>
-        <h4 className="description">Description</h4>
-        <Card className="taskt3">
-        <textarea></textarea>
-        </Card>
-        </Card>
-        
-        <div className="post">
-          <h1>POST</h1>
-        </div>
-        
-
-        
-   </div>
-  </Card>
-
-
-
-  </div> 
-  </div>
-  
-  
-    
   );
 }
 
