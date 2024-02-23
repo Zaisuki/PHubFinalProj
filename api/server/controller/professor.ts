@@ -21,8 +21,9 @@ export const addAnnouncementController = async (req: Request & { user?: User }, 
 // TODO: add delete and required checker
 export const addCheckController = async (req: Request, res: Response) => {
     try {
-        const { classID, postTitle, postDescription, dueDate, attachment } = req.body;
-        const result = await addCheck(classID, postTitle, postDescription, dueDate, attachment);
+        const { classID, postTitle, postDescription, dueDate } = req.body;
+        //@ts-ignore
+        const result = await addCheck(classID, postTitle, postDescription, dueDate, req.files);
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error) {
         return res.status(500).json({ 'message': 'Internal Server Error' });
@@ -31,8 +32,9 @@ export const addCheckController = async (req: Request, res: Response) => {
 
 export const addCoachController = async (req: Request, res: Response) => {
     try {
-        const { classID, postTitle, postDescription, attachment } = req.body;
-        const result = await addCoach(classID, postTitle, postDescription, attachment);
+        const { classID, postTitle, postDescription } = req.body;
+        //@ts-ignore
+        const result = await addCoach(classID, postTitle, postDescription, req.files);
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error) {
         return res.status(500).json({ 'message': 'Internal Server Error' });

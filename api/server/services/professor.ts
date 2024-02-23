@@ -101,21 +101,27 @@ export const deleteAnnouncement = async (req: Request, res: Response) => {
     }
 };
 
-export const addCheck = async (classID: string, postTitle: string, postDescription: string, dueDate: Date, attachment: string[]) => {
+export const addCheck = async (classID: string, postTitle: string, postDescription: string, dueDate: Date, files: UploadedFile[] | undefined) => {
     try {
         let newCheck = await new Check({
-            postTitle, postDescription, dueDate
+            postTitle,
+            postDescription,
+            dueDate,
         }).save();
-        if (attachment) {
-            newCheck.attachment.push(...attachment)
-            await newCheck.save()
-        } 
+        if (files) {
+            for (const file of files) {
+                const imagePath = file.path;
+                newCheck.attachment.push(imagePath);
+            }
+            await newCheck.save();
+        }
         let classScheme = await Class.findById(classID);
         if (!classScheme) {
             return { message: 'Class not found', httpCode: 404 };
         }
+
         newCheck.class = classScheme._id;
-        classScheme.check.push(newCheck._id)
+        classScheme.check.push(newCheck._id);
         await classScheme.save();
         await newCheck.save();
         return { message: 'Check posted', httpCode: 200 };
@@ -126,12 +132,14 @@ export const addCheck = async (classID: string, postTitle: string, postDescripti
 export const deleteAllCheck = async (classID: string) => {
     try {
         const classClass = await Class.findById(classID);
-        if(classClass){
-            await Promise.all(classClass.check.map(async (objID) => {
-                const result = await Check.deleteOne({ _id: objID._id });
-            }));
-            classClass.check = []
-            await classClass.save()
+        if (classClass) {
+            await Promise.all(
+                classClass.check.map(async (objID) => {
+                    const result = await Check.deleteOne({ _id: objID._id });
+                })
+            );
+            classClass.check = [];
+            await classClass.save();
             return { message: 'Deleted all check', httpCode: 200 };
         }
         return { message: 'Deleted none', httpCode: 200 };
@@ -142,10 +150,10 @@ export const deleteAllCheck = async (classID: string) => {
 export const deleteCheck = async (classID: string, checkID: string) => {
     try {
         const classClass = await Class.findById(classID);
-        if(classClass){
+        if (classClass) {
             await Check.deleteOne({ _id: checkID });
-            classClass.check = classClass.check.filter(check => check._id.toString() !== checkID);
-            await classClass.save()
+            classClass.check = classClass.check.filter((check) => check._id.toString() !== checkID);
+            await classClass.save();
             return { message: 'Check deleted', httpCode: 200 };
         }
         return { message: 'Deleted none', httpCode: 200 };
@@ -153,21 +161,25 @@ export const deleteCheck = async (classID: string, checkID: string) => {
         return { message: error.message, httpCode: 500 };
     }
 };
-export const addCoach = async (classID: string, postTitle: string, postDescription: string, attachment: string[]) => {
+export const addCoach = async (classID: string, postTitle: string, postDescription: string, files: UploadedFile[] | undefined) => {
     try {
         let newCoach = await new Check({
-            postTitle, postDescription
+            postTitle,
+            postDescription,
         }).save();
-        if (attachment) {
-            newCoach.attachment.push(...attachment)
-            await newCoach.save()
-        } 
+        if (files) {
+            for (const file of files) {
+                const imagePath = file.path;
+                newCoach.attachment.push(imagePath);
+            }
+            await newCoach.save();
+        }
         let classScheme = await Class.findById(classID);
         if (!classScheme) {
             return { message: 'Class not found', httpCode: 404 };
         }
         newCoach.class = classScheme._id;
-        classScheme.coach.push(newCoach._id)
+        classScheme.coach.push(newCoach._id);
         await classScheme.save();
         await newCoach.save();
         return { message: 'Coach posted', httpCode: 200 };
@@ -178,12 +190,14 @@ export const addCoach = async (classID: string, postTitle: string, postDescripti
 export const deleteAllCoach = async (classID: string) => {
     try {
         const classClass = await Class.findById(classID);
-        if(classClass){
-            await Promise.all(classClass.coach.map(async (objID) => {
-                const result = await Coach.deleteOne({ _id: objID._id });
-            }));
-            classClass.coach = []
-            await classClass.save()
+        if (classClass) {
+            await Promise.all(
+                classClass.coach.map(async (objID) => {
+                    const result = await Coach.deleteOne({ _id: objID._id });
+                })
+            );
+            classClass.coach = [];
+            await classClass.save();
             return { message: 'Deleted all coach', httpCode: 200 };
         }
         return { message: 'Deleted none', httpCode: 200 };
@@ -194,10 +208,10 @@ export const deleteAllCoach = async (classID: string) => {
 export const deleteCoach = async (classID: string, coachID: string) => {
     try {
         const classClass = await Class.findById(classID);
-        if(classClass){
+        if (classClass) {
             await Coach.deleteOne({ _id: coachID });
-            classClass.coach = classClass.coach.filter(coach => coach._id.toString() !== coachID);
-            await classClass.save()
+            classClass.coach = classClass.coach.filter((coach) => coach._id.toString() !== coachID);
+            await classClass.save();
             return { message: 'Coach deleted', httpCode: 200 };
         }
         return { message: 'Deleted none', httpCode: 200 };
@@ -208,18 +222,22 @@ export const deleteCoach = async (classID: string, coachID: string) => {
 export const addConnect = async (classID: string, postTitle: string, postDescription: string, dueDate: Date, attachment: string[], choices: string[]) => {
     try {
         let newConnect = await new Connect({
-            postTitle, dueDate, postDescription
+            postTitle,
+            dueDate,
+            postDescription,
         }).save();
         let classScheme = await Class.findById(classID);
         if (!classScheme) {
             return { message: 'Class not found', httpCode: 404 };
         }
         newConnect.class = classScheme._id;
-        await Promise.all(choices.map((choice) => {
-            const connectChoice = new ConnectChoices({choice});
-            newConnect.postChoices.push(connectChoice._id);
-        }));
-        classScheme.connect.push(newConnect._id)
+        await Promise.all(
+            choices.map((choice) => {
+                const connectChoice = new ConnectChoices({ choice });
+                newConnect.postChoices.push(connectChoice._id);
+            })
+        );
+        classScheme.connect.push(newConnect._id);
         await classScheme.save();
         await newConnect.save();
         return { message: 'Connect posted', httpCode: 200 };
@@ -231,12 +249,14 @@ export const addConnect = async (classID: string, postTitle: string, postDescrip
 export const deleteAllConnect = async (classID: string) => {
     try {
         const classClass = await Class.findById(classID);
-        if(classClass){
-            await Promise.all(classClass.connect.map(async (objID) => {
-                const result = await Connect.deleteOne({ _id: objID._id });
-            }));
-            classClass.connect = []
-            await classClass.save()
+        if (classClass) {
+            await Promise.all(
+                classClass.connect.map(async (objID) => {
+                    const result = await Connect.deleteOne({ _id: objID._id });
+                })
+            );
+            classClass.connect = [];
+            await classClass.save();
             return { message: 'Deleted all connect', httpCode: 200 };
         }
         return { message: 'Deleted none', httpCode: 200 };
@@ -247,10 +267,10 @@ export const deleteAllConnect = async (classID: string) => {
 export const deleteConnect = async (classID: string, connectID: string) => {
     try {
         const classClass = await Class.findById(classID);
-        if(classClass){
+        if (classClass) {
             await Connect.deleteOne({ _id: connectID });
-            classClass.connect = classClass.connect.filter(connect => connect._id.toString() !== connectID);
-            await classClass.save()
+            classClass.connect = classClass.connect.filter((connect) => connect._id.toString() !== connectID);
+            await classClass.save();
             return { message: 'Connect deleted', httpCode: 200 };
         }
         return { message: 'Deleted none', httpCode: 200 };
@@ -258,3 +278,15 @@ export const deleteConnect = async (classID: string, connectID: string) => {
         return { message: error.message, httpCode: 500 };
     }
 };
+
+// INTERFACE
+interface UploadedFile {
+    fieldname: string;
+    originalname: string;
+    encoding: string;
+    mimetype: string;
+    destination: string;
+    filename: string;
+    path: string;
+    size: number;
+}

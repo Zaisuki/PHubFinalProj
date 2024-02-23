@@ -38,7 +38,7 @@ export default function SideBar({ isClicked, onClick, onHover, onUnhover }) {
                     <SideBarLink direct='/calendar' icon={CalendarImg} title='Calendar' isClicked={isClicked} />
                 </li>
             </ul>
-            <SideBarLink direct='/login' icon={LogoutImg} title='Log out' isClicked={isClicked} />
+            <SideBarLink direct='/login' icon={LogoutImg} title='Logout' isClicked={isClicked} />
         </div>
     );
 }
