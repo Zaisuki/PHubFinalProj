@@ -17,10 +17,11 @@ function Evaluation() {
           Please fill out the following evaluation form honestly and
           constructively.
         </p>
+        <div className='line'></div>
 
-        <span>STUDENT DETAILS</span>
+        <span className="details">STUDENT DETAILS</span>
         <div className="details">
-        <InputGroup size="sm" className="mb-3">
+        <InputGroup size="md" className="mb-3">
           <InputGroup.Text id="inputGroup-sizing-sm">
             Student Name{" "}
           </InputGroup.Text>
@@ -31,7 +32,7 @@ function Evaluation() {
         </InputGroup></div>
 
         <div className="details2">
-        <InputGroup size="sm" className="mb-3">
+        <InputGroup size="md" className="mb-3">
           <InputGroup.Text id="inputGroup-sizing-sm">
             Student ID{" "}
           </InputGroup.Text>
@@ -46,10 +47,21 @@ function Evaluation() {
           <option value="2">ITE 400</option>
           <option value="3">ITE 186</option>
         </Form.Select>
+        <Form.Select className="select2" aria-label="Default select example">
+          <option>Professor</option>
+          <option value="1">Kirisu</option>
+          <option value="2">Ate Zai</option>
+          <option value="3">Leylut Balut</option>
+          <option value="4">Reneku</option>
+          <option value="5">Swankiss</option>
+        </Form.Select>
+
+        <div  className="inst">
         <span>
           Rate each aspect on a scale of 1 to 5, where 1 is strongly disagree
           and 5 is strongly agree.
         </span>
+        </div>
         <div class="card">
           <div class="card-body">
           My professor always answer my questions during class hours with respect.
@@ -120,7 +132,7 @@ function Evaluation() {
         </div>
 
         <div class="card">
-          <div class="card-body">
+          <div class="card-body2">
           My professor always answer my questions during class hours with respect.
             <div class="form-check">
               <input
