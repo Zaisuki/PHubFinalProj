@@ -11,57 +11,58 @@ export const addReminderNotification = async () => {
       dueDate: { $gte: Date.now(), $lte: oneHourLater },
     }).populate({ path: "class", populate: { path: "students" } });
 
-    for (const classObj of checkResult) {
-      const reminderExists = await Notification.exists({ link: classObj._id });
-      if (!reminderExists) {
-        const reminder = await new Notification({
-          header: `Reminder: ${classObj.postTitle}`,
-          content: classObj.postDescription,
-          link: classObj._id,
-          class: classObj.class,
-        }).save();
-        for (const student of (classObj as any)?.class.students) {
-          const studentObj = await UserCredentials.findOne({
-            studentInformation: student._id,
-          });
-          if (studentObj) {
-            // TODO: add websocket here
-            console.log(studentObj);
-            studentObj.notification.push(reminder._id);
-            await studentObj.save();
-          }
+        for (const classObj of checkResult) {
+            const reminderExists = await Notification.exists({ link: classObj._id });
+            if (!reminderExists) {
+                const reminder = await new Notification({
+                    header: `Reminder: ${classObj.postTitle}`,
+                    content: classObj.postDescription,
+                    link: classObj._id,
+                    class: classObj.class,
+                }).save();
+                for (const student of (classObj as any)?.class.students) {
+                    const studentObj = await UserCredentials.findOne({ studentInformation: student._id });
+                    if (studentObj) {
+                        // TODO: add websocket here
+                        console.log(studentObj);
+                        studentObj.notification.push(reminder._id);
+                        await studentObj.save();
+                    }
+                }
+            }
         }
-      }
+    } catch (error) {
+        console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-  }
 };
-export const addTaskNotification = async (classType: string, classObj: any) => {
-  try {
-    const reminderExists = await Notification.exists({ link: classObj._id });
-    if (!reminderExists) {
-      const reminder = await new Notification({
-        header: `${classType}: ${classObj.postTitle}`,
-        content: classObj.postDescription,
-        link: classObj._id,
-        class: classObj.class,
-      }).save();
-      for (const student of (classObj as any)?.class.students) {
-        const studentObj = await UserCredentials.findOne({
-          studentInformation: student._id,
-        });
-        if (studentObj) {
-          // TODO: add websocket here
-          console.log(studentObj);
-          studentObj.notification.push(reminder._id);
-          await studentObj.save();
+export const addNotification = async () => {
+    try {
+        const oneHourLater = new Date(Date.now() + 60 * 60 * 1000);
+        const checkResult = await Check.find({ dueDate: { $gte: Date.now(), $lte: oneHourLater } }).populate({ path: 'class', populate: { path: 'students' } });
+
+        for (const classObj of checkResult) {
+            const reminderExists = await Notification.exists({ link: classObj._id });
+            if (!reminderExists) {
+                const reminder = await new Notification({
+                    header: `Reminder: ${classObj.postTitle}`,
+                    content: classObj.postDescription,
+                    link: classObj._id,
+                    class: classObj.class,
+                }).save();
+                for (const student of (classObj as any)?.class.students) {
+                    const studentObj = await UserCredentials.findOne({ studentInformation: student._id });
+                    if (studentObj) {
+                        // TODO: add websocket here
+                        console.log(studentObj);
+                        studentObj.notification.push(reminder._id);
+                        await studentObj.save();
+                    }
+                }
+            }
         }
-      }
+    } catch (error) {
+        console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-  }
 };
 export const getUserNotification = async (userID: string, userType: string) => {
   try {

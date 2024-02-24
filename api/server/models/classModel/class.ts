@@ -33,6 +33,10 @@ const checkSchema = new Schema(
                 default: null,
             },
         ],
+        lateSubmission: {
+            type: Boolean,
+            default: false,
+        },
     },
     {
         timestamps: true,
@@ -120,6 +124,10 @@ const connectSchema = new Schema(
                 default: null,
             },
         ],
+        lateSubmission: {
+            type: Boolean,
+            default: false,
+        },
     },
     {
         timestamps: true,
