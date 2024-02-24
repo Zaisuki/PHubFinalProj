@@ -6,10 +6,10 @@ const notificationSchema = new Schema(
             type: String,
             required: [true, 'Please enter your header.'],
         },
-        content: {
+        description: {
             type: String,
             required: [true, 'Please enter the content.'],
-            unique: true,
+            unique: false,
         },
         link: {
             type: String,

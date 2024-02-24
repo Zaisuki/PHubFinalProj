@@ -32,6 +32,7 @@
     "react-native-big-calendar": "^4.10.0",
     "react-router-dom": "^6.21.2",
     "sass": "^1.69.7",
+    "socket.io-client": "^4.7.4",
     "stream-chat": "^8.16.0",
     "stream-chat-react": "^11.8.0"
   },
