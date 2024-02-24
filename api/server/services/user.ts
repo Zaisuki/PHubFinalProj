@@ -8,6 +8,7 @@ import { Subject } from '../models/classModel/subject';
 import { Inbox } from '../models/inbox';
 import { Message } from '../models/message';
 import { Types } from 'mongoose';
+import { User } from '../middleware/authentication';
 
 // TODO: remove this, this is temporary
 export const findAllUsers = async (req: Request, res: Response) => {
@@ -155,6 +156,27 @@ export const getUserSubject = async (userID: string, userType: string) => {
 
         if (userDetails) {
             return { message: { userDetails, userType }, httpCode: 200 };
+        }
+
+        return { 'message': 'No user found', 'httpCode': 500 };
+    } catch (error) {
+        return { 'message': 'No user found', 'httpCode': 500 };
+    }
+};
+
+export const joinClass = async (user: User, socket: any) => {
+    try {
+        const result = await Student.findById(user.userID, 'studentSubjects/class').populate({
+            path: 'studentSubjects',
+            populate: {
+                path: 'class',
+            },
+        });
+        for (const classObj of (result?.studentSubjects as any)?.class) {
+            socket.join(classObj?._id);
+        }
+        if (result) {
+            return { message: 'Successfully joined the class socket', httpCode: 200 };
         }
 
         return { 'message': 'No user found', 'httpCode': 500 };

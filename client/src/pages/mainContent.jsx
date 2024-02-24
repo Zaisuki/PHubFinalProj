@@ -1,18 +1,19 @@
 import StudentRoutes from '../routes/studentRoutes';
 import ProfessorRoutes from '../routes/professorRoutes';
 import AdminRoutes from '../routes/adminRoutes';
+import { socket } from '../utils/socket';
 import { cookies } from '../services/entry';
+import { useEffect } from 'react';
 
 const MainContent = () => {
     const userType = cookies.get('userType');
-    return (
-        <>
-            {/* TODO */}
-            {/* Student */}
-            {userType === 'E2jF8sG5dH9tY3kL4zX7pQ6wR1oV0mCqB6nI8bT7yU5iA3gD2fS4hJ9uMlKoP1e' ? <StudentRoutes /> : userType === 'r9LsT6kQ3jWfZ1pY4xN7hM2cV8gB5dI0eJ4uF2oD3iG5vX6mC1aS7tR9yU3lK8w' ? <ProfessorRoutes /> : <AdminRoutes />}
-            {/* Professor */}
-        </>
-    );
+    const authorization = cookies.get('authorization');
+    useEffect(() => {
+        socket.on('connect', () => {
+            socket.emit('join_classes', authorization);
+        });
+    }, [authorization]);
+    return <>{userType === 'E2jF8sG5dH9tY3kL4zX7pQ6wR1oV0mCqB6nI8bT7yU5iA3gD2fS4hJ9uMlKoP1e' ? <StudentRoutes /> : userType === 'r9LsT6kQ3jWfZ1pY4xN7hM2cV8gB5dI0eJ4uF2oD3iG5vX6mC1aS7tR9yU3lK8w' ? <ProfessorRoutes /> : <AdminRoutes />}</>;
 };
 
 export default MainContent;

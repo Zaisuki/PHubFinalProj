@@ -51,7 +51,7 @@ const userCredentialSchema = new Schema({
     notification: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Notification',
+            ref: 'NotificationHolder',
             default: null,
         },
     ],

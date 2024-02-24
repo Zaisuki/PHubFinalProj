@@ -7,15 +7,15 @@ import Loading from './pages/loading';
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
         authenticateToken()
             .then((isValid) => {
                 setIsLoggedIn(isValid);
-                setIsLoading(false);
             })
-            .catch(() => {
+            .catch(() => {})
+            .finally(() => {
                 setIsLoading(false);
             });
     }, []);

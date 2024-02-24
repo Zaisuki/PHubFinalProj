@@ -43,6 +43,19 @@ export const course = async () => {
         .catch((error) => {
             throw error;
         });
-    console.log(response);
+    return response;
+};
+export const getNotification = async () => {
+    const response = await axios
+        .get(`${apiURL}/user/notification`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+        })
+        .then((response) => response.data.userCredentials.notification)
+        .catch((error) => {
+            throw error;
+        });
     return response;
 };

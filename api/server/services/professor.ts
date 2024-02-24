@@ -125,7 +125,7 @@ export const addCheck = async (classID: string, postTitle: string, postDescripti
         classScheme.check.push(newCheck._id);
         await classScheme.save();
         await newCheck.save();
-        addTaskNotification("Check", newCheck)
+        addTaskNotification('Check', newCheck);
         return { message: 'Check posted', httpCode: 200 };
     } catch (error: any) {
         return { message: error.message, httpCode: 500 };
@@ -184,6 +184,7 @@ export const addCoach = async (classID: string, postTitle: string, postDescripti
         classScheme.coach.push(newCoach._id);
         await classScheme.save();
         await newCoach.save();
+        addTaskNotification('Coach', newCoach);
         return { message: 'Coach posted', httpCode: 200 };
     } catch (error: any) {
         return { message: error.message, httpCode: 500 };
@@ -242,6 +243,7 @@ export const addConnect = async (classID: string, postTitle: string, postDescrip
         classScheme.connect.push(newConnect._id);
         await classScheme.save();
         await newConnect.save();
+        addTaskNotification('Connect', newConnect);
         return { message: 'Connect posted', httpCode: 200 };
     } catch (error: any) {
         return { message: error.message, httpCode: 500 };

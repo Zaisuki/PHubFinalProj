@@ -2,8 +2,11 @@ import express, { Express, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import http from 'http';
+import { Server } from 'socket.io';
 import schedule from 'node-schedule';
 import dotenv from 'dotenv';
+import { verify } from 'jsonwebtoken';
 dotenv.config();
 
 import entryRoutes from './routes/entry';
@@ -13,8 +16,11 @@ import professorRoutes from './routes/professor';
 import studentRoutes from './routes/student';
 import feedRoutes from './routes/feed';
 import { addReminderNotification } from './services/notification';
+import { authenticateToken } from './middleware/authentication';
+import { joinClass } from './services/user';
 
 const app = express();
+const server = http.createServer(app);
 const port = 3000;
 
 const MONGODB_CONNECTION: any = process.env.MONGODB_CONNECTION;
@@ -40,11 +46,6 @@ app.use(
         extended: true,
     })
 );
-// TODO: delete before pushing
-// app.put('/update', async (req, res) => {
-//     const result = await Notification.deleteMany();
-//     return res.status(200).json(result);
-// });
 
 app.use('/entry/', entryRoutes);
 app.use('/user/', userRoutes);
@@ -61,6 +62,23 @@ app.get('/', (req, res) => {
     res.send('Hello from your Node.js Express server!');
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
+});
+
+export const io = new Server(server, {
+    cors: {
+        origin: 'http://127.0.0.1:5173',
+    },
+});
+
+io.on('connection', (socket) => {
+    socket.on('join_classes', (token) => {
+        if (token == null) socket.to(socket.id).emit('unauthorized', { message: 'Unauthorized' });
+
+        verify(token, process.env.ACCESS_TOKEN_SECRET as string, (err: any, user: any) => {
+            if (err || !user) socket.to(socket.id).emit('unauthorized', { message: 'Unauthorized' });
+            joinClass(user, socket);
+        });
+    });
 });

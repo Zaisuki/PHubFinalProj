@@ -40,7 +40,7 @@ export const getUserNotificationController = async (req: Request & { user?: User
             return res.status(400).json({ message: 'User ID not provided' });
         }
         if (userID && userType) {
-            const result = await getUserNotification(userID, userType);
+            const result = await getUserNotification(userID);
             return res.status(result.httpCode).json(result.message);
         }
         return res.status(401).json({ 'message': 'Unauthorize' });

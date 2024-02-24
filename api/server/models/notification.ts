@@ -1,20 +1,21 @@
 import mongoose, { Schema, InferSchemaType } from 'mongoose';
 
-const notificationSchema = new Schema(
+const notificationHolderSchema = new Schema(
     {
         header: {
             type: String,
-            required: [true, 'Please enter your header.'],
+            // required: [true, 'Please enter your header.'],
+            default: null,
         },
         description: {
             type: String,
-            required: [true, 'Please enter the content.'],
-            unique: false,
+            // required: [true, 'Please enter the description.'],
+            default: null,
         },
         link: {
             type: String,
-            required: [true, 'Please enter the link.'],
-            unique: true,
+            // required: [true, 'Please enter the link.'],
+            default: null,
         },
         class: {
             type: Schema.Types.ObjectId,
@@ -27,4 +28,4 @@ const notificationSchema = new Schema(
     }
 );
 
-export const Notification = mongoose.model('Notification', notificationSchema);
+export const NotificationHolder = mongoose.model('NotificationHolder', notificationHolderSchema);
