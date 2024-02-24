@@ -2,7 +2,8 @@ import "../../assets/scss/prof-scss/workpage.scss";
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { Tab, Nav } from "react-bootstrap";
-import Stack from "react-bootstrap/Stack";
+import Table from "react-bootstrap/Table";
+import Form from "react-bootstrap/Form";
 
 export default function WorkPage() {
   return (
@@ -24,8 +25,8 @@ export default function WorkPage() {
           {/* Content inside instruction tab */}
           <div className="instruction-container">
             <Card className="header-container">
-              <h5 className="due">
-                Due
+              <h5 className="posted">
+                Posted
                 <span className="date"> January 21, 2024</span>
               </h5>
               <h4 className="task-type">
@@ -61,7 +62,192 @@ export default function WorkPage() {
           </div>
         </Tab.Pane>
         <Tab.Pane eventKey="student-work">
-          {/* Content inside student-work tab */}
+          <div className="student-work-container">
+            <div className="container-1">
+              <div className="content-1">
+                {/* Table contents */}
+                <Table border hover>
+                  <tbody>
+                    <tr>
+                      <td className="checkbox" >
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                    <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+
+                                        <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                                        <tr>
+                      <td className="checkbox">
+                        <Form.Check aria-label="option 1" />
+                      </td>
+                      <td className="icon">
+                        <i class="bx bxs-user-circle"></i>
+                      </td>
+                      <td className="student-name">Liezel Untalan Gabica</td>
+                      <td className="score">_/100</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </div>
+            </div>
+            <div className="container-2">
+              <h2>Container 2</h2>
+              <div className="content-2"></div>
+            </div>
+          </div>
         </Tab.Pane>
       </Tab.Content>
     </Tab.Container>

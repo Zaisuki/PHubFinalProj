@@ -8,6 +8,7 @@
   color: #333;
 }
 
+// First tab scss (INSTRUCTION
 .instruction-container {
   margin-top: 2%;
   display: grid;
@@ -55,5 +56,48 @@
     h4: {
       font-size: 17px;
     }
+  }
+}
+
+// Second tab scss (STUDENT WORK)
+.student-work-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 2%;
+
+  .container-1 {
+    width: 35%;
+
+    .content-1::-webkit-scrollbar-thumb {
+      background-color: #eae9e9;
+    }
+    .content-1 {
+      max-height: 550px; //Set max height for scrollbar
+      overflow-y: auto; // Enable vertical scrollbar
+
+      .checkbox{
+        width: 1%;
+      }
+
+      .icon {
+        width: 1%;
+
+        .bx {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+
+.container-2 {
+  width: 65%;
+  border: none;
+  padding: 10px;
+  background-color: rgb(139, 139, 139);
+
+  .content-2 {
+    max-height: 200px;
+    overflow-y: auto;
   }
 }
