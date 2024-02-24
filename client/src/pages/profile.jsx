@@ -36,7 +36,6 @@ function Profile() {
                 </h1>
                 <h2>{userInformation.personalNumber}</h2>
                 <h3 className='email'>{data.personalEmail}</h3>
-                <div className='line'></div>
             </Card>
             <Card className='two'>
                 <h1>Year/Grade:</h1>

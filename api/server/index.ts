@@ -12,10 +12,7 @@ import registrationRoutes from './routes/registration';
 import professorRoutes from './routes/professor';
 import studentRoutes from './routes/student';
 import feedRoutes from './routes/feed';
-import { UserCredentials } from './models/user';
 import { addReminderNotification } from './services/notification';
-import { Notification } from './models/notification';
-import { Check } from './models/classModel/class';
 
 const app = express();
 const port = 3000;
@@ -28,7 +25,7 @@ mongoose
         console.log('connected to MongoDB');
     })
     .catch((error) => {
-        console.log(error);
+        console.log('Internal Server Error');
     });
 
 app.use(
@@ -44,10 +41,10 @@ app.use(
     })
 );
 // TODO: delete before pushing
-app.put('/update', async (req, res) => {
-    const result = await Notification.deleteMany();
-    return res.status(200).json(result);
-});
+// app.put('/update', async (req, res) => {
+//     const result = await Notification.deleteMany();
+//     return res.status(200).json(result);
+// });
 
 app.use('/entry/', entryRoutes);
 app.use('/user/', userRoutes);
