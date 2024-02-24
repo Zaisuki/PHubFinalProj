@@ -3,6 +3,7 @@ import { Professor } from '../models/user';
 import { Announcement } from '../models/classModel/announcement';
 import { Check, Class, Coach, Connect, ConnectChoices } from '../models/classModel/class';
 import { ProfessorHandledClass } from '../models/classModel/professorClass';
+import { addTaskNotification } from './notification';
 
 // export const findAllProfessor = async (req: Request, res: Response) => {
 //     try {
@@ -124,6 +125,7 @@ export const addCheck = async (classID: string, postTitle: string, postDescripti
         classScheme.check.push(newCheck._id);
         await classScheme.save();
         await newCheck.save();
+        addTaskNotification("Check", newCheck)
         return { message: 'Check posted', httpCode: 200 };
     } catch (error: any) {
         return { message: error.message, httpCode: 500 };
