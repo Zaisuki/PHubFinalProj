@@ -32,19 +32,18 @@ function Feed() {
                                 <h1>{announcement.header}</h1>
                                 <div className='header-time'>
                                     <h6>{convertDate(announcement.createdAt)[0]}</h6>
-                                    <h7>{convertDate(announcement.createdAt)[1]}</h7>
+                                    <h6>{convertDate(announcement.createdAt)[1]}</h6>
                                 </div>
                             </div>
-                            
+
                             <div className='announce'>
-                            <p>{announcement.announcement}</p>
-                            {announcement.class && <h1>{announcement.class.subject.subjectCode}</h1>}
+                                <p>{announcement.announcement}</p>
+                                {announcement.class && <h1>{announcement.class.subject.subjectCode}</h1>}
                             </div>
-                            
+
                             <h1 className='professor'>
                                 {announcement.professor.firstName} {announcement.professor.lastName}
                             </h1>
-                            
                         </Card>
                     ))
                 ) : (
