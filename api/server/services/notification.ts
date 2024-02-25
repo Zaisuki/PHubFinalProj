@@ -14,7 +14,6 @@ export const addReminderNotification = async () => {
             const link = classObj._id.toString();
             const reminderExists = await NotificationHolder.exists({ header: header, link: link });
 
-            console.log(reminderExists);
             if (!reminderExists) {
                 const description = classObj.postDescription;
                 const classID = classObj.class._id;
@@ -101,7 +100,6 @@ export const getUserNotification = async (userID: string) => {
             .exec();
 
         if (notifications) {
-            console.log(notifications);
             return { message: notifications, httpCode: 200 };
         }
 

@@ -93,11 +93,9 @@ export const findProfessorByID = async (id: string) => {
 // Profile
 export const getUserProfile = async (userID: string, userType: string) => {
     try {
-        const userObjectID = new Types.ObjectId(userID);
         const populateDataByType = userType === 'student' ? 'studentInformation' : userType === 'professor' ? 'professorInformation' : 'adminInformation';
-        const findDataByType = userType === 'student' ? { studentInformation: userObjectID } : userType === 'professor' ? { professorInformation: userObjectID } : { adminInformation: userObjectID };
+        const findDataByType = userType === 'student' ? { studentInformation: userID } : userType === 'professor' ? { professorInformation: userID } : { adminInformation: userID };
         const userDetails = await UserCredentials.findOne(findDataByType).populate(populateDataByType).exec();
-
         if (userDetails) {
             return { message: userDetails, httpCode: 200 };
         }
@@ -110,7 +108,6 @@ export const getUserProfile = async (userID: string, userType: string) => {
 // Course
 export const getUserSubject = async (userID: string, userType: string) => {
     try {
-        const userObjectID = new Types.ObjectId(userID);
         const userDetails =
             userType === 'student'
                 ? await Student.findById(userID, 'studentSubjects')

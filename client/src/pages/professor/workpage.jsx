@@ -4,7 +4,10 @@ import { Tab, Nav } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function WorkPage() {
   const [checkboxes, setCheckboxes] = useState([]);
@@ -82,7 +85,7 @@ function WorkPage() {
         </Tab.Pane>
         <Tab.Pane eventKey="student-work">
           <div className="button-container">
-          <Button type="submit">Return</Button>
+            <Button type="submit">Return</Button>
           </div>
           <div className="student-work-container">
             <div className="container-1">
@@ -392,8 +395,23 @@ function WorkPage() {
 
             {/* Contents of container 2 */}
             <div className="container-2">
-              <h2>Container 2</h2>
-              <div className="content-2"></div>
+              <h2 className="activity-title">
+                Module 14: Check for Understanding
+              </h2>
+              <div className="content-2">
+                <Container className="stats">
+                  <Row className="numbers">
+                    <Col className="turned-in-total" sm={1}>10</Col>
+                    <Col className="assigned-total" sm={1}>22</Col>
+                    <Col className="returned-total" sm={1}>7</Col>
+                  </Row>
+                  <Row className="labels">
+                    <Col className="turned-in-label" sm={1}>Turned In</Col>
+                    <Col className="assigned-label" sm={1}>Assigned</Col>
+                    <Col className="returned-label" sm={1}>Returned</Col>
+                  </Row>
+                </Container>
+              </div>
             </div>
           </div>
         </Tab.Pane>

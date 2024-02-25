@@ -27,7 +27,6 @@ export const getSubject = async () => {
 export const checkSubjectAvailability = async (subjectCode: string, subjectDescription: string) => {
     try {
         const result = await Subject.find({ $or: [{ subjectCode: { $regex: new RegExp(`^${subjectCode}$`, 'i') } }, { subjectDescription: { $regex: new RegExp(`^${subjectDescription}$`, 'i') } }] });
-        console.log(result);
         return result;
     } catch (error) {
         return false;

@@ -128,11 +128,30 @@
 .container-2 {
   width: 65%;
   border: none;
-  padding: 10px;
-  background-color: rgb(139, 139, 139);
+  padding: 0% 1% 0% 1%;
+
+  .activity-title {
+    font-size: 22px;
+  }
 
   .content-2 {
     max-height: 200px;
     overflow-y: auto;
+
+    .stats {
+      .numbers {
+        font-size: 50px;
+        div{
+          text-align: left;
+          width: 12%;
+        }
+      }
+      .labels{
+        div{
+          text-align: left;
+          width: 12%;
+        }
+      }
+    }
   }
 }

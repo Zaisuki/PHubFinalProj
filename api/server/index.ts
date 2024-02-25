@@ -36,7 +36,7 @@ mongoose
 
 app.use(
     cors({
-        origin: ['http://127.0.0.1:5173'],
+        origin: ['http://localhost:5173'],
         credentials: true,
     })
 );
@@ -68,7 +68,7 @@ server.listen(port, () => {
 
 export const io = new Server(server, {
     cors: {
-        origin: 'http://127.0.0.1:5173',
+        origin: 'http://localhost:5173',
     },
 });
 

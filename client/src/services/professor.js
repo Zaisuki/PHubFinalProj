@@ -23,6 +23,5 @@ export const postAnnouncement = async (titleVal, descriptionVal) => {
         .catch((error) => {
             throw error;
         });
-    console.log(response);
     return response;
 };
