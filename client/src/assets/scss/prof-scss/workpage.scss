@@ -60,10 +60,18 @@
 }
 
 // Second tab scss (STUDENT WORK)
+.button-container {
+  padding: 2% 2% 0% 2%;
+
+  button {
+    background-color: rgb(139, 139, 139);
+    border-color: grey;
+  }
+}
 .student-work-container {
   display: flex;
   justify-content: space-around;
-  padding: 2%;
+  padding: 1% 2% 2% 2%;
 
   .container-1 {
     width: 35%;
@@ -75,15 +83,42 @@
       max-height: 550px; //Set max height for scrollbar
       overflow-y: auto; // Enable vertical scrollbar
 
-      .checkbox{
-        width: 1%;
+      .table-1 {
+        .checkbox {
+          width: 1%;
+        }
+        .icon {
+          margin-right: 10px;
+
+          .bx {
+            font-size: 25px;
+          }
+        }
       }
 
-      .icon {
-        width: 1%;
+      .table-2 {
+        .checkbox {
+          width: 1%;
+        }
+        .icon {
+          margin-right: 10px;
 
-        .bx {
-          font-size: 25px;
+          .bx {
+            font-size: 25px;
+          }
+        }
+      }
+
+      .table-3 {
+        .checkbox {
+          width: 1%;
+        }
+        .icon {
+          margin-right: 10px;
+
+          .bx {
+            font-size: 25px;
+          }
         }
       }
     }
