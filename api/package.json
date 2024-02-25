@@ -22,16 +22,19 @@
         "multer": "^1.4.5-lts.1",
         "node-schedule": "^2.1.1",
         "path": "^0.12.7",
-        "socket.io": "^4.7.4"
+        "socket.io": "^4.7.4",
+        "stream-chat": "^8.18.2"
     },
     "devDependencies": {
         "@types/bcrypt": "^5.0.2",
+        "@types/dotenv": "^8.2.0",
         "@types/express": "^4.17.17",
         "@types/express-fileupload": "^1.4.3",
         "@types/jsonwebtoken": "^9.0.3",
         "@types/multer": "^1.4.11",
         "@types/node": "^20.11.19",
         "@types/node-schedule": "^2.1.6",
+        "@types/socket.io": "^3.0.2",
         "concurrently": "^8.2.0",
         "nodemon": "^3.0.1",
         "ts-node": "^10.9.1",

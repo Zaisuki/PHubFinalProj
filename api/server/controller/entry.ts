@@ -3,6 +3,8 @@ import { checkEmailAvailability, checkUsernameAvailability, getUserIDandType, lo
 import { HttpResponse } from '../models/http-response';
 
 import jwt from 'jsonwebtoken';
+import {StreamChat} from 'stream-chat';
+
 
 // Check Current User
 export const checkCurrentUser = async (req: Request, res: Response) => {
@@ -21,7 +23,7 @@ export const loginUserController = async (req: Request, res: Response) => {
         const password: string = req.body.password;
         const userIdentifierType = await checkInputType(userIdentifier);
         const checkerForInput = await checkEveryInputForLogin(userIdentifier, password, userIdentifierType);
-        let userID, userType;
+        let userID, userType, userFullName, username;
         if (checkerForInput.message['message'] === 'success') {
             const data = await loginUsertoDatabase(userIdentifier, password);
             let loginUpdate = data.message;
@@ -29,11 +31,13 @@ export const loginUserController = async (req: Request, res: Response) => {
                 const accessTokenSecret: any = process.env.ACCESS_TOKEN_SECRET;
                 const userData = await getUserIDandType(userIdentifier);
                 if (userData) {
-                    [userID, userType] = userData;
+                    [userID, userType, userFullName, username] = userData;
                     const user = { userID, userName: userIdentifier, userType };
                     const accessToken = jwt.sign(user, accessTokenSecret);
+                    const serverClient = StreamChat.getInstance('2sgdxg7zqddx','c4vvskc6wjyduppj266hvhwfn7rqh7ctwhshzgr95n4qvw7q7mjkmsmzyd6826d4');
+                    const chatToken = serverClient.createToken(username);
                     const userTypeHash = userType === 'admin' ? '3aDfR9oPq2sW5tZyX8vBu1mNc7LkIj6Hg4TfGhJdSe4RdFgBhNjVkLo0iUyHnJm' : userType === 'student' ? 'E2jF8sG5dH9tY3kL4zX7pQ6wR1oV0mCqB6nI8bT7yU5iA3gD2fS4hJ9uMlKoP1e' : 'r9LsT6kQ3jWfZ1pY4xN7hM2cV8gB5dI0eJ4uF2oD3iG5vX6mC1aS7tR9yU3lK8w';
-                    loginUpdate = { ...loginUpdate, accessToken: accessToken, userType: userTypeHash };
+                    loginUpdate = { ...loginUpdate, accessToken: accessToken, userType: userTypeHash, chatToken,  userFullName, username};
                 } else {
                     data.code = 400;
                     loginUpdate = { message: 'User not found.' };

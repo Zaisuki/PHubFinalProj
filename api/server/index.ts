@@ -36,7 +36,7 @@ mongoose
 
 app.use(
     cors({
-        origin: ['http://localhost:5173'],
+        origin: ['http://127.0.0.1:5173'],
         credentials: true,
     })
 );
@@ -72,8 +72,8 @@ export const io = new Server(server, {
     },
 });
 
-io.on('connection', (socket) => {
-    socket.on('join_classes', (token) => {
+io.on('connection', (socket: any) => {
+    socket.on('join_classes', (token: any) => {
         if (token == null) socket.to(socket.id).emit('unauthorized', { message: 'Unauthorized' });
 
         verify(token, process.env.ACCESS_TOKEN_SECRET as string, (err: any, user: any) => {

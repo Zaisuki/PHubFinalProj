@@ -19,7 +19,11 @@ const Login = () => {
       const response = await login({ userIdentifier, password });
       if (response.message === "success") {
         cookies.set("authorization", response.accessToken);
+        cookies.set("chatToken", response.chatToken);
         cookies.set("userType", response.userType);
+        cookies.set("userFullName", response.userFullName);
+        cookies.set("username", response.username);
+
         navigate("/");
         window.location.reload();
       } else {
