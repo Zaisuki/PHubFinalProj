@@ -1,5 +1,3 @@
-
-
 .dropdown-task {
   .task-prof-one .dropdown button {
     width: 700px;
@@ -20,6 +18,7 @@
     place-items: center;
     margin: 3% 10% 0% 10%;
     position: relative;
+    border: 0;
   }
 
   .connect {
@@ -31,37 +30,97 @@
     margin-top: 150px;
     position: relative;
 
+    .info {
+      .connect-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        top: 100px;
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        top: 100px;
+        left: 950px;
+      }
+    }
 
-    .connect-title{
-      font-family:Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 25px;
-      position: absolute;
-      top: 100px;
-      left: 100px;
-    }
-    .block{
-      font-family:Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 25px;
-      position: absolute;
-      top: 100px;
-      left: 720px;
-    }
-    .due{
-      font-family:Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 25px;
-      position: absolute;
-      top: 100px;
-      left: 950px;
+    .info-one {
+      background-color: rgb(201, 201, 201);
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      .connect-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
     }
 
+    .info-two {
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      .connect-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
+    }
     .connect-text {
       font-size: 30px;
       position: absolute;
       left: 40px;
       top: 30px;
     }
-
-    
   }
 
   .check {
@@ -70,6 +129,104 @@
     border: 1px solid;
     border-radius: 20px;
     margin-bottom: 30px;
+    position: relative;
+
+    .info {
+      background-color: rgb(255, 255, 255);
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+
+      .check-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
+    }
+    .info-one {
+      background-color: rgb(201, 201, 201);
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      .check-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
+    }
+    .info-two {
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      .check-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
+    }
+  }
+  .check-text {
+    font-size: 30px;
+    position: absolute;
+    left: 40px;
+    top: 30px;
   }
 
   .coach {
@@ -78,71 +235,226 @@
     border: 1px solid;
     border-radius: 20px;
     margin-bottom: 30px;
-  }
+    position: relative;
 
-  .plus {
-    position: absolute;
-    top: 100px;
-    left: 1150px;
-  }
+    .info {
+      background-color: rgb(255, 255, 255);
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
 
-  .floating-window {
-    animation: fadeIn 0.3s ease forwards;
-    box-shadow: 1999px 11000px 2100px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    position: fixed;
-    top: 50%;
-    left: 52.5%;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0);
-    height: 200%;
-    width: 93%;
-    backdrop-filter: blur(5px);
+      .check-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
+    }
+    .info-one {
+      background-color: rgb(201, 201, 201);
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      .check-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
 
-    .eks{
-      position: absolute;
-      left: 1200px;
-      font-size: 40px;
-      z-index: 1000;
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
+    }
+    .info-two {
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      .check-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
     }
   }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.5);
-    }
-    to {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
-    }
-  }
-
-  .taskN {
-    font-size: 25px;
-    color: gray;
+  .coach-text {
+    font-size: 30px;
     position: absolute;
-    top: 90px;
-    left: 120px;
-  }
-
-  .assigned {
-    font-size: 25px;
-    color: gray;
-    top: 90px;
-    left: 800px;
-    position: absolute;
-  }
-
-  .dueD {
-    font-size: 25px;
-    color: gray;
-    top: 90px;
-    left: 1040px;
-    position: absolute;
+    left: 40px;
+    top: 30px;
   }
 }
+
+.plus {
+  position: absolute;
+  top: 100px;
+  left: 1150px;
+}
+
+.floating-window {
+  animation: fadeIn 0.3s ease forwards;
+  box-shadow: 1999px 11000px 2100px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 50%;
+  left: 52.5%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0);
+  height: 200%;
+  width: 83%;
+  backdrop-filter: blur(5px);
+
+
+  .plus-task{
+    height: 500px;
+    width: 800px;
+    border: 6px solid ;
+    border-radius: 30px;
+    position: relative;
+    .post{
+      font-size: 25px;
+      position: absolute;
+      top: 30px;
+      left: 20px;
+    }
+    .plus-title{
+      width: 500px;
+      position: absolute;
+      top: 160px;
+      left: 60px;
+      .task-name{
+        font-size: 25px;
+        position: absolute;
+        top: -46px;
+        left: -3px;
+      }
+    }
+    
+
+    .plus-block{
+      width: 500px;
+      position: absolute;
+      top: 260px;
+      left: 60px;
+      .blockN{
+        font-size: 25px;
+        position: absolute;
+        top: -46px;
+        left: -3px;
+      }
+    }
+    .due{
+      position: absolute;
+      width: 500px;
+      top: 260px;
+      left: 60px;
+      .dueN{
+        font-size: 25px;
+        position: absolute;
+        top: 45px;
+        left: -3px;
+      }
+    }
+    
+  }
+
+  .eks {
+    position: absolute;
+    left: 1000px;
+    top: 560px;
+    font-size: 40px;
+    z-index: 1000;
+    
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.taskN {
+  font-size: 25px;
+  color: gray;
+  position: absolute;
+  top: 90px;
+  left: 120px;
+}
+
+.assigned {
+  font-size: 25px;
+  color: gray;
+  top: 90px;
+  left: 800px;
+  position: absolute;
+}
+
+.dueD {
+  font-size: 25px;
+  color: gray;
+  top: 90px;
+  left: 1040px;
+  position: absolute;
+}
+
+
