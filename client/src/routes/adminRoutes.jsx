@@ -2,9 +2,9 @@ import { Route, Routes } from 'react-router-dom';
 
 import AdminLayout from '../layout/adminLayout';
 import HomeAdmin from '../pages/admin/homeAdmin';
-import { StudentForm } from '../pages/admin/studentForm';
-import { ProfessorForm } from '../pages/admin/professorForm.jsx';
-import { AdminForm } from '../pages/admin/adminForm';
+import StudentForm from '../pages/admin/studentForm';
+import ProfessorForm from '../pages/admin/professorForm';
+import AdminForm from '../pages/admin/adminForm';
 
 export default function ProfessorRoutes() {
     return (

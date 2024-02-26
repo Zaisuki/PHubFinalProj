@@ -1,3 +1,5 @@
-export const ProfessorForm = () => {
+const ProfessorForm = () => {
     return <>Professor</>;
 };
+
+export default ProfessorForm

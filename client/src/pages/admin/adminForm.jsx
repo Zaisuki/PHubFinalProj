@@ -1,3 +1,5 @@
-export const AdminForm = () => {
+const AdminForm = () => {
     return <>Admin</>;
 };
+
+export default AdminForm
