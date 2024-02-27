@@ -66,7 +66,30 @@ import { addTaskNotification } from './notification';
 // };
 
 // THINGS THAT ONLY PROFESSOR CAN Create Update and Delete
-
+// CLASS
+export const getClass = async (id: string) => {
+    try {
+        const result: string[] = [];
+        const professorsClass = await Professor.findOne({ _id: id }, 'professorHandledClass')
+            .populate({
+                path: 'professorHandledClass',
+                populate: {
+                    path: 'class',
+                    populate: {
+                        path: 'subject',
+                    },
+                },
+            })
+            .exec();
+        for (const classObj of (professorsClass?.professorHandledClass as any)?.class) {
+            result.push(classObj);
+        }
+        return result;
+    } catch (error) {
+        return { 'message': 'No Announcement' };
+    }
+};
+// ANNOUNCEMENTS
 export const addAnnouncement = async (header: string, announcement: string, professorID: string | undefined, classID: string) => {
     try {
         let newAnnouncement = await new Announcement({

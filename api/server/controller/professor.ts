@@ -1,6 +1,21 @@
 import express, { Express, Request, Response } from 'express';
 import { User } from '../middleware/authentication';
-import { addAnnouncement, addCheck, addCoach, addConnect, deleteAllCheck, deleteAllConnect, deleteCheck, deleteCoach, deleteConnect } from '../services/professor';
+import { addAnnouncement, addCheck, addCoach, addConnect, deleteAllCheck, deleteAllConnect, deleteCheck, deleteCoach, deleteConnect, getClass } from '../services/professor';
+
+export const getClassController = async (req: Request & { user?: User }, res: Response) => {
+    try {
+        const { userID, userType } = req.user || {};
+        if (userID) {
+            let result;
+            result = await getClass(userID);
+            return res.status(200).json({ 'message': result });
+        }
+
+        return res.status(401).json({ 'message': 'Unauthorize' });
+    } catch {
+        res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
 
 export const addAnnouncementController = async (req: Request & { user?: User }, res: Response) => {
     try {
