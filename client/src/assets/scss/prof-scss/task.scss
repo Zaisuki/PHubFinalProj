@@ -1,16 +1,19 @@
 .dropdown-task {
-  .task-prof-one .dropdown button {
-    width: 700px;
-    height: 86px;
-    font-size: 40px;
-  }
-
-  .task-prof-one .dropdown2 button {
-    width: 700px;
-    height: 86px;
-    margin-left: 790px;
-    margin-top: -120px;
-    font-size: 40px;
+  .task-prof-one {
+    .dropdown button {
+      width: 700px;
+      height: 86px;
+      font-size: 40px;
+    }
+    .dropdown2 {
+      button {
+        width: 700px;
+        height: 86px;
+        margin-left: 790px;
+        margin-top: -120px;
+        font-size: 40px;
+      }
+    }
   }
 
   .tcontainer {
@@ -19,38 +22,37 @@
     margin: 3% 10% 0% 10%;
     position: relative;
     border: 0;
-  }
+    .connect {
+      width: 1100px;
+      height: 50vh;
+      border: 1px solid;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      margin-top: 150px;
+      position: relative;
 
-  .connect {
-    width: 1100px;
-    height: 50vh;
-    border: 1px solid;
-    border-radius: 20px;
-    margin-bottom: 30px;
-    margin-top: 150px;
-    position: relative;
-
-    .info {
-      .connect-title {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 25px;
-        position: absolute;
-        top: 100px;
-        left: 100px;
-      }
-      .block {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 25px;
-        position: absolute;
-        top: 100px;
-        left: 720px;
-      }
-      .due {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 25px;
-        position: absolute;
-        top: 100px;
-        left: 950px;
+      .info {
+        .connect-title {
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-size: 25px;
+          position: absolute;
+          top: 100px;
+          left: 100px;
+        }
+        .block {
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-size: 25px;
+          position: absolute;
+          top: 100px;
+          left: 720px;
+        }
+        .due {
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-size: 25px;
+          position: absolute;
+          top: 100px;
+          left: 950px;
+        }
       }
     }
 
@@ -358,89 +360,74 @@
   width: 80%;
   backdrop-filter: blur(5px);
 
-  .dropdown-ccc{
-    position: absolute;
-    top: 450px;
-    left:60px;
-  }
-
-
-  .plus-task{
-    height: 600px;
-    width: 800px;
-    border: 6px solid ;
+  .plus-task {
+    height: 70vh;
+    width: 70%;
+    padding: 2vw;
+    border: 6px solid;
     border-radius: 30px;
     position: relative;
-    .post-ass-button{
-      position: absolute;
-      top: 490px;
-      left: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .header-plus-task {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .header-task-selection {
+        width: 30%;
+      }
+    }
+    .post-ass-button {
       border-radius: 90px;
       background-color: rgb(221, 220, 220);
       height: 50px;
     }
-    .post-ass-button:hover{
+    .post-ass-button:hover {
       background-image: linear-gradient(45deg, #044a6b, #09612a, #044a6b);
-        color: white;
+      color: white;
     }
 
-    .post{
-      font-size: 25px;
-      position: absolute;
-      top: 30px;
-      left: 20px;
-    }
-    
-    .plus-title{
-      width: 500px;
-      position: absolute;
-      top: 160px;
-      left: 60px;
-      .adjust{
-        border-radius: 90px;
-      }
-      .adjust:hover{
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-      }
-      
-      .task-name{
-        font-size: 25px;
-        position: absolute;
-        top: -46px;
-        left: -3px;
-      }
-    }
-    
+    .plus-title {
+      width: 100%;
+      min-height: 80%;
 
-    .plus-block{
-      width: 500px;
-      position: absolute;
-      top: 260px;
-      left: 60px;
-      .blockN{
-        font-size: 25px;
-        position: absolute;
-        top: -46px;
-        left: -3px;
+      .task-name-container {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        justify-content: space-between;
+        .task-name {
+          display: inline-block;
+          font-size: 25px;
+          width: fit-content;
+        }
+        .task-name-input {
+          width: 80%;
+          border-radius: 90px;
+        }
+        .task-name-input:hover {
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        }
       }
     }
-    .due{
-      position: absolute;
+
+    .plus-block {
       width: 500px;
-      top: 260px;
-      left: 60px;
-      .dueN{
+      .blockN {
         font-size: 25px;
-        position: absolute;
-        top: 45px;
-        left: -3px;
-      }
-      .input-type{
-        position: absolute;
-        top: 100px;
       }
     }
-    
+    .due {
+      width: 500px;
+      .dueN {
+        font-size: 25px;
+      }
+      .input-type {
+      }
+    }
   }
 
   .eks {
@@ -449,7 +436,6 @@
     top: 520px;
     font-size: 40px;
     z-index: 1000;
-    
   }
 }
 
@@ -467,9 +453,6 @@
 .taskN {
   font-size: 25px;
   color: gray;
-  position: absolute;
-  top: 90px;
-  left: 120px;
 }
 
 .assigned {
@@ -487,5 +470,3 @@
   left: 1040px;
   position: absolute;
 }
-
-

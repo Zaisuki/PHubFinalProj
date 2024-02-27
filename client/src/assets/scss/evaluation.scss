@@ -39,26 +39,30 @@
         width: 115px;
         padding: 1px;
     }
-    span{
-        font-size: 0px;
-    }
-    .select{
-        font-size: 20px;
-        width:  14%;
-        height: 10%;
-        text-align: center;
-        margin: 30px;
-        margin-top: 50px;
-        margin-left: 1050px;
-    }
-    .select2{
-        font-size: 20px;
-        width:  14%;
-        height: 10%;
-        text-align: center;
-        margin: 30px;
-        margin-top: -73px;
-        margin-left: 1290px;
+    .inst{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        span{
+            width: 70%;
+            font-size: 25px;
+            margin-top: 5%;
+        }
+        .select_container{
+            width: 30%;
+            display: flex;
+            justify-content: space-between;
+            select{
+                width: 60%;
+                margin-top: 15%;
+                margin-left: 5%;
+                height: 40%;
+                font-size: 20px;
+                text-align: center;
+                
+            }
+           
+        }
     }
 
     
