@@ -355,27 +355,54 @@
   padding: 30px;
   background-color: rgba(255, 255, 255, 0);
   height: 200%;
-  width: 83%;
+  width: 80%;
   backdrop-filter: blur(5px);
+
+  .dropdown-ccc{
+    position: absolute;
+    top: 450px;
+    left:60px;
+  }
 
 
   .plus-task{
-    height: 500px;
+    height: 600px;
     width: 800px;
     border: 6px solid ;
     border-radius: 30px;
     position: relative;
+    .post-ass-button{
+      position: absolute;
+      top: 490px;
+      left: 650px;
+      border-radius: 90px;
+      background-color: rgb(221, 220, 220);
+      height: 50px;
+    }
+    .post-ass-button:hover{
+      background-image: linear-gradient(45deg, #044a6b, #09612a, #044a6b);
+        color: white;
+    }
+
     .post{
       font-size: 25px;
       position: absolute;
       top: 30px;
       left: 20px;
     }
+    
     .plus-title{
       width: 500px;
       position: absolute;
       top: 160px;
       left: 60px;
+      .adjust{
+        border-radius: 90px;
+      }
+      .adjust:hover{
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+      }
+      
       .task-name{
         font-size: 25px;
         position: absolute;
@@ -408,14 +435,18 @@
         top: 45px;
         left: -3px;
       }
+      .input-type{
+        position: absolute;
+        top: 100px;
+      }
     }
     
   }
 
   .eks {
     position: absolute;
-    left: 1000px;
-    top: 560px;
+    left: 1080px;
+    top: 520px;
     font-size: 40px;
     z-index: 1000;
     
