@@ -64,9 +64,33 @@
         margin: 20px;
         height: 300px;
         p{
-            padding: 10px;
+            padding: 20px;
             border: 1px solid black;
             border-radius: 150px;
         }
+    
     }
+   .stat-five{
+        width: 50%;
+        margin: 20px;
+        height: 300px;
+
+        .score-one{
+            margin-top: 2%;
+            height: 20%;
+            padding: 1%;
+            }
+
+    .score-two{
+        margin-top: -5%;
+        height: 20%;
+        padding: 1%;
+}
+    .score-three{
+        margin-top: -5%;
+        height: 20%;
+        padding: 1%;
+        }
+    
 }    
+}
