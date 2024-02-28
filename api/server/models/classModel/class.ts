@@ -33,6 +33,10 @@ const checkSchema = new Schema(
                 default: null,
             },
         ],
+        highestPossibleScore: {
+            type: Number,
+            default: false,
+        },
         lateSubmission: {
             type: Boolean,
             default: false,
@@ -124,6 +128,10 @@ const connectSchema = new Schema(
                 default: null,
             },
         ],
+        highestPossibleScore: {
+            type: Number,
+            default: false,
+        },
         lateSubmission: {
             type: Boolean,
             default: false,

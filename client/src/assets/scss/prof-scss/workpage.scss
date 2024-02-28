@@ -8,7 +8,7 @@
   color: #333;
 }
 
-// First tab scss (INSTRUCTION
+// First tab scss (INSTRUCTION)
 .instruction-container {
   margin-top: 2%;
   display: grid;
@@ -20,42 +20,15 @@
     margin-bottom: 1%;
     width: 100%;
     border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-    h5: {
-      font-size: 2px;
-      color: grey;
-      font-family: sans-serif;
-    }
   }
 
-  .content-container {
-    max-width: 850px;
-    padding: 3vh;
-    margin-bottom: 1%;
-    width: 100%;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-  }
-
+  .content-container,
   .attachment-container {
     max-width: 850px;
     padding: 3vh;
     margin-bottom: 1%;
     width: 100%;
     border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-    h4: {
-      font-size: 17px;
-    }
   }
 }
 
@@ -65,7 +38,8 @@
 
   // Left part of student-work content
   .left-container {
-    width: 45%;
+    width: 50%;
+    justify-content: center;
 
     .upper-left-container {
       height: 185px;
@@ -84,13 +58,7 @@
           overflow-y: auto;
 
           .stats {
-            .numbers {
-              font-size: 25px;
-              div {
-                text-align: left;
-                width: 20%;
-              }
-            }
+            .numbers,
             .labels {
               div {
                 text-align: left;
@@ -100,6 +68,7 @@
           }
         }
       }
+
       .button-container {
         button {
           background-color: rgb(139, 139, 139);
@@ -120,43 +89,19 @@
         ::-webkit-scrollbar {
           width: 8px;
         }
+
         .content-1 {
           max-height: 550px; //Set max height for scrollbar
           overflow-y: auto; // Enable vertical scrollbar
 
-          .table-1 {
-            .checkbox {
-              width: 1%;
-            }
-            .icon {
-              margin-right: 10px;
-
-              .bx {
-                font-size: 25px;
-              }
-            }
-          }
-
-          .table-2 {
-            .checkbox {
-              width: 1%;
-            }
-            .icon {
-              margin-right: 10px;
-
-              .bx {
-                font-size: 25px;
-              }
-            }
-          }
-
+          .table-1,
+          .table-2,
           .table-3 {
             .checkbox {
               width: 1%;
             }
             .icon {
               margin-right: 10px;
-
               .bx {
                 font-size: 25px;
               }
@@ -169,8 +114,54 @@
 
   // Right part of student-work content
   .right-container {
-    background-color: #333;
     width: 65%;
     padding: 2vh;
+    position: relative;
+
+    .floating-button {
+      position: absolute;
+      bottom: 20px;
+      right: 400px;
+      z-index: 999;
+      background-color: transparent;
+      border: none;
+      color: black;
+    }
+
+    .right-sub-content {
+      font-size: 15px;
+
+      .attached-file {
+        position: relative;
+
+        .floating-window {
+          height: 200px;
+          width: 30%;
+          background-color: rgb(255, 255, 255);
+          border: 2px solid;
+          box-shadow: 10px 100px 900px 100px rgba(0, 0, 0, 10); 
+          border-radius: 40px;
+       
+        
+
+          .history {
+            background-color: rgb(209, 209, 209);
+            height: 100px;
+            padding: 40px;
+            
+            p {
+              display: inline; 
+              padding: 20px;
+              
+              
+    
+              text-align: center;
+             
+            }
+          }
+          .history:hover{}
+        }
+      }
+    }
   }
 }

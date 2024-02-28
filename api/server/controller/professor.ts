@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import { User } from '../middleware/authentication';
-import { addAnnouncement, addCheck, addCoach, addConnect, deleteAllCheck, deleteAllConnect, deleteCheck, deleteCoach, deleteConnect, getCheck, getClass, getCoach, getConnect } from '../services/professor';
+import { addAnnouncement, addCheck, addCoach, addConnect, deleteAllCheck, deleteAllConnect, deleteCheck, deleteCoach, deleteConnect, getCheck, getCheckTask, getCheckTaskSubmission, getClass, getCoach, getCoachTask, getConnect, getConnectTask, getConnectTaskSubmission } from '../services/professor';
 
 export const getClassController = async (req: Request & { user?: User }, res: Response) => {
     try {
@@ -50,6 +50,78 @@ export const getConnectController = async (req: Request, res: Response) => {
         if (classID) {
             let result;
             result = await getConnect(classID);
+            return res.status(200).json({ 'message': result });
+        }
+
+        return res.status(401).json({ 'message': 'Class not found' });
+    } catch {
+        res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+export const getCoachTaskController = async (req: Request, res: Response) => {
+    try {
+        const classID = req.query.classID as string;
+        if (classID) {
+            let result;
+            result = await getCoachTask(classID);
+            return res.status(200).json({ 'message': result });
+        }
+
+        return res.status(401).json({ 'message': 'Class not found' });
+    } catch {
+        res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+export const getCheckTaskController = async (req: Request, res: Response) => {
+    try {
+        const classID = req.query.classID as string;
+        if (classID) {
+            let result;
+            result = await getCheckTask(classID);
+            return res.status(200).json({ 'message': result });
+        }
+
+        return res.status(401).json({ 'message': 'Class not found' });
+    } catch {
+        res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+export const getConnectTaskController = async (req: Request, res: Response) => {
+    try {
+        const classID = req.query.classID as string;
+        if (classID) {
+            let result;
+            result = await getConnectTask(classID);
+            return res.status(200).json({ 'message': result });
+        }
+
+        return res.status(401).json({ 'message': 'Class not found' });
+    } catch {
+        res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+export const getCheckTaskSubmissionController = async (req: Request, res: Response) => {
+    try {
+        const classID = req.query.classID as string;
+        const taskID = req.query.taskID as string;
+        if (classID) {
+            let result;
+            result = await getCheckTaskSubmission(classID, taskID);
+            return res.status(200).json({ 'message': result });
+        }
+
+        return res.status(401).json({ 'message': 'Class not found' });
+    } catch {
+        res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+export const getConnectTaskSubmissionController = async (req: Request, res: Response) => {
+    try {
+        const classID = req.query.classID as string;
+        const taskID = req.query.taskID as string;
+        if (classID) {
+            let result;
+            result = await getConnectTaskSubmission(classID, taskID);
             return res.status(200).json({ 'message': result });
         }
 

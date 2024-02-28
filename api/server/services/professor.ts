@@ -4,6 +4,7 @@ import { Announcement } from '../models/classModel/announcement';
 import { Check, Class, Coach, Connect, ConnectChoices } from '../models/classModel/class';
 import { ProfessorHandledClass } from '../models/classModel/professorClass';
 import { addTaskNotification } from './notification';
+import { StudentCheckSubmission, StudentConnectSubmission } from '../models/classModel/studentClass';
 
 // export const findAllProfessor = async (req: Request, res: Response) => {
 //     try {
@@ -109,6 +110,76 @@ export const getConnect = async (classID: string) => {
     try {
         const result = await Connect.find({ class: classID });
         return result;
+    } catch (error) {
+        return { 'message': 'No Connect' };
+    }
+};
+export const getCoachTask = async (classID: string) => {
+    try {
+        const result = await Coach.findById(classID);
+        return result;
+    } catch (error) {
+        return { 'message': 'No Coach' };
+    }
+};
+export const getCheckTask = async (classID: string) => {
+    try {
+        const result = await Check.findById(classID);
+        return result;
+    } catch (error) {
+        return { 'message': 'No Check' };
+    }
+};
+export const getConnectTask = async (classID: string) => {
+    try {
+        const result = await Connect.findById(classID);
+        return result;
+    } catch (error) {
+        return { 'message': 'No Connect' };
+    }
+};
+export const getCheckTaskSubmission = async (classID: string, taskID: string) => {
+    try {
+        const studentTurnedIn = [],
+            studentGraded = [],
+            studentAssigned = [];
+        const students = await Class.findById(classID, 'students');
+        for (const student of (students as any)?.students) {
+            const studentSubmission = await StudentCheckSubmission.findOne({ student, task: taskID });
+            if (studentSubmission) {
+                if (studentSubmission.score) {
+                    studentGraded.push(student);
+                } else {
+                    studentTurnedIn.push(student);
+                }
+            } else {
+                studentAssigned.push(student);
+            }
+        }
+        return { studentTurnedIn, studentGraded, studentAssigned };
+    } catch (error) {
+        return { 'message': 'No Check' };
+    }
+};
+export const getConnectTaskSubmission = async (classID: string, taskID: string) => {
+    try {
+        const studentTurnedIn = [],
+            studentGraded = [],
+            studentAssigned = [];
+        const students = await Class.findById(classID, 'students');
+        for (const student of (students as any)?.students) {
+            const studentSubmission = await StudentConnectSubmission.findOne({ student, task: taskID });
+            if (studentSubmission) {
+                if (studentSubmission.score) {
+                    studentGraded.push(student);
+                } else {
+                    studentTurnedIn.push(student);
+                }
+            } else {
+                studentAssigned.push(student);
+            }
+        }
+        return { studentTurnedIn, studentGraded, studentAssigned };
     } catch (error) {
         return { 'message': 'No Connect' };
     }

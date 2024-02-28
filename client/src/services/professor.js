@@ -91,6 +91,58 @@ export const getCoach = async (classID) => {
         });
     return response;
 };
+export const getCheckTask = async (classID) => {
+    const response = await axios
+        .get(`${apiURL}/professor/check/task`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+            params: {
+                classID,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
+export const getConnectTask = async (classID) => {
+    const response = await axios
+        .get(`${apiURL}/professor/connect/task`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+            params: {
+                classID,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    console.log(response);
+    return response;
+};
+export const getCoachTask = async (classID) => {
+    const response = await axios
+        .get(`${apiURL}/professor/coach/task`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+            params: {
+                classID,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
 
 export const postCheck = async (formData) => {
     const response = await axios
