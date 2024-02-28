@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .stat-card {
   .card {
     padding: 20px;
@@ -56,15 +61,6 @@
     select {
       display: inline-block;
       width: 49%;
-    }
-    
-    .course-select-stat {
-        width: 35%;
-    }
-    .student-select-stat {
-        margin-right: 5%;
-        margin-left: 5%;
-        width: 35%;
     }
   }
   .stat-four,
