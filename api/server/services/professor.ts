@@ -113,6 +113,30 @@ export const getConnect = async (classID: string) => {
         return { 'message': 'No Connect' };
     }
 };
+export const getCoachTask = async (classID: string) => {
+    try {
+        const result = await Coach.findById(classID);
+        return result;
+    } catch (error) {
+        return { 'message': 'No Coach' };
+    }
+};
+export const getCheckTask = async (classID: string) => {
+    try {
+        const result = await Check.findById(classID);
+        return result;
+    } catch (error) {
+        return { 'message': 'No Check' };
+    }
+};
+export const getConnectTask = async (classID: string) => {
+    try {
+        const result = await Connect.findById(classID);
+        return result;
+    } catch (error) {
+        return { 'message': 'No Connect' };
+    }
+};
 
 // ANNOUNCEMENTS
 export const addAnnouncement = async (header: string, announcement: string, professorID: string | undefined, classID: string) => {
