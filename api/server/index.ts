@@ -24,6 +24,7 @@ const server = http.createServer(app);
 const port = 3000;
 
 const MONGODB_CONNECTION: any = process.env.MONGODB_CONNECTION;
+const ORIGIN_URL: any = process.env.ORIGIN_URL || 'http://127.0.0.1:5173';
 
 mongoose
     .connect(MONGODB_CONNECTION)
@@ -36,7 +37,7 @@ mongoose
 
 app.use(
     cors({
-        origin: ['http://localhost:5173'],
+        origin: [ORIGIN_URL],
         credentials: true,
     })
 );
@@ -68,7 +69,7 @@ server.listen(port, () => {
 
 export const io = new Server(server, {
     cors: {
-        origin: 'http://localhost:5173',
+        origin: ORIGIN_URL,
     },
 });
 
