@@ -25,3 +25,63 @@ export const postAnnouncement = async (titleVal, descriptionVal) => {
         });
     return response;
 };
+export const getClass = async () => {
+    const response = await axios
+        .get(`${apiURL}/professor/class`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
+
+export const postCheck = async (formData) => {
+    const response = await axios
+        .post(`${apiURL}/professor/check`, formData, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
+
+export const postConnect = async (formData) => {
+    const response = await axios
+        .post(`${apiURL}/professor/connect`, formData, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    console.log(response);
+    return response;
+};
+
+export const postCoach = async (formData) => {
+    const response = await axios
+        .post(`${apiURL}/professor/coach`, formData, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
