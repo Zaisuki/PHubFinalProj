@@ -42,7 +42,7 @@ export const getAllStudentAnouncement = async (id: string) => {
 };
 export const getAllProfessorAnouncement = async (professorID: string) => {
     try {
-        const result = await Announcement.find({ professor: professorID, class: null }).populate('professor');
+        const result = await Announcement.find({ professor: professorID, class: null }).populate('professor').sort({ createdAt: -1 });
 
         return result;
     } catch (error) {
