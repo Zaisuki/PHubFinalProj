@@ -91,8 +91,7 @@ export const getClass = async (id: string) => {
 };
 export const getCoach = async (classID: string) => {
     try {
-        const result = await Coach.find();
-        console.log(result);
+        const result = await Coach.find({ class: classID });
         return result;
     } catch (error) {
         return { 'message': 'No Coach' };
