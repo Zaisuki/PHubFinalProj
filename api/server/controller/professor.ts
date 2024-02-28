@@ -118,9 +118,10 @@ export const getCheckTaskSubmissionController = async (req: Request, res: Respon
 export const getConnectTaskSubmissionController = async (req: Request, res: Response) => {
     try {
         const classID = req.query.classID as string;
+        const taskID = req.query.taskID as string;
         if (classID) {
             let result;
-            result = await getConnectTaskSubmission(classID);
+            result = await getConnectTaskSubmission(classID, taskID);
             return res.status(200).json({ 'message': result });
         }
 
