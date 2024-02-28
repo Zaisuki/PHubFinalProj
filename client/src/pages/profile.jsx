@@ -53,14 +53,15 @@ function Profile() {
             </Card>
             <Card className='five'>
                 <h1>Personal Data</h1>
-                <h2>Last Name</h2>
+                <h2>First Name</h2>
+                
             </Card>
             <Card className='six'>
-                <h1>{userInformation.lastName}</h1>
+            <h1>{userInformation.firstName}</h1>
             </Card>
             <Card className='seven'>
-                <h1>First Name</h1>
-                <h2>{userInformation.firstName}</h2>
+                <h1>Last Name</h1>
+                <h2>{userInformation.lastName}</h2>
             </Card>
 
             <Card className='eight'>
