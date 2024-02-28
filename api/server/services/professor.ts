@@ -214,7 +214,7 @@ export const deleteCheck = async (classID: string, checkID: string) => {
 };
 export const addCoach = async (classID: string, postTitle: string, postDescription: string, files: UploadedFile[] | undefined) => {
     try {
-        let newCoach = await new Check({
+        let newCoach = await new Coach({
             postTitle,
             postDescription,
         }).save();
