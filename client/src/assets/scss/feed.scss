@@ -25,13 +25,18 @@
         margin-bottom: 100px;
         .announce{
             width: 90%;
-            margin: 20px;
+            margin: 50px;
+            border: 1px solid;
+            border-radius: 10px;
+            p{
+                margin: 10px;
+            }
         }
         
         
         .professor{
-          margin-top: 250px;
-          margin-left: 1000px;
+          margin-top: 13%;
+          margin-left: 78%;
         }
 
         .fc-greetings {

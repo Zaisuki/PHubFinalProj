@@ -1,89 +1,87 @@
-.card{
+.eval-container {
+    padding: 2% 5% 2% 5%;
+  .card {
     margin-top: 20px;
-}
+  }
 
-.card-body {
+  .card-body {
     text-align: center;
     font-size: 20px;
     text-align: left;
     background-color: transparent;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     .line {
-        background-color: gray;
-        height: 2px;
-        width: 1600px;
-        right: 20px;
-        bottom: 60px;
+      background-color: gray;
+      width: 100%;
+      bottom: 25px;
     }
-    .card-body2{
-        text-align: center;
-        font-size: 20px;
-        text-align: left;
-        margin-left: 20px;
-        background-color: transparent;
-        margin-bottom: 20px;
-        margin-top: 10px;
+    .card-body2 {
+      text-align: center;
+      font-size: 20px;
+      text-align: left;
+      margin-left: 20px;
+      background-color: transparent;
+      margin-bottom: 20px;
+      margin-top: 10px;
     }
 
-    .details{
-        margin-top: 20px;
+    .details {
+      margin-top: 20px;
     }
     p {
-        text-align: justify;
-        margin-bottom: 50px;
+      text-align: justify;
+      margin-bottom: 50px;
     }
-    p, label.dear-student {
-        padding: 20px;
+    p,
+    label.dear-student {
+      padding: 20px;
     }
-    .drop{
-        width: 115px;
-        padding: 1px;
+    .drop {
+      width: 115px;
+      padding: 1px;
     }
-    .inst{
-        width: 100%;
+    .inst {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      span {
+        width: 70%;
+        font-size: 25px;
+        margin-top: 5%;
+      }
+      .select_container {
+        width: 30%;
         display: flex;
         justify-content: space-between;
-        span{
-            width: 70%;
-            font-size: 25px;
-            margin-top: 5%;
+        select {
+          width: 60%;
+          margin-top: 15%;
+          margin-left: 5%;
+          height: 40%;
+          font-size: 20px;
+          text-align: center;
         }
-        .select_container{
-            width: 30%;
-            display: flex;
-            justify-content: space-between;
-            select{
-                width: 60%;
-                margin-top: 15%;
-                margin-left: 5%;
-                height: 40%;
-                font-size: 20px;
-                text-align: center;
-                
-            }
-           
-        }
+      }
     }
-
-    
-}
-.form-check{
+  }
+  .form-check {
     font-size: 20px;
-}
+  }
 
-.card-body span{
+  .card-body span {
     font-size: 30px;
-}
+  }
 
-.details{
+  .details {
     width: 500px;
-}
+  }
 
-.details2{
+  .details2 {
     width: 500px;
-}
+  }
 
-.inst{
+  .inst {
     margin-bottom: 20px;
     width: 970px;
+  }
 }
