@@ -13,11 +13,14 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import DateTimePicker from 'react-datetime-picker';
 import 'react-datetime-picker/dist/DateTimePicker.css';
-import { getClass, postCheck, postCoach, postConnect } from '../../services/professor';
+import { getCheck, getClass, getCoach, getConnect, postCheck, postCoach, postConnect } from '../../services/professor';
 
 function TaskProf() {
     const [showWindow, setShowWindow] = useState(false);
     const [classes, setClasses] = useState([]);
+    const [check, setCheck] = useState([]);
+    const [connect, setConnect] = useState([]);
+    const [coach, setCoach] = useState([]);
     const [taskSelection, setTaskSelection] = useState('');
 
     const [classID, setClassID] = useState('');
@@ -80,8 +83,8 @@ function TaskProf() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await getClass();
-                setClasses(response.message);
+                const classResponse = await getClass();
+                setClasses(classResponse.message);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -102,9 +105,15 @@ function TaskProf() {
                                 {classes.map((classObj) => (
                                     <Dropdown.Item
                                         key={classObj._id}
-                                        onClick={() => {
+                                        onClick={async () => {
                                             setClassID(classObj._id);
                                             setClassValue(`${classObj.subject.subjectCode}: ${classObj.block}`);
+                                            const checkResponse = await getCheck(classObj._id);
+                                            setCheck(checkResponse.message);
+                                            const connectResponse = await getConnect(classObj._id);
+                                            setConnect(connectResponse.message);
+                                            const coachResponse = await getCoach(classObj._id);
+                                            setCoach(coachResponse.message);
                                         }}
                                     >
                                         {classObj.subject.subjectCode}: {classObj.block}
@@ -239,79 +248,60 @@ function TaskProf() {
                     </div>
                 )}
 
-                <div className='connect'>
-                    <h1 className='connect-text'>
+                <div className='task-container'>
+                    <h1 className='task-text'>
                         <BiTask />
                         Connect
                     </h1>
 
-                    <div className='info'>
-                        <h2 className='connect-title'>Basic shit</h2>
-                        <h2 className='block'>BSIT2-03</h2>
-                        <h2 className='due'>today</h2>
-                    </div>
-
-                    <div className='info-one'>
-                        <h2 className='connect-title'>Basic shit</h2>
-                        <h2 className='block'>BSIT2-03</h2>
-                        <h2 className='due'>today</h2>
-                    </div>
-
-                    <div className='info-two'>
-                        <h2 className='connect-title'>Basic shit</h2>
-                        <h2 className='block'>BSIT2-03</h2>
-                        <h2 className='due'>today</h2>
-                    </div>
+                    {connect ? (
+                        connect.map((task) => (
+                            <div className='info' key={task._id}>
+                                <h2 className='task-title'>{task.postTitle}</h2>
+                                <h2 className='block'>{task.postDescription}</h2>
+                                <h2 className='due'>{task.dueDate || 'No Due date'}</h2>
+                            </div>
+                        ))
+                    ) : (
+                        <p className='no-task'>No Connect tasks</p>
+                    )}
                 </div>
 
-                <Card className='check'>
-                    <h1 className='check-text'>
+                <Card className='task-container'>
+                    <h1 className='task-text'>
                         <BiTask />
                         Check
                     </h1>
-
-                    <div className='info'>
-                        <h2 className='check-title'>Basic shit</h2>
-                        <h2 className='block'>BSIT2-03</h2>
-                        <h2 className='due'>today</h2>
-                    </div>
-
-                    <div className='info-one'>
-                        <h2 className='check-title'>Basic shit</h2>
-                        <h2 className='block'>BSIT2-03</h2>
-                        <h2 className='due'>today</h2>
-                    </div>
-
-                    <div className='info-two'>
-                        <h2 className='check-title'>Basic shit</h2>
-                        <h2 className='block'>BSIT2-03</h2>
-                        <h2 className='due'>today</h2>
-                    </div>
+                    {check ? (
+                        check.map((task) => (
+                            <div className='info' key={task._id}>
+                                <h2 className='task-title'>{task.postTitle}</h2>
+                                <h2 className='block'>{task.postDescription}</h2>
+                                <h2 className='due'>{task.dueDate || 'No Due date'}</h2>
+                            </div>
+                        ))
+                    ) : (
+                        <p className='no-task'>No Check tasks</p>
+                    )}
                 </Card>
 
-                <Card className='coach'>
-                    <h1 className='coach-text'>
+                <Card className='task-container'>
+                    <h1 className='task-text'>
                         <BiTask />
                         Coach
                     </h1>
 
-                    <div className='info'>
-                        <h2 className='check-title'>Basic shit</h2>
-                        <h2 className='block'>BSIT2-03</h2>
-                        <h2 className='due'>today</h2>
-                    </div>
-
-                    <div className='info-one'>
-                        <h2 className='check-title'>Basic shit</h2>
-                        <h2 className='block'>BSIT2-03</h2>
-                        <h2 className='due'>today</h2>
-                    </div>
-
-                    <div className='info-two'>
-                        <h2 className='check-title'>Basic shit</h2>
-                        <h2 className='block'>BSIT2-03</h2>
-                        <h2 className='due'>today</h2>
-                    </div>
+                    {coach ? (
+                        coach.map((task) => (
+                            <div className='info' key={task._id}>
+                                <h2 className='task-title'>{task.postTitle}</h2>
+                                <h2 className='block'>{task.postDescription}</h2>
+                                <h2 className='due'>{task.dueDate || 'No Due date'}</h2>
+                            </div>
+                        ))
+                    ) : (
+                        <p className='no-task'>No Coach tasks</p>
+                    )}
                 </Card>
             </div>
         </div>

@@ -23,7 +23,7 @@
         margin: 3% 10% 0% 10%;
         position: relative;
         border: 0;
-        .connect {
+        .task-container {
             width: 1100px;
             height: 50vh;
             border: 1px solid;
@@ -32,27 +32,32 @@
             margin-top: 150px;
             position: relative;
 
+            .task-text {
+                font-size: 30px;
+            }
             .info {
-                .connect-title {
+                width: 100%;
+                display: flex;
+                .task-title {
                     font-family: Verdana, Geneva, Tahoma, sans-serif;
-                    font-size: 25px;
-                    position: absolute;
-                    top: 100px;
-                    left: 100px;
+                    font-size: 15px;
+                    width: 20%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
                 .block {
                     font-family: Verdana, Geneva, Tahoma, sans-serif;
-                    font-size: 25px;
-                    position: absolute;
-                    top: 100px;
-                    left: 720px;
+                    font-size: 12px;
+                    width: 50%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
                 .due {
                     font-family: Verdana, Geneva, Tahoma, sans-serif;
-                    font-size: 25px;
-                    position: absolute;
-                    top: 100px;
-                    left: 950px;
+                    font-size: 10px;
+                    width: 20%;
                 }
             }
         }
@@ -117,12 +122,6 @@
                 position: absolute;
                 left: 950px;
             }
-        }
-        .connect-text {
-            font-size: 30px;
-            position: absolute;
-            left: 40px;
-            top: 30px;
         }
     }
 

@@ -39,6 +39,58 @@ export const getClass = async () => {
         });
     return response;
 };
+export const getCheck = async (classID) => {
+    const response = await axios
+        .get(`${apiURL}/professor/check`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+            params: {
+                classID,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
+export const getConnect = async (classID) => {
+    const response = await axios
+        .get(`${apiURL}/professor/connect`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+            params: {
+                classID,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    console.log(response);
+    return response;
+};
+export const getCoach = async (classID) => {
+    const response = await axios
+        .get(`${apiURL}/professor/coach`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+            params: {
+                classID,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
 
 export const postCheck = async (formData) => {
     const response = await axios

@@ -18,42 +18,42 @@ export const getClassController = async (req: Request & { user?: User }, res: Re
 };
 export const getCoachController = async (req: Request, res: Response) => {
     try {
-        const { classID } = req.body;
+        const classID = req.query.classID as string;
         if (classID) {
             let result;
             result = await getCoach(classID);
             return res.status(200).json({ 'message': result });
         }
 
-        return res.status(401).json({ 'message': 'Unauthorize' });
+        return res.status(401).json({ 'message': 'Class not found' });
     } catch {
         res.status(500).json({ 'message': 'Internal Server Error' });
     }
 };
 export const getCheckController = async (req: Request, res: Response) => {
     try {
-        const { classID } = req.body;
+        const classID = req.query.classID as string;
         if (classID) {
             let result;
             result = await getCheck(classID);
             return res.status(200).json({ 'message': result });
         }
 
-        return res.status(401).json({ 'message': 'Unauthorize' });
+        return res.status(401).json({ 'message': 'Class not found' });
     } catch {
         res.status(500).json({ 'message': 'Internal Server Error' });
     }
 };
 export const getConnectController = async (req: Request, res: Response) => {
     try {
-        const { classID } = req.body;
+        const classID = req.query.classID as string;
         if (classID) {
             let result;
             result = await getConnect(classID);
             return res.status(200).json({ 'message': result });
         }
 
-        return res.status(401).json({ 'message': 'Unauthorize' });
+        return res.status(401).json({ 'message': 'Class not found' });
     } catch {
         res.status(500).json({ 'message': 'Internal Server Error' });
     }
