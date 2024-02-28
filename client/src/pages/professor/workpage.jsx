@@ -11,6 +11,8 @@ import Col from "react-bootstrap/Col";
 
 function WorkPage() {
   const [checkboxes, setCheckboxes] = useState([]);
+  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [showFloatingWindow, setShowFloatingWindow] = useState(false);
 
   // FOR CHECKBOX
   // Function to handle checkbox click in the body
@@ -20,10 +22,20 @@ function WorkPage() {
     setCheckboxes(updatedCheckboxes);
   };
 
+  // Function to handle student name click
+  const handleStudentNameClick = (studentName) => {
+    setSelectedStudent(studentName);
+  };
+
   // Function to handle checkbox click in the header
   const handleSelectAll = () => {
     const updatedCheckboxes = new Array(checkboxes.length).fill(!selectAll);
     setCheckboxes(updatedCheckboxes);
+  };
+
+  // Function to toggle the floating window
+  const toggleFloatingWindow = () => {
+    setShowFloatingWindow(!showFloatingWindow);
   };
 
   // Determine if all checkboxes are checked
@@ -132,256 +144,18 @@ function WorkPage() {
                       {/* When clicked, all turned in student will automatically selected for easy returning of works*/}
                       <thead>
                         <tr>
-                          <th>
-                            <Form.Check
-                              aria-label="option 1"
-                              checked={selectAll}
-                              onChange={handleSelectAll}
-                            />
-                          </th>
                           <th>Turned In</th>
                         </tr>
                       </thead>
                       {/* Contents of "Turned In" */}
                       <tbody>
                         <tr>
-                          <td className="checkbox">
-                            <Form.Check
-                              aria-label="option 1"
-                              checked={checkboxes[0]}
-                              onChange={() => handleCheckboxChange(0)}
-                            />
-                          </td>
-                          <td className="student-name">
-                            {" "}
-                            <span className="icon">
-                              <i class="bx bxs-user-circle"></i>
-                            </span>
-                            Liezel Untalan Gabica
-                          </td>
-                          <td className="score">_/100</td>
-                        </tr>
-
-                        {/* Duplicates to show the length and scrollability of table, can be removed afterwards */}
-                        <tr>
-                          <td className="checkbox">
-                            <Form.Check
-                              aria-label="option 2"
-                              checked={checkboxes[1]}
-                              onChange={() => handleCheckboxChange(1)}
-                            />
-                          </td>
-                          <td className="student-name">
-                            {" "}
-                            <span className="icon">
-                              <i class="bx bxs-user-circle"></i>
-                            </span>
-                            Liezel Untalan Gabica
-                          </td>
-                          <td className="score">_/100</td>
-                        </tr>
-                        <tr>
-                          <td className="checkbox">
-                            <Form.Check
-                              aria-label="option 3"
-                              checked={checkboxes[2]}
-                              onChange={() => handleCheckboxChange(2)}
-                            />
-                          </td>
-                          <td className="student-name">
-                            {" "}
-                            <span className="icon">
-                              <i class="bx bxs-user-circle"></i>
-                            </span>
-                            Liezel Untalan Gabica
-                          </td>
-                          <td className="score">_/100</td>
-                        </tr>
-
-                        <tr>
-                          <td className="checkbox">
-                            <Form.Check
-                              aria-label="option 4"
-                              checked={checkboxes[3]}
-                              onChange={() => handleCheckboxChange(3)}
-                            />
-                          </td>
-                          <td className="student-name">
-                            {" "}
-                            <span className="icon">
-                              <i class="bx bxs-user-circle"></i>
-                            </span>
-                            Liezel Untalan Gabica
-                          </td>
-                          <td className="score">_/100</td>
-                        </tr>
-
-                        <tr>
-                          <td className="checkbox">
-                            <Form.Check
-                              aria-label="option 5"
-                              checked={checkboxes[4]}
-                              onChange={() => handleCheckboxChange(4)}
-                            />
-                          </td>
-                          <td className="student-name">
-                            {" "}
-                            <span className="icon">
-                              <i class="bx bxs-user-circle"></i>
-                            </span>
-                            Liezel Untalan Gabica
-                          </td>
-                          <td className="score">_/100</td>
-                        </tr>
-                        <tr>
-                          <td className="checkbox">
-                            <Form.Check
-                              aria-label="option 6"
-                              checked={checkboxes[5]}
-                              onChange={() => handleCheckboxChange(5)}
-                            />
-                          </td>
-                          <td className="student-name">
-                            {" "}
-                            <span className="icon">
-                              <i class="bx bxs-user-circle"></i>
-                            </span>
-                            Liezel Untalan Gabica
-                          </td>
-                          <td className="score">_/100</td>
-                        </tr>
-
-                        <tr>
-                          <td className="checkbox">
-                            <Form.Check
-                              aria-label="option 7"
-                              checked={checkboxes[6]}
-                              onChange={() => handleCheckboxChange(6)}
-                            />
-                          </td>
-                          <td className="student-name">
-                            {" "}
-                            <span className="icon">
-                              <i class="bx bxs-user-circle"></i>
-                            </span>
-                            Liezel Untalan Gabica
-                          </td>
-                          <td className="score">_/100</td>
-                        </tr>
-                        <tr>
-                          <td className="checkbox">
-                            <Form.Check
-                              aria-label="option 8"
-                              checked={checkboxes[7]}
-                              onChange={() => handleCheckboxChange(7)}
-                            />
-                          </td>
-                          <td className="student-name">
-                            {" "}
-                            <span className="icon">
-                              <i class="bx bxs-user-circle"></i>
-                            </span>
-                            Liezel Untalan Gabica
-                          </td>
-                          <td className="score">_/100</td>
-                        </tr>
-
-                        <tr>
-                          <td className="checkbox">
-                            <Form.Check
-                              aria-label="option 9"
-                              checked={checkboxes[8]}
-                              onChange={() => handleCheckboxChange(8)}
-                            />
-                          </td>
-                          <td className="student-name">
-                            {" "}
-                            <span className="icon">
-                              <i class="bx bxs-user-circle"></i>
-                            </span>
-                            Liezel Untalan Gabica
-                          </td>
-                          <td className="score">_/100</td>
-                        </tr>
-                        <tr>
-                          <td className="checkbox">
-                            <Form.Check
-                              aria-label="option 10"
-                              checked={checkboxes[9]}
-                              onChange={() => handleCheckboxChange(9)}
-                            />
-                          </td>
-                          <td className="student-name">
-                            {" "}
-                            <span className="icon">
-                              <i class="bx bxs-user-circle"></i>
-                            </span>
-                            Liezel Untalan Gabica
-                          </td>
-                          <td className="score">_/100</td>
-                        </tr>
-                        <tr>
-                          <td className="checkbox">
-                            <Form.Check
-                              aria-label="option 11"
-                              checked={checkboxes[10]}
-                              onChange={() => handleCheckboxChange(10)}
-                            />
-                          </td>
-                          <td className="student-name">
-                            {" "}
-                            <span className="icon">
-                              <i class="bx bxs-user-circle"></i>
-                            </span>
-                            Liezel Untalan Gabica
-                          </td>
-                          <td className="score">_/100</td>
-                        </tr>
-                        <tr>
-                          <td className="checkbox">
-                            <Form.Check
-                              aria-label="option 12"
-                              checked={checkboxes[11]}
-                              onChange={() => handleCheckboxChange(11)}
-                            />
-                          </td>
-                          <td className="student-name">
-                            {" "}
-                            <span className="icon">
-                              <i class="bx bxs-user-circle"></i>
-                            </span>
-                            Liezel Untalan Gabica
-                          </td>
-                          <td className="score">_/100</td>
-                        </tr>
-                        {/* End of Duplicates*/}
-                      </tbody>
-                    </Table>
-
-                    {/* Another TABLE for "Assigned", list of students that doesnt turn in yet */}
-                    <Table className="table-2" border hover>
-                      <thead>
-                        <tr>
-                          <th>
-                            <Form.Check
-                              aria-label="option 1"
-                              checked={selectAll}
-                              onChange={handleSelectAll}
-                            />
-                          </th>
-                          <th>Assigned</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td className="checkbox">
-                            <Form.Check
-                              aria-label="option 1"
-                              checked={checkboxes[0]}
-                              onChange={() => handleCheckboxChange(0)}
-                            />
-                          </td>
-                          <td className="student-name">
+                          <td
+                            className="student-name"
+                            onClick={() =>
+                              handleStudentNameClick("Liezel Untalan Gabica")
+                            }
+                          >
                             {" "}
                             <span className="icon">
                               <i class="bx bxs-user-circle"></i>
@@ -393,7 +167,6 @@ function WorkPage() {
                       </tbody>
                     </Table>
 
-                    {/* Another TABLE for "Graded", list of students that are already graded */}
                     <Table className="table-3" border hover>
                       <thead>
                         <tr>
@@ -427,12 +200,73 @@ function WorkPage() {
                         </tr>
                       </tbody>
                     </Table>
+                    <Table className="table-2" border hover>
+                      <thead>
+                        <tr>
+                          <th>
+                            <Form.Check
+                              aria-label="option 1"
+                              checked={selectAll}
+                              onChange={handleSelectAll}
+                            />
+                          </th>
+                          <th>Assigned</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="checkbox">
+                            <Form.Check
+                              aria-label="option 1"
+                              checked={checkboxes[0]}
+                              onChange={() => handleCheckboxChange(0)}
+                            />
+                          </td>
+                          <td className="student-name">
+                            {" "}
+                            <span className="icon">
+                              <i class="bx bxs-user-circle"></i>
+                            </span>
+                            Liezel Untalan Gabica
+                          </td>
+                          <td className="score">_/100</td>
+                        </tr>
+                      </tbody>
+                    </Table>
                   </div>
                 </div>
               </div>
               {/* Contents of right part of student-work container */}
             </div>
             <div className="right-container">
+              {selectedStudent && (
+                <div className="right-sub-content">
+                  <h2 className="studentN">{selectedStudent}</h2>
+                  <div className="attached-file">
+                    <h6>Turned in</h6>
+                    <Button
+                      className="floating-button"
+                      variant="primary"
+                      onClick={toggleFloatingWindow}
+                    >
+                      (See history)
+                    </Button>
+                    {showFloatingWindow && (
+                      <div className="floating-window">
+                        <div className="history">
+                        <p>Turned in</p>
+                        <p>9:00pm</p>
+                        <p>Today</p>
+                        </div>
+                      </div>
+                    )}
+                    <img
+                      src="../../assets/img/notification.png"
+                      alt="Attachment"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </Tab.Pane>

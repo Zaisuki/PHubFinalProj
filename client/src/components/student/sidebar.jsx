@@ -8,10 +8,10 @@ import CourseImg from "../../assets/img/course.png";
 import FeedImg from "../../assets/img/feed.png";
 import ProfileImg from "../../assets/img/profile.png";
 import StatisticsImg from "../../assets/img/statistics.png";
-import EvaluationImg from "../../assets/img/calendar.png";
+import EvaluationImg from "../../assets/img/evaluation.png";
 import TaskImg from "../../assets/img/task.png";
-import NotificationImg from "../../assets/img/calendar.png";
-import LogoutImg from "../../assets/img/calendar.png";
+import NotificationImg from "../../assets/img/notification.png";
+import LogoutImg from "../../assets/img/logout.png";
 
 const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
   return (
