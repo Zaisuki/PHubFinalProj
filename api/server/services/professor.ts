@@ -245,7 +245,7 @@ export const deleteCoach = async (classID: string, coachID: string) => {
         return { message: error.message, httpCode: 500 };
     }
 };
-export const addConnect = async (classID: string, postTitle: string, postDescription: string, dueDate: Date, attachment: string[], choices: string[]) => {
+export const addConnect = async (classID: string, postTitle: string, postDescription: string, dueDate: Date, choices: string[]) => {
     try {
         let newConnect = await new Connect({
             postTitle,

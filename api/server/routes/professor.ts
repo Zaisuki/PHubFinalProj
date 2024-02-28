@@ -17,7 +17,7 @@ router.delete('/check/delete', deleteCheckController);
 router.post('/coach', authenticateToken, professorOnly, upload.array('file'), addCoachController);
 router.delete('/coach/all/delete', deleteAllCoachController);
 router.delete('/coach/delete', deleteCoachController);
-router.post('/connect', authenticateToken, professorOnly, addConnectController);
+router.post('/connect', authenticateToken, professorOnly, upload.array('file'), addConnectController);
 router.delete('/connect/all/delete', deleteAllConnectController);
 router.delete('/connect/delete', deleteConnectController);
 

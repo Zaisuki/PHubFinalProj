@@ -57,10 +57,14 @@ export const addCoachController = async (req: Request, res: Response) => {
 };
 export const addConnectController = async (req: Request, res: Response) => {
     try {
-        const { classID, postTitle, postDescription, dueDate, attachment, choices } = req.body;
-        let choicesArr = JSON.parse(choices);
-        const result = await addConnect(classID, postTitle, postDescription, dueDate, attachment, choicesArr);
-        return res.status(result.httpCode).json({ 'message': result.message });
+        const { classID, postTitle, postDescription, dueDate, choices } = req.body;
+        console.log(classID);
+        if (choices) {
+            let choicesArr = JSON.parse(choices);
+            const result = await addConnect(classID, postTitle, postDescription, dueDate, choicesArr);
+            return res.status(result.httpCode).json({ 'message': result.message });
+        }
+        return res.status(200).json({ 'message': 'Incomplete data' });
     } catch (error) {
         return res.status(500).json({ 'message': 'Internal Server Error' });
     }
