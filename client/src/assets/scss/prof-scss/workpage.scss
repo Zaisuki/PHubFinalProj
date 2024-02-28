@@ -60,98 +60,117 @@
 }
 
 // Second tab scss (STUDENT WORK)
-.button-container {
-  padding: 2% 2% 0% 2%;
-
-  button {
-    background-color: rgb(139, 139, 139);
-    border-color: grey;
-  }
-}
-.student-work-container {
+.overall-container {
   display: flex;
-  justify-content: space-around;
-  padding: 1% 2% 2% 2%;
 
-  .container-1 {
-    width: 35%;
+  // Left part of student-work content
+  .left-container {
+    width: 45%;
 
-    .content-1::-webkit-scrollbar-thumb {
-      background-color: #eae9e9;
+    .upper-left-container {
+      height: 185px;
+      padding: 3vh;
+
+      .sub-upper-left-container {
+        border: none;
+        padding: 0% 1% 0% 1%;
+
+        .activity-title {
+          font-size: 22px;
+        }
+
+        .sub-content {
+          max-height: 200px;
+          overflow-y: auto;
+
+          .stats {
+            .numbers {
+              font-size: 25px;
+              div {
+                text-align: left;
+                width: 20%;
+              }
+            }
+            .labels {
+              div {
+                text-align: left;
+                width: 20%;
+              }
+            }
+          }
+        }
+      }
+      .button-container {
+        button {
+          background-color: rgb(139, 139, 139);
+          border-color: grey;
+          margin-left: 1%;
+        }
+      }
     }
-    .content-1 {
-      max-height: 550px; //Set max height for scrollbar
-      overflow-y: auto; // Enable vertical scrollbar
 
-      .table-1 {
-        .checkbox {
-          width: 1%;
+    .student-table-container {
+      justify-content: space-around;
+      padding: 1% 0% 2% 2%;
+
+      .container-1 {
+        .content-1::-webkit-scrollbar-thumb {
+          background-color: #eae9e9;
         }
-        .icon {
-          margin-right: 10px;
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        .content-1 {
+          max-height: 550px; //Set max height for scrollbar
+          overflow-y: auto; // Enable vertical scrollbar
 
-          .bx {
-            font-size: 25px;
+          .table-1 {
+            .checkbox {
+              width: 1%;
+            }
+            .icon {
+              margin-right: 10px;
+
+              .bx {
+                font-size: 25px;
+              }
+            }
           }
-        }
-      }
 
-      .table-2 {
-        .checkbox {
-          width: 1%;
-        }
-        .icon {
-          margin-right: 10px;
+          .table-2 {
+            .checkbox {
+              width: 1%;
+            }
+            .icon {
+              margin-right: 10px;
 
-          .bx {
-            font-size: 25px;
+              .bx {
+                font-size: 25px;
+              }
+            }
           }
-        }
-      }
 
-      .table-3 {
-        .checkbox {
-          width: 1%;
-        }
-        .icon {
-          margin-right: 10px;
+          .table-3 {
+            .checkbox {
+              width: 1%;
+            }
+            .icon {
+              margin-right: 10px;
 
-          .bx {
-            font-size: 25px;
+              .bx {
+                font-size: 25px;
+              }
+            }
           }
         }
       }
     }
   }
-}
 
-.container-2 {
-  width: 65%;
-  border: none;
-  padding: 0% 1% 0% 1%;
-
-  .activity-title {
-    font-size: 22px;
-  }
-
-  .content-2 {
-    max-height: 200px;
-    overflow-y: auto;
-
-    .stats {
-      .numbers {
-        font-size: 50px;
-        div{
-          text-align: left;
-          width: 12%;
-        }
-      }
-      .labels{
-        div{
-          text-align: left;
-          width: 12%;
-        }
-      }
-    }
+  // Right part of student-work content
+  .right-container {
+    background-color: #333;
+    width: 65%;
+    padding: 2vh;
   }
 }
