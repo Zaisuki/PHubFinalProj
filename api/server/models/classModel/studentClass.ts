@@ -42,9 +42,9 @@ const studentConnectSubmissionSchema = new Schema(
             type: Number,
             default: null,
         },
-        class: {
+        task: {
             type: Schema.Types.ObjectId,
-            ref: 'Class',
+            ref: 'Connect',
             default: null,
         },
     },
@@ -59,9 +59,9 @@ const studentCoachViewSchema = new Schema(
             ref: 'Student',
             default: null,
         },
-        class: {
+        task: {
             type: Schema.Types.ObjectId,
-            ref: 'Class',
+            ref: 'Coach',
             default: null,
         },
     },
