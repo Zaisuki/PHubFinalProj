@@ -11,7 +11,7 @@ import TaskProf from '../pages/professor/task';
 import CourseNew from '../pages/professor/course-new';
 import WorkPage from '../pages/professor/workpage';
 import Statistics from '../pages/professor/statistics';
-3
+3;
 export default function ProfessorRoutes() {
     return (
         <Routes>
@@ -24,7 +24,7 @@ export default function ProfessorRoutes() {
                 <Route path='course' element={<CourseProf />} />
                 <Route path='course-new/:id' element={<CourseNew />} />
                 <Route path='task' element={<TaskProf />} />
-                <Route path='work-page' element={<WorkPage />} />
+                <Route path='work-page/:classType/:taskID' element={<WorkPage />} />
                 <Route path='statistics' element={<Statistics />} />
             </Route>
         </Routes>
