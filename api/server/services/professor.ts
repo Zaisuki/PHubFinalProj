@@ -86,9 +86,35 @@ export const getClass = async (id: string) => {
         }
         return result;
     } catch (error) {
-        return { 'message': 'No Announcement' };
+        return { 'message': 'No Class' };
     }
 };
+export const getCoach = async (classID: string) => {
+    try {
+        const result = await Coach.find();
+        console.log(result);
+        return result;
+    } catch (error) {
+        return { 'message': 'No Coach' };
+    }
+};
+export const getCheck = async (classID: string) => {
+    try {
+        const result = await Check.find({ class: classID });
+        return result;
+    } catch (error) {
+        return { 'message': 'No Check' };
+    }
+};
+export const getConnect = async (classID: string) => {
+    try {
+        const result = await Connect.find({ class: classID });
+        return result;
+    } catch (error) {
+        return { 'message': 'No Connect' };
+    }
+};
+
 // ANNOUNCEMENTS
 export const addAnnouncement = async (header: string, announcement: string, professorID: string | undefined, classID: string) => {
     try {
