@@ -6,7 +6,7 @@ function Notification() {
         <Card.Body className='container'>
             
             <Card className='content'>
-            <h1>CHECK: Module 20 Niggakha...</h1>
+            <h1 className='etch'>CHECK: Module 20 Niggakha...</h1>
             </Card>
             <Card className='sub'>
             <h1>GFY 069</h1>

@@ -69,6 +69,7 @@
             font-size: 30px;
             text-align: center;
             margin-top: 5%;
+            font-family: "Protest Strike", sans-serif;
         }
         .h2-text,
         .h2-text-one {
@@ -83,6 +84,7 @@
                 margin-left: 20px;
                 font-size: 20px;
                 margin: 10px;
+                font-family: "Protest Strike", sans-serif;
             }
             .input-placeholder,
             .input-placeholder-one {
@@ -128,16 +130,18 @@
             animation: waveAnimation 1s ease infinite;
         }
         .create-post {
-            color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
             font-size: 25px;
             border-radius: 30px;
             font-size: 15px;
             margin-left: 420px;
             margin-bottom: 20px;
+            font-family: "Protest Strike", sans-serif;
         }
         .create-post:hover {
             background-color: rgb(2, 48, 117);
             animation: waveAnimation 1s ease infinite;
+            color: white;
         }
     }
     .feed-post-one:hover {

@@ -4,6 +4,11 @@ import Table from 'react-bootstrap/Table';
 import { socket } from '../utils/socket';
 import { getNotification } from '../services/user';
 import { convertDate } from '../utils/convertDate';
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { IoIosNotifications } from "react-icons/io";
+import { LiaPercentageSolid } from "react-icons/lia";
+import Container from "react-bootstrap/Container";
 
 function Notification() {
     const [notifications, setNotification] = useState([]);
@@ -30,6 +35,16 @@ function Notification() {
     }, []);
     return (
         <div className='bgN'>
+            <Navbar className="nav-nav" expand="lg">
+        <Container fluid className="cfluid">
+          <Navbar.Brand className="nav-text" href="#home">
+          <IoIosNotifications />
+            NOTIFICATION
+          </Navbar.Brand>
+
+          <Nav className="nav-b"></Nav>
+        </Container>
+      </Navbar>
         <div className='notif'>
         <Table hover className='table-main'>
             <thead className='table-header'>

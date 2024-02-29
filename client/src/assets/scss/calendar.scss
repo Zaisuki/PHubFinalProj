@@ -1,9 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Protest+Strike:regular);
+
 .wrapper {
     width: auto;
     height: 100vh;
     border: 1px;
     color: rgb(0, 0, 0);
     margin: 5px;
+    font-family: "Protest Strike", sans-serif;
+    
 }
 
 .calendarHead {
@@ -13,6 +17,7 @@
     justify-content: space-around;
     align-items: center;
     font-size: 24px;
+    font-family: "Protest Strike", sans-serif;
 }
 
 .sevenColGrid {
@@ -25,6 +30,7 @@
     text-align: center;
     background: darkkhaki;
     font-size: 1.2rem;
+    font-family: "Protest Strike", sans-serif;
 }
 .calenderBody {
     height: calc(100% - 27px - 40px);
@@ -34,11 +40,13 @@
 .styledDay {
     border: 1px solid;
     text-align: right;
+    font-family: "Protest Strike", sans-serif;
     span {
         padding: 5px;
         display: inline-block;
         width: 100%;
         height: 100%;
+        font-family: "Protest Strike", sans-serif;
     }
     .active {
         background-color: gray;

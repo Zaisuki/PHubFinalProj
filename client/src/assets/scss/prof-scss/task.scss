@@ -1,496 +1,770 @@
 @import url(https://fonts.googleapis.com/css?family=Kaushan+Script:regular);
 @import url(https://fonts.googleapis.com/css?family=Tillana:regular,500,600,700,800);
-.dropdown-task {
-    width: 100%;
-    
-    .nav-nav{
-        background-color: black;
-    }
-    .nav-text{
-        color: white;
-        font-family: "Kaushan Script", cursive;
-    }
-    .task-prof-one {
-        .dropdown button {
-            width: 700px;
-            height: 86px;
-            font-size: 40px;
-            position: absolute;
-            
-        }
-
-        .dropdown2 {
-            button {
-                width: 700px;
-                height: 86px;
-                margin-left: 790px;
-                margin-top: -120px;
-                font-size: 40px;
-            }
-        }
-    }
-
-    .tcontainer {
-        display: grid;
-        place-items: center;
-        margin: 3% 10% 0% 10%;
-        position: relative;
-        border: 0;
-        .task-container {
-            width: 1100px;
-            height: 50vh;
-            border: 1px solid;
-            border-radius: 20px;
-            margin-bottom: 10px;
-            margin-top: 150px;
-            position: relative;
-            
-
-            .task-text {
-                font-size: 30px;
-                padding: 20px;
-                margin-left: 20px;
-                font-family: "Oswald", cursive; 
-            
-            }
-            .info {
-                width: 100%;
-                display: flex;
-                padding-left: 200px;
-                margin-top: 20px;
-                justify-content: center;
-                
-               
-                .task-title {
-                    font-family: Verdana, Geneva, Tahoma, sans-serif;
-                    font-size: 15px;
-                    width: 20%;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    position: absolute;
-                    left: 50px;
-                    font-family: "Tillana", system-ui;
-                    
-                    
-                }
-                .block {
-                    font-family: Verdana, Geneva, Tahoma, sans-serif;
-                    font-size: 12px;
-                    margin-bottom: 20px;
-                    padding: 5px;
-                    width: 50%;
-                    margin: 1;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    font-family: "Tillana", system-ui;
-                    position: absolute;
-                    right: 250px;
-                }
-                .due {
-                    font-family: Verdana, Geneva, Tahoma, sans-serif;
-                    font-size: 10px;
-                    width: 20%;
-                    font-family: "Tillana", system-ui;  
-                    position: absolute;
-                    right: -10px;
-                }
-            }
-            .info:hover{
-                background-color: rgb(2, 0, 0);
-                color: #00ce56;
-                cursor: pointer;
-            }
-        }
-    
-
-        .info-one {
-            background-color: rgb(201, 201, 201);
-            height: 50px;
-            top: 150px;
-            padding: 10px;
-            position: relative;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-            .connect-title {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-
-                left: 100px;
-            }
-            .block {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-
-                left: 720px;
-            }
-            .due {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 950px;
-            }
-        }
-
-        .info-two {
-            height: 50px;
-            top: 150px;
-            padding: 10px;
-            position: relative;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-            .connect-title {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 100px;
-            }
-            .block {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-
-                left: 720px;
-            }
-            .due {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 950px;
-            }
-        }
-    }
-
-    .check {
-        width: 1100px;
-        height: 50vh;
-        border: 1px solid;
-        border-radius: 20px;
-        margin-bottom: 30px;
-        position: relative;
-
-        .info {
-            background-color: rgb(255, 255, 255);
-            height: 50px;
-            top: 150px;
-            padding: 10px;
-            position: relative;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-
-            .check-title {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 100px;
-            }
-            .block {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 720px;
-            }
-            .due {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 950px;
-            }
-        }
-        .info-one {
-            background-color: rgb(201, 201, 201);
-            height: 50px;
-            top: 150px;
-            padding: 10px;
-            position: relative;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-            .check-title {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-
-                left: 100px;
-            }
-            .block {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-
-                left: 720px;
-            }
-            .due {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 950px;
-            }
-        }
-        .info-two {
-            height: 50px;
-            top: 150px;
-            padding: 10px;
-            position: relative;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-            .check-title {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 100px;
-            }
-            .block {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-
-                left: 720px;
-            }
-            .due {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 950px;
-            }
-        }
-    }
-    .check-text {
-        font-size: 30px;
-        position: absolute;
-        left: 40px;
-        top: 30px;
-    }
-
-    .coach {
-        width: 1100px;
-        height: 50vh;
-        border: 1px solid;
-        border-radius: 20px;
-        margin-bottom: 30px;
-        position: relative;
-
-        .info {
-            background-color: rgb(255, 255, 255);
-            height: 50px;
-            top: 150px;
-            padding: 10px;
-            position: relative;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-
-            .check-title {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 100px;
-            }
-            .block {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 720px;
-            }
-            .due {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 950px;
-            }
-        }
-        .info-one {
-            background-color: rgb(201, 201, 201);
-            height: 50px;
-            top: 150px;
-            padding: 10px;
-            position: relative;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-            .check-title {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-
-                left: 100px;
-            }
-            .block {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-
-                left: 720px;
-            }
-            .due {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 950px;
-            }
-        }
-        .info-two {
-            height: 50px;
-            top: 150px;
-            padding: 10px;
-            position: relative;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-            .check-title {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 100px;
-            }
-            .block {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-
-                left: 720px;
-            }
-            .due {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-size: 25px;
-                position: absolute;
-                left: 950px;
-            }
-        }
-    }
-    .coach-text {
-        font-size: 30px;
-        position: absolute;
-        left: 40px;
-        top: 30px;
-    }
-}
+@import url(https://fonts.googleapis.com/css?family=Protest+Strike:regular);
 
 
 
-.floating-window {
-    animation: fadeIn 0.3s ease forwards;
-    box-shadow: 1999px 11000px 2100px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 50%;
-    left: 52.5%;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0);
-    height: 200%;
-    width: 80%;
-    backdrop-filter: blur(5px);
 
-    .plus-task {
-        height: 70vh;
-        width: 70%;
-        padding: 1vw;
-        border: 6px solid;
+    .nav-nav {
+        background-color: white;
         border-radius: 30px;
-        position: relative;
+        padding: 20px;
+        margin: 100px;
+        transition: all 0.3s ease;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 20);
+        color: black;
+        animation: float 2s ease infinite;
+        position:fixed;
+        .cfluid{
+            position: relative;
+            .nav-text {
+                color: rgb(0, 0, 0);
+                font-family: "Protest Strike", sans-serif;
+                margin-left: 10px;
+                
+              }
+            .dbutton{
+                position: absolute;
+                top: 6px;
+                right: 100px;
+                border-radius: 90px;
+                background: rgb(77, 0, 0);
+                
+
+    
+            }
+            .dbuttontwo button{
+                color: #000;
+            }
+
+        }
+        
+      }
+      .nav-nav:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 90px rgba(0, 0, 0, 0.3);
+      }
+    
+.dropdown-task {
+  width: 100%;
+  position: relative;
+  border-radius: 30px;
+  padding-bottom: 50px;
+
+  
+  
+
+  .task-prof-one {
+    .dropdown button {
+      width: 700px;
+      height: 86px;
+      font-size: 40px;
+      position: absolute;
+    }
+
+    .dropdown2 {
+      button {
+        width: 700px;
+        height: 86px;
+        margin-left: 790px;
+        margin-top: -120px;
+        font-size: 40px;
+      }
+    }
+  }
+
+  .tcontainer {
+    display: grid;
+    place-items: center;
+    margin: 3% 10% 0% 10%;
+    position: relative;
+    border: 0;
+    .texts{
+        position: absolute;
+        top: -60px;
+        text-align:justify;
+        left: 50px;
+        padding:5px;
+        
+    }
+    .task-container {
+      width: 1100px;
+      height: auto;
+      border: 1px solid;
+      border-radius: 20px;
+      margin-top: 90px;
+      position: relative;
+      overflow: auto;
+      padding: 3px;
+      .plus {
+        position: absolute;
+
+        top: 30px;
+        left: 1050px;
+        color: rgb(2, 0, 0);
+        font-size: 20px;
+        border-radius: 40px;
+      }
+      .plus:hover {
+        color: #00ce56;
+        cursor: pointer;
+      }
+ 
+      .division{
+        padding: 50px;
+        .gray-background {
+    background-color: gray;
+  }
+      }
+
+      .task-text {
+        font-size: 30px;
+        padding: 20px;
+        margin-left: 20px;
+        font-family: "Protest Strike", sans-serif;
+        margin-bottom: 1px;
+      }
+      .info {
+        width: 100%;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        padding-left: 200px;
+        margin-top: 20px;
+        justify-content: center;
 
-        .header-plus-task {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .header-task-selection {
-                width: 30%;
-            }
+        .task-title {
+            font-family: "Protest Strike", sans-serif;
+          font-size: 15px;
+          width: 20%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          position: absolute;
+          left: 50px;
+          font-family: "Protest Strike", sans-serif;
+          font-style: italic;
         }
-        .post-ass-button {
-            border-radius: 90px;
-            background-color: rgb(221, 220, 220);
-            height: 50px;
+        .circle{
+            color: black;
         }
-        .post-ass-button:hover {
-            background-image: linear-gradient(45deg, #044a6b, #09612a, #044a6b);
-            color: white;
-        }
-
-        .plus-title {
-            padding: 1vw;
-            width: 100%;
-            min-height: 80%;
-
-            overflow-y: auto;
-            .task-name-container {
-                display: flex;
-                width: 100%;
-                height: 50px;
-                align-items: center;
-                justify-content: space-between;
-                .task-name {
-                    display: inline-block;
-                    font-size: 25px;
-                    width: fit-content;
-                }
-                .task-name-input {
-                    width: 80%;
-                    border-radius: 90px;
-                }
-                .task-name-input:hover {
-                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-                }
-            }
-        }
-
-        .plus-block {
-            width: 100%;
-            height: fit-content;
-            display: flex;
-            align-items: center;
-            .blockN {
-                margin: 0;
-                display: inline-block;
-                font-size: 25px;
-            }
+        .block {
+         
+          font-size: 12px;
+          margin-bottom: 20px;
+          padding: 5px;
+          width: 50%;
+          margin: 1;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-family: "Tillana", system-ui;
+          position: absolute;
+          right: 250px;
         }
         .due {
-            width: 500px;
-            .dueN {
-                font-size: 25px;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-size: 10px;
+          width: 20%;
+          font-family: "Tillana", system-ui;
+          position: absolute;
+          right: -10px;
+        }
+      }
+      .info:hover {
+        background-color: rgb(2, 0, 0);
+        color: #00ce56;
+        cursor: pointer;
+      }
+    }
+
+    .info-one {
+      background-color: rgb(201, 201, 201);
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      .connect-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 95px;
+        position: absolute;
+        left: 950px;
+      }
+    }
+
+    .info-two {
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      .connect-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
+    }
+  }
+
+  .check {
+    width: 1100px;
+    height: 50vh;
+    border: 1px solid;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    position: relative;
+
+    .info {
+      background-color: rgb(255, 255, 255);
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+
+      .check-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
+    }
+    .info-one {
+      background-color: rgb(201, 201, 201);
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      .check-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
+    }
+    .info-two {
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      .check-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
+    }
+  }
+  .check-text {
+    font-size: 30px;
+    position: absolute;
+    left: 40px;
+    top: 30px;
+  }
+
+  .coach {
+    width: 1100px;
+    height: 50vh;
+    border: 1px solid;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    position: relative;
+
+    .info {
+      background-color: rgb(255, 255, 255);
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+
+      .check-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
+    }
+    .info-one {
+      background-color: rgb(201, 201, 201);
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      .check-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
+    }
+    .info-two {
+      height: 50px;
+      top: 150px;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      .check-title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 100px;
+      }
+      .block {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+
+        left: 720px;
+      }
+      .due {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        left: 950px;
+      }
+    }
+  }
+  .coach-text {
+    font-size: 30px;
+    position: absolute;
+    left: 40px;
+    top: 30px;
+  }
+}
+
+.floating-window {
+  animation: fadeIn 0.3s ease forwards;
+  box-shadow: 1999px 11000px 2100px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 50%;
+  left: 52.5%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0);
+  height: 200%;
+  width: 110%;
+  backdrop-filter: blur(5px);
+
+  .plus-task {
+    height: 70vh;
+    width: 70%;
+    padding: 4vw;
+    border: 6px solid;
+    border-radius: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .post{
+        font-family: "Protest Strike", sans-serif;
+    }
+
+    .header-plus-task {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .header-task-selection {
+        width: 30%;
+        position: absolute;
+        left: 990px;
+      }
+    }
+    .post-ass-button {
+      border-radius: 100px;
+      background-color: rgb(255, 255, 255);
+      height: 50px;
+      width: 100%;
+      border: 1px solid #c5c5c5;
+      
+    }
+    .post-ass-button:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .plus-title-check {
+      padding: 2vw;
+      width: 100%;
+      min-height: 80%;
+      .task-name{
+        font-family: "Protest Strike", sans-serif;
+      }
+
+      .attachment-check{
+        position: absolute;
+        left: 700px;
+        top: 240px;
+        .input-check{
+            border: 2px solid #000000;
+
+        }
+      .check-upload-etch {
+        font-size: 20px;
+        font-family: "Protest Strike", sans-serif;
+      }
+    }
+      .due-check{
+       
+        
+        margin: 20px;
+        border-radius: 30%;
+    
+      .check-due-date-etch {
+        font-size: 20px;
+        font-family: "Protest Strike", sans-serif;
+     
+      }
+    }
+
+
+      overflow-y: auto;
+      .task-name-container {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        padding: 0px;
+     
+        .task-name {
+       
+          font-size: 25px;
+          font-family: "Protest Strike", sans-serif;
+        
+        }
+        .task-name-input {
+          width: 20%;
+          border-radius: 10px;
+          margin-top: 0px;
+         
+        }
+        .task-name-input:hover {
+            color: #000;
+      
+        }
+
+        
+      }
+    }
+
+    .plus-title  {
+        padding: 1vw;
+        width: 100%;
+        min-height: 80%;
+        position: relative;
+        margin: 10px;
+        .choices{
+            font-family: "Protest Strike", sans-serif;
+            position: absolute;
+            left: 700px;
+            top:200px;
+
+            .choiceS{
+                font-family: "Protest Strike", sans-serif;
             }
         }
-    }
-    .h2-text-one {
-        width: 100%;
-        min-height: fit-content;
-        min-height: 50px; /* Set a minimum height */
-        height: auto; /* Allow the textarea to grow vertically */
-        .input-placeholder-one {
-            width: 100%;
-            line-height: 1;
+        .check-upload-etch {
+          font-size: 20px;
+          
+        }
+        .attachment{
+            padding: 10px;
+            margin-left: 100px;
+        .input-check{
+            padding: 10px;
+            
+        }
+        .upload{
+            font-family: "Protest Strike", sans-serif;
+        }
+        
+        .check-due-date-etch {
+          font-size: 20px;
         }
     }
-    .eks {
-        position: absolute;
-        left: 1080px;
-        top: 520px;
-        font-size: 40px;
-        z-index: 1000;
+
+    .task-name-container-connect {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        padding: 0px;
+     
+        .task-name {
+       
+          font-size: 25px;
+          font-family: "Protest Strike", sans-serif;
+        
+        }
+        .task-name-input {
+          width: 20%;
+          border-radius: 10px;
+          margin-top: 0px;
+         
+        }
+        .task-name-input:hover {
+            color: #000;
+      
+        }
+      }
+  
+  
+        overflow-y: auto;
+        .task-name-container-coach {
+          display: flex;
+          width: 100%;
+          height: 50px;
+          align-items: center;
+          justify-content: space-between;
+          .task-name {
+            display: inline-block;
+            font-size: 25px;
+            width: fit-content;
+            font-family: "Protest Strike", sans-serif;
+          }
+          .task-name-input {
+            width: 20%;
+            border-radius: 10px;
+          }
+          .task-name-input:hover {
+              color: #000;
+        
+          }
+        }
+        
+      }
+
+    .plus-block {
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      .blockN {
+        margin: 0;
+        display: inline-block;
+        font-size: 25px;
+      }
     }
+    .due {
+      width: 500px;
+      .dueN {
+        font-size: 25px;
+        font-family: "Protest Strike", sans-serif;
+      }
+    }
+  }
+  .h2-text-one {
+    width: 100%;
+    min-height: fit-content;
+    min-height: 50px; /* Set a minimum height */
+    height: auto; /* Allow the textarea to grow vertically */
+    .description{
+    font-family: "Protest Strike", sans-serif;
+    }
+
+    .input-placeholder-one {
+      width: 100%;
+      line-height: 1;
+    }
+  }
+  .eks {
+    position: absolute;
+    left: 1440px;
+    top: 525px;
+    font-size: 40px;
+    z-index: 1000;
+    
+  }
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
 }
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.taskN {
+  font-size: 25px;
+  color: gray;
+  position: absolute;
+  top: 90px;
+  left: 110px;
+  font-family: "Protest Strike", sans-serif;
+}
+.taskNo {
+    font-size: 25px;
+    color: gray;
+    position: absolute;
+    top: 90px;
+    left: 167px;
+    font-family: "Protest Strike", sans-serif;
+  }
+
+.assigned {
+  font-size: 25px;
+  color: gray;
+  top: 90px;
+  left: 540px;
+  position: absolute;
+  font-family: "Protest Strike", sans-serif;
+}
+
+.dueD {
+  font-size: 25px;
+  color: gray;
+  top: 90px;
+  left: 950px;
+  position: absolute;
+  font-family: "Protest Strike", sans-serif;
+}
+
+
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  
 
 @keyframes fadeIn {
     from {
@@ -501,44 +775,4 @@
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
     }
-}
-
-.taskN {
-    font-size: 25px;
-    color: gray;
-    position: absolute;
-    top: 90px;
-    left: 110px;
-    
-
-}
-
-.assigned {
-    font-size: 25px;
-    color: gray;
-    top: 90px;
-    left: 540px;
-    position: absolute;
-}
-
-.dueD {
-    font-size: 25px;
-    color: gray;
-    top: 90px;
-    left: 1010px;
-    position: absolute;
-}
-.plus {
-    position: absolute;
-    top: 100px;
-    left: 1100px;
-    color: gra;
-    font-size: 40px;
-    border-radius: 40px;
-}
-.plus:hover {
-    color:#00ce56;
-    cursor: pointer;
-
-    
 }

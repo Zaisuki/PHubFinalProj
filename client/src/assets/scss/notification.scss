@@ -6,40 +6,57 @@
   box-sizing: border-box;
 }
 
+.container {
+  .content {
+    .etch {
+      font-family: "Protest Strike", sans-serif;
+      font-size: 100px;
+    }
+  }
+}
 body {
   margin: 0;
   padding: 0;
 }
 
 .bgN {
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   height: 100vh; /* Adjust to fit your needs */
   width: 100%;
-  margin-bottom: 1000000px;
-}
+  margin-bottom: 500px;
+  .nav-nav {
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px;
+    margin: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 20);
+    color: black;
+    animation: float 2s ease infinite;
+    ;
+  }
+  .notif {
+    margin: 50px;
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 30px;
 
-.notif {
-  margin: 50px;
-  padding: 10px;
-  border: 2px solid;
-  border-radius: 30px;
-}
+    .table-main {
+      .t-body {
+        margin: 100px;
+        font-size: 20px;
 
-.table-main {
-
-}
-
-.table-header {
- 
-  font-size: 20px;
-  font-family: "Oswald", sans-serif;
-}
-
-.t-body {
-  margin: 100px;
-  font-size: 20px;
-}
-
-.desc-tr {
-  margin: 1000px;
+        .desc-tr {
+          margin: 100px;
+        }
+      }
+      .table-header {
+        font-size: 20px;
+        th{
+        font-family: "Protest Strike", sans-serif;
+        }
+        
+      }
+    }
+  }
 }
