@@ -37,7 +37,7 @@ mongoose
 
 app.use(
     cors({
-        origin: ['exp://192.168.1.7:8081', 'http://127.0.0.1:5173', 'exp://127.0.0.1:19000', 'http://localhost:8081', '*'],
+        origin: ['exp://192.168.1.7:8081', 'http://127.0.0.1:5173', 'exp://127.0.0.1:19000', 'http://localhost:8081', 'exp://192.168.0.109:8081', '*'],
         credentials: true,
     })
 );
