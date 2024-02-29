@@ -354,8 +354,8 @@ export const addConnect = async (classID: string, postTitle: string, postDescrip
         }
         newConnect.class = classScheme._id;
         await Promise.all(
-            choices.map((choice) => {
-                const connectChoice = new ConnectChoices({ choice });
+            choices.map(async (choice) => {
+                const connectChoice = await new ConnectChoices({ choice }).save();
                 newConnect.postChoices.push(connectChoice._id);
             })
         );

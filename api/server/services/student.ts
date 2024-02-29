@@ -2,6 +2,8 @@ import express, { Express, Request, Response } from 'express';
 import { Student } from '../models/user';
 import { User } from '../middleware/authentication';
 import { populate } from 'dotenv';
+import { StudentCheckSubmission, StudentSubjects } from '../models/classModel/studentClass';
+import { Check, Coach, Connect } from '../models/classModel/class';
 
 // export const findAllStudent = async (req: Request, res: Response) => {
 //     try {
@@ -98,5 +100,93 @@ export const getAnnouncement = async (studentID: string | undefined) => {
         return { message: result, httpCode: 200 };
     } catch (error: any) {
         return { message: error.message, httpCode: 500 };
+    }
+};
+
+export const getCheck = async (userID: string | undefined) => {
+    try {
+        const noDueDate = [],
+            thisWeek = [],
+            nextWeek = [],
+            later = [];
+        const classesObj = await StudentSubjects.findOne({ student: userID });
+        for (const classObj of (classesObj as any)?.class) {
+            const checks: any = await Check.find({ class: classObj }).sort({ dueDate: 1 });
+            for (const check of checks as any) {
+                if (!check.studentSubmission.includes(userID)) {
+                    if (check.dueDate) {
+                        const date = new Date(check.dueDate);
+                        const currentDate = new Date();
+                        if (date < currentDate) {
+                            continue;
+                        }
+                        const difference = date.getTime() - currentDate.getTime();
+                        const differenceInWeeks = Math.floor(difference / (1000 * 60 * 60 * 24 * 7));
+
+                        if (differenceInWeeks === 0) {
+                            thisWeek.push(check);
+                        } else if (differenceInWeeks === 1) {
+                            nextWeek.push(check);
+                        } else {
+                            later.push(check);
+                        }
+                    } else {
+                        noDueDate.push(check);
+                    }
+                }
+            }
+        }
+        return { noDueDate, thisWeek, nextWeek, later };
+    } catch (error) {
+        return { 'message': 'No Check' };
+    }
+};
+export const getConnect = async (userID: string | undefined) => {
+    try {
+        const thisWeek = [],
+            nextWeek = [],
+            later = [];
+        const classesObj = await StudentSubjects.findOne({ student: userID });
+        for (const classObj of (classesObj as any)?.class) {
+            const connects: any = await Connect.find({ class: classObj }).populate('postChoices').sort({ dueDate: 1 });
+            for (const connect of connects as any) {
+                if (!connect.studentSubmission.includes(userID)) {
+                    if (connect.dueDate) {
+                        const date = new Date(connect.dueDate);
+                        const currentDate = new Date();
+                        if (date < currentDate) {
+                            continue;
+                        }
+                        const difference = date.getTime() - currentDate.getTime();
+                        const differenceInWeeks = Math.floor(difference / (1000 * 60 * 60 * 24 * 7));
+
+                        if (differenceInWeeks === 0) {
+                            thisWeek.push(connect);
+                        } else if (differenceInWeeks === 1) {
+                            nextWeek.push(connect);
+                        } else {
+                            later.push(connect);
+                        }
+                    }
+                }
+            }
+        }
+        return { thisWeek, nextWeek, later };
+    } catch (error) {
+        return { 'message': 'No Connect' };
+    }
+};
+
+export const getCoach = async (userID: string | undefined) => {
+    try {
+        const coachTask = [];
+        const classesObj = await StudentSubjects.findOne({ student: userID });
+        for (const classObj of (classesObj as any)?.class) {
+            const coachs: any = await Coach.find({ class: classObj }).sort({ createdAt: -1 });
+            coachTask.push(...coachs);
+        }
+        return { coachTask };
+    } catch (error) {
+        return { 'message': 'No Coach' };
     }
 };

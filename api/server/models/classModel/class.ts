@@ -35,7 +35,7 @@ const checkSchema = new Schema(
         ],
         highestPossibleScore: {
             type: Number,
-            default: false,
+            default: 0,
         },
         lateSubmission: {
             type: Boolean,
@@ -89,6 +89,13 @@ const connectChoicesSchema = new Schema({
         type: Number,
         default: 0,
     },
+    students: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Student',
+            default: null,
+        },
+    ],
 });
 
 export const ConnectChoices = mongoose.model('ConnectChoices', connectChoicesSchema);
@@ -130,7 +137,7 @@ const connectSchema = new Schema(
         ],
         highestPossibleScore: {
             type: Number,
-            default: false,
+            default: 0,
         },
         lateSubmission: {
             type: Boolean,

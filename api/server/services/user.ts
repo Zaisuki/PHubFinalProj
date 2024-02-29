@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import { Admin, Professor, Student, UserCredentials } from '../models/user';
 import { Announcement } from '../models/classModel/announcement';
-import { Check, Class, Coach, Connect } from '../models/classModel/class';
+import { Check, Class, Coach, Connect, ConnectChoices } from '../models/classModel/class';
 import { ProfessorHandledClass } from '../models/classModel/professorClass';
 import { StudentCheckSubmission, StudentCoachView, StudentConnectSubmission, StudentSubjects } from '../models/classModel/studentClass';
 import { Subject } from '../models/classModel/subject';
@@ -45,8 +45,9 @@ export const findAllUsers = async (req: Request, res: Response) => {
         const subject = await Subject.find({});
         const inbox = await Inbox.find({});
         const message = await Message.find({});
+        const choices = await ConnectChoices.find({});
 
-        res.status(200).json({ admin, students, professor, announcement, check, connect, coach, classes, professorHandledClass, studentConnectSubmission, studentCheckSubmission, studentCoachView, studentSubjects, subject, inbox, message });
+        res.status(200).json({ admin, students, professor, announcement, check, connect, coach, classes, professorHandledClass, studentConnectSubmission, studentCheckSubmission, studentCoachView, studentSubjects, subject, inbox, message, choices });
     } catch (error) {
         res.status(500).json('No Students found');
     }
