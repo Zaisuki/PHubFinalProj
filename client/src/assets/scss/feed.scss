@@ -23,21 +23,36 @@
         align-items: center;
         display: flex;
         margin-bottom: 100px;
+
+        .header-announcement {
+            width: 90%;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .header-time{
+            width: 10%;
+            margin-left: 100%;
+            }
+        
+            .professor{
+                width: 20%;
+              margin-left: 80%;
+            }
+
         .announce{
             width: 90%;
             margin: 50px;
             border: 1px solid;
             border-radius: 10px;
+            margin-bottom: 10%;
             p{
                 margin: 10px;
             }
         }
         
         
-        .professor{
-          margin-top: 13%;
-          margin-left: 78%;
-        }
+        
 
         .fc-greetings {
             background-color: rgb(230, 230, 230);
@@ -194,13 +209,6 @@
     }
 }
 
-.header-time{
-margin-left: 1100px;
-margin-top: -45px;
-}
 
-.header-announcement h1{
-    text-align: center;
-    margin: 10px;
-}
+
 
