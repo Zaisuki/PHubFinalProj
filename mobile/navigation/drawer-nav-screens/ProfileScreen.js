@@ -6,8 +6,8 @@ const ProfileScreen = ({navigation}) => {
         <View style={styles.container}>
             <Text>Profile Screen</Text>
             <Button
-            title='Click Here'
-            onPress={() => ('Button Clicked!')}
+            title='Log out'
+            onPress = {() => navigation.navigate("Login")}
             />
         </View>
     )

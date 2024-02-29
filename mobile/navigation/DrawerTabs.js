@@ -1,6 +1,6 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import {Image, View} from 'react-native';
+import {Image, View, Button} from 'react-native';
 import ProfileScreen from './drawer-nav-screens/ProfileScreen';
 import { StyleSheet } from 'react-native';
 import { calendarIcon, courseIcon, feedIcon, inboxIcon, profileIcon, statisticsIcon, taskIcon } from '../mgadimahanapnaimage';
@@ -86,7 +86,6 @@ function DrawerTabs() {
           return <Image style= {{height: 50, width: 50}} source={profileIcon} />
         }
       }}/>
-
     </Drawer.Navigator>
   );
 }
