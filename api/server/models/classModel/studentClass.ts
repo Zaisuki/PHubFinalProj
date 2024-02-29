@@ -9,7 +9,7 @@ const studentCheckSubmissionSchema = new Schema(
         },
         attachment: [
             {
-                type: Buffer,
+                type: String,
             },
         ],
         score: {

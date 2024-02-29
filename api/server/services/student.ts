@@ -2,7 +2,7 @@ import express, { Express, Request, Response } from 'express';
 import { Student } from '../models/user';
 import { User } from '../middleware/authentication';
 import { populate } from 'dotenv';
-import { StudentCheckSubmission, StudentSubjects } from '../models/classModel/studentClass';
+import { StudentCheckSubmission, StudentConnectSubmission, StudentSubjects } from '../models/classModel/studentClass';
 import { Check, Coach, Connect } from '../models/classModel/class';
 
 // export const findAllStudent = async (req: Request, res: Response) => {
@@ -196,3 +196,61 @@ export const getCoach = async (userID: string | undefined) => {
         return { 'message': 'No Coach' };
     }
 };
+
+export const submitCheck = async (taskID: string, userID: string | undefined, files: UploadedFile[] | undefined) => {
+    try {
+        let newStudentCheckSubmission = await new StudentCheckSubmission({
+            student: userID,
+            task: taskID,
+        }).save();
+        if (files) {
+            for (const file of files) {
+                const imagePath = file.path;
+                newStudentCheckSubmission.attachment.push(imagePath);
+            }
+            await newStudentCheckSubmission.save();
+        }
+        let studentSubjectsSchema = await StudentSubjects.findOne({ student: userID });
+        if (!studentSubjectsSchema) {
+            return { message: 'Student not found', httpCode: 404 };
+        }
+        studentSubjectsSchema.studentCheckSubmission.push(newStudentCheckSubmission._id);
+
+        await studentSubjectsSchema.save();
+        return { message: 'Check submitted', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
+export const submitConnect = async (taskID: string, userID: string | undefined, answerID: string) => {
+    try {
+        let studentConnectSubmissionSchema = await new StudentConnectSubmission({
+            student: userID,
+            answer: answerID,
+            task: taskID,
+        }).save();
+
+        let studentSubjectsSchema = await StudentSubjects.findOne({ student: userID });
+        if (!studentSubjectsSchema) {
+            return { message: 'Student not found', httpCode: 404 };
+        }
+        studentSubjectsSchema.studentConnectSubmission.push(studentConnectSubmissionSchema._id);
+
+        await studentSubjectsSchema.save();
+        return { message: 'Connect submitted', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
+
+// INTERFACE
+interface UploadedFile {
+    fieldname: string;
+    originalname: string;
+    encoding: string;
+    mimetype: string;
+    destination: string;
+    filename: string;
+    path: string;
+    size: number;
+}
