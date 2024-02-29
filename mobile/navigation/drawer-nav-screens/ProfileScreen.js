@@ -1,16 +1,18 @@
 import React from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import { logout } from '../../services/entry';
 
-const ProfileScreen = ({navigation}) => {
+const ProfileScreen = ({ navigation }) => {
+    const handleLogout = () => {
+        logout();
+        navigation.navigate('Login');
+    };
     return (
         <View style={styles.container}>
             <Text>Profile Screen</Text>
-            <Button
-            title='Log out'
-            onPress = {() => navigation.navigate("Login")}
-            />
+            <Button title='Log out' onPress={handleLogout} />
         </View>
-    )
+    );
 };
 
 export default ProfileScreen;
@@ -20,6 +22,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#8fcbbc'
+        backgroundColor: '#8fcbbc',
     },
 });

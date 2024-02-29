@@ -26,7 +26,7 @@ function AuthNavigator() {
                     backgroundColor: '#32c069',
                 },
             }}
-            initialRouteName='Login'
+            initialRouteName={isAuthenticated ? 'FeedScreen' : 'Login'}
         >
             {isAuthenticated ? (
                 <>
