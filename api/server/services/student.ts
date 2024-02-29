@@ -182,7 +182,9 @@ export const getCoach = async (userID: string | undefined) => {
         const coachTask = [];
         const classesObj = await StudentSubjects.findOne({ student: userID });
         for (const classObj of (classesObj as any)?.class) {
-            const coachs: any = await Coach.find({ class: classObj }).sort({ createdAt: -1 });
+            const coachs: any = await Coach.find({ class: classObj })
+                .populate({ path: 'class', populate: { path: 'subject' } })
+                .sort({ createdAt: -1 });
             coachTask.push(...coachs);
         }
         return { coachTask };
