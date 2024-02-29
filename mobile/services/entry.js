@@ -11,6 +11,7 @@ export const login = async (data) => {
         .catch((error) => {
             throw error;
         });
+    console.log(response);
     return response;
 };
 
@@ -21,10 +22,10 @@ export const logout = async () => {
     //     .catch((error) => {
     //         throw error;
     //     });
-    await await AsyncStorage.removeItem('authorization');
-    await await AsyncStorage.removeItem('userType');
-    await await AsyncStorage.removeItem('chatToken');
-    await await AsyncStorage.removeItem('userFullName');
-    await await AsyncStorage.removeItem('username');
+    await AsyncStorage.removeItem('authorization');
+    await AsyncStorage.removeItem('userType');
+    await AsyncStorage.removeItem('chatToken');
+    await AsyncStorage.removeItem('userFullName');
+    await AsyncStorage.removeItem('username');
     // return response;
 };

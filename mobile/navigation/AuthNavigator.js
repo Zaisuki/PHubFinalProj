@@ -7,6 +7,15 @@ import { authenticateToken } from '../services/authentication';
 const Stack = createStackNavigator();
 
 function AuthNavigator() {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    useEffect(() => {
+        authenticateToken()
+            .then((isValid) => {
+                setIsAuthenticated(isValid);
+            })
+            .catch(() => {});
+    }, []);
     return (
         <Stack.Navigator
             screenOptions={{
@@ -17,10 +26,11 @@ function AuthNavigator() {
                     backgroundColor: '#32c069',
                 },
             }}
+            initialRouteName={isAuthenticated ? 'FeedScreen' : 'Login'}
         >
-                    <Stack.Screen name='FeedScreen' component={DrawerTabs} /> 
-                    <Stack.Screen name='Login' component={LoginScreen} />
-                    <Stack.Screen name='Forgot Password' component={LoginScreen} />
+            <Stack.Screen name='Login' component={LoginScreen} />
+            <Stack.Screen name='Forgot Password' component={LoginScreen} />
+            <Stack.Screen name='FeedScreen' component={DrawerTabs} />
         </Stack.Navigator>
     );
 }

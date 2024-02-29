@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { phubtemplogo } from '../../mgadimahanapnaimage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StyleSheet, Text, View, TextInput, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { login } from '../../services/entry';
+import { authenticateToken } from '../../services/authentication';
 
 const LoginScreen = ({ navigation }) => {
     const [userIdentifier, setUsername] = useState('');
@@ -14,6 +15,15 @@ const LoginScreen = ({ navigation }) => {
     const handlePasswordChange = (newText) => {
         setPassword(newText);
     };
+    useEffect(() => {
+        authenticateToken()
+            .then((isValid) => {
+                if (isValid) {
+                    navigation.replace('FeedScreen');
+                }
+            })
+            .catch(() => {});
+    }, []);
     const handleLogin = async () => {
         try {
             const response = await login({ userIdentifier, password });
@@ -25,7 +35,7 @@ const LoginScreen = ({ navigation }) => {
                     await AsyncStorage.setItem('userFullName', response.userFullName);
                     await AsyncStorage.setItem('username', response.username);
 
-                    navigation.navigate('FeedScreen');
+                    navigation.replace('FeedScreen');
                 } else {
                 }
             } else {

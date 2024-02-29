@@ -5,7 +5,7 @@ import { logout } from '../../services/entry';
 const ProfileScreen = ({ navigation }) => {
     const handleLogout = () => {
         logout();
-        navigation.navigate('Login');
+        navigation.replace('Login');
     };
     return (
         <View style={styles.container}>
