@@ -22,6 +22,15 @@ const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
                 <li>
                     <SideBarLink direct='/create-admin' icon={CourseImg} title='Create Admin' isClicked={isClicked} />
                 </li>
+                <li>
+                    <SideBarLink direct='/create-subject' icon={CourseImg} title='Create Subject' isClicked={isClicked} />
+                </li>
+                <li>
+                    <SideBarLink direct='/create-class' icon={CourseImg} title='Create Class' isClicked={isClicked} />
+                </li>
+                <li>
+                    <SideBarLink direct='/enroll-student-class' icon={CourseImg} title='Enroll Student to class' isClicked={isClicked} />
+                </li>
                 {/* {'DUPLICATE NIYO LANG IYONG LI NA TAG PAG GAGAWA PA NG LINK AT PAGE'} */}
             </ul>
             <SideBarLink direct='/login' icon={LogoutImg} title='Logout' isClicked={isClicked} />
