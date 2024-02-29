@@ -40,7 +40,7 @@
     "react-native-big-calendar": "^4.10.0",
     "react-native-calendars": "^1.1303.0",
     "react-native-chart-kit": "^6.12.0",
-    "react-native-document-picker": "^9.1.0",
+    "react-native-document-picker": "^9.1.1",
     "react-native-dropdown-select-list": "^2.0.5",
     "react-native-fs": "^2.20.0",
     "react-native-gesture-handler": "~2.14.0",
@@ -49,6 +49,7 @@
     "react-native-image-crop-picker": "^0.40.2",
     "react-native-image-resizer": "^1.4.5",
     "react-native-linear-gradient": "^2.8.3",
+    "react-native-pager-view": "6.2.3",
     "react-native-paper": "^5.12.3",
     "react-native-progress": "^5.0.1",
     "react-native-reanimated": "~3.6.2",
@@ -62,8 +63,7 @@
     "stream-chat": "^8.14.5",
     "stream-chat-expo": "^5.24.0",
     "stream-chat-react": "^11.4.0",
-    "typescript": "^5.3.0",
-    "react-native-pager-view": "6.2.3"
+    "typescript": "^5.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
