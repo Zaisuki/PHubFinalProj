@@ -1,0 +1,19 @@
+.professor-form {
+  padding: 1%;
+
+  .row {
+    margin-bottom: 2%;
+
+    .active-holder {
+      margin-top: -1%;
+
+      .active-radio {
+        display: flex;
+
+        .form-check {
+          margin-left: 2%;
+        }
+      }
+    }
+  }
+}
