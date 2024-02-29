@@ -61,7 +61,7 @@ export const getCoach = async () => {
 };
 export const getCheckTask = async (classID) => {
     const response = await axios
-        .get(`${apiURL}/professor/check/task`, {
+        .get(`${apiURL}/student/check/task`, {
             withCredentials: true,
             headers: {
                 authorization: cookies.get('authorization'),
@@ -78,7 +78,7 @@ export const getCheckTask = async (classID) => {
 };
 export const getConnectTask = async (classID) => {
     const response = await axios
-        .get(`${apiURL}/professor/connect/task`, {
+        .get(`${apiURL}/student/connect/task`, {
             withCredentials: true,
             headers: {
                 authorization: cookies.get('authorization'),
@@ -96,7 +96,7 @@ export const getConnectTask = async (classID) => {
 };
 export const getCoachTask = async (classID) => {
     const response = await axios
-        .get(`${apiURL}/professor/coach/task`, {
+        .get(`${apiURL}/student/coach/task`, {
             withCredentials: true,
             headers: {
                 authorization: cookies.get('authorization'),
