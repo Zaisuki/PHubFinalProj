@@ -108,7 +108,8 @@ export const getCheck = async (userID: string | undefined) => {
         const noDueDate = [],
             thisWeek = [],
             nextWeek = [],
-            later = [];
+            later = [],
+            missing = [];
         const classesObj = await StudentSubjects.findOne({ student: userID });
         for (const classObj of (classesObj as any)?.class) {
             const checks: any = await Check.find({ class: classObj }).sort({ dueDate: 1 });
@@ -118,6 +119,7 @@ export const getCheck = async (userID: string | undefined) => {
                         const date = new Date(check.dueDate);
                         const currentDate = new Date();
                         if (date < currentDate) {
+                            missing.push(check);
                             continue;
                         }
                         const difference = date.getTime() - currentDate.getTime();
@@ -136,7 +138,7 @@ export const getCheck = async (userID: string | undefined) => {
                 }
             }
         }
-        return { noDueDate, thisWeek, nextWeek, later };
+        return { noDueDate, thisWeek, nextWeek, later, missing };
     } catch (error) {
         return { 'message': 'No Check' };
     }
@@ -145,7 +147,8 @@ export const getConnect = async (userID: string | undefined) => {
     try {
         const thisWeek = [],
             nextWeek = [],
-            later = [];
+            later = [],
+            missing = [];
         const classesObj = await StudentSubjects.findOne({ student: userID });
         for (const classObj of (classesObj as any)?.class) {
             const connects: any = await Connect.find({ class: classObj }).populate('postChoices').sort({ dueDate: 1 });
@@ -155,6 +158,7 @@ export const getConnect = async (userID: string | undefined) => {
                         const date = new Date(connect.dueDate);
                         const currentDate = new Date();
                         if (date < currentDate) {
+                            missing.push(connect);
                             continue;
                         }
                         const difference = date.getTime() - currentDate.getTime();
@@ -171,7 +175,7 @@ export const getConnect = async (userID: string | undefined) => {
                 }
             }
         }
-        return { thisWeek, nextWeek, later };
+        return { thisWeek, nextWeek, later, missing };
     } catch (error) {
         return { 'message': 'No Connect' };
     }
