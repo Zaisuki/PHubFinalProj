@@ -29,6 +29,14 @@
     margin-bottom: 1%;
     width: 100%;
     border-radius: 15px;
+    .pdf-container{
+      width: 100%;
+      height: 900px;
+      overflow-y:hidden ;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
   }
 }
 
@@ -38,7 +46,7 @@
 
   // Left part of student-work content
   .left-container {
-    width: 50%;
+    width: 65%;
     justify-content: center;
 
     .upper-left-container {
@@ -159,7 +167,7 @@
              
             }
           }
-          .history:hover{}
+       
         }
       }
     }

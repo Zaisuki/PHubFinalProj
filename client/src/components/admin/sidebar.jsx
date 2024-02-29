@@ -5,7 +5,7 @@ import SideBarLink from '../sidebarLink';
 import CourseImg from '../../assets/img/course.png';
 import FeedImg from '../../assets/img/feed.png';
 import TaskImg from '../../assets/img/task.png';
-import LogoutImg from '../../assets/img/calendar.png';
+import LogoutImg from '../../assets/img/logout.png';
 
 const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
     return (

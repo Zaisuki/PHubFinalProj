@@ -29,7 +29,9 @@ function Notification() {
         };
     }, []);
     return (
-        <Table hover>
+        <div className='bgN'>
+        <div className='notif'>
+        <Table hover className='table-main'>
             <thead className='table-header'>
                 <tr>
                     <th>Header</th>
@@ -37,10 +39,10 @@ function Notification() {
                     <th>Time/Date</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className='t-body'>
                 {notifications ? (
                     notifications.map((notif, idx) => (
-                        <tr key={idx}>
+                        <tr className='desc-tr' key={idx}>
                             <td className='from'>{notif.header}</td>
                             <td className='content'>{notif.description}</td>
                             <td className='time-date'>{convertDate(notif.updatedAt)}</td>
@@ -53,6 +55,8 @@ function Notification() {
                 )}
             </tbody>
         </Table>
+        </div>
+        </div>
     );
 }
 
