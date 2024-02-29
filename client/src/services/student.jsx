@@ -111,3 +111,17 @@ export const getCoachTask = async (classID) => {
         });
     return response;
 };
+export const submitCheck = async (formData) => {
+    const response = await axios
+        .post(`${apiURL}/student/coach`, formData, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};

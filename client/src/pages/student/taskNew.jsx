@@ -6,14 +6,51 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
-import { getCheckTask, getCoachTask, getConnectTask } from '../../services/student';
+import { getCheckTask, getCoachTask, getConnectTask, submitCheck } from '../../services/student';
 import formatDate from '../../utils/formatDate';
+import { FileUploader } from 'react-drag-drop-files';
+import { FaPlus, FaTimes } from 'react-icons/fa';
 
 export default function NewTask() {
     let { taskID, classType } = useParams();
     const [pageData, setData] = useState({});
+    const [showWindow, setShowWindow] = useState(false);
     classType = classType.toLowerCase();
 
+    const fileTypes = ['JPG', 'PNG', 'GIF', 'PDF'];
+    const [attachment, setAttachement] = useState([]);
+
+    const handlePlusClick = () => {
+        setShowWindow(true);
+    };
+
+    const handleCloseClick = () => {
+        setShowWindow(false);
+    };
+    const handleRemove = (index) => {
+        setAttachement(attachment.filter((_, i) => i !== index));
+    };
+    const handleSubmit = async () => {
+        const formData = new FormData();
+        formData.append('taskID', taskID);
+        for (const file of attachment) {
+            formData.append('file', file);
+        }
+        let result;
+        if (classType === 'check') {
+            result = await submitCheck(formData);
+        } else if (classType === 'connect') {
+            // result = await postConnect(formData);
+        } else {
+            // result = await postCoach(formData);
+        }
+        if (result.message === 'Check posted' || result.message === 'Connect posted' || result.message === 'Coach posted') {
+            updateForm();
+        }
+    };
+    const updateForm = () => {
+        setAttachement([]);
+    };
     useEffect(() => {
         const fetchdata = async () => {
             let data;
@@ -29,6 +66,11 @@ export default function NewTask() {
         };
         fetchdata();
     }, [taskID, classType]);
+
+    useEffect(() => {
+        console.log(attachment);
+        handleCloseClick();
+    }, [attachment]);
     return (
         <Container>
             <Row>
@@ -72,26 +114,44 @@ export default function NewTask() {
 
                 {/* Here is where you can find all the contents inside the left container or card */}
                 {classType.toLowerCase() === 'check' && (
-                    <Col xs={12} md={8} lg={4}>
-                        <Card className='main-right-card-container'>
-                            <Card className='submission-card'>
-                                <h5>Your Work</h5>
+                    <>
+                        <Col xs={12} md={8} lg={4}>
+                            <Card className='main-right-card-container'>
+                                <Card className='submission-card'>
+                                    <h5>Your Work</h5>
 
-                                {/* eto yung lalabas pag nakapag-upload na yung student ng file/pic/link */}
-                                <Card className='student-work-container'>
-                                    <p>Module 21.jpg</p>
-                                    <box-icon name='x' color='#686464' size='md'></box-icon>
+                                    {/* eto yung lalabas pag nakapag-upload na yung student ng file/pic/link */}
+                                    <Card className='student-work-container'>
+                                        {attachment.map((file, idx) => (
+                                            <p key={idx}>
+                                                {file.name}
+                                                <FaTimes className='eks' onClick={() => handleRemove(idx)} />
+                                            </p>
+                                        ))}
+                                        <box-icon name='x' color='#686464' size='md'></box-icon>
+                                    </Card>
+
+                                    <div className='buttons-container'>
+                                        <Button className='upload-file-button' onClick={handlePlusClick}>
+                                            Upload File
+                                        </Button>
+                                    </div>
+                                    <div>
+                                        <Button className='mark-button' onClick={handleSubmit}>
+                                            Mark as done
+                                        </Button>
+                                    </div>
                                 </Card>
-
-                                <div className='buttons-container'>
-                                    <Button className='upload-file-button'>Upload File</Button>
-                                </div>
-                                <div>
-                                    <Button className='mark-button'>Mark as done</Button>
-                                </div>
                             </Card>
-                        </Card>
-                    </Col>
+                        </Col>
+
+                        {showWindow && (
+                            <div className='popup-submission'>
+                                <FaTimes className='eks' onClick={handleCloseClick} />
+                                <FileUploader className='w-screen' handleChange={(files) => setAttachement((prevState) => [...prevState, ...Object.values(files)])} name='file' types={fileTypes} multiple={true} />
+                            </div>
+                        )}
+                    </>
                 )}
             </Row>
         </Container>
