@@ -1,4 +1,4 @@
-import "../../assets/scss/admin-form.scss";
+import "../../assets/scss/admin-scss/admin-form.scss";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
