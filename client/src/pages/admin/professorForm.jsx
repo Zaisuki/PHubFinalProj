@@ -1,4 +1,4 @@
-import "../../assets/scss/prof-scss/pf.scss";
+import "../../assets/scss/admin-scss/professor-form.scss";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -24,11 +24,11 @@ function ProfessorForm() {
     }
   };
 
+  // for school NUMBER FORM
   const [schoolNumber, setSchoolNumber] = useState("");
 
   const handleSNumberChange = (event) => {
     const inputValue = event.target.value;
-    // Ensure that the input value contains only numbers
     if (/^\d*$/.test(inputValue)) {
       setSchoolNumber(inputValue);
     }
@@ -39,7 +39,7 @@ function ProfessorForm() {
       <Container>
         {/* Professor Full Name */}
         <Row>
-          <Col>
+          <Col sm={4}>
             <Form>
               <Row>
                 <Col>
