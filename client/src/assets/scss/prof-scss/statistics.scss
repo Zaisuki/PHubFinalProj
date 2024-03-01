@@ -60,11 +60,13 @@
   }
   .stat-zero {
     height: 27vh;
-    width: 100%;
+    width: 1457px;
     justify-content: center;
     display: flex;
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
+    border: 1px solid;
+    margin-left: 9px;
     h1 {
       text-align: center;
       font-family: "Protest Strike", sans-serif;
@@ -106,9 +108,12 @@
 
   .stat-three {
     display: flex;
+    width: 1457px;
+    border-radius: 20px;
     flex-direction: row;
     justify-content: space-between;
     margin: 10px;
+    border: 1px solid;
     select {
       display: inline-block;
       width: 49%;
@@ -117,7 +122,9 @@
   .stat-four,
   .stat-five {
     width: 50%;
-    margin: 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-top: -5px;
     height: 300px;
     h1{
       font-family: "Protest Strike", sans-serif;
@@ -131,8 +138,9 @@
   }
   .stat-five {
     width: 50%;
-    margin: 20px;
+    margin-top: -5px;
     height: 300px;
+    left: 15px;
 
     p {
       margin-bottom: 8%;

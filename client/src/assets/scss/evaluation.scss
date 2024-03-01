@@ -2,6 +2,11 @@
     padding: 2% 5% 2% 5%;
   .card {
     margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid;
+    .teach-card{
+      border: 1px solid;
+    }
   }
 
   .card-body {
@@ -58,7 +63,7 @@
           margin-top: 15%;
           margin-left: 5%;
           height: 40%;
-          font-size: 20px;
+          font-size: 17px;
           text-align: center;
         }
       }
@@ -70,6 +75,7 @@
 
   .card-body span {
     font-size: 30px;
+    width:35%;
   }
 
   .details {
@@ -85,3 +91,9 @@
     width: 970px;
   }
 }
+
+.teacht{
+  margin: 10px;
+  
+}
+
