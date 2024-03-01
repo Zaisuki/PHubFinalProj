@@ -9,7 +9,8 @@ function Evaluation() {
     <div className="eval-container">
       <Card>
         <Card.Body className="card-body">
-          <h1>Teacher Evaluation Form</h1>
+          <Card className="teach-card">
+            <h1 className="teacht">Teacher Evaluation Form</h1>
           <label className="dear-student">Dear Students,</label>
 
           <p>
@@ -18,7 +19,8 @@ function Evaluation() {
             Please fill out the following evaluation form honestly and
             constructively.
           </p>
-          <div className="line"></div>
+          <div className="line">
+            </div></Card>
 
           <span className="details">STUDENT DETAILS</span>
           <div className="details">
