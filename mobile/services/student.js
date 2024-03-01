@@ -1,7 +1,8 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { API_BASE_URL } from '@env';
 
-const apiURL = import.meta.env.VITE_API_BASE_URL;
+const apiURL = API_BASE_URL;
 
 export const getClass = async () => {
     const response = await axios

@@ -1,157 +1,43 @@
-import * as React from 'react';
-import { List, Card, Button } from 'react-native-paper';
+import React, { useEffect, useState } from 'react';
+import { List, Card, Button, View, Text } from 'react-native-paper';
+import { getCoach } from '../../../services/student';
+import formatDate from '../../../utils/formatDate';
 
-const CoachScreen =  ({navigation}) => {
-    const [expanded, setExpanded] = React.useState(true);
-  
+const CoachScreen = ({ navigation }) => {
+    const [expanded, setExpanded] = useState(true);
+    const taskType = 'coach';
+    const [coachTask, setCoachTask] = useState([]);
+
     const handlePress = () => setExpanded(!expanded);
-  
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await getCoach();
+                setCoachTask(response.coachTask);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, []);
     return (
-      <List.Section>
-        <List.Accordion
-          title="This Week"
-          expanded={expanded}
-          onPress={handlePress}>
-          
-          <Card onPress = {() => console.log('Pressed')} 
-          style={{
-            borderRadius: 15, 
-            borderWidth: 2, 
-            height: 100, 
-            justifyContent: 'center',
-            marginTop: 5,
-            marginBottom: 5,
-            borderColor: '#d3d3d3',
-          }} 
-          contentStyle= {{
-            
-          }}>
-          <Card.Title title="CHECK: Module 21" subtitle="February 29, 2024" 
-          titleStyle= {{
-            flexWrap:'wrap', 
-            flexDirection: 'row',
-            fontSize: 15,
-            textAlign: 'center'
-
-          }} subtitleStyle = {{
-            fontSize: 10,
-            textAlign: 'center'
-          }} />
-      </Card>
-
-      <Card onPress = {() => console.log('Pressed')} 
-          style={{
-            borderRadius: 15, 
-            borderWidth: 2, 
-            height: 100, 
-            justifyContent: 'center',
-            marginTop: 5,
-            marginBottom: 5,
-            borderColor: '#d3d3d3',
-          }} 
-          contentStyle= {{
-            
-          }}>
-          <Card.Title title="CHECK: Module 22" subtitle="February 29, 2024" 
-          titleStyle= {{
-            flexWrap:'wrap', 
-            flexDirection: 'row',
-            fontSize: 15,
-            textAlign: 'center'
-
-          }} subtitleStyle = {{
-            fontSize: 10,
-            textAlign: 'center'
-          }} />
-      </Card>
-        </List.Accordion>
-
-        <List.Accordion
-          title="Next Week">
-          <Card onPress = {() => console.log('Pressed')} 
-          style={{
-            borderRadius: 15, 
-            borderWidth: 2, 
-            height: 100, 
-            justifyContent: 'center',
-            marginTop: 5,
-            marginBottom: 5,
-            borderColor: '#d3d3d3',
-          }} 
-          contentStyle= {{
-            
-          }}>
-          <Card.Title title="CHECK: Module 23" subtitle="February 29, 2024" 
-          titleStyle= {{
-            flexWrap:'wrap', 
-            flexDirection: 'row',
-            fontSize: 15,
-            textAlign: 'center'
-
-          }} subtitleStyle = {{
-            fontSize: 10,
-            textAlign: 'center'
-          }} />
-      </Card>
-        </List.Accordion>
-  
-        <List.Accordion
-          title="Later">
-          <Card onPress = {() => console.log('Pressed')} 
-          style={{
-            borderRadius: 15, 
-            borderWidth: 2, 
-            height: 100, 
-            justifyContent: 'center',
-            marginTop: 5,
-            marginBottom: 5,
-            borderColor: '#d3d3d3',
-          }} 
-          contentStyle= {{
-            
-          }}>
-          <Card.Title title="CHECK: Module 24" subtitle="February 29, 2024" 
-          titleStyle= {{
-            flexWrap:'wrap', 
-            flexDirection: 'row',
-            fontSize: 15,
-            textAlign: 'center'
-
-          }} subtitleStyle = {{
-            fontSize: 10,
-            textAlign: 'center'
-          }} />
-      </Card>
-      <Card onPress = {() => console.log('Pressed')} 
-          style={{
-            borderRadius: 15, 
-            borderWidth: 2, 
-            height: 100, 
-            justifyContent: 'center',
-            marginTop: 5,
-            marginBottom: 5,
-            borderColor: '#d3d3d3',
-          }} 
-          contentStyle= {{
-            
-          }}>
-          <Card.Title title="CHECK: Module 25" subtitle="February 29, 2024" 
-          titleStyle= {{
-            flexWrap:'wrap', 
-            flexDirection: 'row',
-            fontSize: 15,
-            textAlign: 'center'
-
-          }} subtitleStyle = {{
-            fontSize: 10,
-            textAlign: 'center'
-          }} />
-      </Card>
-        </List.Accordion>
-      </List.Section>
-
-      
+        <List.Section>
+            {coachTask.map((data) => (
+                <Card className='card-within' key={data._id}>
+                    {/* <Button onClick={() => navigation.navigate(`/task-new/coach/${data._id}`)}> */}
+                    <Card>
+                        <Text>
+                            {taskType.toUpperCase()}: <Text>{data.postTitle}</Text>
+                        </Text>
+                        <Text>{formatDate(data.createdAt)}</Text>
+                        <Text>{data.class.subject.subjectCode}</Text>
+                    </Card>
+                    {/* </Button> */}
+                </Card>
+            ))}
+        </List.Section>
     );
-  };
-  
-  export default CoachScreen;
+};
+
+export default CoachScreen;
