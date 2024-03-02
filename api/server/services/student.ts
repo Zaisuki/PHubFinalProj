@@ -112,7 +112,7 @@ export const getCheck = async (userID: string | undefined) => {
             missing = [];
         const classesObj = await StudentSubjects.findOne({ student: userID });
         for (const classObj of (classesObj as any)?.class) {
-            const checks: any = await Check.find({ class: classObj }).sort({ dueDate: 1 });
+            const checks: any = await Check.find({ class: classObj }).populate({ path: 'class', populate: { path: 'subject' } }).sort({ dueDate: 1 });
             for (const check of checks as any) {
                 if (!check.studentSubmission.includes(userID)) {
                     if (check.dueDate) {
@@ -151,7 +151,7 @@ export const getConnect = async (userID: string | undefined) => {
             missing = [];
         const classesObj = await StudentSubjects.findOne({ student: userID });
         for (const classObj of (classesObj as any)?.class) {
-            const connects: any = await Connect.find({ class: classObj }).populate('postChoices').sort({ dueDate: 1 });
+            const connects: any = await Connect.find({ class: classObj }).populate('postChoices').populate({ path: 'class', populate: { path: 'subject' } }).sort({ dueDate: 1 });
             for (const connect of connects as any) {
                 if (!connect.studentSubmission.includes(userID)) {
                     if (connect.dueDate) {
