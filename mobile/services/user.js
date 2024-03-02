@@ -44,6 +44,7 @@ export const course = async () => {
         .catch((error) => {
             throw error;
         });
+        console.log(response)
     return response;
 };
 export const getNotification = async () => {
