@@ -127,7 +127,7 @@ function FeedProf() {
                                 <div className='header-announcement'>
                                     <h1 className={`ann ${isTitleBold ? 'bold' : ''} ${isTitleItalic ? 'italic' : ''} ${isTitleUnderline ? 'underline' : ''}`}>{announcement.header}</h1>
                                     <div className='trash-dd'>
-                                        <DropdownButton id='dropdown-menu-align-right' align='right' variant='none'>
+                                        <DropdownButton className='makeitdrop' id='dropdown-menu-align-right' align='right' variant='none'>
                                             <Dropdown.Item eventKey='1'>Delete</Dropdown.Item>
                                         </DropdownButton>
                                     </div>

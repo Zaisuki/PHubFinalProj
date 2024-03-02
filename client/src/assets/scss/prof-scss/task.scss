@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Kaushan+Script:regular);
 @import url(https://fonts.googleapis.com/css?family=Tillana:regular,500,600,700,800);
 @import url(https://fonts.googleapis.com/css?family=Protest+Strike:regular);
-
-
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Bebas+Neue:regular);
 
 
     .nav-nav {
@@ -11,7 +11,7 @@
         padding: 20px;
         margin: 100px;
         transition: all 0.3s ease;
-        box-shadow: 0px 5px 20px rgba(0, 0, 0, 20);
+      
         color: black;
         animation: float 2s ease infinite;
         position:fixed;
@@ -121,7 +121,7 @@
         font-size: 30px;
         padding: 20px;
         margin-left: 20px;
-        font-family: "Protest Strike", sans-serif;
+        font-family: "Raleway",sans-serif;
         margin-bottom: 1px;
       }
       .info {
@@ -132,7 +132,7 @@
         justify-content: center;
 
         .task-title {
-            font-family: "Protest Strike", sans-serif;
+          font-family: "Raleway",sans-serif;
           font-size: 15px;
           width: 20%;
           white-space: nowrap;
@@ -140,7 +140,7 @@
           text-overflow: ellipsis;
           position: absolute;
           left: 50px;
-          font-family: "Protest Strike", sans-serif;
+      
           font-style: italic;
         }
         .circle{
@@ -156,15 +156,15 @@
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          font-family: "Tillana", system-ui;
+          font-family: "Raleway",sans-serif;
           position: absolute;
           right: 250px;
         }
         .due {
-          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-family: "Raleway",sans-serif;
           font-size: 10px;
           width: 20%;
-          font-family: "Tillana", system-ui;
+          
           position: absolute;
           right: -10px;
         }
@@ -697,17 +697,7 @@
     z-index: 1000;
     
   }
-  @keyframes float {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
+  
   
 }
 
@@ -729,7 +719,9 @@
   position: absolute;
   top: 90px;
   left: 110px;
+
   font-family: "Protest Strike", sans-serif;
+
 }
 .taskNo {
     font-size: 25px;

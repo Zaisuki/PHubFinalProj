@@ -4,19 +4,33 @@ header {
     height: 10vh;
     padding: 2%;
     display: flex;
+    background-color: rgba(33, 78, 1, 0.815);
+    text-align: center;
+    justify-content: center;
+    color: white;
     align-items: center;
-    border-top: 3px solid;
-    border-bottom: 2px solid;
+    .hi{
+        font-size: 30px;
+        text-align: center;
+        display: flex;
+    }
+    span{
+        margin-left: 5PX;
+        color: rgba(204, 201, 0, 0.856);
+    }
+        
     .hamburger-container {
         display: block;
         padding: 6px 12px;
+        
+        }
         .hamburger-icon {
             background-color: transparent;
             border: none;
             color: $text-color;
             font-size: 1.5em;
         }
-    }
+    
 
     h3 {
         margin: 0;
