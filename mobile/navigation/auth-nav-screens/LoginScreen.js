@@ -26,6 +26,7 @@ const LoginScreen = ({ navigation }) => {
     }, []);
     const handleLogin = async () => {
         try {
+            console.log("nig")
             const response = await login({ userIdentifier, password });
             if (response.message === 'success') {
                 if (response.userType === 'E2jF8sG5dH9tY3kL4zX7pQ6wR1oV0mCqB6nI8bT7yU5iA3gD2fS4hJ9uMlKoP1e') {

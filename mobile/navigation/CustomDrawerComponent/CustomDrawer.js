@@ -2,6 +2,7 @@ import { ImageBackground, StyleSheet, Text, View, Dimensions, Image } from 'reac
 import React from 'react'
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer'
 import { hays, ogrenek, upang, whatever } from '../../mgadimahanapnaimage';
+import AssitiveTouch from "react-native-assitive-touch";
 
 const {width} = Dimensions.get('screen');
 

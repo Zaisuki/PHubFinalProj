@@ -3,6 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './auth-nav-screens/LoginScreen';
 import DrawerTabs from './DrawerTabs';
 import { authenticateToken } from '../services/authentication';
+import Tabs from './tabs';
+
 
 const Stack = createStackNavigator();
 
@@ -30,7 +32,7 @@ function AuthNavigator() {
         >
             <Stack.Screen name='Login' component={LoginScreen} />
             <Stack.Screen name='Forgot Password' component={LoginScreen} />
-            <Stack.Screen name='FeedScreen' component={DrawerTabs} />
+            <Stack.Screen name='FeedScreen' component={Tabs} />
         </Stack.Navigator>
     );
 }

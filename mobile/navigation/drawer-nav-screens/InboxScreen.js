@@ -42,10 +42,12 @@ const ChannelScreen = props => {
     const { route } = props;
     const {params: {channel}} = route;
     return (
+        <View style = {{ flex: 1, height:100}}>
         <Channel channel={channel}>
           <MessageList />
           <MessageInput />
         </Channel>
+        </View>
       );
 };
 

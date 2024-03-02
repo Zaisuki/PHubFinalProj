@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 
-const CourseScreen = ({navigation}) => {
+const OtherOptionsScreen = ({navigation}) => {
     return (
         <View style={styles.container}>
             <Text>Course Screen</Text>
@@ -13,7 +13,7 @@ const CourseScreen = ({navigation}) => {
     )
 };
 
-export default CourseScreen;
+export default OtherOptionsScreen;
 
 const styles = StyleSheet.create({
     container: {

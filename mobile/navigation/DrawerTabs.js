@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import {Image, View, Button} from 'react-native';
 import ProfileScreen from './drawer-nav-screens/ProfileScreen';
@@ -14,10 +14,10 @@ import CalendarScreen from './drawer-nav-screens/CalendarScreen';
 import AboutEnigmaScreen from './drawer-nav-screens/AboutEnigmaScreen';
 import CustomDrawer from './CustomDrawerComponent/CustomDrawer';
 import NotificationScreen from './drawer-nav-screens/NotificationScreen';
-
 const Drawer = createDrawerNavigator();
 
 function DrawerTabs() {
+  const [visible, setVisible] = useState(false);
   return (
     <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />}
     drawerStyle screenOptions={{
@@ -27,6 +27,7 @@ function DrawerTabs() {
       drawerItemStyle: {borderRadius: 15, height: 80, },
       drawerLabelStyle: {alignItems: 'center', }
     }}>
+      
       <Drawer.Screen name='Profile' component={ProfileScreen} options={{
         drawerIcon: ({color, size, focused}) => {
           return <Image style= {{height: 50, width: 50,}} source={profileIcon} />
@@ -86,6 +87,7 @@ function DrawerTabs() {
           return <Image style= {{height: 50, width: 50}} source={profileIcon} />
         }
       }}/>
+      
     </Drawer.Navigator>
   );
 }

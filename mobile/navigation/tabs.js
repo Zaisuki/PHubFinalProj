@@ -6,13 +6,11 @@ import EntypoIcon from 'react-native-vector-icons/Entypo';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome6Icon from 'react-native-vector-icons/FontAwesome6';
-
-import InboxScreen from '../bottom-nav-screens/InboxScreen';
-import CourseScreen from '../bottom-nav-screens/CourseScreen';
-import FeedScreen from '../bottom-nav-screens/FeedScreen';
-import StatisticScreen from '../bottom-nav-screens/StatisticScreen';
-import ProfileScreen from '../bottom-nav-screens/ProfileScreen';
-
+import InboxScreen from './drawer-nav-screens/InboxScreen';
+import CourseScreen from './drawer-nav-screens/CourseScreen';
+import FeedScreen from './drawer-nav-screens/FeedScreen';
+import StatisticScreen from './drawer-nav-screens/StatisticScreen';
+import ProfileScreen from './drawer-nav-screens/ProfileScreen';
 
 
 const Tab = createBottomTabNavigator();
@@ -45,15 +43,15 @@ const Tabs = () => {
         screenOptions={{
             tabBarLabelStyle: {display: 'none'},
             tabBarStyle: {
-                position: 'absolute',
-                elevation: 0,
                 backgroundColor: '#72d360',
                 borderRadius: 5,
                 height: 90,
                 ...styles.shadow
             }
         }}>
-            <Tab.Screen name="Inbox" component={InboxScreen} options={{
+            <Tab.Screen name="Inbox" component={InboxScreen} style={{
+                height: "100%"
+            }}  options={{
                 tabBarIcon: ({focused}) => (
                     <View style= {{alignItems: 'center', justifyContent: 'center'}}>
                         <Image

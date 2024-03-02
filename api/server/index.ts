@@ -24,7 +24,16 @@ const server = http.createServer(app);
 const port = 3000;
 
 const MONGODB_CONNECTION: any = process.env.MONGODB_CONNECTION;
-const ORIGIN_URL: any = process.env.ORIGIN_URL || "http://localhost:5173";
+const ORIGIN_URL: any = process.env.ORIGIN_URL || [
+  "exp://192.168.1.7:8081",
+  "http://127.0.0.1:5173",
+  "http://localhost:5173",
+  "exp://127.0.0.1:19000",
+  "http://localhost:8081",
+  "exp://192.168.0.109:8081",
+  "exp://192.168.75.60:8081",
+  "*",
+];
 
 mongoose
   .connect(MONGODB_CONNECTION)
@@ -44,6 +53,7 @@ app.use(
       "exp://127.0.0.1:19000",
       "http://localhost:8081",
       "exp://192.168.0.109:8081",
+      "exp://192.168.75.60:8081",
       "*",
     ],
     credentials: true,
