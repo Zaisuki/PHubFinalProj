@@ -1,5 +1,6 @@
 .feed-student {
     padding: 5vw;
+    border: 0%;
 
     .feed-student-body {
         min-height: 100vh;
@@ -8,7 +9,6 @@
         align-items: center;
         width: 100%;
         border-radius: 20px;
-        background-image: linear-gradient(45deg, #044a6b, #09612a, #044a6b);
         .feed-img {
             height: 170px;
             width: 120px;

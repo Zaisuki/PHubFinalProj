@@ -1,16 +1,23 @@
 @import 'variables';
 .sidebar-container {
     display: none;
-    background-image: linear-gradient(45deg, #044a6b, #09612a, #044a6b);
     min-height: 100vh;
     padding: 1vw;
-    width: 100px;
+    width: 150px;
     overflow-y: auto;
     overflow-x: hidden;
     box-sizing: border-box;
     flex-direction: column;
     align-items: center;
     border: 3px solid;
+    margin-top: 0;
+    .ph{
+        display: none;
+        
+    }
+    .bnw{
+        display: none;
+    }
 
     a {
         display: flex;
@@ -18,9 +25,11 @@
         justify-content: center;
         text-decoration: none;
         color: $text-color;
-        width: 100%;
+        width: 70%;
         padding: 15px 0;
         font-size: 20px;
+        border-width:30px;
+        
 
         .image-container {
             width: 60%;
@@ -32,8 +41,8 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 100%; /* Fill the entire wrapper */
-                height: 100%; /* Fill the entire wrapper */
+                width: 100%; 
+                height: 100%; 
                 object-fit: cover;
             }
         }
@@ -42,8 +51,20 @@
             display: none;
             font-weight: 500;
             margin-left: 1rem;
-            font-family: oswald;
+            font-family: "Protest Strike", sans-serif;
+            
+            
         }
+    }
+    a:hover{
+        background-color: rgb(228, 228, 228);
+        border-radius: 30px;
+        color:rgb(0, 145, 0);
+        width: 200px;
+        
+        align-items: center;
+        justify-content: center;
+        
     }
 
     ul.iconS {
@@ -67,6 +88,26 @@
 }
 .sidebar-container:hover {
     width: 400px;
+    position: relative;
+    .ph{
+        padding: 20px;
+        opacity: 100%;
+        font-family: "Protest Strike", sans-serif;
+        text-align: center;
+        font-size: 25px;
+        display: flex ;
+        margin-bottom: 30px;
+        
+    }
+    .bnw{
+        opacity: 100%;
+        background-color: transparent;
+        margin-top: 50px;
+        
+        height: 80px;
+        display: flex;
+
+    }
     a {
         padding: 15px;
         justify-content: flex-start;
@@ -85,8 +126,8 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 100%; /* Fill the entire wrapper */
-                height: 100%; /* Fill the entire wrapper */
+                width: 100%; 
+                height: 100%; 
                 object-fit: cover;
             }
         }

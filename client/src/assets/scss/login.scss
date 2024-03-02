@@ -15,7 +15,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: linear-gradient(45deg, #044a6b, #09612a, #044a6b);
+  
   position: relative;
   
 
@@ -25,10 +25,7 @@
     top: 0px;
     background: rgba(255, 255, 255, 0.2);
 
-    .logo-img {
-      height: 60px;
-      margin-left: 0;
-    }
+    
     .login-header{
       font-size: 20px;
       justify-content: right;
@@ -71,41 +68,50 @@
     width: 420px;
     height: auto;
     background: white;
-    color: #fff;
+    color: #000000;
     background: rgba(255, 255, 255, 0.2);
     border: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 9px rgba(12, 199, 68, 0.7);
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.7);
     border-radius: 30px;
     padding: 30px 40px;
     animation: fadeIn 0.5s ease forwards;
     animation: waveAnimation 4s ease infinite;
+    
+    .logo-img {
+      height: 80px;
+      margin-left: 135px;
+    }
+    
+
 
     h1 {
-      animation: colorChange 4s ease infinite;
+
       font-size: 36px;
       text-align: center;
       font-size: 36px;
       text-align: center;
+      font-family: "Protest Strike", sans-serif;
     }
     .input-box {
       position: relative;
       width: 100%;
       height: 50px;
       margin: 30px 0;
+      
       input {
         width: 100%;
         height: 100%;
         background: transparent;
         border: none;
         outline: none;
-        border: 2px solid rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(0, 0, 0, 0.2);
         border-radius: 40px;
         font-size: 16px;
-        color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
         padding: 20px 45px 20px 20px;
       }
       input::placeholder {
-        color: #fff;
+        color: #000000;
       }
       .icon {
         position: absolute;
@@ -134,22 +140,22 @@
       label {
         width: 60%;
         input {
-          accent-color: #fff;
+          accent-color: #000000;
           margin-right: 4px;
         }
         input[type="checkbox"] {
           width: 5%;
           height: 10px;
           appearance: none;
-          border: 2px solid #fff;
+          border: 2px solid #000000;
           border-radius: 90px;
           outline: none;
           cursor: pointer;
           margin-right: 4px;
         }
         input[type="checkbox"]:checked {
-          background-color: #fff;
-          border-color: #fff;
+          background-color: #000000;
+          border-color: #000000;
         }
       }
       a {
@@ -164,14 +170,14 @@
     .login {
       width: 100%;
       height: 45px;
-      background: #fff;
-      border: none;
+      background: #ffffff;
+      border: 0.5px solid #b1b1b1;
       outline: none;
       border-radius: 40px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       cursor: pointer;
       font-size: 16px;
-      color: #333;
+      color: #000000;
       font-weight: 700;
     }
     .login:hover{
@@ -186,7 +192,7 @@
       margin-top: 20px;
       cursor: pointer;
       .i {
-        background-color: black;
+        background-color: rgb(255, 255, 255);
         margin: 10px;
         border-radius: 30px;
         height: 30px;
@@ -201,7 +207,20 @@
       }
     }
   }
+  
+  
 }
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

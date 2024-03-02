@@ -44,10 +44,10 @@ const Login = () => {
   return (
     <div className="login-container">
       <header>
-        <img className="logo-img" src={logo} alt="logo" />
-        <h1 className="login-header" onClick={goToEmailInput}>Login</h1>
+        
       </header>
       <div className="wrapper">
+        <img className="logo-img" src={logo} alt="logo" />
         <h1>PHINMA HUB</h1>
         <form>
           <div className="input-box">
@@ -100,6 +100,10 @@ const Login = () => {
           </div>
         </form>
       </div>
+  
+      <footer className="footer">
+        <p>&copy; All rights reserved.</p>
+      </footer>
     </div>
   );
 };

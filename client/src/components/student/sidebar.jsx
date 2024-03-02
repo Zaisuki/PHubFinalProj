@@ -12,6 +12,7 @@ import EvaluationImg from "../../assets/img/evaluation.png";
 import TaskImg from "../../assets/img/task.png";
 import NotificationImg from "../../assets/img/notification.png";
 import LogoutImg from "../../assets/img/logout.png";
+import bnw from "../../assets/img/bnw.jpg";
 
 const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
   return (
@@ -22,6 +23,11 @@ const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
     >
       {/* TODO: Crop niyo img dapat same ang width and height neto .. sige  */}
       <CloseButton className="sidebar-close-btn" onClick={onClick} />
+      <img className="bnw" src={bnw} alt="bnw" />
+      <h1 className="ph"> PHINMA HUB</h1>
+  
+
+
       <SideBarLink
         direct="/profile"
         icon={ProfileImg}
