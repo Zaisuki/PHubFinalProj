@@ -7,7 +7,7 @@ const announcementSchema = new Schema(
             required: [true, 'Please enter your header.'],
             validate: {
                 validator: function (input: string) {
-                    return input.length <= 15;
+                    return input.length <= 30;
                 },
                 message: (props: any) => `${props.value} exceeds the maximum length of 15 characters.`,
             },
