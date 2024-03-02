@@ -44,6 +44,7 @@ export const getConnect = async () => {
         .catch((error) => {
             throw error;
         });
+        console.log(response)
     return response.message;
 };
 export const getCoach = async () => {

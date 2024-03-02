@@ -1,10 +1,13 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View, Image, Dimensions } from 'react-native';
 import { List, Card, Button } from 'react-native-paper';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { pakyu } from '../../../mgadimahanapnaimage';
 import * as DocumentPicker from 'expo-document-picker';
+import formatDate from '../../../utils/formatDate';
+import { getCheck } from '../../../services/student';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const Stack = createNativeStackNavigator();
 
@@ -82,153 +85,198 @@ const NewTask = ({navigation, route}) => {
 };
 
 const CheckScreenContent =  ({navigation, route}) => {
-    const [expanded, setExpanded] = React.useState(true);
-  
+    const [expanded, setExpanded] = useState(true);
+    const taskType = 'check';
+    const [noDueDate, setNoDueDate] = useState([]);
+    const [thisWeek, setThisWeek] = useState([]);
+    const [nextWeek, setNextWeek] = useState([]);
+    const [later, setLater] = useState([]);
+    const [missing, setMissing] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await getCheck();
+                setNoDueDate(response.noDueDate);
+                setThisWeek(response.thisWeek);
+                setNextWeek(response.nextWeek);
+                setLater(response.later);
+                setMissing(response.missing);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, []);
     const handlePress = () => setExpanded(!expanded);
   
     return (
+      <ScrollView>
         <List.Section>
         <List.Accordion
-          title="This Week"
+          title="No Due Date"
           expanded={expanded}
           onPress={handlePress}>
+          {noDueDate.map((data) => (
+                <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                style={{
+                  borderRadius: 15, 
+                  borderWidth: 2, 
+                  height: 100, 
+                  justifyContent: 'center',
+                  marginTop: 5,
+                  marginBottom: 5,
+                  borderColor: '#d3d3d3',
+                }} 
+                contentStyle= {{
+                  
+                }}>
+                <Card.Title title={`${taskType.toUpperCase()}: ${data.postTitle}`} subtitle={formatDate(data.createdAt)} 
+                titleStyle= {{
+                  flexWrap:'wrap', 
+                  flexDirection: 'row',
+                  fontSize: 15,
+                  textAlign: 'center'
+      
+                }} subtitleStyle = {{
+                  fontSize: 10,
+                  textAlign: 'center'
+                }} />
+                        <Text>{data.class.subject.subjectCode}</Text>
+            </Card>
+            ))}
           
-          <Card onPress = {() => navigation.push("NewTask")} 
-          style={{
-            borderRadius: 15, 
-            borderWidth: 2, 
-            height: 100, 
-            justifyContent: 'center',
-            marginTop: 5,
-            marginBottom: 5,
-            borderColor: '#d3d3d3',
-          }} 
-          contentStyle= {{
-            
-          }}>
-          <Card.Title title="CHECK: Module 21" subtitle="February 29, 2024" 
-          titleStyle= {{
-            flexWrap:'wrap', 
-            flexDirection: 'row',
-            fontSize: 15,
-            textAlign: 'center'
 
-          }} subtitleStyle = {{
-            fontSize: 10,
-            textAlign: 'center'
-          }} />
-      </Card>
-
-      <Card onPress = {() => console.log('Pressed')} 
-          style={{
-            borderRadius: 15, 
-            borderWidth: 2, 
-            height: 100, 
-            justifyContent: 'center',
-            marginTop: 5,
-            marginBottom: 5,
-            borderColor: '#d3d3d3',
-          }} 
-          contentStyle= {{
-            
-          }}>
-          <Card.Title title="CHECK: Module 22" subtitle="February 29, 2024" 
-          titleStyle= {{
-            flexWrap:'wrap', 
-            flexDirection: 'row',
-            fontSize: 15,
-            textAlign: 'center'
-
-          }} subtitleStyle = {{
-            fontSize: 10,
-            textAlign: 'center'
-          }} />
-      </Card>
+     
         </List.Accordion>
 
         <List.Accordion
+          title="This Week">
+         {thisWeek.map((data) => (
+                <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                style={{
+                  borderRadius: 15, 
+                  borderWidth: 2, 
+                  height: 100, 
+                  justifyContent: 'center',
+                  marginTop: 5,
+                  marginBottom: 5,
+                  borderColor: '#d3d3d3',
+                }} 
+                contentStyle= {{
+                  
+                }}>
+                <Card.Title title={`${taskType.toUpperCase()}: ${data.postTitle}`} subtitle={formatDate(data.createdAt)} 
+                titleStyle= {{
+                  flexWrap:'wrap', 
+                  flexDirection: 'row',
+                  fontSize: 15,
+                  textAlign: 'center'
+      
+                }} subtitleStyle = {{
+                  fontSize: 10,
+                  textAlign: 'center'
+                }} />
+                        <Text>{data.class.subject.subjectCode}</Text>
+            </Card>
+            ))}
+        </List.Accordion>
+        <List.Accordion
           title="Next Week">
-          <Card onPress = {() => console.log('Pressed')} 
-          style={{
-            borderRadius: 15, 
-            borderWidth: 2, 
-            height: 100, 
-            justifyContent: 'center',
-            marginTop: 5,
-            marginTop: 5,
-            borderColor: '#d3d3d3',
-          }} 
-          contentStyle= {{
-            
-          }}>
-          <Card.Title title="CHECK: Module 23" subtitle="February 29, 2024" 
-          titleStyle= {{
-            flexWrap:'wrap', 
-            flexDirection: 'row',
-            fontSize: 15,
-            textAlign: 'center'
-
-          }} subtitleStyle = {{
-            fontSize: 10,
-            textAlign: 'center'
-          }} />
-      </Card>
+         {nextWeek.map((data) => (
+                <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                style={{
+                  borderRadius: 15, 
+                  borderWidth: 2, 
+                  height: 100, 
+                  justifyContent: 'center',
+                  marginTop: 5,
+                  marginBottom: 5,
+                  borderColor: '#d3d3d3',
+                }} 
+                contentStyle= {{
+                  
+                }}>
+                <Card.Title title={`${taskType.toUpperCase()}: ${data.postTitle}`} subtitle={formatDate(data.createdAt)} 
+                titleStyle= {{
+                  flexWrap:'wrap', 
+                  flexDirection: 'row',
+                  fontSize: 15,
+                  textAlign: 'center'
+      
+                }} subtitleStyle = {{
+                  fontSize: 10,
+                  textAlign: 'center'
+                }} />
+                        <Text>{data.class.subject.subjectCode}</Text>
+            </Card>
+            ))}
         </List.Accordion>
   
         <List.Accordion
           title="Later">
-          <Card onPress = {() => console.log('Pressed')} 
-          style={{
-            borderRadius: 15, 
-            borderWidth: 2, 
-            height: 100, 
-            justifyContent: 'center',
-            marginTop: 5,
-            marginBottom: 5,
-            borderColor: '#d3d3d3',
-          }} 
-          contentStyle= {{
-            
-          }}>
-          <Card.Title title="CHECK: Module 24" subtitle="February 29, 2024" 
-          titleStyle= {{
-            flexWrap:'wrap', 
-            flexDirection: 'row',
-            fontSize: 15,
-            textAlign: 'center'
-
-          }} subtitleStyle = {{
-            fontSize: 10,
-            textAlign: 'center'
-          }} />
-      </Card>
-      <Card onPress = {() => console.log('Pressed')} 
-          style={{
-            borderRadius: 15, 
-            borderWidth: 2, 
-            height: 100, 
-            justifyContent: 'center',
-            marginTop: 5,
-            marginBottom: 5,
-            borderColor: '#d3d3d3',
-          }} 
-          contentStyle= {{
-            
-          }}>
-          <Card.Title title="CHECK: Module 25" subtitle="February 29, 2024" 
-          titleStyle= {{
-            flexWrap:'wrap', 
-            flexDirection: 'row',
-            fontSize: 15,
-            textAlign: 'center'
-
-          }} subtitleStyle = {{
-            fontSize: 10,
-            textAlign: 'center'
-          }} />
-        </Card>
+          {later.map((data) => (
+                <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                style={{
+                  borderRadius: 15, 
+                  borderWidth: 2, 
+                  height: 100, 
+                  justifyContent: 'center',
+                  marginTop: 5,
+                  marginBottom: 5,
+                  borderColor: '#d3d3d3',
+                }} 
+                contentStyle= {{
+                  
+                }}>
+                <Card.Title title={`${taskType.toUpperCase()}: ${data.postTitle}`} subtitle={formatDate(data.createdAt)} 
+                titleStyle= {{
+                  flexWrap:'wrap', 
+                  flexDirection: 'row',
+                  fontSize: 15,
+                  textAlign: 'center'
+      
+                }} subtitleStyle = {{
+                  fontSize: 10,
+                  textAlign: 'center'
+                }} />
+                        <Text>{data.class.subject.subjectCode}</Text>
+            </Card>
+            ))}
+        </List.Accordion>
+        <List.Accordion
+          title="Missing">
+          {missing.map((data) => (
+                <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                style={{
+                  borderRadius: 15, 
+                  borderWidth: 2, 
+                  height: 100, 
+                  justifyContent: 'center',
+                  marginTop: 5,
+                  marginBottom: 5,
+                  borderColor: '#d3d3d3',
+                }} 
+                contentStyle= {{
+                  
+                }}>
+                <Card.Title title={`${taskType.toUpperCase()}: ${data.postTitle}`} subtitle={formatDate(data.createdAt)} 
+                titleStyle= {{
+                  flexWrap:'wrap', 
+                  flexDirection: 'row',
+                  fontSize: 15,
+                  textAlign: 'center'
+      
+                }} subtitleStyle = {{
+                  fontSize: 10,
+                  textAlign: 'center'
+                }} />
+                        <Text>{data.class.subject.subjectCode}</Text>
+            </Card>
+            ))}
         </List.Accordion>
       </List.Section>
+      </ScrollView>
     );
   };
   
