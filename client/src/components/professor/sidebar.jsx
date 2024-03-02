@@ -2,7 +2,6 @@ import CloseButton from 'react-bootstrap/CloseButton';
 import PropTypes from 'prop-types';
 import '../../assets/scss/sidebar.scss';
 import SideBarLink from '../sidebarLink';
-import CalendarImg from '../../assets/img/calendar.png';
 import InboxImg from '../../assets/img/inbox.png';
 import CourseImg from '../../assets/img/course.png';
 import FeedImg from '../../assets/img/feed.png';
@@ -29,9 +28,6 @@ const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
                 </li>
                 <li>
                     <SideBarLink direct='/inbox' icon={InboxImg} title='Inbox' isClicked={isClicked} />
-                </li>
-                <li>
-                    <SideBarLink direct='/calendar' icon={CalendarImg} title='Calendar' isClicked={isClicked} />
                 </li>
                 <li>
                     <SideBarLink direct='/statistics' icon={StatisticsImg} title='Statistics' isClicked={isClicked} />
