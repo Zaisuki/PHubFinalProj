@@ -5,4 +5,32 @@
       margin-bottom: 2%;
     }
   }
+
+ .assigned-class{
+  width: 12%;
+  p{display: flex;
+    justify-content: center;
+  }
+ }
+
+ .blocks{
+  width: 9%;
+  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+ }
+
+ .assigned-subs{
+  width: 12%;
+  margin-top: 20px;
+  p{display: flex;
+    justify-content: center;
+  }
+}
+ .subs{
+  width: 9%;
+  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+}
   

@@ -55,6 +55,7 @@
 
   .stat-three {
     display: flex;
+    border: 1px solid;
     flex-direction: row;
     justify-content: space-between;
     margin: 10px;
@@ -81,6 +82,7 @@
     border: 1px solid;
     p {
       padding: 20px;
+      margin-top: 20px;
       border: 1px solid black;
       border-radius: 150px;
       font-family: "Protest Strike", sans-serif;
