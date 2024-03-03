@@ -150,9 +150,9 @@ export const addAnnouncementController = async (req: Request & { user?: User }, 
 // TODO: add delete and required checker
 export const addCheckController = async (req: Request, res: Response) => {
     try {
-        const { classID, postTitle, postDescription, dueDate } = req.body;
+        const { classID, postTitle, postDescription, dueDate, typeOfCheck } = req.body;
         //@ts-ignore
-        const result = await addCheck(classID, postTitle, postDescription, dueDate, req.files);
+        const result = await addCheck(classID, postTitle, postDescription, dueDate, typeOfCheck, req.files);
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error) {
         return res.status(500).json({ 'message': 'Internal Server Error' });
@@ -172,7 +172,6 @@ export const addCoachController = async (req: Request, res: Response) => {
 export const addConnectController = async (req: Request, res: Response) => {
     try {
         const { classID, postTitle, postDescription, dueDate, choices } = req.body;
-        console.log(classID);
         if (choices) {
             let choicesArr = JSON.parse(choices);
             const result = await addConnect(classID, postTitle, postDescription, dueDate, choicesArr);
