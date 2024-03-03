@@ -4,20 +4,21 @@ header {
     height: 10vh;
     padding: 2%;
     display: flex;
-    background-color: rgba(33, 78, 1, 0.815);
+    background-color: #3a4f24;
     text-align: center;
     justify-content: center;
+    display: none;
     color: white;
     align-items: center;
-    .hi{
-        font-size: 30px;
-        text-align: center;
-        display: flex;
-    }
-    span{
-        margin-left: 5PX;
-        color: rgba(204, 201, 0, 0.856);
-    }
+    // .hi{
+    //     font-size: 30px;
+    //     text-align: center;
+    //     display: flex;
+    // }
+    // span{
+    //     margin-left: 5PX;
+    //     color: rgba(204, 201, 0, 0.856);
+    // }
         
     .hamburger-container {
         display: block;

@@ -11,7 +11,7 @@ const Header = ({ onClick }) => {
                     <MDBIcon fas icon='bars' />
                 </div>
             </div>
-                <h1 className='hi'>PHINMA  <span>  HUB</span></h1>
+                {/* <h1 className='hi'>PHINMA  <span>  HUB</span></h1> */}
     
         </header>
     );

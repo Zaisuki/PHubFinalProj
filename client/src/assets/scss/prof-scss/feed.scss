@@ -144,10 +144,16 @@
             color: rgb(0, 0, 0);
             font-size: 25px;
             border-radius: 30px;
+            background-color: white;
             font-size: 15px;
             margin-left: 420px;
             margin-bottom: 20px;
+            border: none;
             font-family: "Raleway",sans-serif;
+            .pen{
+                font-size: 20px;
+                
+            }
         }
         .create-post:hover {
             background-color: rgba(124, 151, 2, 0.685);

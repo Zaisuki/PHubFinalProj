@@ -1,0 +1,21 @@
+
+
+.sidebar-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 5px 2px;
+
+    text-decoration: none;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+
+    .indicator {
+        position: absolute;
+        width: 5px;
+        height: 90%;
+        background-color: #fff;
+        color: white;
+        left: 0;
+    }
+}

@@ -1,24 +1,34 @@
-import { Link, useNavigate } from 'react-router-dom';
+
+
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { logout } from '../services/entry';
+import '../../assets/scss/sidebarLink.scss';
 
 const SideBarLink = ({ direct, icon, title, isClicked }) => {
-    const navigate = useNavigate();
+    const location = useLocation();
+    const isActive = location.pathname === direct;
+
+    const handleLogout = () => {
+        logout();
+        window.location.reload();
+    };
+
     return (
         <Link
             to={direct}
+            className={`sidebar-link ${isActive ? 'active' : ''}`}
             onClick={() => {
                 if (direct === '/login') {
-                    navigate('/');
-                    logout();
-                    window.location.reload();
+                    handleLogout();
                 }
             }}
         >
             <div className='image-container'>
-                <img className='sidebar-img' src={icon}></img>
+                <img className='sidebar-img' src={icon} alt={title} />
             </div>
             <span className={`${isClicked ? 'show-block' : ''}`}>{title}</span>
+            {isActive && <div className="indicator"></div>}
         </Link>
     );
 };
