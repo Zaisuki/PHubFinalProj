@@ -205,6 +205,19 @@ function FeedProf() {
                                         <FaUnderline className={`i ${isDescriptionUnderline ? 'active' : ''}`} onClick={toggleDescriptionUnderline} />
                                     </div>
                                 </div>
+                                <div className='h2-text-two'>
+                                <h2 className='course'>Select a course</h2>
+                                <DropdownButton className='makeitdrop' id='dropdown-menu-align-right' align='right' variant='none'>
+                                            <Dropdown.Item eventKey='1'>Everyone</Dropdown.Item>
+                                            <Dropdown.Item eventKey='1'>ITE 143</Dropdown.Item>
+                                            <Dropdown.Item eventKey='1'>ITE 143</Dropdown.Item>
+                                        </DropdownButton>
+
+
+                                </div>
+
+
+
                                 <Button className='create-post' variant='success' onClick={handleSubmit}>
                                     <FaRegPaperPlane className='pen' />
                                     Post

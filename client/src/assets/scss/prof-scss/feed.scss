@@ -1,5 +1,29 @@
 @import url(https://fonts.googleapis.com/css?family=Bebas+Neue:regular);
 .feed-post {
+    .feed-header {
+        padding: 0;
+        margin-bottom: 20px;
+        background-color: #3a4f24;
+        //border-bottom: 1px solid #a5a5a5;
+        width: 500%;
+        display: flex;
+        justify-content: flex-start;
+        h1 {
+          font-family: "Raleway", sans-serif;
+          font-size: 15px;
+          padding: 10px;
+          margin-left: 10px;
+          margin-top: 10px;
+          color: #ffffff;
+          font-style: italic;
+          font-weight: 500;
+        }
+        span {
+          font-family: "Raleway", sans-serif;
+          font-style: normal;
+          color: #dbbc2c;
+        }
+      }
     .feed-announcement {
         border-radius: 25px;
         min-height: 220px;
@@ -78,12 +102,12 @@
             text-align: center;
             margin-top: 5%;
             font-family: "Raleway",sans-serif;
-            font-weight: 400;
+            font-weight: 800;
             font-style: normal;
            
         }
         .h2-text,
-        .h2-text-one {
+        .h2-text-one{
             color: gray;
             background-color: rgb(255, 255, 255);
             padding: 10px;
@@ -136,10 +160,38 @@
                 }
             }
         }
+        .h2-text-two {
+            color: gray;
+            background-color: rgb(255, 255, 255);
+            padding: 10px;
+            padding-bottom: 10px;
+            border-radius: 20px;
+            margin: 20px;
+            position: relative;
+            h2{
+                margin-left: 20px;
+                font-size: 20px;
+                margin: 10px;
+                font-family: "Raleway",sans-serif;
+            }
+            button{
+                background-color: white;
+                border: none;
+                position: absolute;
+                left: 160px;
+                bottom: 0px;
+        
+            }
+           
+           
+
+        }
+        
         .h2-text:hover,
-        .h2-text-one:hover {
+        .h2-text-one:hover,.h2-text-two:hover {
             animation: waveAnimation 1s ease infinite;
         }
+        
         .create-post {
             color: rgb(0, 0, 0);
             font-size: 25px;
