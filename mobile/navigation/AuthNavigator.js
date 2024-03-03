@@ -32,7 +32,7 @@ function AuthNavigator() {
         >
             <Stack.Screen name='Login' component={LoginScreen} />
             <Stack.Screen name='Forgot Password' component={LoginScreen} />
-            <Stack.Screen name='FeedScreen' component={Tabs} />
+            <Stack.Screen name='FeedScreen' component={DrawerTabs} />
         </Stack.Navigator>
     );
 }

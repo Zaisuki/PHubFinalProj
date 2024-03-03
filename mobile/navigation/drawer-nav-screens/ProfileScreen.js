@@ -27,9 +27,6 @@ const ProfileScreen = ({ navigation }) => {
     }, []);
     return (
         <ScrollView style={styles.container}>
-            <View>
-                <Button title='Log out' onPress={handleLogout} />
-            </View>
             <View style={styles.header}>
                 <Image style={styles.headerImage} source={ogrenek} resizeMode='contain' />
                 <Text>
@@ -85,7 +82,12 @@ const ProfileScreen = ({ navigation }) => {
                     <Text>{data.schoolEmail}</Text>
                 </View>
             </View>
+
+            <View>
+                <Button title='Log out' onPress={handleLogout} />
+            </View>
         </ScrollView>
+
     );
 };
 
@@ -96,6 +98,7 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         padding: 15,
+        backgroundColor: 'white'
     },
     header: {
         width: '100%',
@@ -108,6 +111,7 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderRadius: 25,
         padding: 15,
+        marginBottom: 5
     },
     headerImage: {
         width: windowWidth * 0.4,
@@ -123,6 +127,7 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderRadius: 25,
         padding: 15,
+        marginBottom: 5
     },
     studentCourse: {
         borderWidth: 1,
@@ -130,6 +135,7 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderRadius: 25,
         padding: 15,
+        marginBottom: 5
     },
     additionalInformation: {
         borderWidth: 1,
@@ -137,6 +143,7 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderRadius: 25,
         padding: 15,
+        marginBottom: 5
     },
     textAlignCenter: {
         textAlign: 'center',
@@ -145,10 +152,12 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        marginBottom: 5
     },
     birthdayContainer: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        marginBottom: 5
     },
 });

@@ -65,6 +65,8 @@
     "react-native-tab-view": "^3.5.2",
     "react-native-vector-icons": "^10.0.3",
     "react-native-web": "~0.19.6",
+    "react-router-dom": "^6.22.2",
+    "react-router-native": "^6.22.2",
     "socket.io-client": "^4.7.4",
     "stream-chat": "^8.14.5",
     "stream-chat-expo": "^5.24.0",
