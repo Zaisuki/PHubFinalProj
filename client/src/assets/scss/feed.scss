@@ -1,214 +1,132 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 .feed-student {
-    padding: 5vw;
-    border: 0%;
+  padding: 0px;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 
-    .feed-student-body {
-        min-height: 100vh;
+  .feed-header {
+    padding: 0;
+    margin-bottom: 20px;
+    background-color: #3a4f24;
+    //border-bottom: 1px solid #a5a5a5;
+    width: 500%;
+    display: flex;
+    justify-content: flex-start;
+    h1 {
+      font-family: "Raleway", sans-serif;
+      font-size: 15px;
+      padding: 15px;
+      margin-left: 10px;
+      margin-top: 10px;
+      color: #ffffff;
+      font-style: italic;
+      font-weight: 500;
+    }
+    span {
+      font-family: "Raleway", sans-serif;
+      font-style: normal;
+      color: #dbbc2c;
+    }
+  }
+
+  .feed-student-body {
+    min-height: 100vh;
+    display: flex;
+    padding-top: 5vw;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+  }
+  .feed-lang {
+    width: 90%;
+  }
+
+  .feed-content {
+    min-height: 50vh;
+    width: 100%;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+    border: none;
+    background-color: #4b4b4b21;
+
+    .header-announcement {
+      width: 90%;
+      margin-top: 20px;
+      text-align: left;
+      padding: 1px;
+      display: flex;
+
+      h1 {
+        font-family: "Raleway", sans-serif;
+        font-weight: 700;
+        font-size: 30px;
         display: flex;
+        justify-content: flex-start;
+        padding: 15px;
+        margin-top: 30px;
+      }
+      .header-time {
+        font-family: "Raleway", sans-serif;
         justify-content: center;
-        align-items: center;
-        width: 100%;
-        border-radius: 20px;
-        .feed-img {
-            height: 170px;
-            width: 120px;
-            position: relative;
-        }
-    }
-
-    .feed-content {
-        min-height: 50vh;
-        width: 90%;
-        border-radius: 30px;
-        align-items: center;
+        text-align: justify;
         display: flex;
-        margin-bottom: 100px;
-
-        .header-announcement {
-            width: 90%;
-            margin-top: 20px;
-            text-align: left;
-        }
-
-        .header-time{
-            width: 10%;
-            margin-left: 100%;
-            }
-        
-            .professor{
-                width: 20%;
-              margin-left: 80%;
-            }
-
-        .announce{
-            width: 90%;
-            margin: 50px;
-            border: 1px solid;
-            border-radius: 10px;
-            margin-bottom: 10%;
-            p{
-                margin: 10px;
-            }
-        }
-        
-        
-        
-
-        .fc-greetings {
-            background-color: rgb(230, 230, 230);
-            height: 50px;
-            width: 300px;
-            border-radius: 90px;
-            border: none;
-            left: -400px;
-            top: 40px;
-            .f-greetings {
-                text-align: center;
-                font-size: 30px;
-            }
-        }
-        .fc-subject {
-            background-color: rgb(230, 230, 230);
-            height: 50px;
-            width: 300px;
-            border-radius: 90px;
-            border: none;
-            left: -400px;
-            top: 250px;
-            .f-subject {
-                text-align: center;
-                font-size: 30px;
-            }
-        }
-        .fc-name {
-            background-color: rgb(230, 230, 230);
-            height: 50px;
-            width: 300px;
-            border-radius: 90px;
-            border: none;
-            left: 410px;
-            top: 200px;
-            .f-name {
-                text-align: center;
-                font-size: 30px;
-            }
-        }
-        .date-time {
-            position: absolute;
-            font-weight: 500px;
-            left: 1100px;
-            top: 50px;
-        }
+        font-size: 15px;
+        margin-top: 50px;
+      }
     }
 
-    .feed-content-one {
-        height: 50vh;
-        width: 90%;
-        margin: 60px;
-        border-radius: 30px;
-        align-items: center;
-        display: flex;
-        .fc-greetings {
-            background-color: rgb(230, 230, 230);
-            height: 50px;
-            width: 300px;
-            border-radius: 90px;
-            border: none;
-            left: -400px;
-            top: 40px;
-            .f-greetings {
-                text-align: center;
-                font-size: 30px;
-            }
-        }
-        .fc-subject {
-            background-color: rgb(230, 230, 230);
-            height: 50px;
-            width: 300px;
-            border-radius: 90px;
-            border: none;
-            left: -400px;
-            top: 250px;
-            .f-subject {
-                text-align: center;
-                font-size: 30px;
-            }
-        }
-        .fc-name {
-            background-color: rgb(230, 230, 230);
-            height: 50px;
-            width: 300px;
-            border-radius: 90px;
-            border: none;
-            left: 410px;
-            top: 200px;
-            .f-name {
-                text-align: center;
-                font-size: 30px;
-            }
-        }
-        .date-time {
-            position: absolute;
-            font-weight: 500px;
-            left: 1100px;
-            top: 50px;
-        }
+    .professor {
+      width: 90%;
+      font-family: "Raleway", sans-serif;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 30px;
+      font-weight: 700;
+      padding: 15px;
+      margin-right: 0;
+      margin-bottom: 45px;
     }
-    .feed-content-two {
-        height: 50vh;
-        width: 90%;
-        margin: 60px;
-        border-radius: 30px;
-        align-items: center;
-        display: flex;
-        .fc-greetings {
-            background-color: rgb(230, 230, 230);
-            height: 50px;
-            width: 300px;
-            border-radius: 90px;
-            border: none;
-            left: -400px;
-            top: 40px;
-            .f-greetings {
-                text-align: center;
-                font-size: 30px;
-            }
-        }
-        .fc-subject {
-            background-color: rgb(230, 230, 230);
-            height: 50px;
-            width: 300px;
-            border-radius: 90px;
-            border: none;
-            left: -400px;
-            top: 250px;
-            .f-subject {
-                text-align: center;
-                font-size: 30px;
-            }
-        }
-        .fc-name {
-            background-color: rgb(230, 230, 230);
-            height: 50px;
-            width: 300px;
-            border-radius: 90px;
-            border: none;
-            left: 410px;
-            top: 200px;
-            .f-name {
-                text-align: center;
-                font-size: 30px;
-            }
-        }
-        .date-time {
-            position: absolute;
-            font-weight: 500px;
-            left: 1100px;
-            top: 50px;
-        }
+
+    .announce {
+      width: 90%;
+      margin: 50px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 35px;
+      margin-bottom: 10%;
+      p {
+        margin: 10px;
+      }
     }
+
+    .date-time {
+      position: absolute;
+      font-weight: 500px;
+      left: 1100px;
+      top: 50px;
+    }
+  }
+}
+.left-column {
+  width: 50%; 
 }
 
+.right-column {
+  width: 50%;
+  display: flex;
+  font-size: 10px;
+  justify-content: space-around;
+  flex-direction: row-reverse;
 
 
+  
 
+}
