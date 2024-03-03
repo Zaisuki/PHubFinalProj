@@ -9,12 +9,15 @@ import ProfileImg from '../../assets/img/profile.png';
 import StatisticsImg from '../../assets/img/statistics.png';
 import TaskImg from '../../assets/img/task.png';
 import LogoutImg from '../../assets/img/logout.png';
+import bnw from '../../assets/img/remove.png';
 
 const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
     return (
         <div className={`sidebar-container ${isClicked ? 'sidebar-open' : ''}`} onMouseOver={onHover} onMouseOut={onUnhover}>
             {/* TODO: Crop niyo img dapat same ang width and height neto .. sige  */}
             <CloseButton className='sidebar-close-btn' onClick={onClick} />
+            <img className='bnw' src={bnw} alt='bnw' />
+            <h1 className='ph'> PHINMA <span> HUB</span></h1>
             <SideBarLink direct='/profile' icon={ProfileImg} title='Profile' isClicked={isClicked} />
             <ul className='iconS'>
                 <li>

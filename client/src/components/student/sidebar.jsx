@@ -1,3 +1,6 @@
+// SideBar.js
+
+import React from 'react';
 import CloseButton from 'react-bootstrap/CloseButton';
 import PropTypes from 'prop-types';
 import '../../assets/scss/sidebar.scss';
@@ -10,38 +13,38 @@ import StatisticsImg from '../../assets/img/statistics.png';
 import TaskImg from '../../assets/img/task.png';
 import NotificationImg from '../../assets/img/notification.png';
 import LogoutImg from '../../assets/img/logout.png';
-import bnw from '../../assets/img/bnw.jpg';
+import bnw from '../../assets/img/remove.png';
 
-const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
+const SideBar = ({ isClicked, onClick, onHover, onUnhover, currentPage }) => {
     return (
         <div className={`sidebar-container ${isClicked ? 'sidebar-open' : ''}`} onMouseOver={onHover} onMouseOut={onUnhover}>
-            {/* TODO: Crop niyo img dapat same ang width and height neto .. sige  */}
             <CloseButton className='sidebar-close-btn' onClick={onClick} />
             <img className='bnw' src={bnw} alt='bnw' />
-            <h1 className='ph'> PHINMA HUB</h1>
+            <h1 className='ph'> PHINMA <span> HUB</span></h1>
+            
 
-            <SideBarLink direct='/profile' icon={ProfileImg} title='Profile' isClicked={isClicked} />
+            <SideBarLink direct='/profile' icon={ProfileImg} title='Profile' isClicked={isClicked} isActive={currentPage === '/profile'} />
             <ul className='iconS'>
                 <li>
-                    <SideBarLink direct='/' icon={FeedImg} title='Feed' isClicked={isClicked} />
+                    <SideBarLink direct='/' icon={FeedImg} title='Feed' isClicked={isClicked} isActive={currentPage === '/'} />
                 </li>
                 <li>
-                    <SideBarLink direct='/task' icon={TaskImg} title='Task' isClicked={isClicked} />
+                    <SideBarLink direct='/task' icon={TaskImg} title='Task' isClicked={isClicked} isActive={currentPage === '/task'} />
                 </li>
                 <li>
-                    <SideBarLink direct='/course' icon={CourseImg} title='Course' isClicked={isClicked} />
+                    <SideBarLink direct='/course' icon={CourseImg} title='Course' isClicked={isClicked} isActive={currentPage === '/course'} />
                 </li>
                 <li>
-                    <SideBarLink direct='/notification' icon={NotificationImg} title='Notification' isClicked={isClicked} />
+                    <SideBarLink direct='/notification' icon={NotificationImg} title='Notification' isClicked={isClicked} isActive={currentPage === '/notification'} />
                 </li>
                 <li>
-                    <SideBarLink direct='/inbox' icon={InboxImg} title='Inbox' isClicked={isClicked} />
+                    <SideBarLink direct='/inbox' icon={InboxImg} title='Inbox' isClicked={isClicked} isActive={currentPage === '/inbox'} />
                 </li>
                 <li>
-                    <SideBarLink direct='/statistics' icon={StatisticsImg} title='Statistics' isClicked={isClicked} />
+                    <SideBarLink direct='/statistics' icon={StatisticsImg} title='Statistics' isClicked={isClicked} isActive={currentPage === '/statistics'} />
                 </li>
             </ul>
-            <SideBarLink direct='/login' icon={LogoutImg} title='Logout' isClicked={isClicked} />
+            <SideBarLink direct='/login' icon={LogoutImg} title='Logout' isClicked={isClicked} isActive={currentPage === '/login'} />
         </div>
     );
 };
@@ -51,6 +54,7 @@ SideBar.propTypes = {
     onClick: PropTypes.func.isRequired,
     onHover: PropTypes.func.isRequired,
     onUnhover: PropTypes.func.isRequired,
+    currentPage: PropTypes.string.isRequired, 
 };
 
 export default SideBar;

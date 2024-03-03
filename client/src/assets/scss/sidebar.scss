@@ -3,14 +3,18 @@
     display: none;
     min-height: 100vh;
     padding: 1vw;
+    border-top: 0px;
+    background-color: #3a4f24;
+
     width: 150px;
     overflow-y: auto;
     overflow-x: hidden;
     box-sizing: border-box;
     flex-direction: column;
     align-items: center;
-    border: 3px solid;
+    
     margin-top: 0;
+
     .ph{
         display: none;
         
@@ -24,7 +28,7 @@
         align-items: center;
         justify-content: center;
         text-decoration: none;
-        color: $text-color;
+        color: #ffffff;
         width: 70%;
         padding: 15px 0;
         font-size: 20px;
@@ -51,15 +55,15 @@
             display: none;
             font-weight: 500;
             margin-left: 1rem;
-            font-family: "Protest Strike", sans-serif;
+            font-family: "Raleway",sans-serif;
             
             
         }
     }
     a:hover{
-        background-color: rgb(228, 228, 228);
-        border-radius: 30px;
-        color:rgb(0, 145, 0);
+        background-color: #a3af0036;
+        border-radius: 10px;
+        color: #ffffffe1;
         width: 200px;
         
         align-items: center;
@@ -86,28 +90,33 @@
     }
     transition: all 0.5s ease-in-out;
 }
-.sidebar-container:hover {
+.sidebar-container {
     width: 400px;
     position: relative;
+    
     .ph{
         padding: 20px;
         opacity: 100%;
-        font-family: "Protest Strike", sans-serif;
         text-align: center;
         font-size: 25px;
+        color: white;
         display: flex ;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
+        span{
+            margin-left: 5px;
+            color: #dbbc2c;
+        }
         
     }
     .bnw{
         opacity: 100%;
         background-color: transparent;
-        margin-top: 50px;
-        
+        margin-top: 10px;
         height: 80px;
         display: flex;
 
     }
+    
     a {
         padding: 15px;
         justify-content: flex-start;
@@ -132,6 +141,38 @@
             }
         }
     }
+
+    .sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    img {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+    }
+
+    span {
+        font-size: 14px;
+       
+    }
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &.active {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #dbbc2c;
+    }
+
+    
+}
+   
 }
 
 .sidebar-open {
