@@ -103,6 +103,10 @@ const studentSchema = new Schema(
             type: String,
             required: [true, 'Please enter your section'],
         },
+        levelOfEducation: {
+            type: String,
+            required: [true, 'Please enter your level of education'],
+        },
         year: {
             type: String,
             required: [true, 'Please enter your year'],
@@ -116,11 +120,13 @@ const studentSchema = new Schema(
             ref: 'UserCredentials',
             default: null,
         },
-        studentSubjects: {
-            type: Schema.Types.ObjectId,
-            ref: 'StudentSubjects',
-            default: null,
-        },
+        studentSubjects: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'StudentSubjects',
+                default: null,
+            },
+        ],
     },
     {
         timestamps: true,
@@ -176,11 +182,13 @@ const professorSchema = new Schema(
             ref: 'UserCredentials',
             default: null,
         },
-        professorHandledClass: {
-            type: Schema.Types.ObjectId,
-            ref: 'ProfessorHandledClass',
-            default: null,
-        },
+        professorHandledClass: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'ProfessorHandledClass',
+                default: null,
+            },
+        ],
     },
     {
         timestamps: true,

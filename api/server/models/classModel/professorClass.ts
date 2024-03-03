@@ -6,6 +6,11 @@ const professorHandledClassSchema = new Schema({
         ref: 'Professor',
         default: null,
     },
+    schoolYear: {
+        type: String,
+        required: [true, 'Please enter the school year.'],
+        default: '',
+    },
     class: [
         {
             type: Schema.Types.ObjectId,

@@ -73,40 +73,50 @@ export const StudentConnectSubmission = mongoose.model('StudentConnectSubmission
 export const StudentCheckSubmission = mongoose.model('StudentCheckSubmission', studentCheckSubmissionSchema);
 export const StudentCoachView = mongoose.model('StudentCoachView', studentCoachViewSchema);
 
-const studentSubjectsSchema = new Schema({
-    student: {
-        type: Schema.Types.ObjectId,
-        ref: 'Student',
-        default: null,
+const studentSubjectsSchema = new Schema(
+    {
+        student: {
+            type: Schema.Types.ObjectId,
+            ref: 'Student',
+            default: null,
+        },
+        schoolYear: {
+            type: String,
+            required: [true, 'Please enter the school year.'],
+            default: '',
+        },
+        class: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Class',
+                default: null,
+            },
+        ],
+        studentCheckSubmission: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'StudentCheckSubmission',
+                default: null,
+            },
+        ],
+        studentConnectSubmission: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'StudentConnectSubmission',
+                default: null,
+            },
+        ],
+        studentCoachView: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'StudentCoachView',
+                default: null,
+            },
+        ],
     },
-    class: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Class',
-            default: null,
-        },
-    ],
-    studentCheckSubmission: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'StudentCheckSubmission',
-            default: null,
-        },
-    ],
-    studentConnectSubmission: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'StudentConnectSubmission',
-            default: null,
-        },
-    ],
-    studentCoachView: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'StudentCoachView',
-            default: null,
-        },
-    ],
-});
+    {
+        timestamps: true,
+    }
+);
 
 export const StudentSubjects = mongoose.model('StudentSubjects', studentSubjectsSchema);
