@@ -1,3 +1,6 @@
+//COURSE NEW SCSS
+
+
 @import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 * {
   margin: 0;
@@ -97,13 +100,27 @@
 
 .people-tab {
   padding: 2% 18% 2% 18%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+  
+  
   .instructor-card {
     background-color: #e0ffbf83;
     border: none;
+    
+    
     .card-header {
       font-size: 20px;
       font-weight: 450;
       text-align: left;
+      background-color: #3a4f24;
+      color: white;
+      text-align: center;
+      font-family: "Raleway", sans-serif;
+      font-weight: 700;
+      
     }
     .card-body:hover {
       cursor: pointer;
@@ -113,11 +130,15 @@
     .card-body {
       display: flex;
       align-items: center;
+      
 
       .name {
         padding: 0;
         margin: 0;
         padding-left: 10px;
+        text-align: center;
+        font-family: "Raleway", sans-serif;
+        font-weight: 500;
       }
 
       .bx {
@@ -128,42 +149,38 @@
   }
 
   .student-card {
-    margin-top: 3%;
-
+    background-color: #e0ffbf83;
+    border: none;
+    
+    
     .card-header {
       font-size: 20px;
       font-weight: 450;
       text-align: left;
+      background-color: #3a4f24;
+      color: white;
+      text-align: center;
+      font-family: "Raleway", sans-serif;
+      font-weight: 700;
+      
     }
-
-    .list-group-item {
-      border-top: none !important;
-      border-left: none !important;
-      border-right: none !important;
-      transition: all 0.3s ease;
-      border-radius: 10px;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      width: 880px;
-    }
-
-    .info1 {
-      margin-left: 50px;
-    }
-
-    .list-group-item:hover {
+    .card-body:hover {
       cursor: pointer;
-      background-color: #f0f0f0;
+      background-color: #e0ffbfc5;
     }
+
     .card-body {
       display: flex;
       align-items: center;
+      
 
       .name {
         padding: 0;
         margin: 0;
         padding-left: 10px;
+        text-align: center;
+        font-family: "Raleway", sans-serif;
+        font-weight: 500;
       }
 
       .bx {
