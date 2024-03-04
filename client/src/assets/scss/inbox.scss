@@ -1,10 +1,46 @@
-.inbox{
-    display: flex;
-    height: 90%;
-    .channel-list{
-        width: 30%;
+
+.inbox {
+  display: flex;
+  height: 100%;
+  
+  //   CHAT icon
+  .str-chat__avatar .str-chat__avatar-fallback {
+    background-color: rgb(129, 133, 129);
+  }
+
+  // CHAT header
+  .str-chat__channel-header {
+    background-color: #3a4f24;
+    height: 79px;
+
+    // Upper text
+    .str-chat__channel-header-title {
+      color: white;
     }
-    .main-chat{
-        width: 80%;
+    // Lower text
+    .str-chat__channel-header-info {
+      color: rgb(198, 198, 198);
     }
+  }
+
+  // CHAT textarea
+  .str-chat__message-textarea-container {
+    background-color: #3a4f24;
+  }
+
+  //   CHAT preview
+  .str-chat__channel-preview--active,
+  .str-chat__channel-preview-messenger--active {
+    background-color: rgb(236, 235, 235);
+  }
+  
+
+
+  .channel-list {
+    width: 30%;
+    
+  }
+  .main-chat {
+    width: 75%;
+}
 }
