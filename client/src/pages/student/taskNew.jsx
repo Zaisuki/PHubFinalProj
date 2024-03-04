@@ -13,6 +13,7 @@ import { FaTimes } from 'react-icons/fa';
 import ImagePreview from '../../components/imagePreview';
 import LinkPreview from '../../components/linkPreview';
 import ChoicesConnect from '../../components/choicesConnect';
+import convertPercentage from '../../utils/convertPercentage';
 
 export default function NewTask() {
     let { taskID, classType } = useParams();
@@ -203,17 +204,31 @@ export default function NewTask() {
                     <Card className='pool-container'>
                         <h4>Pool</h4>
 
-                        <div className='choice-container'>
-                            <form>
-                                {pageData.postChoices.map((dataPage) => (
-                                    <ChoicesConnect data={dataPage} choiceFunction={handleRadioChange} selectedChoice={selectedChoice} totalStudents={pageData.class.totalStudents} key={dataPage._id} />
-                                ))}
-                                <Button className='mark-button' onClick={handleConnectSubmit}>
-                                    Submit
-                                </Button>
-                                {submitted && 'nigs'}
-                            </form>
-                        </div>
+                        {submitted ? (
+                            <div className='choice-container'>
+                                <form>
+                                    {pageData.postChoices.map((dataPage) => (
+                                        <div key={dataPage._id}>
+                                            {/* TODO change it to 0 */}
+                                            <input type='radio' disabled value={dataPage._id} checked={pageData.studentSubmission[2].answer._id === dataPage._id} />
+                                            <span>{dataPage.choice}</span>
+                                            <span>{convertPercentage(dataPage.respondents, pageData.class.totalStudents)}%</span>
+                                        </div>
+                                    ))}
+                                </form>
+                            </div>
+                        ) : (
+                            <div className='choice-container'>
+                                <form>
+                                    {pageData.postChoices.map((dataPage) => (
+                                        <ChoicesConnect data={dataPage} choiceFunction={handleRadioChange} selectedChoice={selectedChoice} totalStudents={pageData.class.totalStudents} key={dataPage._id} />
+                                    ))}
+                                    <Button className='mark-button' onClick={handleConnectSubmit}>
+                                        Submit
+                                    </Button>
+                                </form>
+                            </div>
+                        )}
                     </Card>
                 )}
             </Row>
