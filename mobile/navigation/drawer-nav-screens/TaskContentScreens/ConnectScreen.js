@@ -1,10 +1,106 @@
 import React, { useEffect, useState } from 'react';
-import { List, Card, Button, Text } from 'react-native-paper';
+import { View, Text } from 'react-native';
+import { List, Card, Button, useTheme } from 'react-native-paper';
 import { getConnect } from '../../../services/student';
 import formatDate from '../../../utils/formatDate';
 import { ScrollView } from 'react-native-gesture-handler';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { getCheckTask, getCoach, getCoachTask, getConnectTask } from '../../../services/student';
+import { NavigationContainer } from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
+import {loadAsync} from 'expo-font';
+const Stack = createNativeStackNavigator();
+const loadFontsAsync = async () => {
+  await loadAsync({
+    'Raleway-Regular': require('../../../assets/fonts/Raleway-Regular.ttf'),
+    'Raleway-Bold': require('../../../assets/fonts/Raleway-Bold.ttf'),
+  });
+};
 
-const ConnectScreen =  ({navigation}) => {
+const NewTaskConnect = ({navigation}) => {
+  loadFontsAsync();
+  const route = useRoute();
+  const {taskID} = route.params;
+  const classType = 'connect';
+  const [pageData, setData] = useState({});
+
+    useEffect(() => {
+        const fetchdata = async () => {
+            let data;
+            if (classType === 'coach') {
+                data = await getCoachTask(taskID);
+            } else if (classType === 'connect') {
+                data = await getConnectTask(taskID);
+            } else {
+                data = await getCheckTask(taskID);
+            }
+            console.log(data.message);
+            setData(data.message);
+        };
+        fetchdata();
+    }, [classType]);
+
+
+    const selectDoc = async () => {
+          try {
+            const doc = await DocumentPicker.getDocumentAsync({
+              type: "application/pdf",
+              multiple: true
+               
+            });
+  
+            const formData = new FormData();
+            const assets = doc.assets
+            if(!assets) return
+  
+            const file = assets[0];
+  
+            const pdfFile = {
+              name: file.name.split(".")[0],
+              uri: file.uri,
+              type: file.mimeType,
+              size:file.size
+            };
+  
+            formData.append("pdfFile", pdfFile);
+          } catch (err) {
+            
+            console.log("User Cancelled the upload", err);
+          }
+        }
+      return (
+        <ScrollView>
+        <View>
+        <Card>
+        {classType.toLowerCase() !== 'coach' && (
+                                    <>
+                                    {pageData.dueDate ? (
+                                        <Text style = {{
+                                          fontFamily: 'Raleway-Bold'
+                                        }}>
+                                            Due:<Text> {formatDate(pageData.dueDate)}</Text>
+                                        </Text>
+                                    ) : (
+                                        <Text style = {{fontFamily: 'Raleway-Bold'}}>'No Due Date'</Text>
+                                    )}
+                                </>
+                            )}
+                            <Text style = {{fontFamily: 'Raleway-Bold'}}>{classType.toUpperCase()}: <Text>{pageData.postTitle}</Text></Text>
+                            <Text style = {{fontFamily: 'Raleway-Regular'}}>{pageData.postDescription}</Text>
+        </Card>
+        
+ 
+        </View>
+        </ScrollView>
+    
+    );
+      
+  };
+
+
+const ConnectScreenContent =  ({navigation}) => {
+    loadFontsAsync();
+    const {colors} = useTheme();
     const [expanded, setExpanded] = useState(true);
     const taskType = 'connect';
     const [thisWeek, setThisWeek] = useState([]);
@@ -27,23 +123,30 @@ const ConnectScreen =  ({navigation}) => {
     }, []);
     const handlePress = () => setExpanded(!expanded);
         return (
-          <ScrollView>
+          <ScrollView style = {{
+            backgroundColor: 'white'
+          }}>
 
           <List.Section>
           <List.Accordion
             title="This Week"
+            titleStyle = {{
+              fontFamily: 'Raleway-Bold',
+            }}
             expanded={expanded}
             onPress={handlePress}>
                                 {thisWeek.map((data) => (
-                        <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                        <Card key={data._id} onPress = {() => navigation.navigate('NewTaskConnect', {taskID: data._id})} 
                 style={{
-                  borderRadius: 15, 
+                  borderRadius: 10, 
                   borderWidth: 2, 
-                  height: 100, 
+                  height: 100,
+                  backgroundColor: 'rgb(236, 235, 235)', 
                   justifyContent: 'center',
                   marginTop: 5,
                   marginBottom: 5,
                   borderColor: '#d3d3d3',
+                  margin: 20
                 }} 
                 contentStyle= {{
                   
@@ -53,13 +156,15 @@ const ConnectScreen =  ({navigation}) => {
                   flexWrap:'wrap', 
                   flexDirection: 'row',
                   fontSize: 15,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Bold'
       
                 }} subtitleStyle = {{
                   fontSize: 10,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Regular'
                 }} />
-                        <Text>{data.class.subject.subjectCode}</Text>
+                        <Text style = {{fontFamily: 'Raleway-Bold', marginStart: 10}}>{data.class.subject.subjectCode}</Text>
             </Card>
             
                     ))}
@@ -68,17 +173,22 @@ const ConnectScreen =  ({navigation}) => {
           </List.Accordion>
   
           <List.Accordion
-            title="Next Week">
+            title="Next Week"
+            titleStyle = {{
+              fontFamily: 'Raleway-Bold'
+            }}>
              {nextWeek.map((data) => (
-                        <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                        <Card key={data._id} onPress = {() => navigation.navigate('NewTaskConnect', {taskID: data._id})} 
                 style={{
-                  borderRadius: 15, 
+                  borderRadius: 10, 
                   borderWidth: 2, 
-                  height: 100, 
+                  height: 100,
+                  backgroundColor: 'rgb(236, 235, 235)', 
                   justifyContent: 'center',
                   marginTop: 5,
                   marginBottom: 5,
                   borderColor: '#d3d3d3',
+                  margin: 20
                 }} 
                 contentStyle= {{
                   
@@ -88,30 +198,37 @@ const ConnectScreen =  ({navigation}) => {
                   flexWrap:'wrap', 
                   flexDirection: 'row',
                   fontSize: 15,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Bold'
       
                 }} subtitleStyle = {{
                   fontSize: 10,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Regular'
                 }} />
-                        <Text>{data.class.subject.subjectCode}</Text>
+                        <Text style = {{fontFamily: 'Raleway-Bold', marginStart: 10}}>{data.class.subject.subjectCode}</Text>
             </Card>
             
                     ))}
           </List.Accordion>
     
           <List.Accordion
-            title="Later">
+            title="Later"
+            titleStyle = {{
+              fontFamily: 'Raleway-Bold'
+            }}>
              {later.map((data) => (
-                        <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                        <Card key={data._id} onPress = {() => navigation.navigate('NewTaskConnect', {taskID: data._id})} 
                 style={{
-                  borderRadius: 15, 
+                  borderRadius: 10, 
                   borderWidth: 2, 
-                  height: 100, 
+                  height: 100,
+                  backgroundColor: 'rgb(236, 235, 235)', 
                   justifyContent: 'center',
                   marginTop: 5,
                   marginBottom: 5,
                   borderColor: '#d3d3d3',
+                  margin: 20
                 }} 
                 contentStyle= {{
                   
@@ -121,30 +238,37 @@ const ConnectScreen =  ({navigation}) => {
                   flexWrap:'wrap', 
                   flexDirection: 'row',
                   fontSize: 15,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Bold'
       
                 }} subtitleStyle = {{
                   fontSize: 10,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Regular'
                 }} />
-                        <Text>{data.class.subject.subjectCode}</Text>
+                        <Text style = {{fontFamily: 'Raleway-Bold', marginStart: 10}}>{data.class.subject.subjectCode}</Text>
             </Card>
             
                     ))}
         
           </List.Accordion>
           <List.Accordion
-            title="Missing">
+            title="Missing"
+            titleStyle = {{
+              fontFamily: 'Raleway-Bold'
+            }}>
              {missing.map((data) => (
-                        <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                        <Card key={data._id} onPress = {() => navigation.navigate('NewTaskConnect', {taskID: data._id})} 
                 style={{
-                  borderRadius: 15, 
+                  borderRadius: 10, 
                   borderWidth: 2, 
-                  height: 100, 
+                  height: 100,
+                  backgroundColor: 'rgb(236, 235, 235)', 
                   justifyContent: 'center',
                   marginTop: 5,
                   marginBottom: 5,
                   borderColor: '#d3d3d3',
+                  margin: 20
                 }} 
                 contentStyle= {{
                   
@@ -154,13 +278,15 @@ const ConnectScreen =  ({navigation}) => {
                   flexWrap:'wrap', 
                   flexDirection: 'row',
                   fontSize: 15,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Bold',
       
                 }} subtitleStyle = {{
                   fontSize: 10,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Regular'
                 }} />
-                        <Text>{data.class.subject.subjectCode}</Text>
+                        <Text style = {{fontFamily: 'Raleway-Bold', marginStart: 10}}>{data.class.subject.subjectCode}</Text>
             </Card>
             
                     ))}
@@ -171,4 +297,16 @@ const ConnectScreen =  ({navigation}) => {
           );
         };
   
-  export default ConnectScreen;
+  export default function ConnectScreen() {
+    return (
+      <NavigationContainer independent ={true}>
+        <Stack.Navigator screenOptions={{
+          headerShown: false,
+        }}>
+          <Stack.Screen name = "ConnectScreenContent" component={ConnectScreenContent}/>
+          <Stack.Screen name = "NewTaskConnect" component = {NewTaskConnect}/>
+  
+        </Stack.Navigator>
+      </NavigationContainer>
+    )
+  };

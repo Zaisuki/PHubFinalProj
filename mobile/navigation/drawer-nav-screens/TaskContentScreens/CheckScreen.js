@@ -6,8 +6,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { pakyu } from '../../../mgadimahanapnaimage';
 import * as DocumentPicker from 'expo-document-picker';
 import formatDate from '../../../utils/formatDate';
-import { getCheck } from '../../../services/student';
+import { getCheck, getCheckTask, getCoachTask, getConnectTask } from '../../../services/student';
 import { ScrollView } from 'react-native-gesture-handler';
+import {loadAsync} from 'expo-font';
+import { useRoute } from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,9 +17,35 @@ const dimensions = Dimensions.get('window');
 const imageWidth = dimensions.width;
 const imageHeight = dimensions.height;
 
+const loadFontsAsync = async () => {
+  await loadAsync({
+    'Raleway-Regular': require('../../../assets/fonts/Raleway-Regular.ttf'),
+    'Raleway-Bold': require('../../../assets/fonts/Raleway-Bold.ttf'),
+  });
+};
 
+const NewTaskCheck = ({navigation}) => {
+  loadFontsAsync();
+  const route = useRoute();
+  const {taskID} = route.params;
+  const classType = 'check';
+  const [pageData, setData] = useState({});
 
-const NewTask = ({navigation, route}) => {
+    useEffect(() => {
+        const fetchdata = async () => {
+            let data;
+            if (classType === 'coach') {
+                data = await getCoachTask(taskID);
+            } else if (classType === 'connect') {
+                data = await getConnectTask(taskID);
+            } else {
+                data = await getCheckTask(taskID);
+            }
+            console.log(data.message);
+            setData(data.message);
+        };
+        fetchdata();
+    }, [classType]);
   const selectDoc = async () => {
         try {
           const doc = await DocumentPicker.getDocumentAsync({
@@ -47,28 +75,22 @@ const NewTask = ({navigation, route}) => {
       }
     return (
       <View>
-      <Card style ={{
-        borderWidth: 3,
-        marginTop: 5,
-        marginBottom: 5
-      }}>
-        <Card.Title title = "Module 24" subtitle = "Feb 24, 2024"/>
-        <Card.Content>
-          <Text variant="bodyMedium"> Please blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah {"\n"}</Text>
-        </Card.Content>
-        <Card.Cover source = {{uri: 'https://picsum.photos/700'}}/>
-        <Text variant="bodyMedium"> {"\n"} Tas eto isunod niyo rin para mas mahirapan kayo ganitoganyanganyanganyanganyanganyanganyangan{"\n"}yanganyanganyanganyanganyanganyan</Text>
-      </Card>
-
-      <Card style ={{
-        borderWidth: 3,
-        marginTop: 5,
-        marginBottom: 5
-      }}>
-        <Card.Content>
-          <Text>Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag Balagbag </Text>
-        </Card.Content>
-      </Card>
+       <Card>
+        {classType.toLowerCase() !== 'coach' && (
+                                    <>
+                                    {pageData.dueDate ? (
+                                        <Text style = {{fontFamily: 'Raleway-Bold'}}>
+                                            Due:<Text>{formatDate(pageData.dueDate)}</Text>
+                                        </Text>
+                                    ) : (
+                                        <Text style = {{fontFamily: 'Raleway-Bold'}}>'No Due Date'</Text>
+                                    )}
+                                </>
+                            )}
+                            <Text style = {{fontFamily: 'Raleway-Bold'}}>{classType.toUpperCase()}: <Text>{pageData.postTitle}</Text></Text>
+                            <Text style = {{fontFamily: 'Raleway-Regular'}}>{pageData.postDescription}</Text>
+        </Card>
+        
       <Button onPress={selectDoc} mode = 'contained'> 
       Add Work +
       </Button>
@@ -84,7 +106,8 @@ const NewTask = ({navigation, route}) => {
     
 };
 
-const CheckScreenContent =  ({navigation, route}) => {
+const CheckScreenContent =  ({navigation}) => {
+    loadFontsAsync();
     const [expanded, setExpanded] = useState(true);
     const taskType = 'check';
     const [noDueDate, setNoDueDate] = useState([]);
@@ -111,22 +134,29 @@ const CheckScreenContent =  ({navigation, route}) => {
     const handlePress = () => setExpanded(!expanded);
   
     return (
-      <ScrollView>
+      <ScrollView style = {{
+        backgroundColor: 'white'
+      }}>
         <List.Section>
         <List.Accordion
           title="No Due Date"
+          titleStyle = {{
+            fontFamily: 'Raleway-Bold'
+          }}
           expanded={expanded}
           onPress={handlePress}>
           {noDueDate.map((data) => (
-                <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                <Card key={data._id} onPress = {() => navigation.navigate('NewTaskCheck', {taskID: data._id})} 
                 style={{
-                  borderRadius: 15, 
+                  borderRadius: 10, 
                   borderWidth: 2, 
-                  height: 100, 
+                  height: 100,
+                  backgroundColor: 'rgb(236, 235, 235)', 
                   justifyContent: 'center',
                   marginTop: 5,
                   marginBottom: 5,
                   borderColor: '#d3d3d3',
+                  margin: 20
                 }} 
                 contentStyle= {{
                   
@@ -136,13 +166,15 @@ const CheckScreenContent =  ({navigation, route}) => {
                   flexWrap:'wrap', 
                   flexDirection: 'row',
                   fontSize: 15,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Bold'
       
                 }} subtitleStyle = {{
                   fontSize: 10,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Regular'
                 }} />
-                        <Text>{data.class.subject.subjectCode}</Text>
+                        <Text style = {{fontFamily: 'Raleway-Bold', marginStart: 10}}>{data.class.subject.subjectCode}</Text>
             </Card>
             ))}
           
@@ -151,17 +183,22 @@ const CheckScreenContent =  ({navigation, route}) => {
         </List.Accordion>
 
         <List.Accordion
-          title="This Week">
+          title="This Week"
+          titleStyle = {{
+            fontFamily: 'Raleway-Bold'
+          }}>
          {thisWeek.map((data) => (
-                <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                <Card key={data._id} onPress = {() => navigation.navigate('NewTaskCheck', {taskID: data._id})} 
                 style={{
-                  borderRadius: 15, 
+                  borderRadius: 10, 
                   borderWidth: 2, 
-                  height: 100, 
+                  height: 100,
+                  backgroundColor: 'rgb(236, 235, 235)', 
                   justifyContent: 'center',
                   marginTop: 5,
                   marginBottom: 5,
                   borderColor: '#d3d3d3',
+                  margin: 20
                 }} 
                 contentStyle= {{
                   
@@ -171,28 +208,35 @@ const CheckScreenContent =  ({navigation, route}) => {
                   flexWrap:'wrap', 
                   flexDirection: 'row',
                   fontSize: 15,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Bold'
       
                 }} subtitleStyle = {{
                   fontSize: 10,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Regular'
                 }} />
-                        <Text>{data.class.subject.subjectCode}</Text>
+                        <Text style = {{fontFamily: 'Raleway-Bold', marginStart: 10}}>{data.class.subject.subjectCode}</Text>
             </Card>
             ))}
         </List.Accordion>
         <List.Accordion
-          title="Next Week">
+          title="Next Week"
+          titleStyle = {{
+            fontFamily: 'Raleway-Bold'
+          }}>
          {nextWeek.map((data) => (
-                <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                <Card key={data._id} onPress = {() => navigation.navigate('NewTaskCheck', {taskID: data._id})} 
                 style={{
-                  borderRadius: 15, 
+                  borderRadius: 10, 
                   borderWidth: 2, 
-                  height: 100, 
+                  height: 100,
+                  backgroundColor: 'rgb(236, 235, 235)', 
                   justifyContent: 'center',
                   marginTop: 5,
                   marginBottom: 5,
                   borderColor: '#d3d3d3',
+                  margin: 20
                 }} 
                 contentStyle= {{
                   
@@ -202,29 +246,36 @@ const CheckScreenContent =  ({navigation, route}) => {
                   flexWrap:'wrap', 
                   flexDirection: 'row',
                   fontSize: 15,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Bold'
       
                 }} subtitleStyle = {{
                   fontSize: 10,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Regular'
                 }} />
-                        <Text>{data.class.subject.subjectCode}</Text>
+                        <Text style = {{fontFamily: 'Raleway-Bold', marginStart: 10}}>{data.class.subject.subjectCode}</Text>
             </Card>
             ))}
         </List.Accordion>
   
         <List.Accordion
-          title="Later">
+          title="Later"
+          titleStyle = {{
+            fontFamily: 'Raleway-Bold'
+          }}>
           {later.map((data) => (
-                <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                <Card key={data._id} onPress = {() => navigation.navigate('NewTaskCheck', {taskID: data._id})} 
                 style={{
-                  borderRadius: 15, 
+                  borderRadius: 10, 
                   borderWidth: 2, 
-                  height: 100, 
+                  height: 100,
+                  backgroundColor: 'rgb(236, 235, 235)', 
                   justifyContent: 'center',
                   marginTop: 5,
                   marginBottom: 5,
                   borderColor: '#d3d3d3',
+                  margin: 20
                 }} 
                 contentStyle= {{
                   
@@ -234,28 +285,35 @@ const CheckScreenContent =  ({navigation, route}) => {
                   flexWrap:'wrap', 
                   flexDirection: 'row',
                   fontSize: 15,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Bold'
       
                 }} subtitleStyle = {{
                   fontSize: 10,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Regular'
                 }} />
-                        <Text>{data.class.subject.subjectCode}</Text>
+                        <Text style = {{fontFamily: 'Raleway-Bold', marginStart: 10}}>{data.class.subject.subjectCode}</Text>
             </Card>
             ))}
         </List.Accordion>
         <List.Accordion
-          title="Missing">
+          title="Missing"
+          titleStyle = {{
+            fontFamily: 'Raleway-Bold'
+          }}>
           {missing.map((data) => (
-                <Card key={data._id} onPress = {() => console.log('Pressed')} 
+                <Card key={data._id} onPress = {() => navigation.navigate('NewTaskCheck', {taskID: data._id})} 
                 style={{
-                  borderRadius: 15, 
+                  borderRadius: 10, 
                   borderWidth: 2, 
-                  height: 100, 
+                  height: 100,
+                  backgroundColor: 'rgb(236, 235, 235)', 
                   justifyContent: 'center',
                   marginTop: 5,
                   marginBottom: 5,
                   borderColor: '#d3d3d3',
+                  margin: 20
                 }} 
                 contentStyle= {{
                   
@@ -265,13 +323,15 @@ const CheckScreenContent =  ({navigation, route}) => {
                   flexWrap:'wrap', 
                   flexDirection: 'row',
                   fontSize: 15,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Bold'
       
                 }} subtitleStyle = {{
                   fontSize: 10,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Regular'
                 }} />
-                        <Text>{data.class.subject.subjectCode}</Text>
+                        <Text style = {{fontFamily: 'Raleway-Bold', marginStart: 10}}>{data.class.subject.subjectCode}</Text>
             </Card>
             ))}
         </List.Accordion>
@@ -287,7 +347,7 @@ const CheckScreenContent =  ({navigation, route}) => {
           headerShown: false,
         }}>
           <Stack.Screen name = "CheckScreenContent" component={CheckScreenContent}/>
-          <Stack.Screen name = "NewTask" component = {NewTask}/>
+          <Stack.Screen name = "NewTaskCheck" component = {NewTaskCheck}/>
 
         </Stack.Navigator>
       </NavigationContainer>

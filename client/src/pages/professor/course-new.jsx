@@ -5,55 +5,30 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
 import "../../assets/scss/course-new.scss";
 import { useNavigate } from 'react-router-dom';
+import { MdOutlineAccessTime } from "react-icons/md";
+import { FaBook } from "react-icons/fa";
+
+
 
 function CourseNew() {
   const navigate = useNavigate();
   return (
     <Tabs id="justify-tab" className="mb-3" justify>
       {/* CLASSWORK TAB */}
-      <Tab eventKey="classwork" title="Classwork">
+      <Tab className="class" eventKey="classwork" title="Classwork">
         <Container className="classwork-container">
           {/* CARDS within classwork tab*/}
           <Card className="card-within">
             <Card.Body onClick={() => navigate('/work-page')}>
+            <FaBook className="book"/>
               <h4 className="task-type">
-                CHECK: <span className="task-title">Moduaaaaaaaale 21</span>
+                CHECK: 
               </h4>
-              <h5 className="date-posted">February 10, 2024</h5>
+              <span className="task-title">Moduaaaaaaaale 21</span>
+              <h5 className="date-posted"><MdOutlineAccessTime />February 10, 2024</h5>
             </Card.Body>
           </Card>
-          <Card className="card-within">
-            <Card.Body>
-              <h4 className="task-type">
-                CHECK: <span className="task-title">Module 21</span>
-              </h4>
-              <h5 className="date-posted">February 10, 2024</h5>
-            </Card.Body>
-          </Card>
-          <Card className="card-within">
-            <Card.Body>
-              <h4 className="task-type">
-                CHECK: <span className="task-title">Module 21</span>
-              </h4>
-              <h5 className="date-posted">February 10, 2024</h5>
-            </Card.Body>
-          </Card>
-          <Card className="card-within">
-            <Card.Body>
-              <h4 className="task-type">
-                CHECK: <span className="task-title">Module 21</span>
-              </h4>
-              <h5 className="date-posted">February 10, 2024</h5>
-            </Card.Body>
-          </Card>
-          <Card className="card-within">
-            <Card.Body>
-              <h4 className="task-type">
-                CHECK: <span className="task-title">Module 21</span>
-              </h4>
-              <h5 className="date-posted">February 10, 2024</h5>
-            </Card.Body>
-          </Card>
+          
         </Container>
       </Tab>
 
@@ -70,28 +45,9 @@ function CourseNew() {
         <Card className="student-card">
           <Card.Header>Students</Card.Header>
           <Card.Body>
-            <ListGroup className="lists">
-              <ListGroup.Item>
-                <i className="bx bxs-user-circle"></i>
+          <i className="bx bxs-user-circle"></i>
                 <p className="name">Glaiza Joyce Bauzon Alicoben</p>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <i className="bx bxs-user-circle"></i>
-                <p className="name">Stephen Paul Bautista Bautista</p>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <i className="bx bxs-user-circle"></i>
-                <p className="name">Jaydeebryann Estrada Ang</p>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <i className="bx bxs-user-circle"></i>
-                <p className="name">Leanne Main Dela Cruz</p>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <i className="bx bxs-user-circle"></i>
-                <p className="name">Christian Quimsim Munar</p>
-              </ListGroup.Item>
-            </ListGroup>
+           
           </Card.Body>
         </Card>
       </Tab>

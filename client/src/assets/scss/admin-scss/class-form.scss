@@ -4,12 +4,39 @@
     .row {
       margin-bottom: 2%;
     }
+    
+    .container{
+      width: 100%;
+      justify-content: flex-start;
+      margin-left: 0px;
+    }
   }
 
+
+  .assigned-course{
+    width: 100%;
+    p{display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      margin-left: 10px;
+   }
+  }
+  
+   .course{
+    width: 100%;
+    margin-top: -10px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 17px;
+   }
+
  .assigned-class{
-  width: 12%;
+  width: 100%;
+  margin-top: 20px;
   p{display: flex;
-    justify-content: center;
+    width: 100%;
+    justify-content: flex-start;
+    margin-left: 10px;
   }
  }
 
@@ -17,20 +44,46 @@
   width: 9%;
   margin-top: -10px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 17px;
  }
 
+ .class-count{
+  width: 100%;
+  margin-top: 20px;
+  margin-left: 12px;
+  p{display: flex;
+    width: 100%;
+    margin-left: 0px;
+    justify-content: flex-start;
+    
+    
+  .dropdown-count{
+    width: 9%;
+    margin-top: -12px;
+    display: flex;
+    justify-content: flex-start;
+  margin-left: 17px;
+   }
+  }
+ }
+
+ 
+
  .assigned-subs{
-  width: 12%;
+  width: 100%;
   margin-top: 20px;
   p{display: flex;
-    justify-content: center;
+    width: 100%;
+    justify-content: flex-start;
+margin-left: 10px;
   }
 }
  .subs{
   width: 9%;
   margin-top: -10px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 17px;
 }
   

@@ -4,8 +4,17 @@ import { logout } from '../../services/entry';
 import { profile } from '../../services/user';
 import formatDate from '../../utils/formatDate';
 import { ogrenek } from '../../mgadimahanapnaimage';
+import {loadAsync} from 'expo-font';
 
+const loadFontsAsync = async () => {
+    await loadAsync({
+      'Raleway-Regular': require('../../assets/fonts/Raleway-Regular.ttf'),
+      'Raleway-Bold': require('../../assets/fonts/Raleway-Bold.ttf'),
+    });
+  };
+  
 const ProfileScreen = ({ navigation }) => {
+    loadFontsAsync();
     const [data, setData] = useState({});
     const [userInformation, setUserInformation] = useState({});
     const handleLogout = () => {
@@ -29,57 +38,57 @@ const ProfileScreen = ({ navigation }) => {
         <ScrollView style={styles.container}>
             <View style={styles.header}>
                 <Image style={styles.headerImage} source={ogrenek} resizeMode='contain' />
-                <Text>
+                <Text style = {{fontFamily:'Raleway-Regular'}}>
                     {userInformation.firstName} {userInformation.middleName} {userInformation.lastName}
                 </Text>
-                <Text>{userInformation.personalNumber}</Text>
-                <Text>{data.personalEmail}</Text>
+                <Text style = {{fontFamily:'Raleway-Regular'}}>{userInformation.personalNumber}</Text>
+                <Text style = {{fontFamily:'Raleway-Regular'}}>{data.personalEmail}</Text>
             </View>
             <View style={styles.studentDetails}>
-                <Text>Year/Grade: 2nd</Text>
-                <Text>Block: {userInformation.section}</Text>
+                <Text style = {{fontFamily:'Raleway-Regular'}}><Text style = {{fontFamily:'Raleway-Bold'}}>Year/Grade:</Text> 2nd</Text>
+                <Text style = {{fontFamily:'Raleway-Regular'}}><Text style = {{fontFamily:'Raleway-Bold'}}>Block:</Text> {userInformation.section}</Text>
             </View>
             <View style={styles.studentCourse}>
-                <Text>Course: {userInformation.course}</Text>
-                <Text>Semester: Second</Text>
+                <Text style = {{fontFamily:'Raleway-Regular'}}> <Text style = {{fontFamily:'Raleway-Bold'}}>Course:</Text> {userInformation.course}</Text>
+                <Text style = {{fontFamily:'Raleway-Regular'}}><Text style = {{fontFamily:'Raleway-Bold'}}>Semester:</Text> Second</Text>
             </View>
             <View style={styles.additionalInformation}>
-                <Text style={styles.textAlignCenter}>Personal Data</Text>
+                <Text style={{fontFamily:'Raleway-Bold', textAlign: 'center'}}>Personal Data</Text>
                 <View style={styles.nameContainer}>
                     <View>
-                        <Text>First Name</Text>
-                        <Text>{userInformation.firstName}</Text>
+                        <Text style = {{fontFamily:'Raleway-Bold'}}>First Name</Text>
+                        <Text style = {{fontFamily:'Raleway-Regular'}}>{userInformation.firstName}</Text>
                     </View>
 
                     <View>
-                        <Text>Last Name</Text>
-                        <Text>{userInformation.lastName}</Text>
+                        <Text style = {{fontFamily:'Raleway-Bold'}}>Last Name</Text>
+                        <Text style = {{fontFamily:'Raleway-Regular'}}>{userInformation.lastName}</Text>
                     </View>
                 </View>
                 <View>
-                    <Text>Middle Name</Text>
-                    <Text>{userInformation.middleName}</Text>
+                    <Text style = {{fontFamily:'Raleway-Bold'}}>Middle Name</Text>
+                    <Text style = {{fontFamily:'Raleway-Regular'}}>{userInformation.middleName}</Text>
                 </View>
                 <View style={styles.birthdayContainer}>
                     <View>
-                        <Text>Birth Date</Text>
+                        <Text style = {{fontFamily:'Raleway-Bold'}}>Birth Date</Text>
                         <Text>{formatDate(userInformation.birthday)}</Text>
                     </View>
 
                     <View>
-                        <Text>Contact Number</Text>
-                        <Text>{userInformation.personalNumber}</Text>
+                        <Text style = {{fontFamily:'Raleway-Bold'}}>Contact Number</Text>
+                        <Text style = {{fontFamily:'Raleway-Regular'}}>{userInformation.personalNumber}</Text>
                     </View>
                 </View>
 
                 <View>
-                    <Text>Current Address(House#, Street, Brgy, City)</Text>
-                    <Text>{userInformation.address}</Text>
+                    <Text style = {{fontFamily:'Raleway-Bold'}}>Current Address(House#, Street, Brgy, City)</Text>
+                    <Text style = {{fontFamily:'Raleway-Regular'}}>{userInformation.address}</Text>
                 </View>
 
                 <View>
-                    <Text>School Email</Text>
-                    <Text>{data.schoolEmail}</Text>
+                    <Text style = {{fontFamily:'Raleway-Bold'}}>School Email</Text>
+                    <Text style = {{fontFamily:'Raleway-Regular'}}>{data.schoolEmail}</Text>
                 </View>
             </View>
 
@@ -92,6 +101,7 @@ const ProfileScreen = ({ navigation }) => {
 };
 
 export default ProfileScreen;
+
 
 const windowWidth = Dimensions.get('window').width;
 const styles = StyleSheet.create({
@@ -111,7 +121,8 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderRadius: 25,
         padding: 15,
-        marginBottom: 5
+        marginBottom: 5,
+        backgroundColor: 'rgb(236, 235, 235)'
     },
     headerImage: {
         width: windowWidth * 0.4,
@@ -127,23 +138,31 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderRadius: 25,
         padding: 15,
-        marginBottom: 5
+        marginBottom: 5,
+        backgroundColor: 'rgb(236, 235, 235)'
     },
     studentCourse: {
+        flex: 1,
+        flexDirection: 'row',
         borderWidth: 1,
+        justifyContent: 'space-around',
         borderColor: 'black',
         borderStyle: 'solid',
         borderRadius: 25,
         padding: 15,
-        marginBottom: 5
+        marginBottom: 5,
+        backgroundColor: 'rgb(236, 235, 235)'
     },
     additionalInformation: {
+        flex: 1,
+        flexDirection: 'column',
         borderWidth: 1,
         borderColor: 'black',
         borderStyle: 'solid',
         borderRadius: 25,
         padding: 15,
-        marginBottom: 5
+        marginBottom: 5,
+        backgroundColor: 'rgb(236, 235, 235)',
     },
     textAlignCenter: {
         textAlign: 'center',
@@ -158,6 +177,6 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 5
+        marginBottom: 5,
     },
 });
