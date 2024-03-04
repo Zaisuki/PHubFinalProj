@@ -32,13 +32,13 @@ const SideBar = ({ isClicked, onClick, onHover, onUnhover, currentPage }) => {
                     <SideBarLink direct='/task' icon={TaskImg} title='Task' isClicked={isClicked} isActive={currentPage === '/task'} />
                 </li>
                 <li>
-                    <SideBarLink direct='/course' icon={CourseImg} title='Course' isClicked={isClicked} isActive={currentPage === '/course'} />
+                    <SideBarLink direct='/course-student' icon={CourseImg} title='Course' isClicked={isClicked} isActive={currentPage === '/course'} />
                 </li>
                 <li>
                     <SideBarLink direct='/notification' icon={NotificationImg} title='Notification' isClicked={isClicked} isActive={currentPage === '/notification'} />
                 </li>
                 <li>
-                    <SideBarLink direct='/inbox' icon={InboxImg} title='Inbox' isClicked={isClicked} isActive={currentPage === '/inbox'} />
+                    <SideBarLink direct='/inbox' icon={InboxImg} title='Chika Hub' isClicked={isClicked} isActive={currentPage === '/inbox'} />
                 </li>
                 <li>
                     <SideBarLink direct='/statistics' icon={StatisticsImg} title='Statistics' isClicked={isClicked} isActive={currentPage === '/statistics'} />

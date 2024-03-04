@@ -1,9 +1,8 @@
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
-import "../../assets/scss/course-new.scss";
+import "../../assets/scss/prof-scss/cnp.scss";
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineAccessTime } from "react-icons/md";
 import { FaBook } from "react-icons/fa";

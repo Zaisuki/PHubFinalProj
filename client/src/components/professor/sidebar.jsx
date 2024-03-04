@@ -27,10 +27,10 @@ const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
                     <SideBarLink direct='/task' icon={TaskImg} title='Task' isClicked={isClicked} />
                 </li>
                 <li>
-                    <SideBarLink direct='/course' icon={CourseImg} title='Course' isClicked={isClicked} />
+                    <SideBarLink direct='/course-prof' icon={CourseImg} title='Course' isClicked={isClicked} />
                 </li>
                 <li>
-                    <SideBarLink direct='/inbox' icon={InboxImg} title='Inbox' isClicked={isClicked} />
+                    <SideBarLink direct='/inbox' icon={InboxImg} title='Chika Hub' isClicked={isClicked} />
                 </li>
                 <li>
                     <SideBarLink direct='/statistics' icon={StatisticsImg} title='Statistics' isClicked={isClicked} />
