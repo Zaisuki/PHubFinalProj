@@ -18,22 +18,22 @@ const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
             <SideBarLink direct='/' icon={FeedImg} title='Home' isClicked={isClicked} />
             <ul className='iconS'>
                 <li>
-                    <SideBarLink direct='/create-student' icon={FeedImg} title='Create Student' isClicked={isClicked} />
+                    <SideBarLink direct='/create-student' icon={FeedImg} title='Enroll Student' isClicked={isClicked} />
                 </li>
                 <li>
-                    <SideBarLink direct='/create-professor' icon={TaskImg} title='Create Professor' isClicked={isClicked} />
+                    <SideBarLink direct='/create-professor' icon={TaskImg} title='Professor  ' isClicked={isClicked} />
                 </li>
                 <li>
-                    <SideBarLink direct='/create-admin' icon={CourseImg} title='Create Admin' isClicked={isClicked} />
+                    <SideBarLink direct='/create-admin' icon={CourseImg} title='Admin Registration' isClicked={isClicked} />
                 </li>
                 <li>
-                    <SideBarLink direct='/create-subject' icon={CourseImg} title='Create Subject' isClicked={isClicked} />
+                    <SideBarLink direct='/create-subject' icon={CourseImg} title='Subject Registration' isClicked={isClicked} />
                 </li>
                 <li>
-                    <SideBarLink direct='/create-class' icon={CourseImg} title='Create Class' isClicked={isClicked} />
+                    <SideBarLink direct='/create-class' icon={CourseImg} title='Assigning Professor' isClicked={isClicked} />
                 </li>
                 <li>
-                    <SideBarLink direct='/enroll-student-class' icon={CourseImg} title='Enroll Student to Class' isClicked={isClicked} />
+                    <SideBarLink direct='/enroll-student-class' icon={CourseImg} title='Students Assigned Class' isClicked={isClicked} />
                 </li>
                 {/* {'DUPLICATE NIYO LANG IYONG LI NA TAG PAG GAGAWA PA NG LINK AT PAGE'} */}
             </ul>

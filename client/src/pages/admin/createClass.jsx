@@ -7,6 +7,8 @@ import Form from "react-bootstrap/Form";
 function CreateClass() {
   return (
     <div className="class-form">
+
+      
       <Container>
         <Row>
           <Col sm={4}>
@@ -15,6 +17,45 @@ function CreateClass() {
           </Col>
         </Row>
       </Container>
+      
+
+      <div className="assigned-course">
+        <p>Assigned Course</p>
+        </div>
+
+      <Form className="course">
+      {['checkbox'].map((type) => (
+        <div className="for-class" key={`default-${type}`} >
+          <Form.Check
+            type={type}
+            id={`default-${type}`}
+            label={`Block 1`}
+          />
+
+          <Form.Check
+            type={type}
+            id={`disabled-default-${type}`}
+            label={`Block 2`}
+          />
+          <Form.Check
+            type={type}
+            id={`disabled-default-${type}`}
+            label={`Block 3`}
+          />
+          <Form.Check
+            type={type}
+            id={`disabled-default-${type}`}
+            label={`Block 4`}
+          />
+          <Form.Check
+            type={type}
+            id={`disabled-default-${type}`}
+            label={`Block 5`}
+          />
+        </div>
+        
+      ))}
+      </Form>
 
       <div className="assigned-class">
         <p>Assigned Class</p>
@@ -53,7 +94,7 @@ function CreateClass() {
         
       ))}
       </Form>
-      
+
       <div className="assigned-subs">
         <p>Assigned Subjects</p>
         </div>

@@ -76,7 +76,7 @@ function Statistics() {
           <Form.Select className="course-select-stat" aria-label="def">
             <option className="op">Select a Course</option>
             <option className="op" value="1">
-              ITE 30
+              ITE 300
             </option>
             <option className="op" value="2">
               ITE 400
