@@ -6,6 +6,8 @@ import { ProfessorHandledClass } from '../models/classModel/professorClass';
 import { addTaskNotification } from './notification';
 import { StudentCheckSubmission, StudentConnectSubmission } from '../models/classModel/studentClass';
 
+import { getStorage, ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
+import { storage } from './upload';
 // export const findAllProfessor = async (req: Request, res: Response) => {
 //     try {
 //         const professors = await Professor.find({});
@@ -82,17 +84,17 @@ export const getClass = async (id: string) => {
                 },
             })
             .exec();
-        for (const classObj of (professorsClass?.professorHandledClass as any)?.class) {
+        for (const classObj of (professorsClass?.professorHandledClass[0] as any)?.class) {
             result.push(classObj);
         }
         return result;
     } catch (error) {
-        return { 'message': 'No Class' };
+        return { 'message': ['No Class'] };
     }
 };
 export const getCoach = async (classID: string) => {
     try {
-        const result = await Coach.find({ class: classID });
+        const result = await Coach.find({ class: classID }).sort({ createdAt: -1 });
         return result;
     } catch (error) {
         return { 'message': 'No Coach' };
@@ -100,7 +102,7 @@ export const getCoach = async (classID: string) => {
 };
 export const getCheck = async (classID: string) => {
     try {
-        const result = await Check.find({ class: classID });
+        const result = await Check.find({ class: classID }).sort({ createdAt: -1 });
         return result;
     } catch (error) {
         return { 'message': 'No Check' };
@@ -108,7 +110,7 @@ export const getCheck = async (classID: string) => {
 };
 export const getConnect = async (classID: string) => {
     try {
-        const result = await Connect.find({ class: classID });
+        const result = await Connect.find({ class: classID }).sort({ createdAt: -1 });
         return result;
     } catch (error) {
         return { 'message': 'No Connect' };
@@ -221,17 +223,25 @@ export const deleteAnnouncement = async (req: Request, res: Response) => {
     }
 };
 
-export const addCheck = async (classID: string, postTitle: string, postDescription: string, dueDate: Date, files: UploadedFile[] | undefined) => {
+export const addCheck = async (classID: string, postTitle: string, postDescription: string, dueDate: Date, typeOfCheck: string, files: UploadedFile[] | undefined) => {
     try {
         let newCheck = await new Check({
             postTitle,
             postDescription,
             dueDate,
+            typeOfCheck,
         }).save();
         if (files) {
             for (const file of files) {
-                const imagePath = file.path;
-                newCheck.attachment.push(imagePath);
+                const storageRef = ref(storage, `files/${file.originalname}${new Date()}`);
+
+                const metadata = {
+                    contentType: file.mimetype,
+                };
+
+                const snapshot = await uploadBytesResumable(storageRef, file.buffer, metadata);
+                const downloadURL = await getDownloadURL(snapshot.ref);
+                newCheck.attachment.push(downloadURL);
             }
             await newCheck.save();
         }
@@ -290,8 +300,15 @@ export const addCoach = async (classID: string, postTitle: string, postDescripti
         }).save();
         if (files) {
             for (const file of files) {
-                const imagePath = file.path;
-                newCoach.attachment.push(imagePath);
+                const storageRef = ref(storage, `files/${file.originalname}${new Date()}`);
+
+                const metadata = {
+                    contentType: file.mimetype,
+                };
+
+                const snapshot = await uploadBytesResumable(storageRef, file.buffer, metadata);
+                const downloadURL = await getDownloadURL(snapshot.ref);
+                newCoach.attachment.push(downloadURL);
             }
             await newCoach.save();
         }
@@ -412,4 +429,5 @@ interface UploadedFile {
     filename: string;
     path: string;
     size: number;
+    buffer: Buffer;
 }

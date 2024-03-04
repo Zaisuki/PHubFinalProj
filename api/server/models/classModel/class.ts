@@ -7,6 +7,10 @@ const checkSchema = new Schema(
             ref: 'Class',
             default: null,
         },
+        typeOfCheck: {
+            type: String,
+            required: [true, 'Please enter the type.'],
+        },
         postTitle: {
             type: String,
             required: [true, 'Please enter the title.'],

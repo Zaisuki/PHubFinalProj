@@ -12,7 +12,7 @@ function Course() {
         const fetchData = async () => {
             try {
                 const response = await course();
-                setSubjects(() => (response.userType === 'student' ? response.userDetails.studentSubjects.class : response.userDetails.professorHandledClass.class));
+                setSubjects(() => (response.userType === 'student' ? response.userDetails.studentSubjects[0].class : response.userDetails.professorHandledClass[0].class));
             } catch (error) {
                 console.error('Error fetching data:', error);
             }

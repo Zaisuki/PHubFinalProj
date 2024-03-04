@@ -15,7 +15,8 @@ export const getAllStudentAnouncement = async (id: string) => {
                 },
             })
             .exec();
-        for (const classObj of (studentResult?.studentSubjects as any)?.class) {
+
+        for (const classObj of (studentResult?.studentSubjects[0] as any)?.class) {
             announcementID.push(...classObj.announcement);
             const professorIDString = classObj.professor.toString();
             if (!professorID.includes(professorIDString)) {
@@ -24,7 +25,7 @@ export const getAllStudentAnouncement = async (id: string) => {
         }
         for (const professor of professorID) {
             const professorResult = await Professor.findOne({ _id: professor }).populate('professorHandledClass');
-            announcementID.push(...(professorResult?.professorHandledClass as any).announcement);
+            announcementID.push(...(professorResult?.professorHandledClass[0] as any).announcement);
         }
         const result = await Announcement.find({ _id: { $in: announcementID } })
             .populate('professor')
