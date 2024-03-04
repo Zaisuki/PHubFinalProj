@@ -30,7 +30,7 @@ function TaskProf() {
     const [descriptionValue, setDescriptionValue] = useState('');
     const descriptionTextAreaRef = useRef(null);
     const [dueDate, setDueDate] = useState('');
-    const [attachment, setAttachement] = useState({});
+    const [attachment, setAttachement] = useState([]);
     const [choice, setChoice] = useState([]);
     const [selectedOption, setSelectedOption] = useState('Quiz');
 
@@ -87,7 +87,7 @@ function TaskProf() {
         setTitleValue('');
         setDescriptionValue('');
         setDueDate('');
-        setAttachement({});
+        setAttachement([]);
         setChoice([]);
         setSelectedOption('');
     };

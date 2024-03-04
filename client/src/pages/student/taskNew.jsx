@@ -125,9 +125,12 @@ export default function NewTask() {
                             <p>{pageData.postDescription}</p>
                         </Card>
 
-                        {classType == 'connect' && pageData.attachment && (
+                        {(classType === 'coach' || classType === 'check') && pageData.attachment && (
                             <Card className='attachment-container'>
                                 <h4>Attachment</h4>
+                                {pageData.attachment.map((dataPage) => (
+                                    <div key={dataPage._id}>{dataPage.type.startsWith('image') ? <ImagePreview imageUrl={dataPage.url} /> : <LinkPreview Url={dataPage.url} />}</div>
+                                ))}
                             </Card>
                         )}
                     </Card>
@@ -210,7 +213,7 @@ export default function NewTask() {
                                     {pageData.postChoices.map((dataPage) => (
                                         <div key={dataPage._id}>
                                             {/* TODO change it to 0 */}
-                                            <input type='radio' disabled value={dataPage._id} checked={pageData.studentSubmission[2].answer._id === dataPage._id} />
+                                            <input type='radio' disabled value={dataPage._id} checked={pageData.studentSubmission[0].answer._id === dataPage._id} />
                                             <span>{dataPage.choice}</span>
                                             <span>{convertPercentage(dataPage.respondents, pageData.class.totalStudents)}%</span>
                                         </div>
