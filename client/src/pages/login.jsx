@@ -91,13 +91,13 @@ const Login = () => {
           <button className="login" type="button" onClick={handleLogin}>
             Login
           </button>
-          <div className="apps">
+          {/* <div className="apps">
             <FaXTwitter className="i" />
             <FaFacebookF className="i" />
             <SiGmail className="i" />
             <FaYoutube className="i" />
             <FaTiktok className="i" />
-          </div>
+          </div> */}
         </form>
       </div>
   

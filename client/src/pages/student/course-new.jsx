@@ -19,7 +19,7 @@ function CourseNew() {
         <Container className="classwork-container">
           {/* CARDS within classwork tab*/}
           <Card className="card-within">
-            <Card.Body onClick={() => navigate("/taskNew")}>
+            <Card.Body onClick={() => navigate("/task-new")}>
               <FaBook className="book" />
               <h4 className="task-type">CHECK:</h4>
               <span className="task-title">Moduaaaaaaaale 21</span>

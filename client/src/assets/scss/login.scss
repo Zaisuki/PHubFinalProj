@@ -11,8 +11,10 @@
   width: 100vw;
   height: 100vh;
   margin: 0;
+  background-color: #3a4f24;
   display: flex;
   justify-content: center;
+  
   align-items: center;
   min-height: 100vh;
   
@@ -40,12 +42,11 @@
       font-size: 20px;
       margin-top: 10px;
       margin-left: 0.3%;
-      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      font-family:"Raleway", sans-serif;
     }
     .logo-etch-two {
       font-size: 15px;
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
+      font-family:"Raleway", sans-serif;
       margin-left: 900px;
       justify-content: center;
       align-items: center;
@@ -67,9 +68,10 @@
   .wrapper {
     width: 420px;
     height: auto;
+    margin-bottom: 100px;
     background: white;
     color: #000000;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.795);
     border: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 9px rgba(0, 0, 0, 0.7);
     border-radius: 30px;
@@ -90,7 +92,8 @@
       text-align: center;
       font-size: 36px;
       text-align: center;
-      font-family: "Protest Strike", sans-serif;
+      font-family:"Raleway", sans-serif;
+      font-weight: 900;
     }
     .input-box {
       position: relative;
@@ -117,6 +120,7 @@
         position: absolute;
         right: 20px;
         top: 35%;
+        color: black;
         transform: translate(-50%);
         font-size: 16px;
       }
@@ -124,6 +128,7 @@
         position: absolute;
         right: 20px;
         top: 35%;
+        color: black;
         transform: translate(-50%);
         font-size: 16px;
         cursor: pointer;
@@ -159,7 +164,7 @@
         }
       }
       a {
-        color: #34d803;
+        color: #000000;
         text-decoration: none;
       }
       a:hover {
@@ -170,42 +175,43 @@
     .login {
       width: 100%;
       height: 45px;
-      background: #ffffff;
-      border: 0.5px solid #b1b1b1;
+      background: 3a4f24  ;
       outline: none;
+      background-color: #000000;
       border-radius: 40px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       cursor: pointer;
       font-size: 16px;
-      color: #000000;
+      color: #ffffff;
       font-weight: 700;
     }
     .login:hover{
-      background-image: linear-gradient(45deg, #044a6b, #09612a, #044a6b);
-      color: white;
+      background-color: #3a4f24;
+      color: rgb(0, 0, 0);
+      border: 2px solid #dbbc2c ;
     
     }
     
-    .apps {
-      justify-content: center;
-      text-align: center;
-      margin-top: 20px;
-      cursor: pointer;
-      .i {
-        background-color: rgb(255, 255, 255);
-        margin: 10px;
-        border-radius: 30px;
-        height: 30px;
-        width: 30px;
-        padding: 5px;
+    // .apps {
+    //   justify-content: center;
+    //   text-align: center;
+    //   margin-top: 20px;
+    //   cursor: pointer;
+    //   .i {
+    //     background-color: rgb(255, 255, 255);
+    //     margin: 10px;
+    //     border-radius: 30px;
+    //     height: 30px;
+    //     width: 30px;
+    //     padding: 5px;
         
-      }
-      .i:hover{
-        color: rgb(0, 199, 60);
-        animation: waveAnimation 1s ease infinite;
+    //   }
+    //   .i:hover{
+    //     color: rgb(0, 199, 60);
+    //     animation: waveAnimation 1s ease infinite;
         
-      }
-    }
+    //   }
+    // }
   }
   
   
