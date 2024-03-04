@@ -13,17 +13,18 @@
 
     h1 {
       font-size: 23px;
-      font-family: raleway;
+      font-family: "Raleway";
       font-weight: regular;
     }
     h2 {
       font-size: 18px;
-      font-family: raleway;
+      font-family: "Raleway";
       font-weight: 300;
     }
     h3 {
       font-size: 15px;
-      font-family: raleway;
+      font-family: "Raleway";
+      font-weight: regular;
     }
 
     .one {
@@ -32,7 +33,7 @@
       place-content: center;
       place-items: center;
       margin-bottom: 2%;
-      background-color: rgb(222, 222, 222);
+      background-color: rgb(236, 235, 235);
 
       .profile-img {
         height: 200px;
@@ -59,7 +60,7 @@
         width: 285px;
         padding: 2%;
         margin-right: 10px;
-        background-color: rgb(222, 222, 222);
+        background-color: rgb(236, 235, 235);
 
         div {
           display: flex;
@@ -75,7 +76,7 @@
         height: 60px;
         width: 285px;
         padding: 2%;
-        background-color: rgb(222, 222, 222);
+        background-color: rgb(236, 235, 235);
 
         div {
           display: flex;
@@ -91,7 +92,8 @@
     .four {
       height: 150px;
       padding: 2%;
-      background-color: rgb(222, 222, 222);
+      background-color: rgb(236, 235, 235);
+      margin-bottom: 2%;
 
       .f1 {
         display: flex;
@@ -119,19 +121,19 @@
 
     h1 {
       font-size: 20px;
-      font-family: raleway;
+      font-family: "Raleway";
       font-weight: regular;
     }
     h2 {
       font-size: 15px;
-      font-family: raleway;
+      font-family: "Raleway";
       font-weight: 300;
     }
 
     .five {
       height: 735px;
       padding: 2%;
-      background-color: rgb(222, 222, 222);
+      background-color: rgb(236, 235, 235);
 
       .title {
         text-align: center;
@@ -215,14 +217,14 @@
     }
 
     .eleven {
-      width: 645px;
+      width: 493px;
       height: 47px;
       padding: 1%;
       margin-bottom: 3%;
     }
 
     .twelve {
-      width: 645px;
+      width: 493px;
       height: 47px;
       padding: 1%;
       margin-bottom: 3%;
