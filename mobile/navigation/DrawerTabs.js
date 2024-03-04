@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import {Image, View, Button} from 'react-native';
+import {Image, View, Button, Text} from 'react-native';
 import ProfileScreen from './drawer-nav-screens/ProfileScreen';
 import { StyleSheet } from 'react-native';
-import { courseIcon, feedIcon, inboxIcon, profileIcon, statisticsIcon, taskIcon } from '../mgadimahanapnaimage';
+import { courseIcon, feedIcon, inboxIcon, notificationIcon, profileIcon, statisticsIcon, taskIcon } from '../mgadimahanapnaimage';
 import FeedScreen from './drawer-nav-screens/FeedScreen';
 import InboxScreen from './drawer-nav-screens/InboxScreen';
 import TaskScreen from './drawer-nav-screens/TasksScreen';
@@ -12,18 +12,30 @@ import StatisticScreen from './drawer-nav-screens/StatisticScreen';
 import AboutEnigmaScreen from './drawer-nav-screens/AboutEnigmaScreen';
 import CustomDrawer from './CustomDrawerComponent/CustomDrawer';
 import NotificationScreen from './drawer-nav-screens/NotificationScreen';
+import { loadAsync } from 'expo-font'
 const Drawer = createDrawerNavigator();
 
+const loadFontsAsync = async () => {
+  await loadAsync({
+    'Raleway-Regular': require('../assets/fonts/Raleway-Regular.ttf'),
+    'Raleway-Bold': require('../assets/fonts/Raleway-Bold.ttf'),
+  });
+};
+
 function DrawerTabs() {
-  const [visible, setVisible] = useState(false);
+  loadFontsAsync();
+
   return (
     <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />}
     drawerStyle screenOptions={{
-      drawerActiveBackgroundColor: '#32c069',
-      drawerActiveTintColor: 'white',
-      drawerInactiveBackgroundColor: 'rgba(0,0,0, 0.3)',
-      drawerItemStyle: {borderRadius: 15, height: 65,},
-      drawerLabelStyle: {alignSelf: 'flex-start '}
+      drawerActiveBackgroundColor: 'rgba(255,255,255, 0.2)',
+      drawerActiveTintColor: '#dbbc2c',
+      drawerInactiveTintColor: 'white',
+      drawerItemStyle: {borderRadius: 10, height: 65,},
+      drawerLabelStyle: {alignSelf: 'flex-start', fontFamily: 'Raleway-Bold'},
+      headerTitleStyle: {fontFamily: 'Raleway-Bold', color: 'white'},
+      headerTintColor: 'white',
+      headerStyle: {borderWidth: 3, backgroundColor: '#3a4f24'}
     }}>
       
       <Drawer.Screen name='Profile' component={ProfileScreen} options={{
@@ -52,7 +64,7 @@ function DrawerTabs() {
 
       <Drawer.Screen name='Notification' component={NotificationScreen} options={{
         drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50}} source={profileIcon} />
+          return <Image style= {{height: 50, width: 50}} source={notificationIcon} />
         }
       }}/>
 

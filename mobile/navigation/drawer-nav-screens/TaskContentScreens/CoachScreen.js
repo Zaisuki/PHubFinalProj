@@ -1,20 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { List, Card, Button, View, Text } from 'react-native-paper';
+import { List, Card, Button} from 'react-native-paper';
 import { getCheckTask, getCoach, getCoachTask, getConnectTask } from '../../../services/student';
 import formatDate from '../../../utils/formatDate';
 import { ScrollView } from 'react-native-gesture-handler';
 import {NavigationContainer, useRoute} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { View, Text } from 'react-native';
+import {loadAsync} from 'expo-font'
 
 const Stack = createNativeStackNavigator();
 
+const loadFontsAsync = async () => {
+  await loadAsync({
+    'Raleway-Regular': require('../../../assets/fonts/Raleway-Regular.ttf'),
+    'Raleway-Bold': require('../../../assets/fonts/Raleway-Bold.ttf'),
+  });
+};
 
-const NewTaskCoach = ({navigation, route}) => {
 
+const NewTaskCoach = ({navigation}) => {
+  loadFontsAsync();
+  const route = useRoute();
+  const {taskID} = route.params;
   const classType = 'coach';
   const [pageData, setData] = useState({});
+
     useEffect(() => {
-      const taskID = route.taskID;
         const fetchdata = async () => {
             let data;
             if (classType === 'coach') {
@@ -59,39 +70,35 @@ const NewTaskCoach = ({navigation, route}) => {
           }
         }
       return (
+        <ScrollView>
         <View>
         <Card>
         {classType.toLowerCase() !== 'coach' && (
                                     <>
                                     {pageData.dueDate ? (
-                                        <Text>
-                                            Due:<Text>{formatDate(pageData.dueDate)}</Text>
+                                        <Text style = {{
+                                          fontFamily: 'Raleway-Bold'
+                                        }}>
+                                            Due:<Text style = {{fontFamily: 'Raleway-Regular'}}>{formatDate(pageData.dueDate)}</Text>
                                         </Text>
                                     ) : (
-                                        <Text>'No Due Date'</Text>
+                                        <Text style = {{fontFamily: 'Raleway-Regular'}}>'No Due Date'</Text>
                                     )}
                                 </>
                             )}
-                            {classType.toUpperCase()}: <Text>{pageData.postTitle}</Text>
-                            <Text>{pageData.postDescription}</Text>
+                            <Text style = {{fontFamily: 'Raleway-Bold'}}>{classType.toUpperCase()}: <Text style = {{fontFamily: 'Raleway-Bold'}}>{pageData.postTitle}</Text></Text>
+                            <Text style = {{fontFamily: 'Raleway-Regular'}}>{pageData.postDescription}</Text>
         </Card>
         
-
-        <Button onPress={selectDoc} mode = 'contained'> 
-        Add Work +
-        </Button>
-        
-        <Button mode='outlined' style = {{
-          margin: 5
-        }}>
-          Mark as done
-        </Button>
+ 
         </View>
+        </ScrollView>
     
     );
       
   };
 const CoachScreenContent = ({ navigation }) => {
+  loadFontsAsync();
     const [expanded, setExpanded] = useState(true);
     const taskType = 'coach';
     const [coachTask, setCoachTask] = useState([]);
@@ -108,18 +115,22 @@ const CoachScreenContent = ({ navigation }) => {
         fetchData();
     }, []);
     return (
-        <ScrollView>
+        <ScrollView style = {{
+          backgroundColor: 'white'
+        }}>
         <List.Section>
             {coachTask.map((data) => (
                 <Card key={data._id} onPress = {() => navigation.navigate('NewTaskCoach', {taskID: data._id})} 
                 style={{
-                  borderRadius: 15, 
+                  borderRadius: 10, 
                   borderWidth: 2, 
-                  height: 100, 
+                  height: 100,
+                  backgroundColor: 'rgb(236, 235, 235)', 
                   justifyContent: 'center',
                   marginTop: 5,
                   marginBottom: 5,
                   borderColor: '#d3d3d3',
+                  margin: 20
                 }} 
                 contentStyle= {{
                   
@@ -129,13 +140,15 @@ const CoachScreenContent = ({ navigation }) => {
                   flexWrap:'wrap', 
                   flexDirection: 'row',
                   fontSize: 15,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Bold'
       
                 }} subtitleStyle = {{
                   fontSize: 10,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Regular'
                 }} />
-                        <Text>{data.class.subject.subjectCode}</Text>
+                        <Text style = {{fontFamily: 'Raleway-Bold', marginStart: 10}}>{data.class.subject.subjectCode}</Text>
             </Card>
             ))}
                

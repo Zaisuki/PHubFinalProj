@@ -2,13 +2,21 @@ import { ImageBackground, StyleSheet, Text, View, Dimensions, Image } from 'reac
 import{ React,  useEffect, useState  } from 'react';
 
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer'
-import { hays, ogrenek, upang, whatever } from '../../mgadimahanapnaimage';
+import { hays, ogrenek, phublogowithoutbg, upang, whatever } from '../../mgadimahanapnaimage';
 import { profile } from '../../services/user';
+import { loadAsync } from 'expo-font';
 
 
 const {width} = Dimensions.get('screen');
+const loadFontsAsync = async () => {
+  await loadAsync({
+    'Raleway-Regular': require('../../assets/fonts/Raleway-Regular.ttf'),
+    'Raleway-Bold': require('../../assets/fonts/Raleway-Bold.ttf'),
+  });
+};
 
 const CustomDrawer = props => {
+  loadFontsAsync();
 
   const [data, setData] = useState({});
   const [userInformation, setUserInformation] = useState({});
@@ -28,17 +36,22 @@ const CustomDrawer = props => {
 
 
   return (
-    <DrawerContentScrollView {...props}>
-        <ImageBackground source={upang} style={{
-            height: 150
+    <DrawerContentScrollView style = {{
+      backgroundColor: '#3a4f24',
+    }} {...props}>
+        <ImageBackground style={{
+            height: 75
         }}>
-        <Image source = {hays} style={styles.userImg}/>
+        <Image source = {phublogowithoutbg} style={styles.userImg}/>
         </ImageBackground>
       <View style={styles.drawerListWrapper}>
         <Text style = {{
           textAlign: 'center',
-          margin: 5
-        }}>{userInformation.lastName}, {userInformation.firstName}, {userInformation.middleName}</Text>
+          margin: 5,
+          fontFamily: 'Raleway-Bold',
+          fontSize: 20,
+          color: 'white',
+        }}>PHINMA <Text style = {{color: '#dbbc2c'}}>HUB</Text></Text>
         <DrawerItemList {...props}/>
       </View>
     </DrawerContentScrollView>
@@ -53,10 +66,8 @@ const styles = StyleSheet.create({
         height: 110,
         borderRadius: 110 / 2,
         position: 'absolute',
-        left: width / 2 - 110,
+        left: width / 2 - 125,
         bottom: -110 / 2,
-        borderWidth: 4,
-        borderColor: 'white'
     },
     drawerListWrapper: {
         marginTop: 110 / 2 + 10,
