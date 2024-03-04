@@ -65,8 +65,8 @@ export const unSubmitCheckController = async (req: Request & { user?: User }, re
 export const submitConnectController = async (req: Request & { user?: User }, res: Response) => {
     try {
         const userID = req.user?.userID;
-        const { taskID, answerID } = req.body;
-        const result = await submitConnect(taskID, userID, answerID);
+        const { taskID, choiceID } = req.body;
+        const result = await submitConnect(taskID, userID, choiceID);
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error) {
         return res.status(500).json({ 'message': 'Internal Server Error' });
@@ -89,12 +89,13 @@ export const getCheckTaskController = async (req: Request & { user?: User }, res
     }
 };
 
-export const getConnectTaskController = async (req: Request, res: Response) => {
+export const getConnectTaskController = async (req: Request & { user?: User }, res: Response) => {
     try {
-        const classID = req.query.classID as string;
-        if (classID) {
+        const userID = req.user?.userID;
+        const taskID = req.query.taskID as string;
+        if (taskID) {
             let result;
-            result = await getConnectTask(classID);
+            result = await getConnectTask(taskID, userID);
             return res.status(200).json({ 'message': result });
         }
 

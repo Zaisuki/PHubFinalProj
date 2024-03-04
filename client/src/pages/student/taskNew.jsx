@@ -6,18 +6,20 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
-import { getCheckTask, getCoachTask, getConnectTask, submitCheck, unSubmitCheck } from '../../services/student';
+import { getCheckTask, getCoachTask, getConnectTask, submitCheck, submitConnect, unSubmitCheck } from '../../services/student';
 import formatDate from '../../utils/formatDate';
 import { FileUploader } from 'react-drag-drop-files';
 import { FaTimes } from 'react-icons/fa';
 import ImagePreview from '../../components/imagePreview';
 import LinkPreview from '../../components/linkPreview';
+import ChoicesConnect from '../../components/choicesConnect';
 
 export default function NewTask() {
     let { taskID, classType } = useParams();
     const [pageData, setData] = useState({});
     const [showWindow, setShowWindow] = useState(false);
     const [submitted, setSubmitted] = useState(false);
+    const [selectedChoice, setSelectedChoice] = useState('');
     classType = classType.toLowerCase();
 
     const fileTypes = ['JPG', 'PNG', 'GIF', 'PDF'];
@@ -26,7 +28,9 @@ export default function NewTask() {
     const handlePlusClick = () => {
         setShowWindow(true);
     };
-
+    const handleRadioChange = (event) => {
+        setSelectedChoice(event.target.value);
+    };
     const handleCloseClick = () => {
         setShowWindow(false);
     };
@@ -45,7 +49,7 @@ export default function NewTask() {
         } else if (classType === 'connect') {
             // result = await postConnect(formData);
         }
-        if (result.message === 'Check submitted' || result.message === 'Connect submitted') {
+        if (result.message === 'Check submitted') {
             updateForm();
         }
     };
@@ -55,8 +59,15 @@ export default function NewTask() {
             updateForm();
         }
     };
+    const handleConnectSubmit = async () => {
+        let result = await submitConnect(taskID, selectedChoice);
+        if (result.message === 'Connect submitted') {
+            updateForm();
+        }
+    };
     const updateForm = () => {
         setAttachement([]);
+        setSelectedChoice('');
         setSubmitted((prevState) => !prevState);
     };
     useEffect(() => {
@@ -66,10 +77,12 @@ export default function NewTask() {
                 data = await getCoachTask(taskID);
             } else if (classType === 'connect') {
                 data = await getConnectTask(taskID);
+                setSubmitted(data.message.studentSubmission.length !== 0);
             } else {
                 data = await getCheckTask(taskID);
                 setSubmitted(data.message.studentSubmission.length !== 0);
             }
+            console.log(data.message);
             setData(data.message);
         };
         fetchdata();
@@ -120,70 +133,88 @@ export default function NewTask() {
                 </Col>
 
                 {/* Here is where you can find all the contents inside the left container or card */}
-                {classType.toLowerCase() === 'check' && !submitted ? (
-                    <>
-                        <Col xs={12} md={8} lg={4}>
-                            <Card className='main-right-card-container'>
-                                <Card className='submission-card'>
-                                    <h5>Your Work</h5>
+                {classType.toLowerCase() === 'check' &&
+                    (!submitted ? (
+                        <>
+                            <Col xs={12} md={8} lg={4}>
+                                <Card className='main-right-card-container'>
+                                    <Card className='submission-card'>
+                                        <h5>Your Work</h5>
 
-                                    {/* eto yung lalabas pag nakapag-upload na yung student ng file/pic/link */}
-                                    <Card className='student-work-container'>
-                                        {attachment.map((file, idx) => (
-                                            <p key={idx}>
-                                                {file.name}
-                                                <FaTimes className='eks' onClick={() => handleRemove(idx)} />
-                                            </p>
-                                        ))}
-                                        <box-icon name='x' color='#686464' size='md'></box-icon>
+                                        {/* eto yung lalabas pag nakapag-upload na yung student ng file/pic/link */}
+                                        <Card className='student-work-container'>
+                                            {attachment.map((file, idx) => (
+                                                <p key={idx}>
+                                                    {file.name}
+                                                    <FaTimes className='eks' onClick={() => handleRemove(idx)} />
+                                                </p>
+                                            ))}
+                                            <box-icon name='x' color='#686464' size='md'></box-icon>
+                                        </Card>
+
+                                        <div className='buttons-container'>
+                                            <Button className='upload-file-button' onClick={handlePlusClick}>
+                                                Upload File
+                                            </Button>
+                                        </div>
+                                        <div>
+                                            <Button className='mark-button' onClick={handleSubmit}>
+                                                Mark as done
+                                            </Button>
+                                        </div>
                                     </Card>
-
-                                    <div className='buttons-container'>
-                                        <Button className='upload-file-button' onClick={handlePlusClick}>
-                                            Upload File
-                                        </Button>
-                                    </div>
-                                    <div>
-                                        <Button className='mark-button' onClick={handleSubmit}>
-                                            Mark as done
-                                        </Button>
-                                    </div>
                                 </Card>
-                            </Card>
-                        </Col>
+                            </Col>
 
-                        {showWindow && (
-                            <div className='popup-submission'>
-                                <FaTimes className='eks' onClick={handleCloseClick} />
-                                <FileUploader className='w-screen' handleChange={(files) => setAttachement((prevState) => [...prevState, ...Object.values(files)])} name='file' types={fileTypes} multiple={true} />
-                            </div>
-                        )}
-                    </>
-                ) : (
-                    <>
-                        <Col xs={12} md={8} lg={4}>
-                            <Card className='main-right-card-container'>
-                                <Card className='submission-card'>
-                                    <h5>Your Work</h5>
+                            {showWindow && (
+                                <div className='popup-submission'>
+                                    <FaTimes className='eks' onClick={handleCloseClick} />
+                                    <FileUploader className='w-screen' handleChange={(files) => setAttachement((prevState) => [...prevState, ...Object.values(files)])} name='file' types={fileTypes} multiple={true} />
+                                </div>
+                            )}
+                        </>
+                    ) : (
+                        <>
+                            <Col xs={12} md={8} lg={4}>
+                                <Card className='main-right-card-container'>
+                                    <Card className='submission-card'>
+                                        <h5>Your Work</h5>
 
-                                    <div className='file-container'>{pageData.studentSubmission.map((submission) => submission.attachment.map((dataPage) => <div key={dataPage._id}>{dataPage.type.startsWith('image') ? <ImagePreview imageUrl={dataPage.url} /> : <LinkPreview Url={dataPage.url} />}</div>))}</div>
+                                        <div className='file-container'>{pageData.studentSubmission.map((submission) => submission.attachment.map((dataPage) => <div key={dataPage._id}>{dataPage.type.startsWith('image') ? <ImagePreview imageUrl={dataPage.url} /> : <LinkPreview Url={dataPage.url} />}</div>))}</div>
 
-                                    <div>
-                                        <Button className='mark-button' onClick={handleUnSubmit}>
-                                            Unsubmit
-                                        </Button>
-                                    </div>
+                                        <div>
+                                            <Button className='mark-button' onClick={handleUnSubmit}>
+                                                Unsubmit
+                                            </Button>
+                                        </div>
+                                    </Card>
                                 </Card>
-                            </Card>
-                        </Col>
+                            </Col>
 
-                        {showWindow && (
-                            <div className='popup-submission'>
-                                <FaTimes className='eks' onClick={handleCloseClick} />
-                                <FileUploader className='w-screen' handleChange={(files) => setAttachement((prevState) => [...prevState, ...Object.values(files)])} name='file' types={fileTypes} multiple={true} />
-                            </div>
-                        )}
-                    </>
+                            {showWindow && (
+                                <div className='popup-submission'>
+                                    <FaTimes className='eks' onClick={handleCloseClick} />
+                                    <FileUploader className='w-screen' handleChange={(files) => setAttachement((prevState) => [...prevState, ...Object.values(files)])} name='file' types={fileTypes} multiple={true} />
+                                </div>
+                            )}
+                        </>
+                    ))}
+                {classType.toLowerCase() === 'connect' && pageData.postChoices && (
+                    <Card className='pool-container'>
+                        <h4>Pool</h4>
+
+                        <div className='choice-container'>
+                            <form>
+                                {pageData.postChoices.map((dataPage) => (
+                                    <ChoicesConnect data={dataPage} choiceFunction={handleRadioChange} selectedChoice={selectedChoice} totalStudents={pageData.class.totalStudents} key={dataPage._id} />
+                                ))}
+                                <Button className='mark-button' onClick={handleConnectSubmit}>
+                                    Submit
+                                </Button>
+                                {submitted && 'nigs'}
+                            </form>
+                        </div>
+                    </Card>
                 )}
             </Row>
         </Container>

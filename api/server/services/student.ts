@@ -3,7 +3,7 @@ import { Student } from '../models/user';
 import { User } from '../middleware/authentication';
 import { populate } from 'dotenv';
 import { StudentCheckSubmission, StudentConnectSubmission, StudentSubjects } from '../models/classModel/studentClass';
-import { Attachement, Check, Coach, Connect } from '../models/classModel/class';
+import { Attachement, Check, Coach, Connect, ConnectChoices } from '../models/classModel/class';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { storage } from './upload';
 
@@ -220,9 +220,20 @@ export const getCheckTask = async (taskID: string, userID: any | undefined) => {
         return { 'message': 'No Check Task' };
     }
 };
-export const getConnectTask = async (classID: string) => {
+export const getConnectTask = async (taskID: string, userID: any | undefined) => {
     try {
-        const result = await Connect.findById(classID).populate('postChoices').populate('class').exec();
+        const result = await Connect.findById(taskID)
+            .populate({ path: 'studentSubmission', populate: { path: 'answer' } })
+            .populate('postChoices')
+            .populate('class')
+            .exec();
+        if (result && userID) {
+            // Filter studentSubmission to include only submissions of the desired student
+            const filteredSubmissions = result.studentSubmission.filter((submission: any) => submission.student.toString() === userID._id);
+
+            // Update result.studentSubmission to contain only the filtered submissions
+            result.studentSubmission = filteredSubmissions;
+        }
         return result;
     } catch (error) {
         return { 'message': 'No Connect Task' };
@@ -292,20 +303,35 @@ export const unSubmitCheck = async (taskID: string, userID: any | undefined) => 
         return { message: error.message, httpCode: 500 };
     }
 };
-export const submitConnect = async (taskID: string, userID: string | undefined, answerID: string) => {
+export const submitConnect = async (taskID: string, userID: any | undefined, choiceID: string) => {
     try {
+        console.log(choiceID);
         let studentConnectSubmissionSchema = await new StudentConnectSubmission({
             student: userID,
-            answer: answerID,
+            answer: choiceID,
             task: taskID,
         }).save();
 
         let studentSubjectsSchema = await StudentSubjects.findOne({ student: userID });
+        let connectSchema = await Connect.findById(taskID);
+        let connectChoiceSchema = await ConnectChoices.findById(choiceID);
+
         if (!studentSubjectsSchema) {
             return { message: 'Student not found', httpCode: 404 };
         }
+        if (!connectSchema) {
+            return { message: 'Task not found', httpCode: 404 };
+        }
+        if (!connectChoiceSchema) {
+            return { message: 'Choice not found', httpCode: 404 };
+        }
         studentSubjectsSchema.studentConnectSubmission.push(studentConnectSubmissionSchema._id);
+        connectSchema.studentSubmission.push(studentConnectSubmissionSchema._id);
+        connectChoiceSchema.respondents += 1;
+        connectChoiceSchema.students.push(userID._id);
 
+        await connectChoiceSchema.save();
+        await connectSchema.save();
         await studentSubjectsSchema.save();
         return { message: 'Connect submitted', httpCode: 200 };
     } catch (error: any) {
