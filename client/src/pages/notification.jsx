@@ -5,7 +5,7 @@ import { socket } from '../utils/socket';
 import { getNotification } from '../services/user';
 import { convertDate } from '../utils/convertDate';
 import { MdOutlineAccessTime } from "react-icons/md";
-import { IoIosNotifications } from "react-icons/io";
+import { IoIosNotifications, IoMdNotificationsOutline } from "react-icons/io";
 
 
 
@@ -53,7 +53,7 @@ function Notification() {
                         <div className='desc-tr' key={idx}>
                             
                             <div className='bag'>
-                            <IoIosNotifications className='ios' />
+                            <IoMdNotificationsOutline className='ios' />
                             
                             <div className='from'>{notif.header}</div>
                             <div className='content'>{notif.description}</div>
