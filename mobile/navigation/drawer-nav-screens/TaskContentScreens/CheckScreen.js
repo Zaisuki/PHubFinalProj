@@ -24,8 +24,9 @@ const loadFontsAsync = async () => {
   });
 };
 
+loadFontsAsync();
+
 const NewTaskCheck = ({navigation}) => {
-  loadFontsAsync();
   const route = useRoute();
   const {taskID} = route.params;
   const classType = 'check';
@@ -107,7 +108,6 @@ const NewTaskCheck = ({navigation}) => {
 };
 
 const CheckScreenContent =  ({navigation}) => {
-    loadFontsAsync();
     const [expanded, setExpanded] = useState(true);
     const taskType = 'check';
     const [noDueDate, setNoDueDate] = useState([]);

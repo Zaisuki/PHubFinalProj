@@ -13,8 +13,9 @@ const loadFontsAsync = async () => {
     });
   };
   
+  loadFontsAsync();
+
 const ProfileScreen = ({ navigation }) => {
-    loadFontsAsync();
     const [data, setData] = useState({});
     const [userInformation, setUserInformation] = useState({});
     const handleLogout = () => {

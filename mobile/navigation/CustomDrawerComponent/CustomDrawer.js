@@ -15,8 +15,9 @@ const loadFontsAsync = async () => {
   });
 };
 
+loadFontsAsync();
+
 const CustomDrawer = props => {
-  loadFontsAsync();
 
   const [data, setData] = useState({});
   const [userInformation, setUserInformation] = useState({});
