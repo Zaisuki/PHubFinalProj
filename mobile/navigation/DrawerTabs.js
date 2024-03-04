@@ -22,8 +22,9 @@ const loadFontsAsync = async () => {
   });
 };
 
+loadFontsAsync();
+
 function DrawerTabs() {
-  loadFontsAsync();
 
   return (
     <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />}

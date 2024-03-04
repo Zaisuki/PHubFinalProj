@@ -17,9 +17,10 @@ const loadFontsAsync = async () => {
   });
 };
 
+loadFontsAsync();
 
 const NewTaskCoach = ({navigation}) => {
-  loadFontsAsync();
+
   const route = useRoute();
   const {taskID} = route.params;
   const classType = 'coach';
@@ -98,7 +99,7 @@ const NewTaskCoach = ({navigation}) => {
       
   };
 const CoachScreenContent = ({ navigation }) => {
-  loadFontsAsync();
+
     const [expanded, setExpanded] = useState(true);
     const taskType = 'coach';
     const [coachTask, setCoachTask] = useState([]);

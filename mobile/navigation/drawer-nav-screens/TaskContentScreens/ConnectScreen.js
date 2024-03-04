@@ -17,8 +17,9 @@ const loadFontsAsync = async () => {
   });
 };
 
+loadFontsAsync();
+
 const NewTaskConnect = ({navigation}) => {
-  loadFontsAsync();
   const route = useRoute();
   const {taskID} = route.params;
   const classType = 'connect';
@@ -99,8 +100,6 @@ const NewTaskConnect = ({navigation}) => {
 
 
 const ConnectScreenContent =  ({navigation}) => {
-    loadFontsAsync();
-    const {colors} = useTheme();
     const [expanded, setExpanded] = useState(true);
     const taskType = 'connect';
     const [thisWeek, setThisWeek] = useState([]);

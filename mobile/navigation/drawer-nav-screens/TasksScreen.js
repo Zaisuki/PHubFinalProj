@@ -15,8 +15,9 @@ const loadFontsAsync = async () => {
     });
   };
 
+  loadFontsAsync();
+  
 function TaskScreen() {
-    loadFontsAsync();
     return (
         <Tab.Navigator screenOptions={{
             tabBarLabelStyle: {fontFamily: 'Raleway-Bold'},
