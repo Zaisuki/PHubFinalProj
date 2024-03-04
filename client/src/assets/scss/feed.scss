@@ -50,7 +50,7 @@
     justify-content: center;
     padding: 20px;
     margin-bottom: 30px;
-    background-color: #69696913;
+    background-color: e0ffbf3f;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 
     transition: background-color 0.3s ease, transform 0.3s ease,
@@ -118,5 +118,6 @@
     background-color: #ffffff;
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid RGB(219, 188, 44);
   }
 }

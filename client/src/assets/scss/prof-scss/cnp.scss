@@ -1,0 +1,200 @@
+//COURSE NEW SCSS
+
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.mb-3{
+  font-size: large;
+  font-family: "Raleway" sans-serif;
+  font-weight: 800;
+  padding: 0;
+  border: none;
+  border-radius: 0px;
+  background-color: #3a4f24;
+  button{
+    color: white;
+  }
+  button:hover{
+    color: #dbbc2c ;
+    border-radius: 1px;
+  }
+}
+.class {
+  font-family: "Raleway" sans-serif;
+  font-weight: 800;
+  font-size: 90px;
+  height: auto;
+  padding: 20px;
+  .classwork-container {
+    padding: 50px;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: "Raleway" sans-serif;
+    align-items: center;
+    
+
+    .card-within {
+      width: 100%;
+      margin-bottom: 10px;
+      background-color: #e0ffbf83;
+      border: none;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      
+      .book{
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      h4 {
+        font-size: 30px;
+        font-family: "Raleway", sans-serif;
+        font-weight: 800;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+
+       
+      }
+      span {
+        font-size: 17px;
+        font-family: "Raleway", sans-serif;
+        font-weight: 400;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-style: italic;
+      }
+
+      h5 {
+        font-size: 11px;
+        font-family: "Raleway" ,sans-serif;
+        display: flex;
+        justify-content: flex-end;
+        color: black;
+      }
+    }
+
+    .card-within:hover {
+      border: 2px solid RGB(219, 188, 44);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      background-color: #e0ffbfc5 ;
+      animation: floatAnimation 2s infinite ease-in-out alternate;
+      color: #dbbc2c;
+      .book{
+        color: #dbbc2c;
+      }
+    }
+  }
+}
+
+.people-tab {
+  padding: 2% 18% 2% 18%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+  
+  
+  .instructor-card {
+    background-color: #e0ffbf83;
+    border: none;
+    
+    
+    .card-header {
+      font-size: 20px;
+      font-weight: 450;
+      text-align: left;
+      background-color: #3a4f24;
+      color: white;
+      text-align: center;
+      font-family: "Raleway", sans-serif;
+      font-weight: 700;
+      
+    }
+    .card-body:hover {
+      cursor: pointer;
+      background-color: #e0ffbfc5;
+    }
+
+    .card-body {
+      display: flex;
+      align-items: center;
+      
+
+      .name {
+        padding: 0;
+        margin: 0;
+        padding-left: 10px;
+        text-align: center;
+        font-family: "Raleway", sans-serif;
+        font-weight: 500;
+      }
+
+      .bx {
+        color: rgb(122, 122, 122);
+        font-size: 40px;
+      }
+    }
+  }
+
+  .student-card {
+    background-color: #e0ffbf83;
+    border: none;
+    
+    
+    .card-header {
+      font-size: 20px;
+      font-weight: 450;
+      text-align: left;
+      background-color: #3a4f24;
+      color: white;
+      text-align: center;
+      font-family: "Raleway", sans-serif;
+      font-weight: 700;
+      
+    }
+    .card-body:hover {
+      cursor: pointer;
+      background-color: #e0ffbfc5;
+    }
+
+    .card-body {
+      display: flex;
+      align-items: center;
+      
+
+      .name {
+        padding: 0;
+        margin: 0;
+        padding-left: 10px;
+        text-align: center;
+        font-family: "Raleway", sans-serif;
+        font-weight: 500;
+      }
+
+      .bx {
+        color: rgb(122, 122, 122);
+        font-size: 40px;
+      }
+    }
+  }
+}
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}

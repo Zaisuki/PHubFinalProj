@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import '../assets/scss/course.scss';
+import '../../assets/scss/prof-scss/course-prof.scss';
 import { useEffect, useState } from 'react';
-import { course } from '../services/user';
+import { course } from '../../services/user';
 import { FaBookOpenReader } from "react-icons/fa6";
 
-function Course() {
+function CourseProf() {
     const navigate = useNavigate();
     const [subjects, setSubjects] = useState([]);
     useEffect(() => {
@@ -54,8 +54,9 @@ function Course() {
                 )}
             </div>
             
+            
         </div>
     );
 }
 
-export default Course;
+export default CourseProf;

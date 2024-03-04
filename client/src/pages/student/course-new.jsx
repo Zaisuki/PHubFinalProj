@@ -15,11 +15,11 @@ function CourseNew() {
   return (
     <Tabs id="justify-tab" className="mb-3" justify>
       {/* CLASSWORK TAB */}
-      <Tab className="class" eventKey="classwork" title="ClassAAwork">
+      <Tab className="class" eventKey="classwork" title="Classwork">
         <Container className="classwork-container">
           {/* CARDS within classwork tab*/}
           <Card className="card-within">
-            <Card.Body onClick={() => navigate("/work-page")}>
+            <Card.Body onClick={() => navigate("/taskNew")}>
               <FaBook className="book" />
               <h4 className="task-type">CHECK:</h4>
               <span className="task-title">Moduaaaaaaaale 21</span>
