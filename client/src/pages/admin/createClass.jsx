@@ -29,28 +29,28 @@ function CreateClass() {
           <Form.Check
             type={type}
             id={`default-${type}`}
-            label={`Block 1`}
+            label={`BSIT`}
           />
 
           <Form.Check
             type={type}
             id={`disabled-default-${type}`}
-            label={`Block 2`}
+            label={`BSN`}
           />
           <Form.Check
             type={type}
             id={`disabled-default-${type}`}
-            label={`Block 3`}
+            label={`BSBA`}
           />
           <Form.Check
             type={type}
             id={`disabled-default-${type}`}
-            label={`Block 4`}
+            label={`BSHM`}
           />
           <Form.Check
             type={type}
             id={`disabled-default-${type}`}
-            label={`Block 5`}
+            label={`BSECE`}
           />
         </div>
         

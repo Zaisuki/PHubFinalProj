@@ -23,24 +23,6 @@ function EnrollStudentClass() {
           </Col>
         </Row>
       
-
-      <div className="class-count">
-        <p>Number of Students</p>
-        
-        <Dropdown data-bs-theme="dark">
-        <Dropdown.Toggle className="dropdown-count" id="dropdown-button-dark-example1" variant="secondary">
-          Student Count
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-2">10</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">20</Dropdown.Item>
-          <Dropdown.Item href="#/action-4">30</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">40</Dropdown.Item>
-          <Dropdown.Item href="#/action-4">50</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-        </div>
     </div>
   );
 }

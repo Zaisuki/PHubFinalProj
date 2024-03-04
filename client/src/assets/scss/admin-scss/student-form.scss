@@ -1,7 +1,13 @@
 .student-form {
     padding: 1%;
-
+    font-size: 30px;
     .row {
         margin-bottom: 2%;
+    }
+    input.form-control{
+        font-size: 20px;
+    }
+    select.form-select{
+        font-size: 20px;
     }
 }
