@@ -1,6 +1,6 @@
 .class-form {
     padding: 1%;
-  
+  font-size: 30px;
     .row {
       margin-bottom: 2%;
     }
@@ -37,16 +37,17 @@
     width: 100%;
     justify-content: flex-start;
     margin-left: 10px;
-  }
- }
+  
+}
 
  .blocks{
-  width: 9%;
+  width: 100%;
   margin-top: -10px;
   display: flex;
   justify-content: flex-start;
   margin-left: 17px;
  }
+}
 
  
  .assigned-subs{
@@ -59,10 +60,13 @@ margin-left: 10px;
   }
 }
  .subs{
-  width: 9%;
+  width: 100%;
   margin-top: -10px;
   display: flex;
   justify-content: flex-start;
   margin-left: 17px;
 }
-  
+
+input.form-control{
+font-size: 30px;
+}
