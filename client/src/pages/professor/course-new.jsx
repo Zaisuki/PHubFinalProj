@@ -45,28 +45,9 @@ function CourseNew() {
         <Card className="student-card">
           <Card.Header>Students</Card.Header>
           <Card.Body>
-            <ListGroup className="lists">
-              <ListGroup.Item>
-                <i className="bx bxs-user-circle"></i>
+          <i className="bx bxs-user-circle"></i>
                 <p className="name">Glaiza Joyce Bauzon Alicoben</p>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <i className="bx bxs-user-circle"></i>
-                <p className="name">Stephen Paul Bautista Bautista</p>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <i className="bx bxs-user-circle"></i>
-                <p className="name">Jaydeebryann Estrada Ang</p>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <i className="bx bxs-user-circle"></i>
-                <p className="name">Leanne Main Dela Cruz</p>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <i className="bx bxs-user-circle"></i>
-                <p className="name">Christian Quimsim Munar</p>
-              </ListGroup.Item>
-            </ListGroup>
+           
           </Card.Body>
         </Card>
       </Tab>
