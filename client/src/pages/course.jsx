@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import '../assets/scss/course.scss';
 import { useEffect, useState } from 'react';
 import { course } from '../services/user';
+import { FaBookOpenReader } from "react-icons/fa6";
 
 function Course() {
     const navigate = useNavigate();
@@ -21,20 +22,29 @@ function Course() {
     }, []);
     return (
         <div className='course-main-container'>
+            <div className="course-header">
+        <h1 className="user">
+          Study hard, <span>flames</span>!
+        </h1>
+      </div>
+           
             <div className='course-container'>
                 {subjects ? (
                     subjects.map((subject) => (
                         <Card border='secondary' className='course-card' key={subject._id}>
-                            <Card.Header className='subject-code'>
-                                {subject.subject.subjectCode}: <span className='block'>{subject.block}</span>
+                            <Card.Header className='section'>
+                                 <span className='block'>{subject.block}</span>
                             </Card.Header>
                             <Card.Body>
-                                <Card.Title> Instructor </Card.Title>
+                            <div className='subject-code'>
+                            {subject.subject.subjectCode}
+                            </div>
+                         
                                 <Card.Text className='instructor-name'>
                                     {subject.professor.firstName} {subject.professor.lastName}
                                 </Card.Text>
                                 <button onClick={() => navigate(`/course-new/${subject._id}`)} type='button' className='btn btn-dark' data-mdb-ripple-init>
-                                    View
+                                <FaBookOpenReader className='book' />
                                 </button>
                             </Card.Body>
                         </Card>
@@ -43,6 +53,7 @@ function Course() {
                     <p className='feed-no-announcement'></p>
                 )}
             </div>
+            
         </div>
     );
 }

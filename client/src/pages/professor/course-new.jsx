@@ -17,7 +17,7 @@ function CourseNew() {
           <Card className="card-within">
             <Card.Body onClick={() => navigate('/work-page')}>
               <h4 className="task-type">
-                CHECK: <span className="task-title">Module 21</span>
+                CHECK: <span className="task-title">Moduaaaaaaaale 21</span>
               </h4>
               <h5 className="date-posted">February 10, 2024</h5>
             </Card.Body>

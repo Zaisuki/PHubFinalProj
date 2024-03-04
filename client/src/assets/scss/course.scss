@@ -1,42 +1,112 @@
 .course-main-container {
-  padding: 5em 1em;
+  padding: 2px;
+  .course-header {
+    padding: 0;
+    margin-bottom: 2px;
+    background-color: #3a4f24;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    h1 {
+      font-family: "Raleway", sans-serif;
+      font-size: 15px;
+      padding: 10px;
+      margin-left: 10px;
+      margin-top: 10px;
+      color: #ffffff;
+      font-style: italic;
+      font-weight: 500;
+    }
+    span {
+      font-family: "Raleway", sans-serif;
+      font-style: italic;
+      color: #dbbc2c;
+    }
+  }
+
   .course-container {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 350px);
-    grid-gap: 2vh;
-    align-items: center;
-    justify-items: center;
+    padding: 1px;
+    margin: 2px;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #e0ffbf83;
+    transition: box-shadow 0.3s ease;
 
     .course-card {
-      width: 350px;
-
+      width: 100%;
+      background: none;
+      padding: 10px;
+      margin: 20px;
+      border: none;
+      .subject-code {
+        font-family: "Raleway", sans-serif;
+        font-weight: 700;
+        font-size: 25px;
+      }
+      .section {
+        display: flex;
+        justify-content: start;
+        span {
+          font-family: "Raleway", sans-serif;
+        }
+      }
       button {
-        width: 50%;
+        width: 5%;
         border-radius: 20px;
-        text-align: center;
-        display: block;
-        margin: auto;
-        background-color: grey;
+        .book {
+          font-size: 20px;
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          align-items: center;
+        
+        }
+      }
+      button:hover {
+        border: none;
+        background-color: #3a4f24;
+        .book {
+      
+          display: flex;
+          color: #ffffff;
+          
+
+        }
       }
       .popo {
-        font-family: "Protest Riot", sans-serif;
+        font-family: "Raleway", sans-serif;
       }
       .card-header {
-        background-color: grey;
+        border: none;
+        padding: 1px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .card-title {
         text-align: center;
         margin-bottom: 0;
-        color: rgb(91, 90, 90);
+        color: rgb(0, 0, 0);
+        font-family: "Raleway", sans-serif;
       }
       .instructor-name {
         text-align: center;
+        font-family: "Raleway", sans-serif;
+        font-weight: 600;
       }
       .card-text {
         text-align: center;
+        font-family: "Raleway", sans-serif;
       }
     }
+  }
+  .course-container:hover {
+    border: 4px solid #dbbc2c;
+    background-color: #e0ffbfc5;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
 }
