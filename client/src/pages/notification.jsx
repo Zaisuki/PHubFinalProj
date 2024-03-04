@@ -4,10 +4,14 @@ import Table from 'react-bootstrap/Table';
 import { socket } from '../utils/socket';
 import { getNotification } from '../services/user';
 import { convertDate } from '../utils/convertDate';
+import { MdOutlineAccessTime } from "react-icons/md";
+import { IoIosNotifications } from "react-icons/io";
+
 
 
 function Notification() {
     const [notifications, setNotification] = useState([]);
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -36,20 +40,26 @@ function Notification() {
         <Table hover className='table-main'>
             
             <tbody className='t-body'>
-            <thead className='table-header'>
+           <h1 className='ioss'> Notification</h1>
+            {/* <thead className='table-header'>
                 <tr>
                     <th>Header</th>
                     <th>Content</th>
                     <th>Time/Date</th>
                 </tr>
-            </thead>
+            </thead> */}
                 {notifications ? (
                     notifications.map((notif, idx) => (
-                        <tr className='desc-tr' key={idx}>
-                            <td className='from'>{notif.header}</td>
-                            <td className='content'>{notif.description}</td>
-                            <td className='time-date'>{convertDate(notif.updatedAt)}</td>
-                        </tr>
+                        <div className='desc-tr' key={idx}>
+                            
+                            <div className='bag'>
+                            <IoIosNotifications className='ios' />
+                            
+                            <div className='from'>{notif.header}</div>
+                            <div className='content'>{notif.description}</div>
+                            <div className='time-date'><MdOutlineAccessTime />{convertDate(notif.updatedAt)}</div>
+                        </div>
+                        </div>
                     ))
                 ) : (
                     <tr>

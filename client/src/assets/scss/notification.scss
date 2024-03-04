@@ -6,10 +6,7 @@
 }
 
 .container {
-  
-  
   .content {
-    
     .etch {
       font-family: "Raleway", sans-serif;
       font-size: 100px;
@@ -19,54 +16,120 @@
 
 .bgN {
   padding: 20px;
- 
+
   .notif {
-    
     width: 100%;
 
-    thead {
-      font-size: 20px;
-      margin-left:0 ;
-      width: 700%;
-      display: flex;
-      justify-content: center;
+    // thead {
+    //   font-size: 20px;
+    //   margin-left:0 ;
+    //   width: 700%;
+    //   display: flex;
+    //   justify-content: center;
 
-      th {
-        font-family: "Raleway", sans-serif;
-        font-weight: 800;
-        width: 100%;
-        text-align: center;
-        background-color: #3a4f24;
+    //   th {
+    //     font-family: "Raleway", sans-serif;
+    //     font-weight: 800;
+    //     width: 100%;
+    //     text-align: center;
+    //     background-color: #3a4f24;
 
-        color: white;
-      }
-    }
+    //     color: white;
+    //   }
+    // }
 
     .table-main {
+      padding: 40px;
+
       .t-body {
-        margin: 10px;
-        font-size: 20px;
-        flex-direction: column;
+        
+        
+        
+        
+
+        .ioss {
+          font-size: 25px;
+          font-family: "Raleway", sans-serif;
+          font-weight: 800;
+          padding: 10px;
+          text-align: center;
+          
+        }
+
         .desc-tr {
-          background-color: black;
-          td {
-            background-color: rgb(239, 255, 214);
+          background-color: 0;
+          padding: 5px;
+          border-radius: 5px;
+          margin: 7px;
+          font-size: 15px;
+          margin-right: 10px;
+          .bag {
+            background-color: #e0ffbf83;
             padding: 20px;
-            margin: 2px;
-            font-size: 15px;
+            border-radius: 20px;
+            .ios {
+              font-size: 30px;
+              display: flex;
+              justify-content: center;
+            }
 
             .from {
               font-size: 20px;
+              font-family: "Raleway", sans-serif;
+              font-weight: 700;
+              display: flex;
+              justify-content: center;
+              text-align: justify;
             }
             .content {
+              font-family: "Raleway", sans-serif;
+              font-style: italic;
+              display: flex;
+              justify-content: center;
               text-align: center;
+              margin: 20px;
             }
             .time-date {
               font-size: 10px;
+              display: flex;
+              justify-content: flex-end;
+              font-family: "Raleway", sans-serif;
+              align-items: center;
             }
           }
+          .bag:hover {
+            border: 2px solid RGB(219, 188, 44);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: floatAnimation 2s infinite ease-in-out alternate;
+            background-color: #e0ffbfc5 ;
+            color: #dbbc2c;
+            .ios{
+              color: #dbbc2c ;
+            }
+            @keyframes floatAnimation {
+              0% {
+                transform: translateY(0);
+              }
+              100% {
+                transform: translateY(-90px);
+              }
+            }
+            
+          }
+          
         }
       }
+      
+      
     }
+    
+  }
+}
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
   }
 }
