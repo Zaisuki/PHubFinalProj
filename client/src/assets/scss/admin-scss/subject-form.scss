@@ -1,7 +1,23 @@
 .subject-form {
   padding: 1%;
-
+  
+  
   .row {
     margin-bottom: 2%;
   }
 }
+
+.sub-code{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+} 
+
+.sub-des{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+}
+

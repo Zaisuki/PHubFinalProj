@@ -7,20 +7,18 @@ import Form from "react-bootstrap/Form";
 function CreateSubject() {
   return (
     <div className="subject-form">
-      <Container>
-        <Row>
+        <Row className="sub-code">
           <Col sm={4}>
             <Form.Label>Subject Code</Form.Label>
             <Form.Control placeholder="Enter" />
           </Col>
         </Row>
-        <Row>
+        <Row className="sub-des">
           <Col sm={6}>
             <Form.Label>Subject Description</Form.Label>
             <Form.Control placeholder="Enter" />
           </Col>
         </Row>
-      </Container>
     </div>
   );
 }

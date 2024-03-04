@@ -9,20 +9,20 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 function EnrollStudentClass() {
   return (
     <div className="enroll-student-form">
-      <Container>
-        <Row>
+      
+        <Row className="stud-num">
           <Col sm={4}>
             <Form.Label>Student Number/ID</Form.Label>
             <Form.Control placeholder="Enter" />
           </Col>
         </Row>
-        <Row>
+        <Row  className="class-id">
           <Col sm={5}>
             <Form.Label>Class ID</Form.Label>
             <Form.Control placeholder="Enter" />
           </Col>
         </Row>
-      </Container>
+      
 
       <div className="class-count">
         <p>Number of Students</p>
