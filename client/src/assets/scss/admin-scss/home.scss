@@ -34,7 +34,6 @@
       margin-left: 90px;
       height: 10%;
       width: 100%;
-      box-shadow: 20px 10px 200px rgba(0, 0, 0, 200);
       background: linear-gradient(
         to right,
         transparent 0%,
@@ -107,6 +106,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 70px;
+    
     cursor: pointer;
 
     .divide {
@@ -116,7 +116,7 @@
       height: 300px;
       width: 100%;
       border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 25);
       display: flex;
       justify-content: center;
       align-items: center;
