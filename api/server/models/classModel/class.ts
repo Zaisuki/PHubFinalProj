@@ -1,5 +1,12 @@
 import mongoose, { Schema, InferSchemaType } from 'mongoose';
 
+const attachmentSchema = new Schema({
+    url: { type: String },
+    type: { type: String },
+});
+
+export const Attachement = mongoose.model('Attachement', attachmentSchema);
+
 const checkSchema = new Schema(
     {
         class: {
@@ -9,7 +16,8 @@ const checkSchema = new Schema(
         },
         typeOfCheck: {
             type: String,
-            required: [true, 'Please enter the type.'],
+            // TODO: remove this
+            // required: [true, 'Please enter the type.'],
         },
         postTitle: {
             type: String,
@@ -23,7 +31,9 @@ const checkSchema = new Schema(
         },
         attachment: [
             {
-                type: String,
+                type: Schema.Types.ObjectId,
+                ref: 'Attachement',
+                default: null,
             },
         ],
         respondents: {
@@ -69,7 +79,9 @@ const coachSchema = new Schema(
         },
         attachment: [
             {
-                type: String,
+                type: Schema.Types.ObjectId,
+                ref: 'Attachement',
+                default: null,
             },
         ],
         view: {
@@ -163,6 +175,11 @@ const classSchema = new Schema({
             default: null,
         },
     ],
+    totalStudents: {
+        type: Number,
+        required: [true, 'Please enter total students.'],
+        default: 0,
+    },
     professor: {
         type: Schema.Types.ObjectId,
         ref: 'Professor',

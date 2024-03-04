@@ -6,15 +6,18 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
-import { getCheckTask, getCoachTask, getConnectTask, submitCheck } from '../../services/student';
+import { getCheckTask, getCoachTask, getConnectTask, submitCheck, unSubmitCheck } from '../../services/student';
 import formatDate from '../../utils/formatDate';
 import { FileUploader } from 'react-drag-drop-files';
-import { FaPlus, FaTimes } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
+import ImagePreview from '../../components/imagePreview';
+import LinkPreview from '../../components/linkPreview';
 
 export default function NewTask() {
     let { taskID, classType } = useParams();
     const [pageData, setData] = useState({});
     const [showWindow, setShowWindow] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
     classType = classType.toLowerCase();
 
     const fileTypes = ['JPG', 'PNG', 'GIF', 'PDF'];
@@ -41,15 +44,20 @@ export default function NewTask() {
             result = await submitCheck(formData);
         } else if (classType === 'connect') {
             // result = await postConnect(formData);
-        } else {
-            // result = await postCoach(formData);
         }
-        if (result.message === 'Check posted' || result.message === 'Connect posted' || result.message === 'Coach posted') {
+        if (result.message === 'Check submitted' || result.message === 'Connect submitted') {
+            updateForm();
+        }
+    };
+    const handleUnSubmit = async () => {
+        let result = await unSubmitCheck(taskID);
+        if (result.message === 'Check unsubmitted') {
             updateForm();
         }
     };
     const updateForm = () => {
         setAttachement([]);
+        setSubmitted((prevState) => !prevState);
     };
     useEffect(() => {
         const fetchdata = async () => {
@@ -60,15 +68,14 @@ export default function NewTask() {
                 data = await getConnectTask(taskID);
             } else {
                 data = await getCheckTask(taskID);
+                setSubmitted(data.message.studentSubmission.length !== 0);
             }
-            console.log(data.message);
             setData(data.message);
         };
         fetchdata();
-    }, [taskID, classType]);
+    }, [taskID, classType, submitted]);
 
     useEffect(() => {
-        console.log(attachment);
         handleCloseClick();
     }, [attachment]);
     return (
@@ -113,7 +120,7 @@ export default function NewTask() {
                 </Col>
 
                 {/* Here is where you can find all the contents inside the left container or card */}
-                {classType.toLowerCase() === 'check' && (
+                {classType.toLowerCase() === 'check' && !submitted ? (
                     <>
                         <Col xs={12} md={8} lg={4}>
                             <Card className='main-right-card-container'>
@@ -139,6 +146,31 @@ export default function NewTask() {
                                     <div>
                                         <Button className='mark-button' onClick={handleSubmit}>
                                             Mark as done
+                                        </Button>
+                                    </div>
+                                </Card>
+                            </Card>
+                        </Col>
+
+                        {showWindow && (
+                            <div className='popup-submission'>
+                                <FaTimes className='eks' onClick={handleCloseClick} />
+                                <FileUploader className='w-screen' handleChange={(files) => setAttachement((prevState) => [...prevState, ...Object.values(files)])} name='file' types={fileTypes} multiple={true} />
+                            </div>
+                        )}
+                    </>
+                ) : (
+                    <>
+                        <Col xs={12} md={8} lg={4}>
+                            <Card className='main-right-card-container'>
+                                <Card className='submission-card'>
+                                    <h5>Your Work</h5>
+
+                                    <div className='file-container'>{pageData.studentSubmission.map((submission) => submission.attachment.map((dataPage) => <div key={dataPage._id}>{dataPage.type.startsWith('image') ? <ImagePreview imageUrl={dataPage.url} /> : <LinkPreview Url={dataPage.url} />}</div>))}</div>
+
+                                    <div>
+                                        <Button className='mark-button' onClick={handleUnSubmit}>
+                                            Unsubmit
                                         </Button>
                                     </div>
                                 </Card>

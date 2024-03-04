@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import { Professor } from '../models/user';
 import { Announcement } from '../models/classModel/announcement';
-import { Check, Class, Coach, Connect, ConnectChoices } from '../models/classModel/class';
+import { Attachement, Check, Class, Coach, Connect, ConnectChoices } from '../models/classModel/class';
 import { ProfessorHandledClass } from '../models/classModel/professorClass';
 import { addTaskNotification } from './notification';
 import { StudentCheckSubmission, StudentConnectSubmission } from '../models/classModel/studentClass';
@@ -118,7 +118,7 @@ export const getConnect = async (classID: string) => {
 };
 export const getCoachTask = async (classID: string) => {
     try {
-        const result = await Coach.findById(classID);
+        const result = await Coach.findById(classID).populate('attachment').exec();
         return result;
     } catch (error) {
         return { 'message': 'No Coach' };
@@ -126,7 +126,7 @@ export const getCoachTask = async (classID: string) => {
 };
 export const getCheckTask = async (classID: string) => {
     try {
-        const result = await Check.findById(classID);
+        const result = await Check.findById(classID).populate('attachment').exec();
         return result;
     } catch (error) {
         return { 'message': 'No Check' };
@@ -134,7 +134,7 @@ export const getCheckTask = async (classID: string) => {
 };
 export const getConnectTask = async (classID: string) => {
     try {
-        const result = await Connect.findById(classID);
+        const result = await Connect.findById(classID).populate('postChoices').populate('class').exec();
         return result;
     } catch (error) {
         return { 'message': 'No Connect' };
@@ -241,7 +241,9 @@ export const addCheck = async (classID: string, postTitle: string, postDescripti
 
                 const snapshot = await uploadBytesResumable(storageRef, file.buffer, metadata);
                 const downloadURL = await getDownloadURL(snapshot.ref);
-                newCheck.attachment.push(downloadURL);
+                const fileType = file.mimetype.startsWith('image/') ? 'image' : 'docs';
+                let newAttachment = await new Attachement({ url: downloadURL, type: fileType }).save();
+                newCheck.attachment.push(newAttachment._id);
             }
             await newCheck.save();
         }
@@ -308,7 +310,9 @@ export const addCoach = async (classID: string, postTitle: string, postDescripti
 
                 const snapshot = await uploadBytesResumable(storageRef, file.buffer, metadata);
                 const downloadURL = await getDownloadURL(snapshot.ref);
-                newCoach.attachment.push(downloadURL);
+                const fileType = file.mimetype.startsWith('image/') ? 'image' : 'docs';
+                let newAttachment = await new Attachement({ url: downloadURL, type: fileType }).save();
+                newCoach.attachment.push(newAttachment._id);
             }
             await newCoach.save();
         }

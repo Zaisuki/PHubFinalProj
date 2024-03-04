@@ -9,7 +9,8 @@ const studentCheckSubmissionSchema = new Schema(
         },
         attachment: [
             {
-                type: String,
+                type: Schema.Types.ObjectId,
+                ref: 'Attachement',
             },
         ],
         score: {
@@ -82,7 +83,8 @@ const studentSubjectsSchema = new Schema(
         },
         schoolYear: {
             type: String,
-            required: [true, 'Please enter the school year.'],
+            // TODO: UNDO THIS
+            // required: [true, 'Please enter the school year.'],
             default: '',
         },
         class: [

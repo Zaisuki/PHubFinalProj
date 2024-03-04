@@ -59,7 +59,7 @@ export const getCoach = async () => {
         });
     return response.message;
 };
-export const getCheckTask = async (classID) => {
+export const getCheckTask = async (taskID) => {
     const response = await axios
         .get(`${apiURL}/student/check/task`, {
             withCredentials: true,
@@ -67,7 +67,7 @@ export const getCheckTask = async (classID) => {
                 authorization: cookies.get('authorization'),
             },
             params: {
-                classID,
+                taskID,
             },
         })
         .then((response) => response.data)
@@ -91,7 +91,6 @@ export const getConnectTask = async (classID) => {
         .catch((error) => {
             throw error;
         });
-    console.log(response);
     return response;
 };
 export const getCoachTask = async (classID) => {
@@ -113,12 +112,30 @@ export const getCoachTask = async (classID) => {
 };
 export const submitCheck = async (formData) => {
     const response = await axios
-        .post(`${apiURL}/student/coach`, formData, {
+        .post(`${apiURL}/student/check`, formData, {
             withCredentials: true,
             headers: {
                 authorization: cookies.get('authorization'),
             },
         })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
+export const unSubmitCheck = async (taskID) => {
+    const response = await axios
+        .put(
+            `${apiURL}/student/unsubmit/check`,
+            { taskID },
+            {
+                withCredentials: true,
+                headers: {
+                    authorization: cookies.get('authorization'),
+                },
+            }
+        )
         .then((response) => response.data)
         .catch((error) => {
             throw error;
