@@ -1,10 +1,12 @@
 import { ImageBackground, StyleSheet, Text, View, Dimensions, Image } from 'react-native'
 import{ React,  useEffect, useState  } from 'react';
-
+import { logout } from '../../services/entry';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer'
-import { hays, ogrenek, phublogowithoutbg, upang, whatever } from '../../mgadimahanapnaimage';
+import { hays, logoutIcon, ogrenek, phublogowithoutbg, upang, whatever } from '../../mgadimahanapnaimage';
 import { profile } from '../../services/user';
+import { Card } from 'react-native-paper';
 import { loadAsync } from 'expo-font';
+import { useNavigation } from '@react-navigation/native';
 
 
 const {width} = Dimensions.get('screen');
@@ -18,6 +20,13 @@ const loadFontsAsync = async () => {
 loadFontsAsync();
 
 const CustomDrawer = props => {
+
+  const navigation = useNavigation();
+
+  const handleLogout = () => {
+    logout();
+    navigation.replace('Login');
+};
 
   const [data, setData] = useState({});
   const [userInformation, setUserInformation] = useState({});
@@ -54,6 +63,13 @@ const CustomDrawer = props => {
           color: 'white',
         }}>PHINMA <Text style = {{color: '#dbbc2c'}}>HUB</Text></Text>
         <DrawerItemList {...props}/>
+        <Card onPress = {handleLogout}>
+          <View style ={{ flexDirection: 'row',
+        alignItems: 'center', padding: 10, marginStart: 5, backgroundColor:'#3a4f24' }}>
+          <Image source={logoutIcon} style = {{height: 50, width: 50}}/>
+          <Text style = {{fontSize: 15, marginStart: 40, fontFamily: 'Raleway-Bold', color: 'white'}}>Log Out</Text>
+          </View>
+        </Card>
       </View>
     </DrawerContentScrollView>
   )

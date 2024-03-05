@@ -1,8 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {View, Text, FlatList, StyleSheet, Image} from 'react-native';
 import { getNotification } from '../../services/user';
 import { socket } from '../../utils/socket';
 import { convertDate } from '../../utils/convertDate';
+import { Card } from 'react-native-paper';
+import { notifbell } from '../../mgadimahanapnaimage';
+import {loadAsync} from 'expo-font';
+
+const loadFontsAsync = async () => {
+  await loadAsync({
+    'Raleway-Regular': require('../../assets/fonts/Raleway-Regular.ttf'),
+    'Raleway-Bold': require('../../assets/fonts/Raleway-Bold.ttf'),
+
+  });
+};
+
+loadFontsAsync();
 
 const NotificationScreen = ({navigation}) => {
     const [notifications, setNotification] = useState([]);
@@ -28,21 +41,29 @@ const NotificationScreen = ({navigation}) => {
         };
     }, []);
     return (
-        <View style={styles.container}>
-          <View style={styles.tableHeader}>
-            <Text style={styles.headerText}>Header</Text>
-            <Text style={styles.headerText}>Content</Text>
-            <Text style={styles.headerText}>Time/Date</Text>
-          </View>
-          <FlatList
+      <>
+          <FlatList style = {{backgroundColor: 'white'}}
             data={notifications}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
-              <View style={styles.tableRow}>
-                <Text style={styles.from}>{item.header}</Text>
-                <Text style={styles.content}>{item.description}</Text>
-                <Text style={styles.timeDate}>{convertDate(item.updatedAt)}</Text>
-              </View>
+              <Card style={{
+                borderRadius: 20,  
+                borderWidth: 2,
+                borderColor: 'rgb(219, 188, 44)',
+                backgroundColor: 'white', 
+                justifyContent: 'center',
+                marginTop: 5,
+                marginBottom: 5,
+                borderColor: '#d3d3d3',
+                margin: 20,
+                }}>
+                <Image source = {notifbell} style = {{width: 25, height: 25, margin: 5}}/>
+                <Card.Title title = {item.header} titleStyle = {{textAlign: 'center', fontFamily: 'Raleway-Bold',}} />
+                <Card.Content>
+                <Text style={{textAlign: 'center', fontFamily: 'Raleway-Regular'}}>{item.description}</Text>
+                <Text style= {{textAlign: 'right', fontFamily: 'Raleway-Regular', fontSize: 10}}>{'\n'}{convertDate(item.updatedAt)}</Text>
+                </Card.Content>
+              </Card>
             )}
             ListEmptyComponent={() => (
               <View style={styles.tableRow}>
@@ -50,7 +71,8 @@ const NotificationScreen = ({navigation}) => {
               </View>
             )}
           />
-        </View>
+          </>
+        
       );
     };
     
@@ -58,6 +80,7 @@ const NotificationScreen = ({navigation}) => {
       container: {
         flex: 1,
         padding: 10,
+        borderRadius: 10
       },
       tableHeader: {
         flexDirection: 'row',

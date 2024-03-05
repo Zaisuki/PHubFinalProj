@@ -18,10 +18,6 @@ const loadFontsAsync = async () => {
 const ProfileScreen = ({ navigation }) => {
     const [data, setData] = useState({});
     const [userInformation, setUserInformation] = useState({});
-    const handleLogout = () => {
-        logout();
-        navigation.replace('Login');
-    };
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -91,10 +87,6 @@ const ProfileScreen = ({ navigation }) => {
                     <Text style = {{fontFamily:'Raleway-Bold'}}>School Email</Text>
                     <Text style = {{fontFamily:'Raleway-Regular'}}>{data.schoolEmail}</Text>
                 </View>
-            </View>
-
-            <View>
-                <Button title='Log out' onPress={handleLogout} />
             </View>
         </ScrollView>
 
