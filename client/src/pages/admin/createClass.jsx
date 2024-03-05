@@ -21,6 +21,8 @@ function CreateClass() {
 
       <div className="assigned-course">
         <p>Assigned Course</p>
+        <p>Assigned Subjects</p>
+        <p>Assigned Class</p>
         </div>
 
       <Form className="course">
@@ -29,85 +31,46 @@ function CreateClass() {
           <Form.Check
             type={type}
             id={`default-${type}`}
-            label={`Block 1`}
+            label={`BSIT`}
           />
 
           <Form.Check
             type={type}
             id={`disabled-default-${type}`}
-            label={`Block 2`}
+            label={`BSN`}
           />
           <Form.Check
             type={type}
             id={`disabled-default-${type}`}
-            label={`Block 3`}
+            label={`BSBA`}
           />
           <Form.Check
             type={type}
             id={`disabled-default-${type}`}
-            label={`Block 4`}
+            label={`BSHM`}
           />
           <Form.Check
             type={type}
             id={`disabled-default-${type}`}
-            label={`Block 5`}
+            label={`BSECE`}
           />
         </div>
         
       ))}
-      </Form>
-
-      <div className="assigned-class">
-        <p>Assigned Class</p>
-        </div>
-
       <Form className="blocks">
       {['checkbox'].map((type) => (
         <div className="for-class" key={`default-${type}`} >
           <Form.Check
             type={type}
             id={`default-${type}`}
-            label={`Block 1`}
+            label={`ITE 300`}
           />
 
           <Form.Check
             type={type}
             id={`disabled-default-${type}`}
-            label={`Block 2`}
+            label={`ITE 292`}
           />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`Block 3`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`Block 4`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`Block 5`}
-          />
-        </div>
-        
-      ))}
-      </Form>
-
-      <div className="assigned-subs">
-        <p>Assigned Subjects</p>
-        </div>
-
-      <Form className="subs">
-      {['checkbox'].map((type) => (
-        <div className="for-class" key={`default-${type}`} >
-          <Form.Check
-            type={type}
-            id={`default-${type}`}
-            label={`ITE 400`}
-          />
-
           <Form.Check
             type={type}
             id={`disabled-default-${type}`}
@@ -116,22 +79,55 @@ function CreateClass() {
           <Form.Check
             type={type}
             id={`disabled-default-${type}`}
-            label={`ITE 308`}
+            label={`ITE 393`}
           />
           <Form.Check
             type={type}
             id={`disabled-default-${type}`}
-            label={`ITE 300`}
+            label={`ITE 400`}
+          />
+        </div>
+        
+      ))}
+      
+      </Form>
+      <Form className="subs">
+      {['checkbox'].map((type) => (
+        <div className="for-class" key={`default-${type}`} >
+          <Form.Check
+            type={type}
+            id={`default-${type}`}
+            label={`Block 1`}
+          />
+
+          <Form.Check
+            type={type}
+            id={`disabled-default-${type}`}
+            label={`Block 2`}
           />
           <Form.Check
             type={type}
             id={`disabled-default-${type}`}
-            label={`ITE292`}
+            label={`Block 3`}
+          />
+          <Form.Check
+            type={type}
+            id={`disabled-default-${type}`}
+            label={`Block 4`}
+          />
+          <Form.Check
+            type={type}
+            id={`disabled-default-${type}`}
+            label={`Block 5`}
           />
         </div>
         
       ))}
       </Form>
+      </Form>
+
+      
+      
     </div>
   );
 }

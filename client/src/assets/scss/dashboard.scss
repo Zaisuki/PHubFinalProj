@@ -1,0 +1,72 @@
+.stat-card{
+
+    .card{
+        padding: 20px
+    }
+    .top-card, .bottom-card{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0;
+    }
+     .stat-one {
+        height: 200px;
+        width: 75%;
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        h1{
+            text-align: center;
+        }
+        h2 {
+            color: black;
+            font-size: 25px;
+            display: inline;
+            width: 20%;
+        }
+        h3{
+            font-size: 40px;
+        }
+        .task-description{
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+    }
+     .stat-two {
+        height: 200px;
+        width: 20%;
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        h1 {
+            font-size: 30px;
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+            font-size: 70px;
+            color: rgb(2, 100, 39);
+        }
+    }
+
+    .stat-three{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 10px;
+        select{
+
+            display: inline-block;
+            width: 49%;
+        }
+    }
+    .stat-four, .stat-five{
+        width: 50%;
+        margin: 20px;
+        height: 300px;
+        p{
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 150px;
+        }
+    }
+}    

@@ -13,6 +13,7 @@ import {
 import "stream-chat-react/dist/css/v2/index.css";
 import "../assets/scss/inbox.scss"
 import { cookies } from "../services/entry";
+import Card from 'react-bootstrap/Card';
 
 const filters = { type: "messaging" };
 const options = { state: true, presence: true, limit: 10 };
@@ -58,10 +59,10 @@ const inbox = () => {
     
     <Chat client={client}>
       <div className="inbox">
-      <div className="channel-list">
+      <Card className="channel-list">
         <ChannelList filters={filters} sort={sort} options={options} />
-      </div>
-      <div className="main-chat">
+      </Card>
+      <Card className="main-chat">
         <Channel>
           <Window>
             <ChannelHeader />
@@ -70,7 +71,7 @@ const inbox = () => {
           </Window>
           <Thread />
         </Channel>
-      </div>
+      </Card>
     </div>
     </Chat>
   );
