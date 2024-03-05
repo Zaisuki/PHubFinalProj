@@ -21,6 +21,8 @@ function CreateClass() {
 
       <div className="assigned-course">
         <p>Assigned Course</p>
+        <p>Assigned Subjects</p>
+        <p>Assigned Class</p>
         </div>
 
       <Form className="course">
@@ -55,13 +57,41 @@ function CreateClass() {
         </div>
         
       ))}
-      </Form>
-
-      <div className="assigned-class">
-        <p>Assigned Class</p>
-        </div>
-
       <Form className="blocks">
+      {['checkbox'].map((type) => (
+        <div className="for-class" key={`default-${type}`} >
+          <Form.Check
+            type={type}
+            id={`default-${type}`}
+            label={`ITE 300`}
+          />
+
+          <Form.Check
+            type={type}
+            id={`disabled-default-${type}`}
+            label={`ITE 292`}
+          />
+          <Form.Check
+            type={type}
+            id={`disabled-default-${type}`}
+            label={`ITE 393`}
+          />
+          <Form.Check
+            type={type}
+            id={`disabled-default-${type}`}
+            label={`ITE 393`}
+          />
+          <Form.Check
+            type={type}
+            id={`disabled-default-${type}`}
+            label={`ITE 400`}
+          />
+        </div>
+        
+      ))}
+      
+      </Form>
+      <Form className="subs">
       {['checkbox'].map((type) => (
         <div className="for-class" key={`default-${type}`} >
           <Form.Check
@@ -94,44 +124,10 @@ function CreateClass() {
         
       ))}
       </Form>
-
-      <div className="assigned-subs">
-        <p>Assigned Subjects</p>
-        </div>
-
-      <Form className="subs">
-      {['checkbox'].map((type) => (
-        <div className="for-class" key={`default-${type}`} >
-          <Form.Check
-            type={type}
-            id={`default-${type}`}
-            label={`ITE 400`}
-          />
-
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`ITE 393`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`ITE 308`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`ITE 300`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`ITE292`}
-          />
-        </div>
-        
-      ))}
       </Form>
+
+      
+      
     </div>
   );
 }
