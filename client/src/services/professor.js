@@ -71,7 +71,6 @@ export const getConnect = async (classID) => {
         .catch((error) => {
             throw error;
         });
-    console.log(response);
     return response;
 };
 export const getCoach = async (classID) => {
@@ -123,7 +122,6 @@ export const getConnectTask = async (classID) => {
         .catch((error) => {
             throw error;
         });
-    console.log(response);
     return response;
 };
 export const getCoachTask = async (classID) => {
@@ -171,7 +169,6 @@ export const postConnect = async (formData) => {
         .catch((error) => {
             throw error;
         });
-    console.log(response);
     return response;
 };
 
@@ -188,4 +185,39 @@ export const postCoach = async (formData) => {
             throw error;
         });
     return response;
+};
+
+export const getCheckTaskSubmission = async (taskID) => {
+    const response = await axios
+        .get(`${apiURL}/professor/check/task/submission`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+            params: {
+                taskID,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response.message;
+};
+export const getConnectTaskSubmission = async (taskID) => {
+    const response = await axios
+        .get(`${apiURL}/professor/connect/task/submission`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+            params: {
+                taskID,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response.message;
 };

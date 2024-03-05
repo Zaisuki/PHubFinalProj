@@ -1,134 +1,142 @@
-import "../../assets/scss/admin-scss/class-form.scss";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
+import '../../assets/scss/admin-scss/class-form.scss';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
+import { addClass, getProfessorID, getSubjectID } from '../../services/admin';
 
 function CreateClass() {
-  return (
-    <div className="class-form">
+    const [formData, setFormData] = useState({
+        professorID: '',
+        block: '',
+        subjectID: '',
+    });
+    const [professors, setProfessors] = useState([]);
+    const [professorSearch, setProfessorSearch] = useState('');
+    const [subjects, setSubjects] = useState([]);
+    const [subjectSearch, setSubjectSearch] = useState('');
+    const handleInputChange = (event) => {
+        let { name, value } = event.target;
 
-      
-      <Container>
-        <Row>
-          <Col sm={4}>
-            <Form.Label>Instructor Number/ID</Form.Label>
-            <Form.Control placeholder="Enter" />
-          </Col>
-        </Row>
-      </Container>
-      
+        setFormData({ ...formData, [name]: value });
+    };
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-      <div className="assigned-course">
-        <p>Assigned Course</p>
-        <p>Assigned Subjects</p>
-        <p>Assigned Class</p>
+        let result = await addClass(formData);
+        if (result.message === 'Professor handling the class') {
+            setFormData({
+                professorID: '',
+                block: '',
+                subjectID: '',
+            });
+            console.log('success');
+        }
+    };
+    const handleSearchProfessor = async (event) => {
+        event.preventDefault();
+        let result = await getProfessorID(professorSearch);
+        if (result.message) {
+            setProfessors(result.message);
+        }
+    };
+    const handleSearchSubject = async (event) => {
+        event.preventDefault();
+        let result = await getSubjectID(subjectSearch);
+        if (result.message) {
+            setSubjects(result.message);
+        }
+    };
+    return (
+        <div className='class-form'>
+            <Container>
+                <Row>
+                    <Col>
+                        <Form.Label>Professor ID</Form.Label>
+                        <Form.Control name='professorID' value={formData.professorID} onChange={handleInputChange} placeholder='Professor ID' />
+                    </Col>
+                </Row>
+                <Row className='sub-des'>
+                    <Col>
+                        <Form.Label>Section</Form.Label>
+                        <Form.Control name='block' value={formData.block} onChange={handleInputChange} placeholder='Section' />
+                    </Col>
+                </Row>
+                <Row className='sub-des'>
+                    <Col>
+                        <Form.Label>Subject ID</Form.Label>
+                        <Form.Control name='subjectID' value={formData.subjectID} onChange={handleInputChange} placeholder='Subject ID' />
+                    </Col>
+                </Row>
+                <button type='submit' onClick={handleSubmit}>
+                    Create Class
+                </button>
+            </Container>
+            <Container>
+                <h1>Search</h1>
+                <Row>
+                    <Col>
+                        <Form.Label>Search Professor ID</Form.Label>
+                        <Form.Control
+                            name='professorID'
+                            value={professorSearch}
+                            onChange={(event) => {
+                                let { value } = event.target;
+                                setProfessorSearch(value);
+                            }}
+                            placeholder='Professor name'
+                        />
+                    </Col>
+                </Row>
+                <button type='submit' onClick={handleSearchProfessor}>
+                    Search
+                </button>
+                <div className='list-search'>
+                    <h3>PROFESSOR ID</h3>
+                    <p>NAME</p>
+                </div>
+                {professors.map((prof) => (
+                    <div className='list-search' key={prof._id}>
+                        <h3>{prof._id}</h3>
+                        <p>
+                            {prof.firstName} {prof.middleName} {prof.lastName}
+                        </p>
+                    </div>
+                ))}
+            </Container>
+            <Container>
+                <Row className='sub-des'>
+                    <Col>
+                        <Form.Label>Search Subject ID</Form.Label>
+                        <Form.Control
+                            name='subjectID'
+                            value={subjectSearch}
+                            onChange={(event) => {
+                                let { value } = event.target;
+                                setSubjectSearch(value);
+                            }}
+                            placeholder='Subject code'
+                        />
+                    </Col>
+                </Row>
+                <button type='submit' onClick={handleSearchSubject}>
+                    Search
+                </button>
+                <div className='list-search'>
+                    <h3>SUBJECT ID</h3>
+                    <p>NAME</p>
+                </div>
+                {subjects.map((subject) => (
+                    <div className='list-search' key={subject._id}>
+                        <h3>{subject._id}</h3>
+                        <p>
+                            {subject.subjectCode}: {subject.subjectDescription}
+                        </p>
+                    </div>
+                ))}
+            </Container>
         </div>
-
-      <Form className="course">
-      {['checkbox'].map((type) => (
-        <div className="for-class" key={`default-${type}`} >
-          <Form.Check
-            type={type}
-            id={`default-${type}`}
-            label={`BSIT`}
-          />
-
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`BSN`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`BSBA`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`BSHM`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`BSECE`}
-          />
-        </div>
-        
-      ))}
-      <Form className="blocks">
-      {['checkbox'].map((type) => (
-        <div className="for-class" key={`default-${type}`} >
-          <Form.Check
-            type={type}
-            id={`default-${type}`}
-            label={`ITE 300`}
-          />
-
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`ITE 292`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`ITE 393`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`ITE 393`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`ITE 400`}
-          />
-        </div>
-        
-      ))}
-      
-      </Form>
-      <Form className="subs">
-      {['checkbox'].map((type) => (
-        <div className="for-class" key={`default-${type}`} >
-          <Form.Check
-            type={type}
-            id={`default-${type}`}
-            label={`Block 1`}
-          />
-
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`Block 2`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`Block 3`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`Block 4`}
-          />
-          <Form.Check
-            type={type}
-            id={`disabled-default-${type}`}
-            label={`Block 5`}
-          />
-        </div>
-        
-      ))}
-      </Form>
-      </Form>
-
-      
-      
-    </div>
-  );
+    );
 }
 export default CreateClass;

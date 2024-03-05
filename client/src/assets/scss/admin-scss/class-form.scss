@@ -1,38 +1,43 @@
 .class-form {
     padding: 1%;
-  font-size: 30px;
+    font-size: 30px;
     .row {
-      margin-bottom: 2%;
+        margin-bottom: 2%;
     }
-    
-    .container{
-      width: 100%;
-      justify-content: flex-start;
-      margin-left: 0px;
+
+    .container {
+        width: 100%;
+        justify-content: flex-start;
+        margin-left: 0px;
     }
-  }
+}
 
-
-  .assigned-course{
+.assigned-course {
     width: 100%;
-      display: flex;
-      justify-content: space-between;
-   
-  }
-  
-   .course{
+    display: flex;
+    justify-content: space-between;
+}
+
+.course {
     width: 100%;
     display: flex;
     justify-content: space-around;
     margin-left: -40px;
     gap: 300px;
-   }
-
-input.form-control{
-font-size: 30px;
 }
 
-.form-check-input[type=checkbox] {
-  border: 5px solid #dbbc2c;
-  background-blend-mode:difference;
+input.form-control {
+    font-size: 30px;
+}
+
+.form-check-input[type='checkbox'] {
+    border: 5px solid #dbbc2c;
+    background-blend-mode: difference;
+}
+.list-search {
+    display: flex;
+    justify-content: space-around;
+    p {
+        width: 50%;
+    }
 }

@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import { User } from '../middleware/authentication';
-import { addClass, addSubject, checkStudentInClass, checkSubjectAvailability, deleteAllClass, deleteAllSubject, enrollStudentInClass, getSubject, removeStudentInClass } from '../services/registration';
+import { addClass, addSubject, checkStudentInClass, checkSubjectAvailability, deleteAllClass, deleteAllSubject, enrollStudentInClass, getProfessorID, getSubject, getSubjectID, removeStudentInClass } from '../services/registration';
 
 export const addSubjectController = async (req: Request, res: Response) => {
     try {
@@ -73,6 +73,25 @@ export const removeStudentInClassController = async (req: Request, res: Response
         const result = await removeStudentInClass(studentID, classID);
 
         return res.status(200).json({ 'message': result.message });
+    } catch {
+        res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+
+export const getProfessorIDController = async (req: Request, res: Response) => {
+    try {
+        const query = req.query.query as string;
+        const result = await getProfessorID(query);
+        return res.status(result.httpCode).json({ 'message': result.message });
+    } catch {
+        res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+export const getSubjectIDController = async (req: Request, res: Response) => {
+    try {
+        const query = req.query.query as string;
+        const result = await getSubjectID(query);
+        return res.status(result.httpCode).json({ 'message': result.message });
     } catch {
         res.status(500).json({ 'message': 'Internal Server Error' });
     }
