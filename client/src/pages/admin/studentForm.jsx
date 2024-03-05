@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
-import { createStudent } from '../../services/admin';
+import { createAccount } from '../../services/admin';
 
 function StudentForm() {
     const [formData, setFormData] = useState({
@@ -52,8 +52,7 @@ function StudentForm() {
                 }
             }
         }
-        let result = await createStudent(formData);
-        console.log('a');
+        let result = await createAccount(formData);
         if (result.message === 'User saved to the database') {
             setFormData({
                 firstName: '',

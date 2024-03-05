@@ -3,7 +3,7 @@ import { cookies } from './entry';
 
 const apiURL = import.meta.env.VITE_API_BASE_URL;
 
-export const createStudent = async (formData) => {
+export const createAccount = async (formData) => {
     const response = await axios
         .post(`${apiURL}/entry/signup`, formData, {
             withCredentials: true,
