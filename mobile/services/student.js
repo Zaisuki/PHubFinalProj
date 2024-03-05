@@ -44,7 +44,7 @@ export const getConnect = async () => {
         .catch((error) => {
             throw error;
         });
-        console.log(response)
+    console.log(response);
     return response.message;
 };
 export const getCoach = async () => {
@@ -61,7 +61,7 @@ export const getCoach = async () => {
         });
     return response.message;
 };
-export const getCheckTask = async (classID) => {
+export const getCheckTask = async (taskID) => {
     const response = await axios
         .get(`${apiURL}/student/check/task`, {
             withCredentials: true,
@@ -69,7 +69,7 @@ export const getCheckTask = async (classID) => {
                 authorization: await AsyncStorage.getItem('authorization'),
             },
             params: {
-                classID,
+                taskID,
             },
         })
         .then((response) => response.data)
@@ -78,7 +78,8 @@ export const getCheckTask = async (classID) => {
         });
     return response;
 };
-export const getConnectTask = async (classID) => {
+export const getConnectTask = async (taskID) => {
+    console.log(taskID);
     const response = await axios
         .get(`${apiURL}/student/connect/task`, {
             withCredentials: true,
@@ -86,14 +87,13 @@ export const getConnectTask = async (classID) => {
                 authorization: await AsyncStorage.getItem('authorization'),
             },
             params: {
-                classID,
+                taskID,
             },
         })
         .then((response) => response.data)
         .catch((error) => {
             throw error;
         });
-    console.log(response);
     return response;
 };
 export const getCoachTask = async (classID) => {
