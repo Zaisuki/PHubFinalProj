@@ -70,3 +70,8 @@ margin-left: 10px;
 input.form-control{
 font-size: 30px;
 }
+
+.form-check-input[type=checkbox] {
+  border: 5px solid #dbbc2c;
+  background-blend-mode:difference;
+}

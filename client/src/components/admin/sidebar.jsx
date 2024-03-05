@@ -16,8 +16,9 @@ const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
             <img className='bnw' src={bnw} alt='bnw' />
             <h1 className='ph'> PHINMA <span> HUB</span></h1>
            
-            <ul className='iconS'>
+           
             <SideBarLink direct='/' icon={FeedImg} title='Home' isClicked={isClicked} />
+            <ul className='iconS'>
                 <li>
                     <SideBarLink direct='/create-student' icon={FeedImg} title='Enroll Student' isClicked={isClicked} />
                 </li>
