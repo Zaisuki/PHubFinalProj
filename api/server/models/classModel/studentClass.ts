@@ -83,8 +83,7 @@ const studentSubjectsSchema = new Schema(
         },
         schoolYear: {
             type: String,
-            // TODO: UNDO THIS
-            // required: [true, 'Please enter the school year.'],
+            required: [true, 'Please enter the school year.'],
             default: '',
         },
         class: [

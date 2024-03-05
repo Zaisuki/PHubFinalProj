@@ -229,7 +229,7 @@ function ProfessorForm() {
                 </Row>
             </Container>
             <button type='submit' onClick={handleSubmit}>
-                Create Student Account
+                Create Professor Account
             </button>
         </div>
     );

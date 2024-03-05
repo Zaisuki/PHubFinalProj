@@ -16,8 +16,7 @@ const checkSchema = new Schema(
         },
         typeOfCheck: {
             type: String,
-            // TODO: remove this
-            // required: [true, 'Please enter the type.'],
+            required: [true, 'Please enter the type.'],
         },
         postTitle: {
             type: String,

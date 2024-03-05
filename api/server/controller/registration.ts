@@ -56,13 +56,12 @@ export const deleteAllClassController = async (req: Request, res: Response) => {
 export const enrollStudentInClassController = async (req: Request, res: Response) => {
     try {
         const { studentID, classID } = req.body;
-        // TODO: enroll student once
         const studentInClass = await checkStudentInClass(studentID, classID);
-        if(!studentInClass){
+        if (!studentInClass) {
             const result = await enrollStudentInClass(studentID, classID);
             return res.status(result.httpCode).json({ 'message': result.message });
         }
-        return res.status(200).json({ 'message': "Student is already enrolled" });
+        return res.status(200).json({ 'message': 'Student is already enrolled' });
     } catch {
         res.status(500).json({ 'message': 'Internal Server Error' });
     }
@@ -72,7 +71,7 @@ export const removeStudentInClassController = async (req: Request, res: Response
     try {
         const { studentID, classID } = req.body;
         const result = await removeStudentInClass(studentID, classID);
-        
+
         return res.status(200).json({ 'message': result.message });
     } catch {
         res.status(500).json({ 'message': 'Internal Server Error' });

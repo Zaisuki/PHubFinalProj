@@ -76,11 +76,9 @@ const studentSchema = new Schema(
         personalNumber: {
             type: String,
             required: [true, 'Please enter your personal number'],
-            unique: true,
         },
         schoolNumber: {
             type: String,
-            unique: true,
         },
         address: {
             type: String,
@@ -114,6 +112,10 @@ const studentSchema = new Schema(
         enrolled: {
             type: Boolean,
             required: [true, 'Please enter your enrolled status'],
+        },
+        summerClass: {
+            type: Boolean,
+            required: [true, 'Please enter summer class'],
         },
         userCredentials: {
             type: Schema.Types.ObjectId,
@@ -151,18 +153,13 @@ const professorSchema = new Schema(
             type: String,
             required: [true, 'Please enter your department'],
         },
-        major: {
-            type: String,
-            required: [true, 'Please enter your major'],
-        },
         personalNumber: {
             type: String,
             required: [true, 'Please enter your personal number'],
-            unique: true,
         },
         schoolNumber: {
             type: String,
-            unique: true,
+            default: '',
         },
         address: {
             type: String,
@@ -210,11 +207,9 @@ const adminSchema = new Schema(
         personalNumber: {
             type: String,
             required: [true, 'Please enter your personal number'],
-            unique: true,
         },
         schoolNumber: {
             type: String,
-            unique: true,
         },
         address: {
             type: String,

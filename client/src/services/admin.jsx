@@ -17,3 +17,17 @@ export const createAccount = async (formData) => {
         });
     return response;
 };
+export const createSubject = async (formData) => {
+    const response = await axios
+        .post(`${apiURL}/registration/add/subject`, formData, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};

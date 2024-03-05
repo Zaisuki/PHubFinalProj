@@ -32,6 +32,7 @@ export const findAllUsers = async (req: Request, res: Response) => {
             })
             .exec();
         const admin = await Admin.find({}).populate('userCredentials').exec();
+        const userCredentials = await UserCredentials.find({});
         const announcement = await Announcement.find({});
         const check = await Check.find({});
         const connect = await Connect.find({});
@@ -47,7 +48,7 @@ export const findAllUsers = async (req: Request, res: Response) => {
         const message = await Message.find({});
         const choices = await ConnectChoices.find({});
 
-        res.status(200).json({ admin, students, professor, announcement, check, connect, coach, classes, professorHandledClass, studentConnectSubmission, studentCheckSubmission, studentCoachView, studentSubjects, subject, inbox, message, choices });
+        res.status(200).json({ userCredentials, admin, students, professor, announcement, check, connect, coach, classes, professorHandledClass, studentConnectSubmission, studentCheckSubmission, studentCoachView, studentSubjects, subject, inbox, message, choices });
     } catch (error) {
         res.status(500).json('No Students found');
     }
