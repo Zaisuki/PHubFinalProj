@@ -1,6 +1,6 @@
 .admin-form {
   padding: 1%;
-
+  font-size: 30px;
   .row {
     margin-bottom: 2%;
 
@@ -16,4 +16,23 @@
       }
     }
   }
+
+  .row {
+    margin-bottom: 2%;
+}
+input.form-control{
+    font-size: 20px;
+}
+select.form-select{
+    font-size: 20px;
+}
+}
+
+select.form-select{
+  border: 5px solid #dbbc2c;
+}
+
+.form-check-input[type=radio] {
+  border: 5px solid #dbbc2c;
+  background-blend-mode:difference;
 }

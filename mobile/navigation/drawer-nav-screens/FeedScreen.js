@@ -1,8 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, Dimensions } from 'react-native';
-import { feed } from '../../services/user';
+import { feed, profile } from '../../services/user';
 import { phubtemplogo } from '../../mgadimahanapnaimage';
 import { convertDate } from '../../utils/convertDate';
+import { Card } from 'react-native-paper';
+import {loadAsync} from 'expo-font';
+
+const loadFontsAsync = async () => {
+    await loadAsync({
+      'Raleway-Regular': require('../../assets/fonts/Raleway-Regular.ttf'),
+      'Raleway-Bold': require('../../assets/fonts/Raleway-Bold.ttf'),
+    });
+  };
+  
+  loadFontsAsync();
 
 const FeedScreen = ({ navigation }) => {
     const [announcements, setAnnouncements] = useState([]);
@@ -18,35 +29,76 @@ const FeedScreen = ({ navigation }) => {
 
         fetchData();
     }, []);
+
+    const [data, setData] = useState({});
+    const [userInformation, setUserInformation] = useState({});
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await profile();
+                setData(response);
+                setUserInformation(() => (response.userType === 'student' ? response.studentInformation : response.userType === 'professor' ? response.professorInformation : response.adminInformation));
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+
     return (
-        <ScrollView>
-            <View style={styles.container}>
-                <Image style={styles.phinmaHubLogo} source={phubtemplogo} resizeMode='contain' />
+        <ScrollView style = {{
+            backgroundColor: '#ffffff'
+        }}>
+            <Text style = {{
+                fontSize: 11,
+                textAlign: 'center',
+                backgroundColor: '#3a4f24',
+                color: 'white'
+            }}>Welcome to Phinma Hub,<Text style = {{
+                color: '#dbbc2c'
+            }}> {userInformation.firstName} {userInformation.middleName} {userInformation.lastName}</Text> </Text>
                 {announcements ? (
                     announcements.map((announcement) => (
-                        <View key={announcement._id} style={styles.announcementContainer}>
-                            <View>
-                                <Text>{announcement.header}</Text>
-                                <View className='header-time'>
-                                    <Text>{convertDate(announcement.createdAt)[0]}</Text>
-                                    <Text>{convertDate(announcement.createdAt)[1]}</Text>
-                                </View>
-                            </View>
+                        
+                        <Card key={announcement._id} style={styles.announcementContainer}>
 
-                            <View>
-                                <Text>{announcement.announcement}</Text>
+                            <Card.Title title = {announcement.header} subtitle = {convertDate(announcement.createdAt)} 
+                            titleStyle= {{
+                  flexWrap:'wrap', 
+                  flexDirection: 'row',
+                  fontSize: 15,
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Bold'
+      
+                }} subtitleStyle = {{
+                  fontSize: 10,
+                  textAlign: 'center',
+                  fontFamily: 'Raleway-Regular'
+                }}/>
+                            
+                            <Card.Content>
+                                <Text style = {{
+                                    fontFamily: 'Raleway-Regular',
+                                }}>{announcement.announcement}</Text>
+                                
                                 {announcement.class && <Text>{announcement.class.subject.subjectCode}</Text>}
-                            </View>
+                           
 
-                            <Text>
+                            <Text style = {{
+                                fontFamily: 'Raleway-Bold'
+                            }}>
+                                {'\n'}
                                 {announcement.professor.firstName} {announcement.professor.lastName}
                             </Text>
-                        </View>
+                            </Card.Content>
+                            </Card>
+                        
                     ))
                 ) : (
-                    <Text> No Announcements</Text>
+                    <Text style = {{fontFamily: 'Raleway-Bold'}}> No Announcements</Text>
                 )}
-            </View>
         </ScrollView>
     );
 };
@@ -58,7 +110,6 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         padding: 15,
-        flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
     },
@@ -67,15 +118,13 @@ const styles = StyleSheet.create({
         height: windowWidth * 0.3,
     },
     announcementContainer: {
-        padding: 15,
-        flex: 1,
-        width: '100%',
-        flexDirection: 'column',
-        alignItems: 'center',
-        borderWidth: 1,
-        borderColor: 'black',
-        borderStyle: 'solid',
-        borderRadius: 25,
-        marginBottom: 15,
+        margin: 20, 
+        borderRadius: 15,
+        overflow: 'hidden',
+        borderWidth: 2,
+        backgroundColor: 'white',
+        borderColor: 'rgba(0, 0, 0, 0.1)'
+        
+         
     },
 });

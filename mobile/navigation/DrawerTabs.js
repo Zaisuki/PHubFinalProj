@@ -28,7 +28,7 @@ function DrawerTabs() {
 
   return (
     <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />}
-    drawerStyle screenOptions={{
+    drawerStyle initialRouteName='Feed' screenOptions={{
       drawerActiveBackgroundColor: 'rgba(255,255,255, 0.2)',
       drawerActiveTintColor: '#dbbc2c',
       drawerInactiveTintColor: 'white',
