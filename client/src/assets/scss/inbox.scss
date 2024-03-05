@@ -1,46 +1,116 @@
+// WAG NIYO MUNA ALISIN YUNG MGA NAKA COMMENT OUT
 
 .inbox {
   display: flex;
+  justify-content: space-between;
   height: 100%;
-  
+  padding: 5%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(58, 79, 36, 1) 100%
+  );
+
+  .channel-list {
+    margin-right: 12px;
+    width: 30%;
+    border: none;
+    background-color: #fff;
+    /*Addabackgroundcolor*/
+    border-radius: 5px;
+  }
+
+  .main-chat {
+    width: 75%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    background-color: rgb(255, 255, 255); /* Add a background color */
+  }
+
+  // chat container
+  // .str-chat__channel .str-chat__container {
+  //   background-color: rgb(236, 235, 235);
+  // }
+  // messages holder container
+  .str-chat__list .str-chat__message-list-scroll {
+    background-color: rgb(255, 255, 255);
+  }
+  // lower part holder container
+  .str-chat__message-input {
+padding: 2%;
+}
+  .str-chat__list {
+    background-color: rgb(255, 255, 255);
+  }
+
   //   CHAT icon
   .str-chat__avatar .str-chat__avatar-fallback {
-    background-color: rgb(129, 133, 129);
+    background-color: rgb(119, 119, 119);
   }
 
   // CHAT header
   .str-chat__channel-header {
-    background-color: #3a4f24;
-    height: 79px;
+    background: rgb(202, 202, 202);
+    height: 89px;
 
     // Upper text
     .str-chat__channel-header-title {
-      color: white;
+      color: black;
     }
     // Lower text
     .str-chat__channel-header-info {
-      color: rgb(198, 198, 198);
+      color: rgb(107, 106, 106);
     }
+  }
+
+  // Conversation partner bubble color
+  .str-chat__message-bubble {
+    background: rgb(202, 202, 202);
+  }
+
+  // SENDER bubble color
+  .str-chat__message.str-chat__message--me .str-chat__message-bubble {
+    background-color: #7d8c6c;
   }
 
   // CHAT textarea
   .str-chat__message-textarea-container {
-    background-color: #3a4f24;
+    background-color: rgb(236, 235, 235);
+  }
+
+  // Fill color of attach file button
+  .str-chat__message-input .str-chat__file-input-container svg path {
+    fill: #3a4f24;
+  }
+  // Fill color of SEND button
+  .str-chat__message-input .str-chat__send-button svg path {
+    fill: #3a4f24;
+  }
+  // Fill color of deliver status
+  .str-chat__message .str-chat__message-status svg path {
+    fill: #3a4f24;
+  }
+  // Typing text color
+  .str-chat__message-input
+    .str-chat__message-textarea-container
+    .str-chat__message-textarea {
+    color: black;
   }
 
   //   CHAT preview
   .str-chat__channel-preview--active,
   .str-chat__channel-preview-messenger--active {
     background-color: rgb(236, 235, 235);
-  }
-  
-
-
-  .channel-list {
-    width: 30%;
+    height: 75px;
     
-  }
-  .main-chat {
-    width: 75%;
 }
+
+  // color of number of messages notif
+  .str-chat__channel-preview
+    .str-chat__channel-preview-end-first-row
+    .str-chat__channel-preview-unread-badge {
+    background-color: #7d8c6c;
+  }
 }
