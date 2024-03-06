@@ -28,7 +28,6 @@
     width: 100%;
     padding: 1px;
     margin: 2px;
-    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -106,13 +105,10 @@
     }
     }
   }
-  .course-container-student:hover {
+  .course-card-student:hover {
     //border: 4px solid #dbbc2c;
     //background-color: #e0ffbfc5;
     //box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     color: #dbbc2c;
-    .course-card-student {
-      color: #dbbc2c;
-    }
   }
 }

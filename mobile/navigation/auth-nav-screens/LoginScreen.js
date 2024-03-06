@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { phubtemplogo } from '../../mgadimahanapnaimage';
+import { phublogowithoutbg } from '../../mgadimahanapnaimage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { StyleSheet, Text, View, TextInput, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, SafeAreaView, TouchableOpacity, Image, } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { login } from '../../services/entry';
 import { authenticateToken } from '../../services/authentication';
@@ -52,7 +52,7 @@ const LoginScreen = ({ navigation }) => {
             <View style={styles.container}>
                 <View style={styles.wFull}>
                     <View style={styles.row}>
-                        <Image source={phubtemplogo} style={styles.mr7} />
+                        <Image source={phublogowithoutbg} style={styles.mr7} />
                         <Text style={styles.brandName}>PHub</Text>
                     </View>
 
@@ -62,10 +62,10 @@ const LoginScreen = ({ navigation }) => {
                     <TextInput style={styles.input} onChangeText={handlePasswordChange} placeholder='Password' />
 
                     <View style={styles.loginBtnWrapper}>
-                        <LinearGradient colors={['#00240c', '#ffff']} style={styles.linearGradient} start={{ y: 0.2, x: 0.0 }} end={{ y: 3.6, x: 0.0 }}>
+                        <LinearGradient colors={['#00000c', '#ffff']} style={styles.linearGradient} start={{ y: 0.2, x: 0.0 }} end={{ y: 3.6, x: 0.0 }}>
                             {/******************** LOGIN BUTTON *********************/}
                             <TouchableOpacity onPress={handleLogin} activeOpacity={0.7} style={styles.loginBtn}>
-                                <Text style={styles.loginText}>Log In</Text>
+                                <Text style={styles.loginText}>Login</Text>
                             </TouchableOpacity>
                         </LinearGradient>
                     </View>
@@ -88,7 +88,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 16,
-        marginBottom: 100,
     },
     container: {
         padding: 15,
@@ -97,6 +96,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        marginBottom: 90
     },
     brandName: {
         fontSize: 42,
@@ -181,8 +181,8 @@ const styles = StyleSheet.create({
     },
     mr7: {
         marginRight: 0,
-        marginBottom: 10,
-        height: 90,
-        width: 90,
+        marginBottom: 0,
+        height: 120,
+        width: 120,
     },
 });

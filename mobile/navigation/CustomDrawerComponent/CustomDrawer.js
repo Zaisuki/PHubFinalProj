@@ -82,12 +82,12 @@ export default CustomDrawer
 
 const styles = StyleSheet.create({
     userImg: {
-        width: 110,
-        height: 110,
+        width: 120,
+        height: 120,
         borderRadius: 110 / 2,
         position: 'absolute',
-        left: width / 2 - 130,
-        bottom: -125 / 2,
+        left: width / 2 - 139,
+        bottom: -100 / 2,
     },
     drawerListWrapper: {
         marginTop: 120 / 2 + 10,
