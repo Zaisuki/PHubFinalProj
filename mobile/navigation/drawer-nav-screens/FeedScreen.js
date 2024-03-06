@@ -55,7 +55,8 @@ const FeedScreen = ({ navigation }) => {
                 fontSize: 11,
                 textAlign: 'center',
                 backgroundColor: '#3a4f24',
-                color: 'white'
+                color: 'white',
+                fontFamily: 'Raleway-Regular'
             }}>Welcome to Phinma Hub,<Text style = {{
                 color: '#dbbc2c'
             }}> {userInformation.firstName} {userInformation.middleName} {userInformation.lastName}</Text> </Text>

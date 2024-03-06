@@ -9,7 +9,6 @@ import InboxScreen from './drawer-nav-screens/InboxScreen';
 import TaskScreen from './drawer-nav-screens/TasksScreen';
 import CourseScreen from './drawer-nav-screens/CourseScreen';
 import StatisticScreen from './drawer-nav-screens/StatisticScreen';
-import AboutEnigmaScreen from './drawer-nav-screens/AboutEnigmaScreen';
 import CustomDrawer from './CustomDrawerComponent/CustomDrawer';
 import NotificationScreen from './drawer-nav-screens/NotificationScreen';
 import { loadAsync } from 'expo-font'
@@ -72,19 +71,6 @@ function DrawerTabs() {
       <Drawer.Screen name='Inbox' component={InboxScreen} options={{
         drawerIcon: ({color, size, focused}) => {
           return <Image style= {{height: 50, width: 50}} source={inboxIcon} />
-        }
-      }}/>
-
-
-      <Drawer.Screen name='Statistics' component={StatisticScreen} options={{
-        drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50}} source={statisticsIcon} />
-        }
-      }}/>
-
-      <Drawer.Screen name='About Enigma' component={AboutEnigmaScreen} options={{
-        drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50}} source={profileIcon} />
         }
       }}/>
       
