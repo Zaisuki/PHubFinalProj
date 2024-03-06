@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 16,
-        backgroundColor: '#EDECE7',
+        marginBottom: 100,
     },
     container: {
         padding: 15,
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         padding: 15,
         marginVertical: 10,
-        borderRadius: 7,
+        borderRadius: 15,
         height: 65,
         paddingVertical: 0,
     },
