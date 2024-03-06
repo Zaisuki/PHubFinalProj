@@ -1,4 +1,10 @@
 .admin-form {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(58, 79, 36, 1) 100%
+  );
   padding: 1%;
   font-size: 30px;
   .row {
@@ -28,11 +34,5 @@ select.form-select{
 }
 }
 
-select.form-select{
-  border: 5px solid #dbbc2c;
-}
 
-.form-check-input[type=radio] {
-  border: 5px solid #dbbc2c;
-  background-blend-mode:difference;
-}
+

@@ -142,7 +142,6 @@ function ProfessorForm() {
                         </Form>
                     </Col>
                 </Row>
-                <Row></Row>
                 <Row>
                     <Col sm={4}>
                         <Form>
@@ -227,10 +226,12 @@ function ProfessorForm() {
                         </Form>
                     </Col>
                 </Row>
-            </Container>
+            <div  className='professor-button'>
             <button type='submit' onClick={handleSubmit}>
                 Create Professor Account
             </button>
+            </div>
+            </Container>
         </div>
     );
 }

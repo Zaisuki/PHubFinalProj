@@ -69,13 +69,18 @@ function CreateClass() {
                         <Form.Control name='subjectID' value={formData.subjectID} onChange={handleInputChange} placeholder='Subject ID' />
                     </Col>
                 </Row>
-                <button type='submit' onClick={handleSubmit}>
-                    Create Class
-                </button>
+                <div  className='student-button'>
+            <button type='submit' onClick={handleSubmit}>
+                Create Class
+            </button>
+            </div>
             </Container>
             <Container>
+                <Row></Row>
+                <Row></Row>
                 <h1>Search</h1>
                 <Row>
+                <Row></Row>
                     <Col>
                         <Form.Label>Search Professor ID</Form.Label>
                         <Form.Control
@@ -89,7 +94,8 @@ function CreateClass() {
                         />
                     </Col>
                 </Row>
-                <button type='submit' onClick={handleSearchProfessor}>
+                <div className='search-prof-button'>
+                <button className='search-inside' type='submit' onClick={handleSearchProfessor}>
                     Search
                 </button>
                 <div className='list-search'>
@@ -104,6 +110,7 @@ function CreateClass() {
                         </p>
                     </div>
                 ))}
+                </div>
             </Container>
             <Container>
                 <Row className='sub-des'>
@@ -120,7 +127,8 @@ function CreateClass() {
                         />
                     </Col>
                 </Row>
-                <button type='submit' onClick={handleSearchSubject}>
+                <div className='search-sub-button'>
+                <button className='search-inside2' type='submit' onClick={handleSearchSubject}>
                     Search
                 </button>
                 <div className='list-search'>
@@ -135,6 +143,7 @@ function CreateClass() {
                         </p>
                     </div>
                 ))}
+                </div>
             </Container>
         </div>
     );

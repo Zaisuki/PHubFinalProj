@@ -1,4 +1,5 @@
 import '../../assets/scss/admin-scss/subject-form.scss';
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -38,21 +39,23 @@ function CreateSubject() {
     };
     return (
         <div className='subject-form'>
+            <Container>
             <Row>
-                <Col>
+                <Col sm={3}>
                     <Form.Label>Subject Code</Form.Label>
                     <Form.Control name='subjectCode' value={formData.subjectCode} onChange={handleInputChange} placeholder='Subject Code' />
                 </Col>
-            </Row>
-            <Row className='sub-des'>
-                <Col>
+                <Col sm={6}>
                     <Form.Label>Subject Description</Form.Label>
                     <Form.Control name='subjectDescription' value={formData.subjectDescription} onChange={handleInputChange} placeholder='Subject Description' />
                 </Col>
             </Row>
+            <div  className='subject-button'>
             <button type='submit' onClick={handleSubmit}>
-                Create Subject
+                Register a Subject
             </button>
+            </div>
+            </Container>
         </div>
     );
 }

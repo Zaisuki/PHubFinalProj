@@ -60,9 +60,11 @@ function EnrollStudentClass() {
                         <Form.Control name='classID' value={formData.classID} onChange={handleInputChange} placeholder='Class ID' />
                     </Col>
                 </Row>
+                <div className='stud-button' >
                 <button type='submit' onClick={handleSubmit}>
                     Enroll Student
                 </button>
+                </div>
             </Container>
             <Container>
                 <h1>Search</h1>
