@@ -9,6 +9,7 @@ import {createStackNavigator} from '@react-navigation/stack'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { LogBox } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 LogBox.ignoreLogs([
   'Non-serializable values were found in the navigation state',
@@ -42,12 +43,12 @@ const ChannelScreen = props => {
     const { route } = props;
     const {params: {channel}} = route;
     return (
-        <View style = {{ flex: 1, height:100}}>
+        
         <Channel channel={channel}>
           <MessageList />
           <MessageInput />
         </Channel>
-        </View>
+        
       );
 };
 
@@ -61,18 +62,19 @@ return (
     <OverlayProvider>
     <Chat client={chatClient}>
         <Stack.Navigator screenOptions={{
-            headerShown: false
+            headerShown: false,
         }}>
             <Stack.Screen name="ChannelListScreen" component={ChannelListScreen}/>
             <Stack.Screen name="ChannelScreen" component={ChannelScreen}/>
         </Stack.Navigator>
     </Chat>
     </OverlayProvider>
-)};
+);
+};
 
 const InboxScreen = ({navigation}) => {
     return (
-        <SafeAreaView style={{flex: 1}}>
+        <SafeAreaView style={{flex: 1, paddingTop: 0}}>
         <NavigationContainer independent= {true}>
             <NavigationStack />
         </NavigationContainer>

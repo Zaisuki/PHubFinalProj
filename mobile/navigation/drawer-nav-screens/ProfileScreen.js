@@ -50,42 +50,43 @@ const ProfileScreen = ({ navigation }) => {
                 <Text style = {{fontFamily:'Raleway-Regular'}}><Text style = {{fontFamily:'Raleway-Bold'}}>Semester:</Text> Second</Text>
             </View>
             <View style={styles.additionalInformation}>
-                <Text style={{fontFamily:'Raleway-Bold', textAlign: 'center'}}>Personal Data</Text>
+                <Text style={{fontFamily:'Raleway-Bold', textAlign: 'center', marginBottom: 10}}>Personal Data</Text>
                 <View style={styles.nameContainer}>
                     <View>
-                        <Text style = {{fontFamily:'Raleway-Bold'}}>First Name</Text>
-                        <Text style = {{fontFamily:'Raleway-Regular'}}>{userInformation.firstName}</Text>
+                        <Text style = {{fontFamily:'Raleway-Bold', marginBottom: 5}}>First Name</Text>
+                        <Text style = {{fontFamily:'Raleway-Regular', marginBottom: 8}}>{userInformation.firstName}</Text>
                     </View>
 
                     <View>
-                        <Text style = {{fontFamily:'Raleway-Bold'}}>Last Name</Text>
-                        <Text style = {{fontFamily:'Raleway-Regular'}}>{userInformation.lastName}</Text>
+                    <Text style = {{fontFamily:'Raleway-Bold', marginBottom: 5}}>Middle Name</Text>
+                    <Text style = {{fontFamily:'Raleway-Regular', marginBottom: 8}}>{userInformation.middleName}</Text>
                     </View>
-                </View>
-                <View>
-                    <Text style = {{fontFamily:'Raleway-Bold'}}>Middle Name</Text>
-                    <Text style = {{fontFamily:'Raleway-Regular'}}>{userInformation.middleName}</Text>
+
+                    <View>
+                        <Text style = {{fontFamily:'Raleway-Bold', marginBottom: 5}}>Last Name</Text>
+                        <Text style = {{fontFamily:'Raleway-Regular', marginBottom: 5}}>{userInformation.lastName}</Text>
+                    </View>
                 </View>
                 <View style={styles.birthdayContainer}>
                     <View>
-                        <Text style = {{fontFamily:'Raleway-Bold'}}>Birth Date</Text>
-                        <Text>{formatDate(userInformation.birthday)}</Text>
+                        <Text style = {{fontFamily:'Raleway-Bold', marginBottom: 5}}>Birth Date</Text>
+                        <Text style = {{fontFamily:'Raleway-Regular', marginBottom: 8}}>{formatDate(userInformation.birthday)}</Text>
                     </View>
 
                     <View>
-                        <Text style = {{fontFamily:'Raleway-Bold'}}>Contact Number</Text>
-                        <Text style = {{fontFamily:'Raleway-Regular'}}>{userInformation.personalNumber}</Text>
+                        <Text style = {{fontFamily:'Raleway-Bold', marginBottom: 5}}>Contact Number</Text>
+                        <Text style = {{fontFamily:'Raleway-Regular', marginBottom: 8}}>{userInformation.personalNumber}</Text>
                     </View>
                 </View>
 
                 <View>
-                    <Text style = {{fontFamily:'Raleway-Bold'}}>Current Address(House#, Street, Brgy, City)</Text>
-                    <Text style = {{fontFamily:'Raleway-Regular'}}>{userInformation.address}</Text>
+                    <Text style = {{fontFamily:'Raleway-Bold', marginBottom: 5}}>Current Address(House#, Street, Brgy, City)</Text>
+                    <Text style = {{fontFamily:'Raleway-Regular', marginBottom: 8}}>{userInformation.address}</Text>
                 </View>
 
                 <View>
-                    <Text style = {{fontFamily:'Raleway-Bold'}}>School Email</Text>
-                    <Text style = {{fontFamily:'Raleway-Regular'}}>{data.schoolEmail}</Text>
+                    <Text style = {{fontFamily:'Raleway-Bold', marginBottom: 5}}>School Email</Text>
+                    <Text style = {{fontFamily:'Raleway-Regular', marginBottom: 8}}>{data.schoolEmail}</Text>
                 </View>
             </View>
         </ScrollView>
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         padding: 15,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     header: {
         width: '100%',

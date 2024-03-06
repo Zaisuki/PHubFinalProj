@@ -67,7 +67,7 @@ const CustomDrawer = props => {
           <View style ={{ flexDirection: 'row',
         alignItems: 'center', padding: 10, marginStart: 5, backgroundColor:'#3a4f24' }}>
           <Image source={logoutIcon} style = {{height: 50, width: 50}}/>
-          <Text style = {{fontSize: 15, marginStart: 40, fontFamily: 'Raleway-Bold', color: 'white'}}>Log Out</Text>
+          <Text style = {{fontSize: 13, marginStart: 38, fontFamily: 'Raleway-Bold', color: 'white'}}>Log Out</Text>
           </View>
         </Card>
       </View>
