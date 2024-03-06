@@ -93,6 +93,53 @@ export const getSubjectID = async (query) => {
         .catch((error) => {
             throw error;
         });
-    console.log(response);
+    return response;
+};
+export const enrollStudent = async (formData) => {
+    const response = await axios
+        .post(`${apiURL}/registration/enroll/student/class`, formData, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
+export const getStudentID = async (query) => {
+    const response = await axios
+        .get(`${apiURL}/registration/search/studentID`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+            params: {
+                query,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
+export const getClassID = async (query) => {
+    const response = await axios
+        .get(`${apiURL}/registration/search/classID`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+            params: {
+                query,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
     return response;
 };

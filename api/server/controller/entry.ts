@@ -1,10 +1,9 @@
 import express, { Express, Request, Response } from 'express';
-import { checkEmailAvailability, checkUsernameAvailability, getUserIDandType, loginUsertoDatabase, registerUsertoDatabase } from '../services/entry';
+import { checkPersonalEmailAvailability, checkSchoolEmailAvailability, checkUsernameAvailability, getUserIDandType, loginUsertoDatabase, registerUsertoDatabase } from '../services/entry';
 import { HttpResponse } from '../models/http-response';
 
 import jwt from 'jsonwebtoken';
-import {StreamChat} from 'stream-chat';
-
+import { StreamChat } from 'stream-chat';
 
 // Check Current User
 export const checkCurrentUser = async (req: Request, res: Response) => {
@@ -34,10 +33,10 @@ export const loginUserController = async (req: Request, res: Response) => {
                     [userID, userType, userFullName, username] = userData;
                     const user = { userID, userName: userIdentifier, userType };
                     const accessToken = jwt.sign(user, accessTokenSecret);
-                    const serverClient = StreamChat.getInstance('2sgdxg7zqddx','c4vvskc6wjyduppj266hvhwfn7rqh7ctwhshzgr95n4qvw7q7mjkmsmzyd6826d4');
+                    const serverClient = StreamChat.getInstance('2sgdxg7zqddx', 'c4vvskc6wjyduppj266hvhwfn7rqh7ctwhshzgr95n4qvw7q7mjkmsmzyd6826d4');
                     const chatToken = serverClient.createToken(username);
                     const userTypeHash = userType === 'admin' ? '3aDfR9oPq2sW5tZyX8vBu1mNc7LkIj6Hg4TfGhJdSe4RdFgBhNjVkLo0iUyHnJm' : userType === 'student' ? 'E2jF8sG5dH9tY3kL4zX7pQ6wR1oV0mCqB6nI8bT7yU5iA3gD2fS4hJ9uMlKoP1e' : 'r9LsT6kQ3jWfZ1pY4xN7hM2cV8gB5dI0eJ4uF2oD3iG5vX6mC1aS7tR9yU3lK8w';
-                    loginUpdate = { ...loginUpdate, accessToken: accessToken, userType: userTypeHash, chatToken,  userFullName, username};
+                    loginUpdate = { ...loginUpdate, accessToken: accessToken, userType: userTypeHash, chatToken, userFullName, username };
                 } else {
                     data.code = 400;
                     loginUpdate = { message: 'User not found.' };
@@ -76,16 +75,20 @@ const checkEveryInputForLogin = async (userIdentifier: string, password: string,
 };
 // Registrations
 export const registerUserController = async (req: Request, res: Response) => {
-    const { firstName, middleName, lastName, personalEmail, schoolEmail, personalNumber, schoolNumber, address, birthday, studentID, course, section, enrolled, username, password, userType, active, department } = req.body;
-    const checkerForInput = await checkEveryInputForSignup(username, personalEmail, schoolEmail, password);
-    if (checkerForInput.message['message'] === 'success') {
-        const data = await registerUsertoDatabase(firstName, middleName, lastName, username, personalEmail, schoolEmail, personalNumber, schoolNumber, address, birthday, password, userType, enrolled, course, section, studentID, department, active);
-        res.status(data.httpCode).json({ message: data.message });
-        return;
-    }
+    try {
+        const { firstName, middleName, lastName, personalEmail, schoolEmail, personalNumber, schoolNumber, address, birthday, studentID, course, section, enrolled, username, password, userType, active, department, levelOfEducation, schoolYear, summerClass, year } = req.body;
+        const checkerForInput = await checkEveryInputForSignup(username, personalEmail, schoolEmail, password);
+        if (checkerForInput.message['message'] === 'success') {
+            const data = await registerUsertoDatabase(firstName, middleName, lastName, username, personalEmail, schoolEmail, personalNumber, schoolNumber, address, birthday, password, userType, enrolled, course, section, studentID, department, active, levelOfEducation, schoolYear, summerClass, year);
+            res.status(data.httpCode).json({ message: data.message });
+            return;
+        }
 
-    res.status(checkerForInput.code).json(checkerForInput.message);
-    return;
+        res.status(checkerForInput.code).json(checkerForInput.message);
+        return;
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error.' });
+    }
 };
 
 const checkEveryInputForSignup = async (username: string, personalEmail: string, schoolEmail: string, password: string): Promise<HttpResponse> => {
@@ -104,10 +107,10 @@ const checkEveryInputForSignup = async (username: string, personalEmail: string,
     if (!(await checkUsernameAvailability(username))) {
         return new HttpResponse({ 'message': 'This username is being used.' }, 200);
     }
-    if (!(await checkEmailAvailability(personalEmail))) {
+    if (!(await checkPersonalEmailAvailability(personalEmail))) {
         return new HttpResponse({ 'message': 'This personal email address is being used.' }, 200);
     }
-    if (!(await checkEmailAvailability(schoolEmail))) {
+    if (!(await checkSchoolEmailAvailability(schoolEmail))) {
         return new HttpResponse({ 'message': 'This school email address is being used.' }, 200);
     }
     return new HttpResponse({ 'message': 'success' }, 200);

@@ -1,7 +1,7 @@
 import express, { Express, Request, Response, Router } from 'express';
 
 import { authenticateToken } from '../middleware/authentication';
-import { addClassController, addSubjectController, deleteAllClassController, deleteAllSubjectController, enrollStudentInClassController, getProfessorIDController, getSubjectController, getSubjectIDController, removeStudentInClassController } from '../controller/registration';
+import { addClassController, addSubjectController, deleteAllClassController, deleteAllSubjectController, enrollStudentInClassController, getClassIDController, getProfessorIDController, getStudentIDController, getSubjectController, getSubjectIDController, removeStudentInClassController } from '../controller/registration';
 
 const router = Router();
 // add authentication admins only
@@ -17,5 +17,7 @@ router.post('/remove/student/class', removeStudentInClassController);
 
 router.get('/search/professorID', getProfessorIDController);
 router.get('/search/subjectID', getSubjectIDController);
+router.get('/search/studentID', getStudentIDController);
+router.get('/search/classID', getClassIDController);
 
 export default router;

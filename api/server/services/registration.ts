@@ -85,7 +85,7 @@ export const deleteClass = async (classID: string) => {
 export const enrollStudentInClass = async (studentID: string, classID: string) => {
     try {
         await StudentSubjects.findOneAndUpdate({ student: studentID }, { $push: { class: classID } });
-        await Class.findByIdAndUpdate(classID, { $push: { students: studentID } });
+        await Class.findByIdAndUpdate(classID, { $push: { students: studentID }, $inc: { totalStudents: 1 } });
         return { message: 'Student enrolled', httpCode: 200 };
     } catch (error) {
         return { message: error, httpCode: 500 };
@@ -136,6 +136,53 @@ export const getSubjectID = async (query: string) => {
         const subject = await Subject.find({ $or: [{ subjectCode: { $regex: new RegExp(query, 'i') } }, { subjectDescription: { $regex: new RegExp(query, 'i') } }] });
 
         return { message: subject, httpCode: 200 };
+    } catch (error) {
+        return { message: error, httpCode: 500 };
+    }
+};
+
+export const getStudentID = async (query: string) => {
+    try {
+        const student = await Student.find({ $or: [{ username: { $regex: new RegExp(query, 'i') } }, { firstName: { $regex: new RegExp(query, 'i') } }, { middleName: { $regex: new RegExp(query, 'i') } }, { lastName: { $regex: new RegExp(query, 'i') } }] })
+            .populate('userCredentials')
+            .exec();
+        return { message: student, httpCode: 200 };
+    } catch (error) {
+        return { message: error, httpCode: 500 };
+    }
+};
+export const getClassID = async (query: string) => {
+    try {
+        // const classID = await Class.find({
+        //     $or: [{ 'professor.firstName': { $regex: new RegExp(query, 'i') } }, { 'professor.middleName': { $regex: new RegExp(query, 'i') } }, { 'professor.lastName': { $regex: new RegExp(query, 'i') } }, { 'subject.subjectDescription': { $regex: new RegExp(query, 'i') } }, { 'subject.subjectCode': { $regex: new RegExp(query, 'i') } }, { 'block': { $regex: new RegExp(query, 'i') } }],
+        // })
+        //     .populate('professor')
+        //     .populate('subject');
+
+        const regex = new RegExp(query, 'i');
+
+        const professors = await Professor.find({
+            $or: [{ 'firstName': { $regex: regex } }, { 'middleName': { $regex: regex } }, { 'lastName': { $regex: regex } }],
+        });
+        const subjects = await Subject.find({
+            $or: [{ 'subjectDescription': { $regex: regex } }, { 'subjectCode': { $regex: regex } }],
+        });
+
+        const q: any = {};
+
+        if (professors.length > 0) {
+            q['professor'] = { $in: professors.map((prof) => prof._id) };
+        }
+
+        if (subjects.length > 0) {
+            q['subject'] = { $in: subjects.map((sub) => sub._id) };
+        }
+        var classID = await Class.find(q).populate('professor').populate('subject');
+        if (Object.keys(q).length === 0) {
+            return { message: 'No class found.', httpCode: 404 };
+        } else {
+            return { message: classID, httpCode: 200 };
+        }
     } catch (error) {
         return { message: error, httpCode: 500 };
     }
