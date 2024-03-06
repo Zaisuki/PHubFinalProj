@@ -1,42 +1,107 @@
-import { useState } from 'react';
-import Table from 'react-bootstrap/Table';
+import { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import StudentWorkPage from '../../components/professor/studentWorkPage';
-const StudentWork = () => {
+import PropTypes from 'prop-types';
+import { editCheckHighScore, editConnectHighScore, getCheckTaskSubmission, getConnectTaskSubmission, scoreStudentCheck, scoreStudentConnect } from '../../services/professor';
+import '../../assets/scss/prof-scss/studentWork.scss';
+import ImagePreview from '../imagePreview';
+import LinkPreview from '../linkPreview';
+
+const StudentWork = ({ classType, taskID, pageData }) => {
     const [checkboxes, setCheckboxes] = useState([]);
     const [selectedStudent, setSelectedStudent] = useState(null);
-    const [showFloatingWindow, setShowFloatingWindow] = useState(false);
+    const [data, setData] = useState('');
+    const [scores, setScores] = useState({});
+    const [newHighScore, setNewHighScores] = useState('');
+    const [highScore, setHighScores] = useState(pageData.highestPossibleScore);
     // FOR CHECKBOX
     // Function to handle checkbox click in the body
     const handleStudentNameClick = (studentName) => {
-        setSelectedStudent(studentName);
+        setSelectedStudent(studentName[1]);
     };
-    const handleCheckboxChange = (index) => {
-        const updatedCheckboxes = [...checkboxes];
-        updatedCheckboxes[index] = !updatedCheckboxes[index];
-        setCheckboxes(updatedCheckboxes);
+    const handleCheckboxChange = (studentId) => {
+        const isChecked = checkboxes.includes(studentId);
+        if (isChecked) {
+            setCheckboxes(checkboxes.filter((id) => id !== studentId));
+        } else {
+            setCheckboxes([...checkboxes, studentId]);
+        }
     };
-
-    // Function to handle student name click
-
-    // Function to handle checkbox click in the header
-    const handleSelectAll = () => {
-        const updatedCheckboxes = new Array(checkboxes.length).fill(!selectAll);
-        setCheckboxes(updatedCheckboxes);
+    const updateScore = async (event) => {
+        event.preventDefault();
+        let result;
+        if (classType === 'check') {
+            result = await editCheckHighScore(taskID, newHighScore);
+        } else {
+            result = await editConnectHighScore(taskID, newHighScore);
+        }
+        if (result.message === 'Task high score updated') {
+            setHighScores(newHighScore);
+            setNewHighScores('');
+            console.log('success');
+        }
     };
+    const handleReturnScores = async (event) => {
+        event.preventDefault();
+        const data = Object.fromEntries(Object.entries(scores).filter(([key, value]) => checkboxes.includes(key) && value !== null && !isNaN(value)));
+        let result;
+        if (classType === 'check') {
+            result = await scoreStudentCheck(JSON.stringify(data));
+        } else {
+            result = await scoreStudentConnect(JSON.stringify(data));
+        }
+        if (result.message === 'Students score updated') {
+            const fetchData = async () => {
+                try {
+                    let response;
+                    if (classType === 'check') {
+                        response = await getCheckTaskSubmission(taskID);
+                    } else {
+                        response = await getConnectTaskSubmission(taskID);
+                    }
+                    setData(response);
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                }
+            };
 
-    // Function to toggle the floating window
-    const toggleFloatingWindow = () => {
-        setShowFloatingWindow(!showFloatingWindow);
+            fetchData();
+            setHighScores(pageData.highestPossibleScore);
+        }
+    };
+    const handleScoreChange = (event, studentId) => {
+        setScores((prevScores) => ({
+            ...prevScores,
+            [studentId]: event.target.value,
+        }));
     };
 
     // Determine if all checkboxes are checked
-    const selectAll = checkboxes.every((checkbox) => checkbox);
+    useEffect(() => {
+        console.log(checkboxes, scores);
+    }, [checkboxes, scores]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let response;
+                if (classType === 'check') {
+                    response = await getCheckTaskSubmission(taskID);
+                    console.log(response);
+                } else {
+                    response = await getConnectTaskSubmission(taskID);
+                }
+                setData(response);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
 
+        fetchData();
+        setHighScores(pageData.highestPossibleScore);
+    }, [classType, taskID, pageData]);
     return (
         <div className='overall-container'>
             {/* Contents of left part of student-work container */}
@@ -48,13 +113,13 @@ const StudentWork = () => {
                             <Container className='stats'>
                                 <Row className='numbers'>
                                     <Col className='turned-in-total' sm={1}>
-                                        10
+                                        {data.studentTurnedIn && data.studentTurnedIn.length}
                                     </Col>
                                     <Col className='assigned-total' sm={1}>
-                                        22
+                                        {data.studentAssigned && data.studentAssigned.length}
                                     </Col>
                                     <Col className='returned-total' sm={1}>
-                                        7
+                                        {data.studentGraded && data.studentGraded.length}
                                     </Col>
                                 </Row>
                                 <Row className='labels'>
@@ -72,52 +137,82 @@ const StudentWork = () => {
                         </div>
                     </div>
                     <div className='button-container'>
-                        <Button type='submit'>Return</Button>
+                        <Button type='submit' onClick={handleReturnScores}>
+                            Return
+                        </Button>
+                        <div>
+                            <input type='text' value={newHighScore} onChange={(e) => setNewHighScores(e.target.value)} style={{ border: '1px solid black' }} />
+                            <Button type='submit' onClick={updateScore}>
+                                Update score
+                            </Button>
+                        </div>
                     </div>
                 </div>
                 <div className='student-table-container'>
-                    <div className='container-1'>
-                        <div className='content-1'>
-                            {/* Table contents for "Turned In" */}
-                            <Table className='table-1' border hover>
-                                {/* When clicked, all turned in student will automatically selected for easy returning of works*/}
-                                <thead>
-                                    <tr>
-                                        <th>Turned In</th>
-                                    </tr>
-                                </thead>
-                                {/* Contents of "Turned In" */}
-                                <tbody>
-                                    <StudentWorkPage name='Liezel Untalan Gabica' studentScore='_' highestPossibleScore='100' checkboxes={checkboxes} handleCheckboxChange={handleCheckboxChange} handleStudentNameClick={handleStudentNameClick} />
-                                </tbody>
-                            </Table>
-
-                            <Table className='table-3' border hover>
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <Form.Check aria-label='option 1' checked={selectAll} onChange={handleSelectAll} />
-                                        </th>
-                                        <th>Graded</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <StudentWorkPage name='Liezel Untalan Gabica' studentScore='_' highestPossibleScore='100' checkboxes={checkboxes} handleCheckboxChange={handleCheckboxChange} handleStudentNameClick={handleStudentNameClick} />
-                                </tbody>
-                            </Table>
-                            <Table className='table-2' border hover>
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <Form.Check aria-label='option 1' checked={selectAll} onChange={handleSelectAll} />
-                                        </th>
-                                        <th>Assigned</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <StudentWorkPage name='Liezel Untalan Gabica' studentScore='_' highestPossibleScore='100' checkboxes={checkboxes} handleCheckboxChange={handleCheckboxChange} handleStudentNameClick={handleStudentNameClick} />
-                                </tbody>
-                            </Table>
+                    <div>
+                        <div className='checkbox-selectall'>
+                            <h3>Turned In</h3>
+                        </div>
+                        <div>
+                            {data.studentTurnedIn &&
+                                data.studentTurnedIn.map((student) => (
+                                    <div key={student[0]._id} className='studentList' onClick={() => handleStudentNameClick(student)}>
+                                        <Form.Check aria-label='option 1' onChange={() => handleCheckboxChange(student[0]._id)} />
+                                        <div className='student-name'>
+                                            <span className='icon'>
+                                                <i className='bx bxs-user-circle'></i>
+                                            </span>
+                                            {`${student[0].firstName} ${student[0].middleName} ${student[0].lastName}`}
+                                        </div>
+                                        <span>
+                                            <input style={{ border: '1px solid black', width: '30px' }} onChange={(event) => handleScoreChange(event, student[0]._id)} />/{highScore}
+                                        </span>
+                                    </div>
+                                ))}
+                        </div>
+                    </div>
+                    <div>
+                        <div className='checkbox-selectall'>
+                            <h3>Graded</h3>
+                        </div>
+                        <div>
+                            {data.studentGraded &&
+                                data.studentGraded.map((student) => (
+                                    <div key={student[0]._id} className='studentList' onClick={() => handleStudentNameClick(student)}>
+                                        <Form.Check aria-label='option 1' onChange={() => handleCheckboxChange(student[0]._id)} />
+                                        <div className='student-name'>
+                                            <span className='icon'>
+                                                <i className='bx bxs-user-circle'></i>
+                                            </span>
+                                            {`${student[0].firstName} ${student[0].middleName} ${student[0].lastName}`}
+                                        </div>
+                                        <span>
+                                            <input style={{ border: '1px solid black', width: '30px' }} defaultValue={student[1].score} onChange={(event) => handleScoreChange(event, student[0]._id)} />/{highScore}
+                                        </span>
+                                    </div>
+                                ))}
+                        </div>
+                    </div>
+                    <div>
+                        <div className='checkbox-selectall'>
+                            <h3>Assigned</h3>
+                        </div>
+                        <div>
+                            {data.studentAssigned &&
+                                data.studentAssigned.map((student) => (
+                                    <div key={student[0]._id} className='studentList' onClick={() => handleStudentNameClick(student)}>
+                                        <Form.Check aria-label='option 1' onChange={() => handleCheckboxChange(student[0]._id)} />
+                                        <div className='student-name'>
+                                            <span className='icon'>
+                                                <i className='bx bxs-user-circle'></i>
+                                            </span>
+                                            {`${student[0].firstName} ${student[0].middleName} ${student[0].lastName}`}
+                                        </div>
+                                        <span>
+                                            <input style={{ border: '1px solid black', width: '30px' }} disabled onChange={(event) => handleScoreChange(event, student[0]._id)} />/{highScore}
+                                        </span>
+                                    </div>
+                                ))}
                         </div>
                     </div>
                 </div>
@@ -126,22 +221,26 @@ const StudentWork = () => {
             <div className='right-container'>
                 {selectedStudent && (
                     <div className='right-sub-content'>
-                        <h2 className='studentN'>{selectedStudent}</h2>
+                        <h2>
+                            {selectedStudent.student.firstName} {selectedStudent.student.middleName} {selectedStudent.student.lastName}
+                        </h2>
                         <div className='attached-file'>
-                            <h6>Turned in</h6>
-                            <Button className='floating-button' variant='primary' onClick={toggleFloatingWindow}>
-                                (See history)
-                            </Button>
-                            {showFloatingWindow && (
-                                <div className='floating-window'>
-                                    <div className='history'>
-                                        <p>Turned in</p>
-                                        <p>9:00pm</p>
-                                        <p>Today</p>
-                                    </div>
+                            {classType.toLowerCase() === 'connect' ? (
+                                <div>Answered: {selectedStudent.answer.choice} </div>
+                            ) : (
+                                <div>
+                                    {selectedStudent.attachment.length !== 0 ? (
+                                        <>
+                                            Submission:
+                                            {selectedStudent.attachment.map((dataPage) => (
+                                                <div key={dataPage._id}>{dataPage.type.startsWith('image') ? <ImagePreview imageUrl={dataPage.url} /> : <LinkPreview Url={dataPage.url} />}</div>
+                                            ))}
+                                        </>
+                                    ) : (
+                                        <p>No attachment submitted</p>
+                                    )}
                                 </div>
                             )}
-                            <img src='../../assets/img/notification.png' alt='Attachment' />
                         </div>
                     </div>
                 )}
@@ -150,4 +249,9 @@ const StudentWork = () => {
     );
 };
 
+StudentWork.propTypes = {
+    classType: PropTypes.string.isRequired,
+    taskID: PropTypes.string.isRequired,
+    pageData: PropTypes.object.isRequired,
+};
 export default StudentWork;
