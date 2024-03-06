@@ -302,7 +302,7 @@ function TaskProf() {
                         <h1 className="task-name">Task Name</h1>
                         <textarea
                           className="input-placeholder-connect p-2 bg-neutral-700 active active:outline-none focus:outline-none"
-                          value={descriptionValue}
+                          value={titleValue}
                           placeholder="Write here..."
                           onChange={(e) => setTitleValue(e.target.value)}
                           rows="1"

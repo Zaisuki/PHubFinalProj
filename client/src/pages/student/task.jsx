@@ -6,20 +6,20 @@ import TaskCheck from '../../components/student/taskCheck';
 
 function Task() {
     return (
-        <Tab.Container id='student-tabs' defaultActiveKey='coach'>
+        <Tab.Container className='tabss' id='student-tabs' defaultActiveKey='coach'>
             <Nav justify variant='tabs' className='student-nav-tab'>
                 <Nav.Item>
-                    <Nav.Link eventKey='coach' style={{ color: 'black' }}>
+                    <Nav.Link eventKey='coach'>
                         Coach
                     </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link eventKey='connect' style={{ color: 'black' }}>
+                    <Nav.Link eventKey='connect'>
                         Connect
                     </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link eventKey='check' style={{ color: 'black' }}>
+                    <Nav.Link eventKey='check'>
                         Check
                     </Nav.Link>
                 </Nav.Item>

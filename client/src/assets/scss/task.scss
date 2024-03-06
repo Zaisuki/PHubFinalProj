@@ -1,17 +1,30 @@
 * {
   margin: 0;
   padding: 0;
+  border: none;
   box-sizing: border-box;
 }
+
+
 .student-nav-tab {
+  
+.nav-link{
+  color: white;
+}
+.nav-link:hover{
+  color: #dbbc2c;
+}
   .nav-item {
     font-size: 20px;
-    font-style: oswald;
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    border: 2px solid;
+    background-color: #3a4f24;
+    
   }
 }
-.mb-3 {
-  background-color: rgb(243, 239, 234);
-}
+
+
 .coach-content {
   height: auto;
   margin-top: 5vh;
@@ -48,7 +61,7 @@
   }
 }
 
-/* RESPONSIVENESS */
+
 @media (max-width: 600px) {
   .main-holder {
     padding: 5vh 5vh 5vh 5vh;
