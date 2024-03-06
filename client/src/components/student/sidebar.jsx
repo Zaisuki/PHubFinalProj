@@ -9,7 +9,6 @@ import InboxImg from '../../assets/img/inbox.png';
 import CourseImg from '../../assets/img/course.png';
 import FeedImg from '../../assets/img/feed.png';
 import ProfileImg from '../../assets/img/profile.png';
-import StatisticsImg from '../../assets/img/statistics.png';
 import TaskImg from '../../assets/img/task.png';
 import NotificationImg from '../../assets/img/notification.png';
 import LogoutImg from '../../assets/img/logout.png';
@@ -39,9 +38,6 @@ const SideBar = ({ isClicked, onClick, onHover, onUnhover, currentPage }) => {
                 </li>
                 <li>
                     <SideBarLink direct='/inbox' icon={InboxImg} title='Chika Hub' isClicked={isClicked} isActive={currentPage === '/inbox'} />
-                </li>
-                <li>
-                    <SideBarLink direct='/statistics' icon={StatisticsImg} title='Statistics' isClicked={isClicked} isActive={currentPage === '/statistics'} />
                 </li>
             </ul>
             <SideBarLink direct='/login' icon={LogoutImg} title='Logout' isClicked={isClicked} isActive={currentPage === '/login'} />

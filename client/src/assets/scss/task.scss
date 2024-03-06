@@ -1,54 +1,95 @@
 * {
   margin: 0;
   padding: 0;
+  border: none;
+  background-color: 0;
   box-sizing: border-box;
 }
+
 .student-nav-tab {
+  .nav-link {
+    color: white;
+  }
+  .nav-link:hover {
+    color: #dbbc2c;
+  }
   .nav-item {
     font-size: 20px;
-    font-style: oswald;
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    background-color: #3a4f24;
   }
 }
-.mb-3 {
-  background-color: rgb(243, 239, 234);
-}
-.coach-content {
-  height: auto;
-  margin-top: 5vh;
-  justify-content: center;
-  align-items: center;
-  max-width: 97vh;
-  margin-left: 25%;
-}
+
 .main-holder {
   padding: 5vh 15vh 5vh 15vh;
-}
 
-.card-within {
-  margin: 8px;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  cursor: pointer;
+  .accordion-item {
+    .accordion-button::after {
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+    }
+    button.accordion-button.collapsed{
+      background-color: #ffffff;
+      color: rgb(0, 0, 0); /* Change to your desired color */
+    }
+    button.accordion-button {
+      background-color: #3a4f24;
+      color: rgb(255, 255, 255); /* Change to your desired color */
+      font-weight: 700
 
-  h4 {
-    font-size: 20px;
-    font-family: poppins;
+    }
+    
+    button::after {
+      
+      color: white;
+      padding: 10px;
 
-    span {
-      font-size: 29px;
-      font-size: 20px;
-      color: grey;
+      border-radius: 30px;
+      
     }
   }
 
+  h2 {
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  h4 {
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
   h5 {
-    font-size: 13px;
-    color: grey;
-    font-family: sans-serif;
+    font-family: "Raleway", sans-serif;
+    font-size: 10px;
+  }
+  span {
+    font-family: "Raleway", sans-serif;
+    font-size: 15px;
+    color: #696969;
+  }
+
+  .card-within {
+    margin: 10px;
+    margin-bottom: 5px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    button {
+      border: none;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+    button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
   }
 }
 
-/* RESPONSIVENESS */
 @media (max-width: 600px) {
   .main-holder {
     padding: 5vh 5vh 5vh 5vh;

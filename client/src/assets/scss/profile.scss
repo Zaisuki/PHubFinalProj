@@ -5,17 +5,16 @@
   margin: 0;
 }
 
-// .profile-body {
-//   width: 100%;
-//   height: 100%;
-//   background: rgb(255, 255, 255);
-//   background: linear-gradient(
-//     0deg,
-//     rgba(255, 255, 255, 1) 0%,
-//     rgba(58, 79, 36, 1) 100%
-//   );
-// }
-
+.prof-main-con {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(58, 79, 36, 1) 100%
+  );
+  width: 100%;
+  height: 100%;
+}
 
 .profile-container {
   padding: 2% 3% 3% 2%;
@@ -45,7 +44,7 @@
       place-content: center;
       place-items: center;
       margin-bottom: 2%;
-      background-color: rgb(236, 235, 235);
+      background-color: rgb(255, 255, 255);
 
       .profile-img {
         height: 200px;
@@ -72,7 +71,7 @@
         width: 285px;
         padding: 2%;
         margin-right: 10px;
-        background-color: rgb(236, 235, 235);
+        background-color: rgb(255, 255, 255);
 
         div {
           display: flex;
@@ -88,7 +87,7 @@
         height: 60px;
         width: 285px;
         padding: 2%;
-        background-color: rgb(236, 235, 235);
+        background-color: rgb(255, 255, 255);
 
         div {
           display: flex;
@@ -104,7 +103,7 @@
     .four {
       height: 150px;
       padding: 2%;
-      background-color: rgb(236, 235, 235);
+      background-color: rgb(255, 255, 255);
       margin-bottom: 2%;
 
       .f1 {
@@ -145,7 +144,7 @@
     .five {
       height: 735px;
       padding: 2%;
-      background-color: rgb(236, 235, 235);
+      background-color: rgb(255, 255, 255);
 
       .title {
         text-align: center;
@@ -178,12 +177,14 @@
           height: 47px;
           margin-right: 10px;
           padding: 1%;
+          background-color: rgb(246, 246, 246);
         }
 
         .seven {
           width: 315px;
           height: 47px;
           padding: 1%;
+          background-color: rgb(246, 246, 246);
         }
       }
     }
@@ -194,6 +195,7 @@
       height: 47px;
       padding: 1%;
       margin-bottom: 3%;
+      background-color: rgb(246, 246, 246);
     }
 
     .bd-cn {
@@ -219,12 +221,14 @@
         height: 47px;
         margin-right: 10px;
         padding: 1%;
+        background-color: rgb(246, 246, 246);
       }
 
       .ten {
         width: 315px;
         height: 47px;
         padding: 1%;
+        background-color: rgb(246, 246, 246);
       }
     }
 
@@ -233,6 +237,7 @@
       height: 47px;
       padding: 1%;
       margin-bottom: 3%;
+      background-color: rgb(246, 246, 246);
     }
 
     .twelve {
@@ -240,6 +245,7 @@
       height: 47px;
       padding: 1%;
       margin-bottom: 3%;
+      background-color: rgb(246, 246, 246);
     }
   }
 }

@@ -59,7 +59,7 @@ const Tabs = () => {
                         resizeMode='contain'
                         style = {{
                         height: 80,
-                        width: 80
+                        width: 80,
                         }}
                         />
                     </View>

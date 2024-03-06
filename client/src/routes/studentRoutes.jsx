@@ -10,7 +10,6 @@ import Notification from '../pages/notification';
 import CourseStudent from '../pages/student/course-student.jsx';
 import CourseNew from '../pages/student/course-new';
 import TaskNew from '../pages/student/taskNew';
-import Statistics from '../pages/student/statistics';
 
 export default function StudentRoutes() {
     return (
@@ -24,7 +23,6 @@ export default function StudentRoutes() {
                 <Route path='course-student' element={<CourseStudent />} />
                 <Route path='course-new/:id' element={<CourseNew />} />
                 <Route path='task-new/:classType/:taskID' element={<TaskNew />} />
-                <Route path='statistics' element={<Statistics />} />
             </Route>
         </Routes>
     );

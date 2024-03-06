@@ -32,6 +32,7 @@ const ORIGIN_URL: any = process.env.ORIGIN_URL || [
   "http://localhost:8081",
   "exp://192.168.0.109:8081",
   "exp://192.168.75.60:8081",
+  "exp://192.168.1.211:8081",
   "*",
 ];
 

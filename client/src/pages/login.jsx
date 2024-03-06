@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { FaUser, FaLock, FaUnlock, FaFacebookF, FaYoutube, FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiGmail } from "react-icons/si";
-import logo from "../assets/img/logo.png";
+import logo from "../assets/img/remove.png";
 import "../assets/scss/login.scss";
 import { useNavigate } from "react-router-dom";
 import { cookies, login } from "../services/entry";

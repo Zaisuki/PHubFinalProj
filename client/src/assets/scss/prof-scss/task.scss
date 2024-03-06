@@ -4,56 +4,69 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 @import url(https://fonts.googleapis.com/css?family=Bebas+Neue:regular);
 
+.cfluid {
+  .feed-header {
+    padding: 0;
+    background-color: #3a4f24;
+    //border-bottom: 1px solid #a5a5a5;
+    width: 500%;
+    display: flex;
+    margin: 2px;
+    justify-content: flex-start;
+    h1 {
+      font-family: "Raleway", sans-serif;
+      font-size: 15px;
+      padding: 10px;
+      margin-left: 10px;
+      margin-top: 10px;
+      color: #ffffff;
+      font-style: italic;
+      font-weight: 500;
+    }
+    span {
+      font-family: "Raleway", sans-serif;
+      font-style: normal;
+      color: #dbbc2c;
+    }
+  }
+  .nav-b {
+    border-radius: 30px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+  }
+  h1 {
+    font-family: "Raleway", sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
 
-    .nav-nav {
-        background-color: white;
-        border-radius: 30px;
-        padding: 20px;
-        margin: 100px;
-        transition: all 0.3s ease;
-      
-        color: black;
-        animation: float 2s ease infinite;
-        position:fixed;
-        .cfluid{
-            position: relative;
-            .nav-text {
-                color: rgb(0, 0, 0);
-                font-family: "Raleway", sans-serif;
-                margin-left: 10px;
-                
-              }
-            .dbutton{
-                position: absolute;
-                top: 6px;
-                right: 100px;
-                border-radius: 90px;
-                background: rgb(77, 0, 0);
-                
+  .dbuttontwo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    button {
+      background-color: transparent;
+      padding: 10px;
+      color: #dbbc2c;
+      border-radius: 0px;
+      border: none;
+    }
+  }
+}
 
-    
-            }
-            .dbuttontwo button{
-                color: #000;
-                font-family: "Raleway", sans-serif;
-            }
+.nav-nav:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 90px rgba(0, 0, 0, 0.3);
+}
 
-        }
-        
-      }
-      .nav-nav:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 10px 90px rgba(0, 0, 0, 0.3);
-      }
-    
 .dropdown-task {
   width: 100%;
   position: relative;
   border-radius: 30px;
   padding-bottom: 50px;
-
-  
-  
 
   .task-prof-one {
     .dropdown button {
@@ -77,29 +90,145 @@
   .tcontainer {
     display: grid;
     place-items: center;
-    margin: 3% 10% 0% 10%;
-    position: relative;
+    margin: 1% 10% 0% 10%;
+    padding: 0;
+
     border: 0;
-    .texts{
-        position: absolute;
-        top: -60px;
-        text-align:justify;
-        left: 50px;
-        padding:5px;
-        
+    .texts {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+      .taskN {
+        font-size: 25px;
+        color: gray;
+        margin-right: 300px;
+
+        font-family: "Raleway", sans-serif;
+      }
+      .taskNo {
+        font-size: 25px;
+        color: gray;
+
+        font-family: "Raleway", sans-serif;
+        margin-right: 300px;
+      }
+
+      .assigned {
+        font-size: 25px;
+        color: gray;
+        margin-right: 300px;
+
+        font-family: "Raleway", sans-serif;
+      }
+
+      .dueD {
+        font-size: 25px;
+        color: gray;
+
+        font-family: "Raleway", sans-serif;
+      }
     }
-    .task-container {
+    .task-container-connect {
       width: 1100px;
       height: auto;
-      border: 1px solid;
+      border-radius: 20px;
+      margin-top: 20px;
+      position: relative;
+      background-color: #e0ffbfc5;
+      overflow: auto;
+      padding: 5px;
+      .plus {
+        position: absolute;
+        top: 30px;
+        left: 1050px;
+        color: rgb(2, 0, 0);
+        font-size: 20px;
+        border-radius: 40px;
+      }
+      .plus:hover {
+        color: #dbbc2c;
+        cursor: pointer;
+      }
+
+      .division {
+        padding: 50px;
+        .gray-background {
+          background-color: gray;
+        }
+      }
+
+      .task-text {
+        font-size: 30px;
+        padding: 20px;
+        margin-left: 20px;
+        font-family: "Raleway", sans-serif;
+        margin-bottom: 1px;
+        font-weight: 800;
+      }
+      .info {
+        width: 100%;
+        display: flex;
+        padding-left: 200px;
+        margin-top: 20px;
+        justify-content: center;
+
+        .task-title {
+          font-family: "Raleway", sans-serif;
+          font-size: 15px;
+          width: 20%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          position: absolute;
+          left: 50px;
+
+          font-style: italic;
+        }
+        .circle {
+          color: black;
+        }
+        .block {
+          font-size: 15px;
+          margin-bottom: 20px;
+          padding: 5px;
+          width: 50%;
+          margin: 1;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-family: "Raleway", sans-serif;
+          position: absolute;
+          right: 250px;
+        }
+        .due {
+          font-family: "Raleway", sans-serif;
+          font-size: 15px;
+          width: 20%;
+
+          position: absolute;
+          right: -10px;
+        }
+      }
+      .info:hover {
+        background-color: rgb(2, 0, 0);
+        color: #00ce56;
+        cursor: pointer;
+      }
+    }
+    .task-container-coach {
+      width: 1100px;
+      height: auto;
       border-radius: 20px;
       margin-top: 90px;
       position: relative;
+      border: none;
+      background-color: #e0ffbfc5;
       overflow: auto;
       padding: 3px;
       .plus {
         position: absolute;
-
         top: 30px;
         left: 1050px;
         color: rgb(2, 0, 0);
@@ -110,12 +239,12 @@
         color: #00ce56;
         cursor: pointer;
       }
- 
-      .division{
+
+      .division {
         padding: 50px;
         .gray-background {
-    background-color: gray;
-  }
+          background-color: gray;
+        }
       }
 
       .task-text {
@@ -123,6 +252,7 @@
         padding: 20px;
         margin-left: 20px;
         font-family: "Raleway", sans-serif;
+        font-weight: 800;
         margin-bottom: 1px;
       }
       .info {
@@ -141,14 +271,13 @@
           text-overflow: ellipsis;
           position: absolute;
           left: 50px;
-      
+
           font-style: italic;
         }
-        .circle{
-            color: black;
+        .circle {
+          color: black;
         }
         .block {
-         
           font-size: 15px;
           margin-bottom: 20px;
           padding: 5px;
@@ -165,7 +294,95 @@
           font-family: "Raleway", sans-serif;
           font-size: 15px;
           width: 20%;
-          
+
+          position: absolute;
+          right: -10px;
+        }
+      }
+      .info:hover {
+        background-color: rgb(2, 0, 0);
+        color: #00ce56;
+        cursor: pointer;
+      }
+    }
+    .task-container-check {
+      width: 1100px;
+      height: auto;
+      border-radius: 20px;
+      margin-top: 90px;
+      position: relative;
+      border: none;
+      background-color: #e0ffbfc5;
+      overflow: auto;
+      padding: 3px;
+      .plus {
+        position: absolute;
+        top: 30px;
+        left: 1050px;
+        color: rgb(2, 0, 0);
+        font-size: 20px;
+        border-radius: 40px;
+      }
+      .plus:hover {
+        color: #00ce56;
+        cursor: pointer;
+      }
+
+      .division {
+        padding: 50px;
+        .gray-background {
+          background-color: gray;
+        }
+      }
+
+      .task-text {
+        font-size: 30px;
+        padding: 20px;
+        margin-left: 10px;
+        font-family: "Raleway", sans-serif;
+        margin-bottom: 1px;
+        font-weight: 800;
+      }
+      .info {
+        width: 100%;
+        display: flex;
+        padding-left: 200px;
+        margin-top: 20px;
+        justify-content: center;
+
+        .task-title {
+          font-family: "Raleway", sans-serif;
+          font-size: 15px;
+          width: 20%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          position: absolute;
+          left: 50px;
+
+          font-style: italic;
+        }
+        .circle {
+          color: black;
+        }
+        .block {
+          font-size: 15px;
+          margin-bottom: 20px;
+          padding: 5px;
+          width: 50%;
+          margin: 1;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-family: "Raleway", sans-serif;
+          position: absolute;
+          right: 250px;
+        }
+        .due {
+          font-family: "Raleway", sans-serif;
+          font-size: 15px;
+          width: 20%;
+
           position: absolute;
           right: -10px;
         }
@@ -479,7 +696,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    .post{
+    .post {
       font-family: "Raleway", sans-serif;
     }
 
@@ -487,6 +704,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      .select {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .post {
+        font-family: "Raleway", sans-serif;
+        font-weight: 800;
+      }
       .header-task-selection {
         width: 30%;
         position: absolute;
@@ -507,203 +732,262 @@
     }
 
     .plus-title-check {
-      padding: 2vw;
+      padding: 1vw;
       width: 100%;
       min-height: 80%;
-      .task-name{
-        font-family: "Protest Strike", sans-serif;
-      }
-
-      .attachment-check{
-        position: absolute;
-        left: 700px;
-        top: 240px;
-        .input-check{
-            border: 2px solid #000000;
-
-        }
-      .check-upload-etch {
-        font-size: 20px;
-        font-family: "Protest Strike", sans-serif;
-      }
-    }
-      .due-check{
-       
-        
-        margin: 20px;
-        border-radius: 30%;
-    
-      .check-due-date-etch {
-        font-size: 20px;
-        font-family: "Protest Strike", sans-serif;
-     
-      }
-    }
-
-
-      overflow-y: auto;
-      .task-name-container {
-        display: flex;
+      margin: 10px;
+      .task-name-container-check {
         width: 100%;
-        height: 50px;
-        align-items: center;
-        padding: 0px;
-     
+        min-height: fit-content;
+        min-height: 100px;
+        height: auto;
         .task-name {
-       
-          font-size: 25px;
-          font-family: "Protest Strike", sans-serif;
-        
-        }
-        .task-name-input {
-          width: 20%;
-          border-radius: 10px;
-          margin-top: 0px;
-         
-        }
-        .task-name-input:hover {
-            color: #000;
-      
-        }
-
-        
-      }
-    }
-
-    .plus-title  {
-        padding: 1vw;
-        width: 100%;
-        min-height: 80%;
-        position: relative;
-        margin: 10px;
-        .choices{
-            font-family: "Protest Strike", sans-serif;
-            position: absolute;
-            left: 700px;
-            top:200px;
-
-            .choiceS{
-                font-family: "Protest Strike", sans-serif;
-            }
-        }
-        .check-upload-etch {
+          font-family: "Raleway", sans-serif;
           font-size: 20px;
-          
         }
-        .attachment{
-            padding: 10px;
-            margin-left: 100px;
-        .input-check{
-            padding: 10px;
-            
+        .input-placeholder-check {
+          width: 100%;
+          line-height: 1;
+          font-family: "Raleway", sans-serif;
+          min-height: 30px;
         }
-        .upload{
+      }
+      .h2-text-one {
+        width: 100%;
+        min-height: fit-content;
+        min-height: 50px;
+        height: auto;
+        margin-bottom: 10px;
+        .description {
+          font-family: "Raleway", sans-serif;
+          font-size: 20px;
+        }
+
+        .input-placeholder-one {
+          width: 100%;
+          line-height: 1;
+          font-family: "Raleway", sans-serif;
+          min-height: 30px;
+        }
+      }
+
+      .due {
+        width: 500px;
+        border: none;
+        button {
+          border: none;
+        }
+        .dueN {
+          font-size: 20px;
           font-family: "Raleway", sans-serif;
         }
-        
-        .check-due-date-etch {
+        .picker {
+          border: none;
+          padding: 10px;
+        }
+      }
+      legend {
+        font-size: 20px;
+        margin: 20px;
+        font-family: "Raleway", sans-serif;
+      }
+      .select {
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+
+        padding: 10px;
+
+        input {
+          margin: 20px;
+        }
+      }
+      .bb {
+        display: flex;
+        padding: 50px;
+
+        align-items: flex-start;
+        button {
+          background-color: #ffffff;
+          font-family: "Raleway", sans-serif;
+          position: relative;
+          right: 560px;
+          font-size: 20px;
+          top: 30px;
+          font-weight: 500;
+          padding: 10px;
+          border-radius: 10px;
+        }
+        button:hover {
+          color: #dbbc2c;
+        }
+      }
+      .attach {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        .upload {
+          display: flex;
+          font-family: "Raleway", sans-serif;
           font-size: 20px;
         }
-    }
-
-    .task-name-container-connect {
-        display: flex;
-        width: 100%;
-        height: 50px;
-        align-items: center;
-        padding: 0px;
-     
-        .task-name {
-       
-          font-size: 25px;
-          font-family: "Protest Strike", sans-serif;
-        
-        }
-        .task-name-input {
-          width: 20%;
-          border-radius: 10px;
-          margin-top: 0px;
-         
-        }
-        .task-name-input:hover {
-            color: #000;
-      
-        }
-      }
-  
-  
-        overflow-y: auto;
-        .task-name-container-coach {
+        input {
+          font-size: 15px;
+          font-family: "Raleway", sans-serif;
+          color: #3a4f24;
+          font-weight: 700;
           display: flex;
+          justify-content: flex-start;
+        }
+      }
+
+      overflow-y: auto;
+    }
+
+    .plus-title-connect {
+      padding: 1vw;
+      width: 100%;
+      min-height: 80%;
+      margin: 10px;
+      .task-name-container-connect {
+        width: 100%;
+        min-height: fit-content;
+        min-height: 100px; 
+        height: auto; 
+        .task-name {
+          font-family: "Raleway", sans-serif;
+          font-size: 20px;
+        }
+        .input-placeholder-connect {
           width: 100%;
-          height: 50px;
-          align-items: center;
+          line-height: 1;
+          font-family: "Raleway", sans-serif;
+          min-height: 30px;
+        }
+      }
+      .h2-text-one {
+        width: 100%;
+        min-height: fit-content;
+        min-height: 50px;
+        height: auto;
+        margin-bottom: 10px;
+        .description {
+          font-family: "Raleway", sans-serif;
+          font-size: 20px;
+        }
+
+        .input-placeholder-one {
+          width: 100%;
+          line-height: 1;
+          font-family: "Raleway", sans-serif;
+          min-height: 30px;
+        }
+      }
+      .cheese {
+        justify-content: flex-start;
+        margin: 10px;
+        margin-top: 10px;
+
+        .choiceS {
+          font-family: "Raleway", sans-serif;
+          font-size: 20px;
+          padding: 0px;
+          display: flex;
+          margin-top: 20px;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        .choices {
+          font-family: "Raleway", sans-serif;
+          display: flex;
+          padding: 5px;
           justify-content: space-between;
-          .task-name {
-            display: inline-block;
-            font-size: 25px;
-            width: fit-content;
-            font-family: "Raleway", sans-serif;
-          }
-          .task-name-input {
-            width: 20%;
-            border-radius: 10px;
-            font-family: Raleway;
-          }
-          .task-name-input:hover {
-              color: #000;
-        
+          border: none;
+          margin-top: 20px;
+          margin: 10px;
+          width: 100%;
+          input {
+            padding: 2px;
+            margin-left: 2px;
           }
         }
-        
+      }
+      .due {
+        width: 500px;
+        border: none;
+        .dueN {
+          font-size: 20px;
+          font-family: "Raleway", sans-serif;
+        }
+        .picker {
+          border: none;
+          padding: 10px;
+        }
       }
 
-    .plus-block {
-      width: 100%;
-      height: fit-content;
-      display: flex;
-      align-items: center;
-      .blockN {
-        margin: 0;
-        display: inline-block;
-        font-size: 25px;
-      }
-    }
-    .due {
-      width: 500px;
-      .dueN {
-        font-size: 25px;
-        font-family: "Protest Strike", sans-serif;
-      }
-    }
-  }
-  .h2-text-one {
-    width: 100%;
-    min-height: fit-content;
-    min-height: 50px; /* Set a minimum height */
-    height: auto; /* Allow the textarea to grow vertically */
-    .description{
-      font-family: "Raleway", sans-serif;
+      overflow-y: auto;
     }
 
-    .input-placeholder-one {
-      width: 100%;
-      line-height: 1;
-      font-family: "Raleway", sans-serif;
+    .plus-title-coach {
+      .task-name-container-coach {
+        width: 100%;
+        min-height: fit-content;
+        min-height: 100px;
+        height: auto;
+        .task-name {
+          font-family: "Raleway", sans-serif;
+          font-size: 20px;
+        }
+        .input-placeholder-coach {
+          width: 100%;
+          line-height: 1;
+          font-family: "Raleway", sans-serif;
+          min-height: 30px;
+        }
+      }
+      .h2-text-one {
+        width: 100%;
+        min-height: fit-content;
+        min-height: 50px;
+        height: auto;
+        margin-bottom: 10px;
+        .description {
+          font-family: "Raleway", sans-serif;
+          font-size: 20px;
+        }
+
+        .input-placeholder-coach {
+          width: 100%;
+          line-height: 1;
+          font-family: "Raleway", sans-serif;
+          min-height: 30px;
+        }
+      }
+      .attachment {
+        .upload {
+          font-family: "Raleway", sans-serif;
+          font-size: 20px;
+        }
+        input {
+          font-size: 15px;
+          font-family: "Raleway", sans-serif;
+          color: #3a4f24;
+          font-weight: 700;
+        }
+      }
     }
   }
-  .eks {
-    position: absolute;
-    left: 1440px;
-    top: 525px;
-    font-size: 40px;
-    z-index: 1000;
-    
-  }
-  
-  
 }
 
+.eks {
+  position: absolute;
+  left: 1440px;
+  top: 525px;
+  font-size: 40px;
+  z-index: 1000;
+}
 
 @keyframes fadeIn {
   from {
@@ -716,57 +1000,18 @@
   }
 }
 
-.taskN {
-  font-size: 25px;
-  color: gray;
-  position: absolute;
-  top: 90px;
-  left: 110px;
-  font-family: "Raleway", sans-serif;
-
+::-webkit-scrollbar {
+  display: none;
 }
-.taskNo {
-    font-size: 25px;
-    color: gray;
-    position: absolute;
-    top: 90px;
-    left: 167px;
-    font-family: "Raleway", sans-serif;
-  }
-
-.assigned {
-  font-size: 25px;
-  color: gray;
-  top: 90px;
-  left: 540px;
-  position: absolute;
-  font-family: "Raleway", sans-serif;
-}
-
-.dueD {
-  font-size: 25px;
-  color: gray;
-  top: 90px;
-  left: 950px;
-  position: absolute;
-  font-family: "Raleway", sans-serif;
-}
-
-
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
-  
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
+
