@@ -58,6 +58,7 @@ const FeedScreen = ({ navigation }) => {
                 backgroundColor: '#3a4f24',
                 color: 'white',
                 fontFamily: 'Raleway-Regular',
+                marginTop: 2,
                 marginBottom: 5,
                 
             }}>Welcome to Phinma Hub,<Text style = {{
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
         height: windowWidth * 0.3,
     },
     announcementContainer: {
-        marginTop: 10,
+        marginTop: 10,  
         marginLeft: 18, 
         marginRight: 18,
         marginBottom: 5,

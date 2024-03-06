@@ -56,7 +56,7 @@ const NavigationStack = () => {
     const { clientIsReady } = useChatClient();
   
     if (!clientIsReady) {
-      return <Text>Loading chat ...</Text>
+      return <Text style={{ display: 'flex', flex: 1, textAlign: 'center', justifyContent: 'center', minHeight: '50vh' }}>Loading chat ...</Text>
     }
 return (
     <OverlayProvider>

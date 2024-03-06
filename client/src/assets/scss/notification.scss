@@ -58,12 +58,15 @@
           font-size: 15px;
           margin-right: 10px;
           .bag {
-            background-color: white;
-            border-radius: 30px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            border: 1px solid #0000001e;
+            background-color: #ffffff1e;
+            padding: 18px;
+            border-radius: 10px;
+
             transition: background-color 0.3s ease, transform 0.3s ease,
               box-shadow 0.3s ease;
-         
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
             .ios {
               font-size: 30px;
               display: flex;

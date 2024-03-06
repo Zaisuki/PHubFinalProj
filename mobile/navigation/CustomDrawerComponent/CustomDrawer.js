@@ -50,7 +50,7 @@ const CustomDrawer = props => {
       backgroundColor: '#3a4f24',
     }} {...props}>
         <ImageBackground style={{
-            height: 75
+            height: 100
         }}>
         <Image source = {phublogowithoutbg} style={styles.userImg}/>
         </ImageBackground>
@@ -59,15 +59,18 @@ const CustomDrawer = props => {
           textAlign: 'center',
           margin: 5,
           fontFamily: 'Raleway-Bold',
-          fontSize: 20,
+          fontSize: 21,
           color: 'white',
+          marginBottom: 22,
+          marginTop: -7
         }}>PHINMA <Text style = {{color: '#dbbc2c'}}>HUB</Text></Text>
+        
         <DrawerItemList {...props}/>
-        <Card onPress = {handleLogout}>
+        <Card onPress = {handleLogout} style = {{backgroundColor: 'white', marginTop: 23}}>
           <View style ={{ flexDirection: 'row',
-        alignItems: 'center', padding: 10, marginStart: 5, backgroundColor:'#3a4f24' }}>
-          <Image source={logoutIcon} style = {{height: 50, width: 50}}/>
-          <Text style = {{fontSize: 13, marginStart: 38, fontFamily: 'Raleway-Bold', color: 'white'}}>Log Out</Text>
+        alignItems: 'center', padding: 10, marginStart: 0, backgroundColor:'#3a4f24'}}>
+          <Image source={logoutIcon} style = {{height: 60, width: 60}}/>
+          <Text style = {{fontSize: 13, marginStart: 32, fontFamily: 'Raleway-Bold', color: 'white'}}>Log <Text style = {{color: '#dbbc2c'}}>out</Text></Text>
           </View>
         </Card>
       </View>
@@ -83,11 +86,11 @@ const styles = StyleSheet.create({
         height: 110,
         borderRadius: 110 / 2,
         position: 'absolute',
-        left: width / 2 - 125,
-        bottom: -110 / 2,
+        left: width / 2 - 130,
+        bottom: -125 / 2,
     },
     drawerListWrapper: {
-        marginTop: 110 / 2 + 10,
+        marginTop: 120 / 2 + 10,
     },
     drawerBackground: {
         backgroundColor: 'rgba(0,0,0, 0.8)'

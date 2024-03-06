@@ -32,7 +32,7 @@ function DrawerTabs() {
       
       drawerActiveTintColor: '#dbbc2c',
       drawerInactiveTintColor: 'white',
-      drawerItemStyle: {borderRadius: 10, height: 65,},
+      drawerItemStyle: {borderRadius: 10, height: 65, marginTop: 0, marginLeft: 22},
       drawerLabelStyle: {alignSelf: 'flex-start', fontFamily: 'Raleway-Bold'},
       headerTitleStyle: {fontFamily: 'Raleway-Bold', color: 'white'},
       headerTintColor: 'white',
@@ -41,37 +41,37 @@ function DrawerTabs() {
       
       <Drawer.Screen name='Profile' component={ProfileScreen} options={{
         drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50,}} source={profileIcon} />
+          return <Image style= {{height: 40, width: 40}} source={profileIcon} />
         }
       }}/>
 
       <Drawer.Screen name='Feed' component={FeedScreen} options={{
         drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50}} source={feedIcon} />
+          return <Image style= {{height: 40, width: 40}} source={feedIcon} />
         }
       }}/>
 
       <Drawer.Screen name='Tasks' component={TaskScreen} options={{
         drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50}} source={taskIcon} />
+          return <Image style= {{height: 40, width: 40}} source={taskIcon} />
         }
       }}/>
 
       <Drawer.Screen name='Course' component={CourseScreen} options={{
         drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50}} source={courseIcon} />
+          return <Image style= {{height: 40, width: 40}} source={courseIcon} />
         }
       }}/>
 
       <Drawer.Screen name='Notification' component={NotificationScreen} options={{
         drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50}} source={notificationIcon} />
+          return <Image style= {{height: 40, width: 40}} source={notificationIcon} />
         }
       }}/>
 
       <Drawer.Screen name='Inbox' component={InboxScreen} options={{
         drawerIcon: ({color, size, focused}) => {
-          return <Image style= {{height: 50, width: 50}} source={inboxIcon} />
+          return <Image style= {{height: 40, width: 40}} source={inboxIcon} />
         }
       }}/>
       

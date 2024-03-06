@@ -47,21 +47,21 @@ const NotificationScreen = ({navigation}) => {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
               <Card style={{
-                borderRadius: 20,  
-                borderWidth: 2,
+                borderRadius: 8,  
+                borderWidth: 1,
                 borderColor: 'rgb(219, 188, 44)',
                 backgroundColor: 'white', 
                 justifyContent: 'center',
-                marginTop: 5,
+                marginTop: 9,
                 marginBottom: 5,
                 borderColor: '#d3d3d3',
                 margin: 20,
                 }}>
-                <Image source = {notifbell} style = {{width: 25, height: 25, margin: 5}}/>
-                <Card.Title title = {item.header} titleStyle = {{textAlign: 'center', fontFamily: 'Raleway-Bold',}} />
+                <Image source = {notifbell} style = {{width: 25, height: 25, margin: 9}}/>
+                <Card.Title title = {item.header} titleStyle = {{textAlign: 'center', fontFamily: 'Raleway-Bold', fontSize: 13}} />
                 <Card.Content>
-                <Text style={{textAlign: 'center', fontFamily: 'Raleway-Regular'}}>{item.description}</Text>
-                <Text style= {{textAlign: 'right', fontFamily: 'Raleway-Regular', fontSize: 10}}>{'\n'}{convertDate(item.updatedAt)}</Text>
+                <Text style={{textAlign: 'center', fontFamily: 'Raleway-Regular', fontSize: 12}}>{item.description}</Text>
+                <Text style= {{textAlign: 'right', fontFamily: 'Raleway-Regular', fontSize: 8}}>{'\n'}{convertDate(item.updatedAt)}</Text>
                 </Card.Content>
               </Card>
             )}
