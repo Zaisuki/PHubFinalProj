@@ -56,12 +56,13 @@ const LoginScreen = ({ navigation }) => {
                         <Text style={styles.brandName}>PHub</Text>
                     </View>
 
-                    <Text style={styles.loginContinueTxt}>Login in to continue</Text>
+                    {/* I replaced the "Login to continue text" with welcoming text */}
+                    <Text style={styles.loginContinueTxt}>Welcome to PHINMA Hub!</Text>
                     <TextInput style={styles.input} onChangeText={handleUserIdentifierChange} placeholder='Email' />
                     <TextInput style={styles.input} onChangeText={handlePasswordChange} placeholder='Password' />
 
                     <View style={styles.loginBtnWrapper}>
-                        <LinearGradient colors={['#09612a', '#044a6b']} style={styles.linearGradient} start={{ y: 0.0, x: 0.0 }} end={{ y: 1.0, x: 0.0 }}>
+                        <LinearGradient colors={['#00240c', '#ffff']} style={styles.linearGradient} start={{ y: 0.2, x: 0.0 }} end={{ y: 3.6, x: 0.0 }}>
                             {/******************** LOGIN BUTTON *********************/}
                             <TouchableOpacity onPress={handleLogin} activeOpacity={0.7} style={styles.loginBtn}>
                                 <Text style={styles.loginText}>Log In</Text>
@@ -87,6 +88,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 16,
+        backgroundColor: '#EDECE7',
     },
     container: {
         padding: 15,
@@ -102,6 +104,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'black',
         opacity: 0.9,
+        display: 'none',
     },
     loginContinueTxt: {
         fontSize: 21,
@@ -109,20 +112,21 @@ const styles = StyleSheet.create({
         color: 'black',
         marginBottom: 16,
         fontWeight: 'bold',
+        // display: 'none',
     },
     input: {
         borderWidth: 1,
         borderColor: 'black',
         padding: 15,
         marginVertical: 10,
-        borderRadius: 5,
-        height: 55,
+        borderRadius: 7,
+        height: 65,
         paddingVertical: 0,
     },
     // Login Btn Styles
     loginBtnWrapper: {
         height: 55,
-        marginTop: 12,
+        marginTop: 5,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
@@ -141,7 +145,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        height: 55,
+        height: 50,
     },
     loginText: {
         color: 'white',
@@ -173,11 +177,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 20,
+        marginBottom: 10,
     },
     mr7: {
-        marginRight: 7,
-        height: 55,
-        width: 55,
+        marginRight: 0,
+        marginBottom: 10,
+        height: 90,
+        width: 90,
     },
 });
