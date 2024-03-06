@@ -74,11 +74,11 @@ return (
 
 const InboxScreen = ({navigation}) => {
     return (
-        <SafeAreaView style={{flex: 1, paddingTop: 0}}>
+        <View style={{flex: 1, paddingTop: 0}}>
         <NavigationContainer independent= {true}>
-            <NavigationStack />
+            <NavigationStack style = {{paddingTop: 0}} />
         </NavigationContainer>
-        </SafeAreaView>
+        </View>
     )
 };
 

@@ -29,13 +29,14 @@ function DrawerTabs() {
     <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />}
     drawerStyle initialRouteName='Feed' screenOptions={{
       drawerActiveBackgroundColor: 'rgba(255,255,255, 0.2)',
+      
       drawerActiveTintColor: '#dbbc2c',
       drawerInactiveTintColor: 'white',
       drawerItemStyle: {borderRadius: 10, height: 65,},
       drawerLabelStyle: {alignSelf: 'flex-start', fontFamily: 'Raleway-Bold'},
       headerTitleStyle: {fontFamily: 'Raleway-Bold', color: 'white'},
       headerTintColor: 'white',
-      headerStyle: {borderWidth: 3, backgroundColor: '#3a4f24'}
+      headerStyle: { backgroundColor: '#3a4f24'}
     }}>
       
       <Drawer.Screen name='Profile' component={ProfileScreen} options={{
