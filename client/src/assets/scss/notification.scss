@@ -42,18 +42,12 @@
       padding: 40px;
 
       .t-body {
-        
-        
-        
-        
-
         .ioss {
           font-size: 25px;
           font-family: "Raleway", sans-serif;
           font-weight: 800;
           padding: 10px;
           text-align: center;
-          
         }
 
         .desc-tr {
@@ -64,14 +58,20 @@
           font-size: 15px;
           margin-right: 10px;
           .bag {
-            background-color: #e0ffbf1e;
-            padding: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border-radius: 20px;
+            border: 1px solid #0000001e;
+            background-color: #ffffff1e;
+            padding: 18px;
+            border-radius: 10px;
+
+            transition: background-color 0.3s ease, transform 0.3s ease,
+              box-shadow 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
             .ios {
               font-size: 30px;
               display: flex;
               justify-content: center;
+              fill: #3a4f24;
             }
 
             .from {
@@ -96,41 +96,16 @@
               justify-content: flex-end;
               font-family: "Raleway", sans-serif;
               align-items: center;
+              color: #3a4f24;
             }
           }
           .bag:hover {
-            border: 2px solid RGB(219, 188, 44);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            animation: floatAnimation 2s infinite ease-in-out alternate;
-            background-color: #e0ffbfc5 ;
-            color: #dbbc2c;
-            .ios{
-              color: #dbbc2c ;
-            }
-            @keyframes floatAnimation {
-              0% {
-                transform: translateY(0);
-              }
-              100% {
-                transform: translateY(-90px);
-              }
-            }
-            
+            background-color: #eee;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
           }
-          
         }
       }
-      
-      
     }
-    
-  }
-}
-@keyframes floatAnimation {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-10px);
   }
 }

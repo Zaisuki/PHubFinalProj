@@ -55,7 +55,7 @@ const inbox = () => {
 
   if (!client) return null;
 
-  return (
+  return ( 
     
     <Chat client={client}>
       <div className="inbox">
