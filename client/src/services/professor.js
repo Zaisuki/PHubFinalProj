@@ -221,3 +221,76 @@ export const getConnectTaskSubmission = async (taskID) => {
         });
     return response.message;
 };
+export const editConnectHighScore = async (taskID, editedScore) => {
+    const response = await axios
+        .put(
+            `${apiURL}/professor/connect/task/editHighScore`,
+            { taskID, editedScore },
+            {
+                withCredentials: true,
+                headers: {
+                    authorization: cookies.get('authorization'),
+                },
+            }
+        )
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
+export const scoreStudentConnect = async (data) => {
+    const response = await axios
+        .put(
+            `${apiURL}/professor/connect/task/score`,
+            { data },
+            {
+                withCredentials: true,
+                headers: {
+                    authorization: cookies.get('authorization'),
+                },
+            }
+        )
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
+export const editCheckHighScore = async (taskID, editedScore) => {
+    const response = await axios
+        .put(
+            `${apiURL}/professor/check/task/editHighScore`,
+            { taskID, editedScore },
+            {
+                withCredentials: true,
+                headers: {
+                    authorization: cookies.get('authorization'),
+                },
+            }
+        )
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
+export const scoreStudentCheck = async (data) => {
+    const response = await axios
+        .put(
+            `${apiURL}/professor/check/task/score`,
+            { data },
+            {
+                withCredentials: true,
+                headers: {
+                    authorization: cookies.get('authorization'),
+                },
+            }
+        )
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    console.log(response);
+    return response;
+};

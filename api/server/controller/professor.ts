@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import { User } from '../middleware/authentication';
-import { addAnnouncement, addCheck, addCoach, addConnect, deleteAllCheck, deleteAllConnect, deleteCheck, deleteCoach, deleteConnect, getCheck, getCheckTask, getCheckTaskSubmission, getClass, getCoach, getCoachTask, getConnect, getConnectTask, getConnectTaskSubmission } from '../services/professor';
+import { addAnnouncement, addCheck, addCoach, addConnect, deleteAllCheck, deleteAllConnect, deleteCheck, deleteCoach, deleteConnect, editHighScoreCheck, editHighScoreConnect, getCheck, getCheckTask, getCheckTaskSubmission, getClass, getCoach, getCoachTask, getConnect, getConnectTask, getConnectTaskSubmission, scoreStudentsCheck, scoreStudentsConnect } from '../services/professor';
 
 export const getClassController = async (req: Request & { user?: User }, res: Response) => {
     try {
@@ -100,13 +100,33 @@ export const getConnectTaskController = async (req: Request, res: Response) => {
         res.status(500).json({ 'message': 'Internal Server Error' });
     }
 };
+export const editHighScoreConnectController = async (req: Request, res: Response) => {
+    try {
+        const { taskID, editedScore } = req.body;
+        const editedScoreInt = parseInt(editedScore, 10);
+        const result = await editHighScoreConnect(taskID, editedScoreInt);
+        return res.status(result.httpCode).json({ 'message': result.message });
+    } catch (error) {
+        return res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+export const editHighScoreCheckController = async (req: Request, res: Response) => {
+    try {
+        const { taskID, editedScore } = req.body;
+        const editedScoreInt = parseInt(editedScore, 10);
+        const result = await editHighScoreCheck(taskID, editedScoreInt);
+        return res.status(result.httpCode).json({ 'message': result.message });
+    } catch (error) {
+        return res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+
 export const getCheckTaskSubmissionController = async (req: Request, res: Response) => {
     try {
-        const classID = req.query.classID as string;
         const taskID = req.query.taskID as string;
-        if (classID) {
+        if (taskID) {
             let result;
-            result = await getCheckTaskSubmission(classID, taskID);
+            result = await getCheckTaskSubmission(taskID);
             return res.status(200).json({ 'message': result });
         }
 
@@ -115,13 +135,30 @@ export const getCheckTaskSubmissionController = async (req: Request, res: Respon
         res.status(500).json({ 'message': 'Internal Server Error' });
     }
 };
+export const scoreStudentsConnectController = async (req: Request, res: Response) => {
+    try {
+        const { data } = req.body;
+        const result = await scoreStudentsConnect(JSON.parse(data));
+        return res.status(result.httpCode).json({ 'message': result.message });
+    } catch (error) {
+        return res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+export const scoreStudentsCheckController = async (req: Request, res: Response) => {
+    try {
+        const { data } = req.body;
+        const result = await scoreStudentsCheck(JSON.parse(data));
+        return res.status(result.httpCode).json({ 'message': result.message });
+    } catch (error) {
+        return res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
 export const getConnectTaskSubmissionController = async (req: Request, res: Response) => {
     try {
-        const classID = req.query.classID as string;
         const taskID = req.query.taskID as string;
-        if (classID) {
+        if (taskID) {
             let result;
-            result = await getConnectTaskSubmission(classID, taskID);
+            result = await getConnectTaskSubmission(taskID);
             return res.status(200).json({ 'message': result });
         }
 

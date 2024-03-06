@@ -3,7 +3,7 @@ import convertPercentage from '../utils/convertPercentage';
 const ChoicesConnect = ({ data, totalStudents, choiceFunction, selectedChoice }) => {
     return (
         <div>
-            <input type='radio' value={data._id} onChange={choiceFunction} checked={selectedChoice === data._id} />
+            {choiceFunction ? <input type='radio' value={data._id} onChange={choiceFunction} checked={selectedChoice === data._id} /> : <input type='radio' value={data._id} disabled checked={selectedChoice === data._id} />}
             <span>{data.choice}</span>
             <span>{convertPercentage(data.respondents, totalStudents)}%</span>
         </div>

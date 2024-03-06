@@ -305,7 +305,6 @@ export const unSubmitCheck = async (taskID: string, userID: any | undefined) => 
 };
 export const submitConnect = async (taskID: string, userID: any | undefined, choiceID: string) => {
     try {
-        console.log(choiceID);
         let studentConnectSubmissionSchema = await new StudentConnectSubmission({
             student: userID,
             answer: choiceID,
@@ -327,6 +326,7 @@ export const submitConnect = async (taskID: string, userID: any | undefined, cho
         }
         studentSubjectsSchema.studentConnectSubmission.push(studentConnectSubmissionSchema._id);
         connectSchema.studentSubmission.push(studentConnectSubmissionSchema._id);
+        connectSchema.respondents += 1;
         connectChoiceSchema.respondents += 1;
         connectChoiceSchema.students.push(userID._id);
 

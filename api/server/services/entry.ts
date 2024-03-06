@@ -22,21 +22,46 @@ export const loginUsertoDatabase = async (userIdentifier: string, password: stri
     }
 };
 
-export const registerUsertoDatabase = async (firstName: string, middleName: string, lastName: string, username: string, personalEmail: string, schoolEmail: string, personalNumber: string, schoolNumber: string, address: string, birthday: string, password: string, userType: string, enrolled: boolean, course: string, section: string, studentID: string, department: string, active: boolean) => {
+export const registerUsertoDatabase = async (
+    firstName: string,
+    middleName: string,
+    lastName: string,
+    username: string,
+    personalEmail: string,
+    schoolEmail: string,
+    personalNumber: string,
+    schoolNumber: string,
+    address: string,
+    birthday: string,
+    password: string,
+    userType: string,
+    enrolled: boolean,
+    course: string,
+    section: string,
+    studentID: string,
+    department: string,
+    active: boolean,
+    levelOfEducation: string,
+    schoolYear: string,
+    summerClass: string,
+    year: string
+) => {
+    let userCredentialResult;
+
     try {
         const saltRounds = await bcrypt.genSalt();
-        password = await bcrypt.hash(password, saltRounds);
-        const userCredentialResult = await new UserCredentials({
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+        userCredentialResult = await new UserCredentials({
             username,
             personalEmail,
             schoolEmail,
-            passwordHash: password,
+            passwordHash: hashedPassword,
             userType,
         }).save();
-        let user,
-            userTypeID = 0;
+        let user;
         if (userType.toLowerCase() === 'student') {
-            const studentSubjects = await new StudentSubjects({}).save();
+            const studentSubjects = await new StudentSubjects({ schoolYear }).save();
+
             user = new Student({
                 firstName,
                 middleName,
@@ -49,6 +74,9 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
                 course,
                 section,
                 enrolled,
+                levelOfEducation,
+                summerClass,
+                year,
                 userCredentials: userCredentialResult._id,
                 studentSubjects: studentSubjects._id,
             });
@@ -56,7 +84,7 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
             await studentSubjects.save();
             userCredentialResult.studentInformation = user._id;
         } else if (userType.toLowerCase() === 'professor') {
-            const professorClass = await new ProfessorHandledClass({}).save();
+            const professorClass = await new ProfessorHandledClass({ schoolYear }).save();
             user = new Professor({
                 firstName,
                 middleName,
@@ -72,7 +100,7 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
             });
             professorClass.professor = user._id;
             await professorClass.save();
-            userCredentialResult.studentInformation = user._id;
+            userCredentialResult.professorInformation = user._id;
         } else if (userType.toLowerCase() === 'admin') {
             user = new Admin({
                 firstName,
@@ -86,7 +114,7 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
                 department,
                 userCredentials: userCredentialResult._id,
             });
-            userCredentialResult.studentInformation = user._id;
+            userCredentialResult.adminInformation = user._id;
         }
         if (user) {
             await userCredentialResult.save();
@@ -97,6 +125,10 @@ export const registerUsertoDatabase = async (firstName: string, middleName: stri
             return { message: 'Error on saving the user', httpCode: 500 };
         }
     } catch (error) {
+        console.log(error);
+        if (userCredentialResult) {
+            await userCredentialResult.deleteOne();
+        }
         return { message: error, httpCode: 500 };
     }
 };
@@ -110,9 +142,17 @@ export const checkUsernameAvailability = async (username: string): Promise<boole
     }
 };
 
-export const checkEmailAvailability = async (emailAddress: string): Promise<boolean> => {
+export const checkPersonalEmailAvailability = async (emailAddress: string): Promise<boolean> => {
     try {
-        const result: boolean = (await UserCredentials.findOne({ emailAddress: { $regex: new RegExp(`^${emailAddress}$`, 'i') } })) === null;
+        const result: boolean = (await UserCredentials.findOne({ personalEmail: { $regex: new RegExp(`^${emailAddress}$`, 'i') } })) === null;
+        return result;
+    } catch (error) {
+        return false;
+    }
+};
+export const checkSchoolEmailAvailability = async (emailAddress: string): Promise<boolean> => {
+    try {
+        const result: boolean = (await UserCredentials.findOne({ schoolEmail: { $regex: new RegExp(`^${emailAddress}$`, 'i') } })) === null;
         return result;
     } catch (error) {
         return false;
@@ -120,14 +160,17 @@ export const checkEmailAvailability = async (emailAddress: string): Promise<bool
 };
 
 export const getUserIDandType = async (userIdentifier: string): Promise<string[] | null> => {
-    const result = await UserCredentials.findOne({ $or: [{ username: { $regex: new RegExp(userIdentifier, 'i') } }, { personalEmail: { $regex: new RegExp(userIdentifier, 'i') } }, { schoolEmail: { $regex: new RegExp(userIdentifier, 'i') } }] }).populate('studentInformation').populate('professorInformation').populate('adminInformation');
+    const result = await UserCredentials.findOne({ $or: [{ username: { $regex: new RegExp(userIdentifier, 'i') } }, { personalEmail: { $regex: new RegExp(userIdentifier, 'i') } }, { schoolEmail: { $regex: new RegExp(userIdentifier, 'i') } }] })
+        .populate('studentInformation')
+        .populate('professorInformation')
+        .populate('adminInformation');
     if (result) {
         let userID: unknown = result.userType === 'student' ? result.studentInformation : result.userType === 'professor' ? result.professorInformation : result.adminInformation;
-        
+
         const userType: unknown = result.userType;
-        const userData : any = userType === 'student' ? result.studentInformation : userType === 'professor' ? result.professorInformation : result.adminInformation
-        const userFullName: unknown =  `${userData?.firstName} ${userData?.middleName ?? userData?.middleName} ${userData?.lastName}`;
-        const username: unknown =  result?.username;
+        const userData: any = userType === 'student' ? result.studentInformation : userType === 'professor' ? result.professorInformation : result.adminInformation;
+        const userFullName: unknown = `${userData?.firstName} ${userData?.middleName ?? userData?.middleName} ${userData?.lastName}`;
+        const username: unknown = result?.username;
         return [userID as string, userType as string, userFullName as string, username as string];
     }
     return null;

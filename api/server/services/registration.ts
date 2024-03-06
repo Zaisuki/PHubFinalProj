@@ -132,7 +132,6 @@ export const getProfessorID = async (query: string) => {
 };
 export const getSubjectID = async (query: string) => {
     try {
-        console.log(query);
         const subject = await Subject.find({ $or: [{ subjectCode: { $regex: new RegExp(query, 'i') } }, { subjectDescription: { $regex: new RegExp(query, 'i') } }] });
 
         return { message: subject, httpCode: 200 };

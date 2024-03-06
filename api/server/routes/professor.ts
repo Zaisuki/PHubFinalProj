@@ -13,6 +13,8 @@ import {
     deleteCheckController,
     deleteCoachController,
     deleteConnectController,
+    editHighScoreCheckController,
+    editHighScoreConnectController,
     getCheckController,
     getCheckTaskController,
     getCheckTaskSubmissionController,
@@ -22,6 +24,8 @@ import {
     getConnectController,
     getConnectTaskController,
     getConnectTaskSubmissionController,
+    scoreStudentsCheckController,
+    scoreStudentsConnectController,
 } from '../controller/professor';
 import { deleteAnnouncement } from '../services/professor';
 import { upload } from '../services/upload';
@@ -36,7 +40,9 @@ router.delete('/delete', deleteAnnouncement);
 router.post('/check', authenticateToken, professorOnly, upload.array('file'), addCheckController);
 router.get('/check', authenticateToken, professorOnly, getCheckController);
 router.get('/check/task', authenticateToken, professorOnly, getCheckTaskController);
+router.put('/check/task/editHighScore', authenticateToken, professorOnly, editHighScoreCheckController);
 router.get('/check/task/submission', authenticateToken, professorOnly, getCheckTaskSubmissionController);
+router.put('/check/task/score', authenticateToken, professorOnly, scoreStudentsCheckController);
 router.delete('/check/all/delete', deleteAllCheckController);
 router.delete('/check/delete', deleteCheckController);
 
@@ -49,7 +55,9 @@ router.delete('/coach/delete', deleteCoachController);
 router.post('/connect', authenticateToken, professorOnly, upload.array('file'), addConnectController);
 router.get('/connect', authenticateToken, professorOnly, getConnectController);
 router.get('/connect/task', authenticateToken, professorOnly, getConnectTaskController);
+router.put('/connect/task/editHighScore', authenticateToken, professorOnly, editHighScoreConnectController);
 router.get('/connect/task/submission', authenticateToken, professorOnly, getConnectTaskSubmissionController);
+router.put('/connect/task/score', authenticateToken, professorOnly, scoreStudentsConnectController);
 router.delete('/connect/all/delete', deleteAllConnectController);
 router.delete('/connect/delete', deleteConnectController);
 

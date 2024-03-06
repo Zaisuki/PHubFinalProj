@@ -1,0 +1,17 @@
+.overall-container {
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type='number'] {
+        /* Ensure the input is wide enough to prevent clipping */
+        width: 50px;
+    }
+    .studentList {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+    }
+}

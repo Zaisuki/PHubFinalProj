@@ -140,22 +140,44 @@ export const getConnectTask = async (classID: string) => {
         return { 'message': 'No Connect' };
     }
 };
-export const getCheckTaskSubmission = async (classID: string, taskID: string) => {
+export const editHighScoreConnect = async (taskID: string, editedScoreInt: number) => {
+    try {
+        const connectTask = await Connect.findOneAndUpdate({ _id: taskID }, { $set: { highestPossibleScore: editedScoreInt } }, { new: true });
+        return { message: 'Task high score updated', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
+export const editHighScoreCheck = async (taskID: string, editedScoreInt: number) => {
+    try {
+        const connectTask = await Check.findOneAndUpdate({ _id: taskID }, { $set: { highestPossibleScore: editedScoreInt } }, { new: true });
+        return { message: 'Task high score updated', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
+
+export const getCheckTaskSubmission = async (taskID: string) => {
     try {
         const studentTurnedIn = [],
             studentGraded = [],
             studentAssigned = [];
-        const students = await Class.findById(classID, 'students');
+        const task = await Check.findById(taskID);
+        if (!task) {
+            return 'Class not found.';
+        }
+        const classID = task.class;
+        const students = await Class.findById(classID, 'students').populate('students');
         for (const student of (students as any)?.students) {
-            const studentSubmission = await StudentCheckSubmission.findOne({ student, task: taskID });
+            const studentSubmission = await StudentCheckSubmission.findOne({ student, task: taskID }).populate('attachment').populate('student');
             if (studentSubmission) {
                 if (studentSubmission.score) {
-                    studentGraded.push(student);
+                    studentGraded.push([student, studentSubmission]);
                 } else {
-                    studentTurnedIn.push(student);
+                    studentTurnedIn.push([student, studentSubmission]);
                 }
             } else {
-                studentAssigned.push(student);
+                studentAssigned.push([student]);
             }
         }
         return { studentTurnedIn, studentGraded, studentAssigned };
@@ -163,22 +185,47 @@ export const getCheckTaskSubmission = async (classID: string, taskID: string) =>
         return { 'message': 'No Check' };
     }
 };
-export const getConnectTaskSubmission = async (classID: string, taskID: string) => {
+export const scoreStudentsConnect = async (data: object) => {
+    try {
+        Object.entries(data).forEach(async ([student, score]) => {
+            await StudentConnectSubmission.findOneAndUpdate({ student }, { score }, { upsert: true, new: true });
+        });
+        return { message: 'Students score updated', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
+export const scoreStudentsCheck = async (data: object) => {
+    try {
+        Object.entries(data).forEach(async ([student, score]) => {
+            await StudentCheckSubmission.findOneAndUpdate({ student }, { score }, { upsert: true, new: true });
+        });
+        return { message: 'Students score updated', httpCode: 200 };
+    } catch (error: any) {
+        return { message: error.message, httpCode: 500 };
+    }
+};
+export const getConnectTaskSubmission = async (taskID: string) => {
     try {
         const studentTurnedIn = [],
             studentGraded = [],
             studentAssigned = [];
-        const students = await Class.findById(classID, 'students');
+        const task = await Connect.findById(taskID);
+        if (!task) {
+            return 'Class not found.';
+        }
+        const classID = task.class;
+        const students = await Class.findById(classID, 'students').populate('students');
         for (const student of (students as any)?.students) {
-            const studentSubmission = await StudentConnectSubmission.findOne({ student, task: taskID });
+            const studentSubmission = await StudentConnectSubmission.findOne({ student, task: taskID }).populate('answer').populate('student');
             if (studentSubmission) {
                 if (studentSubmission.score) {
-                    studentGraded.push(student);
+                    studentGraded.push([student, studentSubmission]);
                 } else {
-                    studentTurnedIn.push(student);
+                    studentTurnedIn.push([student, studentSubmission]);
                 }
             } else {
-                studentAssigned.push(student);
+                studentAssigned.push([student]);
             }
         }
         return { studentTurnedIn, studentGraded, studentAssigned };
