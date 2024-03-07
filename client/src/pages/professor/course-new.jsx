@@ -57,7 +57,7 @@ function CourseNew() {
                             ))}
                         </>
                     ) : (
-                        <p>No Task yet</p>
+                        <p className='pp'>No Task yet</p>
                     )}
                 </Container>
             </Tab>
@@ -88,7 +88,7 @@ function CourseNew() {
                             ))}
                         </>
                     ) : (
-                        <p>No Students yet</p>
+                        <p className='ppp'>No Students yet</p>
                     )}
                 </Card>
             </Tab>
