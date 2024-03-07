@@ -23,8 +23,8 @@ export const logout = async () => {
     //     });
     cookies.remove('authorization');
     cookies.remove('userType');
-    cookies.remove("chatToken");
-    cookies.remove("userFullName");
-    cookies.remove("username");
+    cookies.remove('chatToken');
+    cookies.remove('userFullName');
+    cookies.remove('username');
     // return response;
 };

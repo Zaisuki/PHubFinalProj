@@ -59,3 +59,37 @@ export const getNotification = async () => {
         });
     return response;
 };
+export const getClassTask = async (classID) => {
+    const response = await axios
+        .get(`${apiURL}/user/class/task`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+            params: {
+                classID,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
+export const getClassPeople = async (classID) => {
+    const response = await axios
+        .get(`${apiURL}/user/class/people`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+            params: {
+                classID,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};

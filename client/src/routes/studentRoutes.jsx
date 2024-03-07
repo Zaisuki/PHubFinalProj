@@ -21,7 +21,7 @@ export default function StudentRoutes() {
                 <Route path='notification' element={<Notification />} />
                 <Route path='inbox' element={<Inbox />} />
                 <Route path='course-student' element={<CourseStudent />} />
-                <Route path='course-new/:id' element={<CourseNew />} />
+                <Route path='course-new/:classID' element={<CourseNew />} />
                 <Route path='task-new/:classType/:taskID' element={<TaskNew />} />
             </Route>
         </Routes>

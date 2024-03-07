@@ -183,3 +183,22 @@ export const joinClass = async (user: User, socket: any) => {
         return { 'message': 'No user found', 'httpCode': 500 };
     }
 };
+export const getClassTask = async (classID: string) => {
+    try {
+        const resultCoach = await Coach.find({ class: classID }).sort({ createdAt: -1 });
+        const resultCheck = await Check.find({ class: classID }).sort({ createdAt: -1 });
+        const resultConnect = await Connect.find({ class: classID }).sort({ createdAt: -1 });
+        const result = [...resultCheck, ...resultCoach, ...resultConnect];
+        return result;
+    } catch (error) {
+        return { 'message': 'No Coach' };
+    }
+};
+export const getClassPeople = async (classID: string) => {
+    try {
+        const result = await Class.findById(classID).populate('students').populate('professor');
+        return result;
+    } catch (error) {
+        return { 'message': 'No Coach' };
+    }
+};

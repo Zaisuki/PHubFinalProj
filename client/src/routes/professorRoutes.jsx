@@ -20,7 +20,7 @@ export default function ProfessorRoutes() {
                 <Route path='notification' element={<Notification />} />
                 <Route path='inbox' element={<Inbox />} />
                 <Route path='course-prof' element={<CourseProf />} />
-                <Route path='course-new/:id' element={<CourseNew />} />
+                <Route path='course-new/:classID' element={<CourseNew />} />
                 <Route path='task' element={<TaskProf />} />
                 <Route path='work-page/:classType/:taskID' element={<WorkPage />} />
                 <Route path='statistics' element={<Statistics />} />

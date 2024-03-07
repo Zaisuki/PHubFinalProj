@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import { User } from '../middleware/authentication';
-import { getUserProfile, getUserSubject } from '../services/user';
+import { getClassPeople, getClassTask, getUserProfile, getUserSubject } from '../services/user';
 import { getUserNotification } from '../services/notification';
 
 export const getUserProfileController = async (req: Request & { user?: User }, res: Response) => {
@@ -46,5 +46,33 @@ export const getUserNotificationController = async (req: Request & { user?: User
         return res.status(401).json({ 'message': 'Unauthorize' });
     } catch (error) {
         return res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+export const getClassTasksController = async (req: Request & { user?: User }, res: Response) => {
+    try {
+        const classID = req.query.classID as string;
+        if (classID) {
+            let result;
+            result = await getClassTask(classID);
+            return res.status(200).json({ 'message': result });
+        }
+
+        return res.status(401).json({ 'message': 'ClassID not found' });
+    } catch {
+        res.status(500).json({ 'message': 'Internal Server Error' });
+    }
+};
+export const getClassPeopleController = async (req: Request & { user?: User }, res: Response) => {
+    try {
+        const classID = req.query.classID as string;
+        if (classID) {
+            let result;
+            result = await getClassPeople(classID);
+            return res.status(200).json({ 'message': result });
+        }
+
+        return res.status(401).json({ 'message': 'ClassID not found' });
+    } catch {
+        res.status(500).json({ 'message': 'Internal Server Error' });
     }
 };
