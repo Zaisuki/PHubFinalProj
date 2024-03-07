@@ -40,13 +40,13 @@ function HomeAdmin() {
           </div>
         </div>
         <div className="divide">
-          <div className="assign-prof"  onClick={() => navigate("create-classt")}>
+          <div className="assign-prof"  onClick={() => navigate("create-class")}>
             <FaUserPlus  className="i" />
             <h1>Assigning Professor</h1>
           </div>
         </div>
         <div className="divide">
-          <div className="assign-student" onClick={() => navigate("enroll-student-clas")}>
+          <div className="assign-student" onClick={() => navigate("enroll-student-class")}>
             <FaUserGraduate  className="i" />
             <h1>Student Assigned Class</h1>
           </div>

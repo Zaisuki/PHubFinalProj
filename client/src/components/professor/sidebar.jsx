@@ -14,7 +14,7 @@ import bnw from '../../assets/img/remove.png';
 const SideBar = ({ isClicked, onClick, onHover, onUnhover }) => {
     return (
         <div className={`sidebar-container ${isClicked ? 'sidebar-open' : ''}`} onMouseOver={onHover} onMouseOut={onUnhover}>
-            {/* TODO: Crop niyo img dapat same ang width and height neto .. sige  */}
+            {/* TODO: Crop niyo img dapat same ang width and height neto .. sige..oki */}
             <CloseButton className='sidebar-close-btn' onClick={onClick} />
             <img className='bnw' src={bnw} alt='bnw' />
             <h1 className='ph'> PHINMA <span> HUB</span></h1>

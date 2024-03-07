@@ -1,33 +1,161 @@
 .enroll-student-form {
-  padding: 1%;
-  font-size: 30px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(100, 119, 79, 1) 100%
+  );
+  padding: 3% 6% 1% 6%;
+  font-size: 20px;
   .row {
-    margin-bottom: 2%;
+    margin-bottom: 1%;
   }
-}
+  input.form-control {
+    font-size: 20px;
+  }
+  input.form-control:focus {
+    box-shadow: none;
+    border-color: #5c5d5a;
+  }
+  select.form-select {
+    font-size: 20px;
+  }
+  select.form-select:focus {
+    box-shadow: none;
+    border-color: #5c5d5a;
+  }
 
-.stud-num{
-  width: 100%;
-  padding: 10px;
-  display: flex;
-    width: 100%;
-    margin-left: 0px;
-    justify-content: flex-start;
-    
-}
+  .container-1 {
+    .stud-button {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
 
-.class-id{
-  width: 100%;
-  padding: 10px;
-  display: flex;
-    width: 100%;
-    margin-left: 0px;
-    justify-content: flex-start;
-    
-}
+      button {
+        width: 100%;
+        margin-left: 30%;
+        margin-right: 30%;
+        color: color;
+        background-color: white;
+        border: 1px solid #5c5d5a;
+        border-radius: 30px;
+        background-color: #7f8e6f;
+        font-size: 15px;
+        padding: 1%;
+        font-weight: 500;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        -ms-border-radius: 30px;
+        -o-border-radius: 30px;
+      }
+      button:hover {
+        background-color: #3a4f24;
+        color: white;
+      }
+    }
+  }
 
-.stud-button{
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
+  .container-2 {
+    margin-top: 2%;
+
+    .search-title {
+      font-size: 20px;
+      font-family: "Raleway";
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .search-student {
+      color: white;
+      background-color: white;
+      border: 1px solid #cdcecd;
+      width: 100%;
+      background-color: rgb(222, 222, 222);
+      border-radius: 8px;
+      padding: 2%;
+
+      .search-inside {
+        font-size: 15px;
+        width: 100px;
+        padding: 5px;
+        border: 1px solid #5c5d5a;
+        background-color: #7f8e6f;
+        border-radius: 18px;
+        -webkit-border-radius: 18px;
+        -moz-border-radius: 18px;
+        -ms-border-radius: 18px;
+        -o-border-radius: 18px;
+        float: right;
+      }
+      .search-inside:hover {
+        background-color: #3a4f24;
+        color: white;
+      }
+
+      .list-container {
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+
+        .list-search-1 {
+          font-family: "Raleway";
+          color: black;
+        }
+
+        .list-search-2 {
+          font-family: "Raleway";
+          color: black;
+        }
+      }
+    }
+  }
+
+  .container-3 {
+    margin-top: 2%;
+    margin-bottom: 3%;
+
+    .search-sub-button {
+      color: white;
+      background-color: white;
+      border: 1px solid #cdcecd;
+      width: 100%;
+      background-color: rgb(231, 231, 231);
+      border-radius: 8px;
+      padding: 2%;
+
+      .search-inside2 {
+        font-size: 15px;
+        width: 100px;
+        padding: 5px;
+        border: 1px solid #5c5d5a;
+        background-color: #7f8e6f;
+        border-radius: 18px;
+        -webkit-border-radius: 18px;
+        -moz-border-radius: 18px;
+        -ms-border-radius: 18px;
+        -o-border-radius: 18px;
+        float: right;
+      }
+      .search-inside2:hover {
+        background-color: #3a4f24;
+        color: white;
+      }
+
+      .list-container {
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+
+        .list-search-1 {
+          font-family: "Raleway";
+          color: black;
+        }
+
+        .list-search-2 {
+          font-family: "Raleway";
+          color: black;
+        }
+      }
+    }
+  }
 }

@@ -116,7 +116,7 @@ function AdminForm() {
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
+                    <Col sm={8}>
                         <Form>
                             <Row>
                                 <Col>
@@ -136,7 +136,7 @@ function AdminForm() {
                             </Row>
                         </Form>
                     </Col>
-                    <Col sm={2}>
+                    <Col sm={4}>
                         <Form>
                             <Row>
                                 <Col>
@@ -211,7 +211,7 @@ function AdminForm() {
                     <Col sm={4}>
                         <Form>
                             <Form.Group controlId='formPersonalNumber'>
-                                <Form.Label>Personal Number:</Form.Label>
+                                <Form.Label>Person Number</Form.Label>
                                 <Form.Control name='personalNumber' value={formData.personalNumber} onChange={handleInputChange} type='text' inputMode='numeric' pattern='[0-9]*' placeholder='Personal Number' />
                             </Form.Group>
                         </Form>

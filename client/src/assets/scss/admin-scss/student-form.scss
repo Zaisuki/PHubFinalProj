@@ -1,34 +1,58 @@
 .student-form {
-    background: rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
   background: linear-gradient(
     0deg,
     rgba(255, 255, 255, 1) 0%,
-    rgba(58, 79, 36, 1) 100%
+    rgba(100, 119, 79, 1) 100%
   );
-    padding: 1%;
-    font-size: 30px;
-    .row {
-        margin-bottom: 2%;
-    }
-    input.form-control{
-        font-size: 20px;
-    }
-    select.form-select{
-        font-size: 20px;
-    }
+  padding: 3% 1% 1% 1%;
+  font-size: 20px;
+  .row {
+    margin-bottom: 2%;
+  }
+  input.form-control {
+    font-size: 16px;
+  }
+  input.form-control:focus {
+    box-shadow: none;
+    border-color: #5c5d5a;
+  }
+  select.form-select {
+    font-size: 16px;
+  }
+  select.form-select:focus {
+    box-shadow: none;
+    border-color: #5c5d5a;
+  }
+  .form-check-input:checked {
+    background-color: #3a4f24;
+    border-color: #3a4f24;
+  }
 }
 
-.student-button{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+.student-button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 
-    button{
-        color: white;
-        background-color: white;
-        border: 3px solid #dbbc2c;
-        width: 100%;
-        border-radius: 50px;
-        background-color: #3a4f24;
-    }
+  button {
+    width: 100%;
+    margin-left: 30%;
+    margin-right: 30%;
+    color: color;
+    border: 1px solid #5c5d5a;
+    border-radius: 30px;
+    background-color: #7f8e6f;
+    font-size: 15px;
+    padding: 1%;
+    font-weight: 500;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+  }
+  button:hover {
+    background-color: #3a4f24;
+    color: white;
+  }
 }

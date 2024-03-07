@@ -121,8 +121,8 @@ function StudentForm() {
                         <Form>
                             <Row>
                                 <Col>
-                                    <Form.Label>Student ID Number</Form.Label>
-                                    <Form.Control name='studentID' value={formData.studentID} onChange={handleInputChange} placeholder='Student ID Number' />
+                                    <Form.Label>Student ID</Form.Label>
+                                    <Form.Control name='studentID' value={formData.studentID} onChange={handleInputChange} placeholder='Student ID/Number' />
                                 </Col>
                             </Row>
                         </Form>
@@ -133,14 +133,14 @@ function StudentForm() {
                         <Form>
                             <Row>
                                 <Col sm={4}>
-                                    <Form.Label>Current Level of Education</Form.Label>
+                                    <Form.Label>Learning Level</Form.Label>
                                     <Form.Select name='levelOfEducation' value={formData.levelOfEducation} onChange={handleInputChange} defaultValue='First year'>
                                         <option>Junior High School</option>
                                         <option>Senior High School</option>
                                         <option>College</option>
                                     </Form.Select>
                                 </Col>
-                                <Col sm={3}>
+                                <Col sm={4}>
                                     <Form.Label>School Year</Form.Label>
                                     <Form.Select name='schoolYear' value={formData.schoolYear} onChange={handleInputChange} defaultValue='School Year'>
                                         <option>School Year</option>
@@ -150,7 +150,7 @@ function StudentForm() {
                                         <option>2425</option>
                                     </Form.Select>
                                 </Col>
-                                <Col sm={2}>
+                                <Col sm={4}>
                         <Form>
                             <Row>
                                 <Col>
@@ -308,7 +308,7 @@ function StudentForm() {
                     <Col sm={4}>
                         <Form>
                             <Form.Group controlId='formPersonalNumber'>
-                                <Form.Label>Personal Number:</Form.Label>
+                                <Form.Label>Person Number</Form.Label>
                                 <Form.Control name='personalNumber' value={formData.personalNumber} onChange={handleInputChange} type='text' inputMode='numeric' pattern='[0-9]*' placeholder='Personal Number' />
                             </Form.Group>
                         </Form>

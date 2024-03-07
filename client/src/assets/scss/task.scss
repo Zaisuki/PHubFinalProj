@@ -23,30 +23,25 @@
 
 .main-holder {
   padding: 5vh 15vh 5vh 15vh;
-
   .accordion-item {
     .accordion-button::after {
       background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
     }
-   
-    button.accordion-button.collapsed{
+    button.accordion-button.collapsed {
       background-color: #ffffff;
       color: rgb(0, 0, 0); /* Change to your desired color */
     }
     button.accordion-button {
       background-color: #3a4f24;
       color: rgb(255, 255, 255); /* Change to your desired color */
-      font-weight: 700
-
+      font-weight: 700;
     }
-    
+
     button::after {
-      
       color: white;
       padding: 10px;
 
       border-radius: 30px;
-      
     }
   }
 
@@ -69,7 +64,7 @@
     font-size: 15px;
     color: #696969;
   }
-  p{
+  p {
     text-align: center;
     display: flex;
   }
@@ -80,13 +75,13 @@
     padding: 10px;
     cursor: pointer;
     border: none;
-    .date-posted{
+    .date-posted {
       color: green;
     }
-    .date-due{
+    .date-due {
       color: red;
     }
-    .subject-code{
+    .subject-code {
       color: rgb(0, 0, 0);
     }
     button {

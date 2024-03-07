@@ -126,8 +126,8 @@ const styles = StyleSheet.create({
         borderColor: 'rgba(0, 0, 0, 0.1)',
     },
     headerImage: {
-        width: windowWidth * 0.3,
-        height: windowWidth * 0.3,
+        width: windowWidth * 0.2,
+        height: windowWidth * 0.2,
         borderRadius: 150,
         marginTop: 23,
         marginBottom: 23,
