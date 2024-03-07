@@ -75,34 +75,49 @@ const NewTaskCheck = ({navigation}) => {
         }
       }
     return (
+      <ScrollView>
       <View>
-       <Card>
+       <Card style = {{backgroundColor: 'white', borderWidth: 2, borderColor: 'rgba(0, 0, 0, 0.1)', marginTop: 5, margin: 10}}>
         {classType.toLowerCase() !== 'coach' && (
                                     <>
                                     {pageData.dueDate ? (
-                                        <Text style = {{fontFamily: 'Raleway-Bold'}}>
-                                            Due:<Text>{formatDate(pageData.dueDate)}</Text>
-                                        </Text>
+                                        <Card.Title titleStyle = {{fontFamily: 'Raleway-Bold'}} title = {'Due:'`${formatDate(pageData.dueDate)}`} />
+                                           
+                                        
                                     ) : (
-                                        <Text style = {{fontFamily: 'Raleway-Bold'}}>'No Due Date'</Text>
+                                        <Card.Title titleStyle = {{fontFamily: 'Raleway-Bold'}} title = 'No Due Date' />
                                     )}
                                 </>
                             )}
-                            <Text style = {{fontFamily: 'Raleway-Bold'}}>{classType.toUpperCase()}: <Text>{pageData.postTitle}</Text></Text>
-                            <Text style = {{fontFamily: 'Raleway-Regular'}}>{pageData.postDescription}</Text>
-        </Card>
-        
-      <Button onPress={selectDoc} mode = 'contained'> 
-      Add Work +
+                            <Card.Title titleStyle = {{fontFamily: 'Raleway-Bold'}} title = {`${classType.toUpperCase()}: ${pageData.postTitle}`} subtitleStyle= {{fontFamily: 'Raleway-Bold'}} subtitle = {classType.toLowerCase() !== 'coach' && (`${pageData.highestPossibleScore} points`)}/>
+                            </Card>
+
+                            <Card style = {{backgroundColor: 'white', borderWidth: 2, borderColor: 'rgba(0, 0, 0, 0.1)', marginTop: 5, margin: 10}}>
+                            <Card.Content>
+                              <Text style = {{fontFamily: 'Raleway-Regular'}}>{pageData.postDescription}</Text>
+                              </Card.Content>
+                            </Card>
+       
+      <Card style = {{backgroundColor: 'white', borderWidth: 2, borderColor: 'rgba(0, 0, 0, 0.1)', alignItems: 'stretch', marginTop: 5, margin: 10}}>
+        <Card.Title title = 'Your Work' titleStyle = {{textAlign: 'center', fontFamily: 'Raleway-Bold'}} subtitle = '_________________________________________________'/>
+        <Card.Content style = {{alignItems: 'center'}}>
+      <Button style = {{height: 45, width: 150, borderRadius: 10, backgroundColor: 'rgb(155, 155, 155)',}} onPress={selectDoc} mode = 'contained'> 
+      <Text style = {{textAlign: 'center', fontFamily: 'Raleway-Regular'}}>Upload File</Text>
       </Button>
       
-      <Button mode='outlined' style = {{
-        margin: 5
+      <Button mode='contained' style = {{
+        backgroundColor: 'rgb(155, 155, 155)',
+        borderRadius: 10,
+        margin: 5, 
+        width: 350
       }}>
-        Mark as done
+       <Text style = {{textAlign: 'center', fontFamily: 'Raleway-Regular'}}>Mark as done</Text>
       </Button>
+      </Card.Content>
+      </Card>
       </View>
-  
+      </ScrollView>
+      
   );
     
 };

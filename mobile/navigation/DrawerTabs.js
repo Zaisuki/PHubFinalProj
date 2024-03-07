@@ -8,10 +8,9 @@ import FeedScreen from './drawer-nav-screens/FeedScreen';
 import InboxScreen from './drawer-nav-screens/InboxScreen';
 import TaskScreen from './drawer-nav-screens/TasksScreen';
 import CourseScreen from './drawer-nav-screens/CourseScreen';
-import StatisticScreen from './drawer-nav-screens/StatisticScreen';
 import CustomDrawer from './CustomDrawerComponent/CustomDrawer';
 import NotificationScreen from './drawer-nav-screens/NotificationScreen';
-import { loadAsync } from 'expo-font'
+import { loadAsync } from 'expo-font';
 const Drawer = createDrawerNavigator();
 
 const loadFontsAsync = async () => {

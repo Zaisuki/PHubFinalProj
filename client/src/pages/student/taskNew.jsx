@@ -101,6 +101,7 @@ export default function NewTask() {
   }, [attachment]);
   return (
     <Container>
+      <Row>
       <div className="taskk-header">
       <h4 className="task-type">
                 {classType.toUpperCase()}:‎ ‎
@@ -108,7 +109,7 @@ export default function NewTask() {
               </h4>{" "}
              
       </div>
-      <Row>
+      
         {/* Here is where you can find all the contents inside the right container or card */}
         <Col xs={12} md={8}>
           <Card className="main-left-card-container">

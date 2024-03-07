@@ -71,7 +71,7 @@ const NewTaskCoach = ({navigation}) => {
           }
         }
       return (
-        <ScrollView>
+        <ScrollView style = {{backgroundColor: 'white'}}>
         <View>
         <Card>
         {classType.toLowerCase() !== 'coach' && (
@@ -87,9 +87,16 @@ const NewTaskCoach = ({navigation}) => {
                                     )}
                                 </>
                             )}
-                            <Text style = {{fontFamily: 'Raleway-Bold'}}>{classType.toUpperCase()}: <Text style = {{fontFamily: 'Raleway-Bold'}}>{pageData.postTitle}</Text></Text>
+                            </Card>
+                            <Card style = {{backgroundColor: 'white', borderWidth: 2, borderColor: 'rgba(0, 0, 0, 0.1)', marginTop: 5, margin: 10}}>
+                            <Card.Title titleStyle = {{fontFamily: 'Raleway-Bold'}} title = {`${classType.toUpperCase()}: ${pageData.postTitle}`}/>
+                            </Card>
+                            <Card style = {{backgroundColor: 'white', borderWidth: 2, borderColor: 'rgba(0, 0, 0, 0.1)', marginTop: 5, margin: 10}}>
+                            <Card.Content>
                             <Text style = {{fontFamily: 'Raleway-Regular'}}>{pageData.postDescription}</Text>
-        </Card>
+                            </Card.Content>
+                            </Card>
+        
         
  
         </View>
