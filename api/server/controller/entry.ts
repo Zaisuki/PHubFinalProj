@@ -34,9 +34,7 @@ export const loginUserController = async (req: Request, res: Response) => {
                     [userID, userType, userFullName, username] = userData;
                     const user = { userID, userName: userIdentifier, userType };
                     const accessToken = jwt.sign(user, accessTokenSecret);
-                    console.log(username);
-                    const chatToken = serverClient.createToken(username); // ito siya
-                    console.log(username);
+                    const chatToken = serverClient.createToken(username);
                     const userTypeHash = userType === 'admin' ? '3aDfR9oPq2sW5tZyX8vBu1mNc7LkIj6Hg4TfGhJdSe4RdFgBhNjVkLo0iUyHnJm' : userType === 'student' ? 'E2jF8sG5dH9tY3kL4zX7pQ6wR1oV0mCqB6nI8bT7yU5iA3gD2fS4hJ9uMlKoP1e' : 'r9LsT6kQ3jWfZ1pY4xN7hM2cV8gB5dI0eJ4uF2oD3iG5vX6mC1aS7tR9yU3lK8w';
                     loginUpdate = { ...loginUpdate, accessToken: accessToken, userType: userTypeHash, chatToken, userFullName, username };
                 } else {
