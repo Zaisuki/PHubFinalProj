@@ -39,6 +39,8 @@ function Statistics() {
         });
         result.students.forEach((stud, index) => {
             console.log(stud);
+            let newData = { studNo: stud.studentID, name: `${stud.firstName} ${stud.middleName} ${stud.lastName}` };
+            resultnstudents.forEach((stud, index) => {});
             // setData((prevData) => {
             //     const newData = [...prevData]; // Copy the previous data array
             //     // Update the age property of the first object
