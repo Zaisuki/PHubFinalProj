@@ -84,10 +84,35 @@ export const getClass = async (id: string) => {
                 },
             })
             .exec();
+        console.log('shahs', professorsClass);
         for (const classObj of (professorsClass?.professorHandledClass[0] as any)?.class) {
             result.push(classObj);
         }
         return result;
+    } catch (error) {
+        return { 'message': ['No Class'] };
+    }
+};
+export const getClassStatistics = async (classID: string) => {
+    try {
+        const result: string[] = [];
+        const professorsClass = await Class.findById(classID)
+            .populate({
+                path: 'students',
+                populate: {
+                    path: 'studentSubjects',
+                    populate: [
+                        { path: 'studentCheckSubmission', populate: { path: 'task' } },
+                        { path: 'studentConnectSubmission', populate: { path: 'task' } },
+                    ],
+                },
+            })
+            .populate('connect')
+            .populate('check');
+        // for (const classObj of (professorsClass?.professorHandledClass[0] as any)?.class) {
+        //     result.push(classObj);
+        // }
+        return professorsClass;
     } catch (error) {
         return { 'message': ['No Class'] };
     }

@@ -53,7 +53,7 @@ export const addClass = async (professorID: string, block: string, subjectID: st
             block: block,
             subject: subjectID,
         }).save();
-        await ProfessorHandledClass.findOneAndUpdate({ professor: professorID }, { class: classID._id });
+        await ProfessorHandledClass.findOneAndUpdate({ professor: professorID }, { $push: { class: classID._id } });
         const subjectObj = await Subject.findById(subjectID);
         const professorObj = await UserCredentials.findOne({ professorInformation: professorID });
         if (!subjectObj) {

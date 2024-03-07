@@ -294,3 +294,20 @@ export const scoreStudentCheck = async (data) => {
     console.log(response);
     return response;
 };
+export const getClassStatistics = async (classID) => {
+    const response = await axios
+        .get(`${apiURL}/professor/class/statistics`, {
+            withCredentials: true,
+            headers: {
+                authorization: cookies.get('authorization'),
+            },
+            params: {
+                classID,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};

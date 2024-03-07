@@ -19,6 +19,7 @@ import {
     getCheckTaskController,
     getCheckTaskSubmissionController,
     getClassController,
+    getClassStatisticsController,
     getCoachController,
     getCoachTaskController,
     getConnectController,
@@ -33,6 +34,7 @@ import { upload } from '../services/upload';
 const router = Router();
 
 router.get('/class', authenticateToken, professorOnly, getClassController);
+router.get('/class/statistics', authenticateToken, professorOnly, getClassStatisticsController);
 
 router.post('/announcement', authenticateToken, professorOnly, addAnnouncementController);
 router.delete('/delete', deleteAnnouncement);
