@@ -1,11 +1,12 @@
 import "../../assets/scss/taskNew.scss";
-import Card from "react-bootstrap/Card";
-import { useParams } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import { useEffect, useState } from "react";
+import { Card, Container, Row, Col, Button } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import formatDate from "../../utils/formatDate";
+import ImagePreview from "../../components/imagePreview";
+import LinkPreview from "../../components/linkPreview";
+import { FileUploader } from "react-drag-drop-files";
+import { FaTimes } from "react-icons/fa";
 import {
   getCheckTask,
   getCoachTask,
@@ -14,37 +15,31 @@ import {
   submitConnect,
   unSubmitCheck,
 } from "../../services/student";
-import formatDate from "../../utils/formatDate";
-import { FileUploader } from "react-drag-drop-files";
-import { FaTimes } from "react-icons/fa";
-import ImagePreview from "../../components/imagePreview";
-import LinkPreview from "../../components/linkPreview";
-import ChoicesConnect from "../../components/choicesConnect";
-import convertPercentage from "../../utils/convertPercentage";
 
 export default function NewTask() {
-  let { taskID, classType } = useParams();
+    let { taskID, classType } = useParams();
   const [pageData, setData] = useState({});
   const [showWindow, setShowWindow] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [selectedChoice, setSelectedChoice] = useState("");
-  classType = classType.toLowerCase();
-
+  const [attachment, setAttachment] = useState([]);
   const fileTypes = ["JPG", "PNG", "GIF", "PDF"];
-  const [attachment, setAttachement] = useState([]);
 
   const handlePlusClick = () => {
     setShowWindow(true);
   };
-  const handleRadioChange = (event) => {
-    setSelectedChoice(event.target.value);
-  };
+  const handleRadioChange = (event) => {	
+setSelectedChoice(event.target.value);		
+    };
+
   const handleCloseClick = () => {
     setShowWindow(false);
   };
+
   const handleRemove = (index) => {
-    setAttachement(attachment.filter((_, i) => i !== index));
+    setAttachment(attachment.filter((_, i) => i !== index));
   };
+
   const handleSubmit = async () => {
     const formData = new FormData();
     formData.append("taskID", taskID);
@@ -55,18 +50,20 @@ export default function NewTask() {
     if (classType === "check") {
       result = await submitCheck(formData);
     } else if (classType === "connect") {
-      // result = await postConnect(formData);
+      
     }
     if (result.message === "Check submitted") {
       updateForm();
     }
   };
+
   const handleUnSubmit = async () => {
     let result = await unSubmitCheck(taskID);
     if (result.message === "Check unsubmitted") {
       updateForm();
     }
   };
+
   const handleConnectSubmit = async () => {
     let result = await submitConnect(taskID, selectedChoice);
     if (result.message === "Connect submitted") {
@@ -74,12 +71,13 @@ export default function NewTask() {
     }
   };
   const updateForm = () => {
-    setAttachement([]);
+    setAttachment([]);
     setSelectedChoice("");
     setSubmitted((prevState) => !prevState);
   };
+
   useEffect(() => {
-    const fetchdata = async () => {
+    const fetchData = async () => {
       let data;
       if (classType === "coach") {
         data = await getCoachTask(taskID);
@@ -90,27 +88,25 @@ export default function NewTask() {
         data = await getCheckTask(taskID);
         setSubmitted(data.message.studentSubmission.length !== 0);
       }
-      console.log(data.message);
       setData(data.message);
     };
-    fetchdata();
+    fetchData();
   }, [taskID, classType, submitted]);
 
   useEffect(() => {
     handleCloseClick();
   }, [attachment]);
+
   return (
     <Container>
       <Row>
-      <div className="taskk-header">
-      <h4 className="task-type">
-                {classType.toUpperCase()}:‎ ‎
-                <span className="task-titles">{pageData.postTitle}</span>
-              </h4>{" "}
-             
-      </div>
-      
-        {/* Here is where you can find all the contents inside the right container or card */}
+        <div className="taskk-header">
+          <h4 className="task-type">
+            {classType.toUpperCase()}:‎ ‎
+            <span className="task-titles">{pageData.postTitle}</span>
+          </h4>{" "}
+        </div>
+
         <Col xs={12} md={8}>
           <Card className="main-left-card-container">
             <Card className="header-container">
@@ -143,26 +139,28 @@ export default function NewTask() {
             </Card>
 
             <Card className="content-container">
-                
               <p className="yes">{pageData.postDescription}</p>
             </Card>
 
             {(classType === "coach" || classType === "check") &&
               pageData.attachment && (
                 <Card className="attachment-container">
-                 <div className="column">
-                  {pageData.attachment.map((dataPage) => (
-                    <div className="boxbox" key={dataPage._id}>
-                      {dataPage.type.startsWith("image") ? (
-                        <ImagePreview imageUrl={dataPage.url} />
-                      ) : (
-                        <LinkPreview Url={dataPage.url} />
-                      )}
-                      
-                    </div>
-                    
-                  ))}
-                  </div>
+                  <Row>
+                    {pageData.attachment.map((dataPage) => (
+                      <Col key={dataPage._id}>
+                        <div className="image-container">
+                          {dataPage.type.startsWith("image") ? (
+                            <ImagePreview
+                              className="attachment-image"
+                              imageUrl={dataPage.url}
+                            />
+                          ) : (
+                            <LinkPreview Url={dataPage.url} />
+                          )}
+                        </div>
+                      </Col>
+                    ))}
+                  </Row>
                 </Card>
               )}
           </Card>
@@ -174,7 +172,7 @@ export default function NewTask() {
               <Col xs={12} md={8} lg={4}>
                 <Card className="main-right-card-container">
                   <Card className="submission-card">
-                    <h5>Your Work</h5>
+                    <h5 className="yaur">Your Work</h5>
 
                     {/* eto yung lalabas pag nakapag-upload na yung student ng file/pic/link */}
                     <Card className="student-work-container">
@@ -213,7 +211,7 @@ export default function NewTask() {
                   <FileUploader
                     className="w-screen"
                     handleChange={(files) =>
-                      setAttachement((prevState) => [
+                      setAttachment((prevState) => [
                         ...prevState,
                         ...Object.values(files),
                       ])
@@ -227,7 +225,7 @@ export default function NewTask() {
             </>
           ) : (
             <>
-              <Col xs={12} md={8} lg={4}>
+             <Col xs={12} md={8} lg={4}>
                 <Card className="main-right-card-container">
                   <Card className="submission-card">
                     <h5>Your Work</h5>
@@ -261,7 +259,7 @@ export default function NewTask() {
                   <FileUploader
                     className="w-screen"
                     handleChange={(files) =>
-                      setAttachement((prevState) => [
+                      setAttachment((prevState) => [
                         ...prevState,
                         ...Object.values(files),
                       ])

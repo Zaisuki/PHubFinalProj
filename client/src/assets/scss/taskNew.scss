@@ -1,25 +1,25 @@
-
 .container {
   //padding-right: 10px;
-  margin-right: auto; 
-  margin-left: auto; 
+  margin-right: auto;
+  margin-left: auto;
   padding: 0;
 
   .col-md-8.col-12 {
-    padding-right: 0; 
-    padding-left: 0; 
+    padding: 50px;
+    padding-top: 0;
+    width: 100%;
   }
   .taskk-header {
-    //margin: 10px;
+    margin: 2px;
     margin-bottom: 20px;
     background-color: #3a4f24;
-    //border-bottom: 1px solid #a5a5a5; 
+    //border-bottom: 1px solid #a5a5a5;
     width: 100%;
-    padding: 0;
+    padding: 10px;
     display: flex;
 
     .task-type {
-      font-size: 30px;
+      font-size: 20px;
       width: 100%;
       color: rgb(255, 255, 255);
       display: flex;
@@ -29,9 +29,9 @@
       font-weight: 700;
       padding-bottom: 0px;
       .task-titles {
-        padding-right: 0; 
+        padding-right: 0;
         padding-left: 0;
-        font-size: 30px;
+        font-size: 20px;
         color: #dbbc2c;
         font-family: "Raleway", sans-serif;
         font-weight: 700;
@@ -61,7 +61,7 @@
     background-color: transparent;
 
     .header-container {
-      //padding: 3vh;
+      padding: 3vh;
       display: flex;
       text-align: center;
       justify-content: center;
@@ -133,9 +133,10 @@
     }
 
     .attachment-container {
-      padding: 3vh;
+      padding: 6vh;
       height: 20%;
       margin-bottom: 2%;
+      margin: 20px;
       width: 100%;
       background-color: rgba(242, 255, 227, 0.773);
       border: none;
@@ -144,30 +145,41 @@
       -moz-border-radius: 15px;
       -ms-border-radius: 15px;
       -o-border-radius: 15px;
-      
+      .image-container {
+        height: 200px;
+        width: 200px;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+
+      .attachment-image {
+        width: 100%;
+        height: auto;
+      }
+
       .boxbox {
         //border: 2px solid #3a4f24;
         padding: 20px;
         display: flex;
-        justify-content: space-between; /* Distribute space between columns */
-        flex-direction: row-reverse; /* Allow flex items to wrap to the next row */
+        justify-content: center;
+        flex-direction: row;
       }
-      
-       
-    
     }
   }
 
   .main-right-card-container {
     border: none;
     display: flex;
+    padding: 10px;
     width: 100%;
+    justify-content: center;
+    align-items: center;
 
     .submission-card {
       display: flex;
-      margin-top: 5%;
-      padding: 5vh;
-      margin-left: -4%;
+      width: 100%;
+      margin-top: 2%;
+      padding: 10vh;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       width: 100%;
       border-radius: 15px;
@@ -175,10 +187,18 @@
       -moz-border-radius: 15px;
       -ms-border-radius: 15px;
       -o-border-radius: 15px;
+      h5 {
+        font-family: "Raleway", sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        text-align: center;
+      }
+      .file-container {
+        padding: 30px;
+      }
     }
     .submission-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 5);
     }
   }
 
@@ -190,36 +210,60 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 9px;
-    margin-bottom: 4%;
+    gap: 1px;
+    margin-bottom: 1%;
+    .upload-file-button {
+      background-color: #3a4f24;
+      border: none;
+      width: 50%;
+      border-radius: 30px;
+      font-family: "Raleway", sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+    }
   }
-
-  .submit-button {
-    width: 100%;
+  .buttons-container:hover {
+    .upload-file-button {
+      background-color: gray;
+      border: none;
+    }
   }
 
   .mark-button {
     width: 100%;
-    margin-top: 10px;
+    border-radius: 30px;
+    background-color: #3a4f24;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .mark-button:hover {
+    background-color: gray;
+    border: none;
+    width: 100%;
   }
   .popup-submission {
-    width: 60%;
+    width: 90%;
     height: 90%;
-    border: 1px solid black;
+    border: 1px solid #dbbc2c;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #ccc;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     display: grid;
     place-items: center;
     .eks {
-      position: absolute;
-      top: 15px;
-      right: 15px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      text-align: center;
     }
     .guZdik {
       width: 100%;
