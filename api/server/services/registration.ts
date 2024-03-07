@@ -3,7 +3,8 @@ import { Class } from '../models/classModel/class';
 import { ProfessorHandledClass } from '../models/classModel/professorClass';
 import { StudentSubjects } from '../models/classModel/studentClass';
 import { Subject } from '../models/classModel/subject';
-import { Professor, Student } from '../models/user';
+import { Professor, Student, UserCredentials } from '../models/user';
+import { serverClient } from '../controller/entry';
 
 export const addSubject = async (subjectCode: string, subjectDescription: string) => {
     try {
@@ -53,8 +54,28 @@ export const addClass = async (professorID: string, block: string, subjectID: st
             subject: subjectID,
         }).save();
         await ProfessorHandledClass.findOneAndUpdate({ professor: professorID }, { class: classID._id });
+        const subjectObj = await Subject.findById(subjectID);
+        const professorObj = await UserCredentials.findOne({ professorInformation: professorID });
+        if (!subjectObj) {
+            return { message: 'Subject not found.', httpCode: 404 };
+        }
+        if (!professorObj) {
+            return { message: 'Professor not found.', httpCode: 404 };
+        }
+        const subjectCode = subjectObj.subjectCode;
+        const professorUsername = professorObj.username;
+        let str = `${subjectCode}${block}`;
+        let modifiedID = str.replace(/ /g, '-').replace(/-/g, '');
+        const channel = serverClient.channel('messaging', modifiedID, {
+            name: `${subjectCode}: ${block}`,
+            members: [professorUsername],
+            created_by_id: 'phubreal',
+        });
+        await channel.create();
+
         return { message: 'Professor handling the class', httpCode: 200 };
     } catch (error) {
+        console.log(error);
         return { message: error, httpCode: 500 };
     }
 };
@@ -86,8 +107,40 @@ export const enrollStudentInClass = async (studentID: string, classID: string) =
     try {
         await StudentSubjects.findOneAndUpdate({ student: studentID }, { $push: { class: classID } });
         await Class.findByIdAndUpdate(classID, { $push: { students: studentID }, $inc: { totalStudents: 1 } });
+        const classObj = await Class.findById(classID);
+        if (!classObj) {
+            return { message: 'Class not found.', httpCode: 404 };
+        }
+        const subjectID = classObj.subject;
+        const professorID = classObj.professor;
+        const block = classObj.block;
+        const subjectObj = await Subject.findById(subjectID);
+        const professorObj = await UserCredentials.findOne({ professorInformation: professorID });
+        const studentObj = await UserCredentials.findOne({ studentInformation: studentID });
+        if (!subjectObj) {
+            return { message: 'Subject not found.', httpCode: 404 };
+        }
+        if (!professorObj) {
+            return { message: 'Professor not found.', httpCode: 404 };
+        }
+        if (!studentObj) {
+            return { message: 'Student not found.', httpCode: 404 };
+        }
+        const subjectCode = subjectObj.subjectCode;
+        const professorUsername = professorObj.username;
+        const studentUsername = studentObj.username;
+        let str = `${subjectCode}${block}`;
+        let modifiedID = str.replace(/ /g, '-').replace(/-/g, '');
+        const channel = serverClient.channel('messaging', modifiedID);
+        await channel.addMembers([studentUsername]);
+        const personalChannel = serverClient.channel('messaging', {
+            members: [professorUsername, studentUsername],
+            created_by_id: 'phubreal',
+        });
+        await personalChannel.create();
         return { message: 'Student enrolled', httpCode: 200 };
     } catch (error) {
+        console.log(error);
         return { message: error, httpCode: 500 };
     }
 };

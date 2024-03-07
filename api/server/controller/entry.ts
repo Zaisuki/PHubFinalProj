@@ -5,6 +5,7 @@ import { HttpResponse } from '../models/http-response';
 import jwt from 'jsonwebtoken';
 import { StreamChat } from 'stream-chat';
 
+export const serverClient = StreamChat.getInstance('z2a8ej6rey5a', 'd6fsk58vwddreersnpagzaja53xz789wavb6au2nn26c25bje9xqzu2kb87x8cf7');
 // Check Current User
 export const checkCurrentUser = async (req: Request, res: Response) => {
     try {
@@ -33,8 +34,9 @@ export const loginUserController = async (req: Request, res: Response) => {
                     [userID, userType, userFullName, username] = userData;
                     const user = { userID, userName: userIdentifier, userType };
                     const accessToken = jwt.sign(user, accessTokenSecret);
-                    const serverClient = StreamChat.getInstance('2sgdxg7zqddx', 'c4vvskc6wjyduppj266hvhwfn7rqh7ctwhshzgr95n4qvw7q7mjkmsmzyd6826d4');
-                    const chatToken = serverClient.createToken(username);
+                    console.log(username);
+                    const chatToken = serverClient.createToken(username); // ito siya
+                    console.log(username);
                     const userTypeHash = userType === 'admin' ? '3aDfR9oPq2sW5tZyX8vBu1mNc7LkIj6Hg4TfGhJdSe4RdFgBhNjVkLo0iUyHnJm' : userType === 'student' ? 'E2jF8sG5dH9tY3kL4zX7pQ6wR1oV0mCqB6nI8bT7yU5iA3gD2fS4hJ9uMlKoP1e' : 'r9LsT6kQ3jWfZ1pY4xN7hM2cV8gB5dI0eJ4uF2oD3iG5vX6mC1aS7tR9yU3lK8w';
                     loginUpdate = { ...loginUpdate, accessToken: accessToken, userType: userTypeHash, chatToken, userFullName, username };
                 } else {

@@ -1,6 +1,4 @@
 // SideBar.js
-
-import React from 'react';
 import CloseButton from 'react-bootstrap/CloseButton';
 import PropTypes from 'prop-types';
 import '../../assets/scss/sidebar.scss';
@@ -19,8 +17,9 @@ const SideBar = ({ isClicked, onClick, onHover, onUnhover, currentPage }) => {
         <div className={`sidebar-container ${isClicked ? 'sidebar-open' : ''}`} onMouseOver={onHover} onMouseOut={onUnhover}>
             <CloseButton className='sidebar-close-btn' onClick={onClick} />
             <img className='bnw' src={bnw} alt='bnw' />
-            <h1 className='ph'> PHINMA <span> HUB</span></h1>
-            
+            <h1 className='ph'>
+                PHINMA <span> HUB</span>
+            </h1>
 
             <SideBarLink direct='/profile' icon={ProfileImg} title='Profile' isClicked={isClicked} isActive={currentPage === '/profile'} />
             <ul className='iconS'>
@@ -50,7 +49,7 @@ SideBar.propTypes = {
     onClick: PropTypes.func.isRequired,
     onHover: PropTypes.func.isRequired,
     onUnhover: PropTypes.func.isRequired,
-    currentPage: PropTypes.string.isRequired, 
+    currentPage: PropTypes.string,
 };
 
 export default SideBar;
