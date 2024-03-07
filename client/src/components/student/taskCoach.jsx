@@ -21,6 +21,13 @@ const TaskCoach = () => {
         };
         fetchData();
     }, []);
+
+    if (coachTask.length === 0) {
+        return <p style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize: '25px', fontFamily: 'Raleway, sans-serif', fontWeight:'500', color:'gray' }}>No coach tasks posted</p>;
+
+        ;
+    }
+
     return (
         <Accordion defaultActiveKey='0' className='main-holder'>
             {coachTask.map((data) => (
