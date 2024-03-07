@@ -127,10 +127,12 @@ function StudentForm() {
                             </Row>
                         </Form>
                     </Col>
-                    <Col>
+                </Row>
+                    <Row>
+                        <Col>
                         <Form>
                             <Row>
-                                <Col>
+                                <Col sm={4}>
                                     <Form.Label>Current Level of Education</Form.Label>
                                     <Form.Select name='levelOfEducation' value={formData.levelOfEducation} onChange={handleInputChange} defaultValue='First year'>
                                         <option>Junior High School</option>
@@ -138,13 +140,7 @@ function StudentForm() {
                                         <option>College</option>
                                     </Form.Select>
                                 </Col>
-                            </Row>
-                        </Form>
-                    </Col>
-                    <Col sm={2}>
-                        <Form>
-                            <Row>
-                                <Col>
+                                <Col sm={3}>
                                     <Form.Label>School Year</Form.Label>
                                     <Form.Select name='schoolYear' value={formData.schoolYear} onChange={handleInputChange} defaultValue='School Year'>
                                         <option>School Year</option>
@@ -154,12 +150,7 @@ function StudentForm() {
                                         <option>2425</option>
                                     </Form.Select>
                                 </Col>
-                            </Row>
-                        </Form>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col sm={2}>
+                                <Col sm={2}>
                         <Form>
                             <Row>
                                 <Col>
@@ -191,7 +182,12 @@ function StudentForm() {
                             </Row>
                         </Form>
                     </Col>
-                    <Col>
+                            </Row>
+                                
+                        </Form>
+                        </Col>
+                        </Row>
+                <Row>
                         <Form>
                             <Row>
                                 <Col>
@@ -203,7 +199,6 @@ function StudentForm() {
                                 </Col>
                             </Row>
                         </Form>
-                    </Col>
                 </Row>
                 <Row>
                     <Col>
@@ -341,10 +336,12 @@ function StudentForm() {
                         </Form>
                     </Col>
                 </Row>
-            </Container>
+            <div  className='student-button'>
             <button type='submit' onClick={handleSubmit}>
                 Create Student Account
             </button>
+            </div>
+            </Container>
         </div>
     );
 }

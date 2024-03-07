@@ -1,4 +1,10 @@
 .class-form {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(58, 79, 36, 1) 100%
+    );
     padding: 1%;
     font-size: 30px;
     .row {
@@ -39,5 +45,59 @@ input.form-control {
     justify-content: space-around;
     p {
         width: 50%;
+    }
+}
+
+.assign-prof-button{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  
+    button{
+        color: white;
+        background-color: white;
+        border: 3px solid #dbbc2c;
+        width: 100%;
+        border-radius: 50px;
+        background-color: #3a4f24;
+    }
+}
+
+.search-prof-button{
+        color: white;
+        background-color: white;
+        border: 3px solid #dbbc2c;
+        width: 100%;
+        border-radius: 50px;
+        background-color: #3a4f24;
+        
+        .search-inside{  
+        margin-left: 89%;
+        margin-top: 10px;
+        color: white;
+        background-color: white;
+        border: 3px solid #dbbc2c;
+        border-radius: 50px;
+        background-color: #3a4f24;
+        }
+
+}
+
+.search-sub-button{
+    color: white;
+    background-color: white;
+    border: 3px solid #dbbc2c;
+    width: 100%;
+    border-radius: 50px;
+    background-color: #3a4f24;
+    
+    .search-inside2{  
+    margin-left: 89%;
+    margin-top: 10px;
+    color: white;
+    background-color: white;
+    border: 3px solid #dbbc2c;
+    border-radius: 50px;
+    background-color: #3a4f24;
     }
 }

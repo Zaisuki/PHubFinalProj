@@ -1,4 +1,10 @@
 .subject-form {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(58, 79, 36, 1) 100%
+  );
   padding: 1%;
   font-size: 30px;
   
@@ -21,3 +27,19 @@
   padding: 10px;
 }
 
+.subject-button{
+  width: 100%;
+  margin-top: 53%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  button{
+      color: white;
+      background-color: white;
+      border: 3px solid #dbbc2c;
+      width: 100%;
+      border-radius: 50px;
+      background-color: #3a4f24;
+  }
+}

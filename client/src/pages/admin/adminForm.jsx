@@ -152,8 +152,7 @@ function AdminForm() {
                             </Row>
                         </Form>
                     </Col>
-                </Row>
-                <Row></Row>
+                </Row>  
                 <Row>
                     <Col sm={4}>
                         <Form>
@@ -238,10 +237,12 @@ function AdminForm() {
                         </Form>
                     </Col>
                 </Row>
-            </Container>
+            <div  className='student-button'>
             <button type='submit' onClick={handleSubmit}>
                 Create Admin Account
             </button>
+            </div>
+            </Container>
         </div>
     );
 }

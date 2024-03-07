@@ -31,7 +31,7 @@ const TaskCoach = () => {
                                 {taskType.toUpperCase()}: <span className='task-title'>{data.postTitle}</span>
                             </h4>
                             <h5 className='date-posted'>{formatDate(data.createdAt)}</h5>
-                            <h5 className='date-due'>{data.class.subject.subjectCode}</h5>
+                            <h5 className='subject-code'>{data.class.subject.subjectCode}</h5>
                         </Card.Body>
                     </button>
                 </Card>
