@@ -35,22 +35,22 @@ const ProfileScreen = ({ navigation }) => {
         <ScrollView style={styles.container}>
             <View style={styles.header}>
                 <Image style={styles.headerImage} source={ogrenek} resizeMode='contain' />
-                <Text style = {{fontFamily:'Raleway-Regular'}}>
+                <Text style = {{fontFamily:'Raleway-Bold', marginBottom: 2, fontSize: 14,}}>
                     {userInformation.firstName} {userInformation.middleName} {userInformation.lastName}
                 </Text>
-                <Text style = {{fontFamily:'Raleway-Regular'}}>{userInformation.personalNumber}</Text>
-                <Text style = {{fontFamily:'Raleway-Regular'}}>{data.personalEmail}</Text>
+                <Text style = {{fontFamily:'Raleway-Regular', marginBottom: 40, fontSize: 12,}}>{userInformation.personalNumber}</Text>
+                <Text style = {{fontFamily:'Raleway', marginBottom: 25, fontSize: 12, fontWeight:'300'}}>{data.personalEmail}</Text>
             </View>
             <View style={styles.studentDetails}>
                 <Text style = {{fontFamily:'Raleway-Regular'}}><Text style = {{fontFamily:'Raleway-Bold'}}>Year/Grade:</Text> 2nd</Text>
                 <Text style = {{fontFamily:'Raleway-Regular'}}><Text style = {{fontFamily:'Raleway-Bold'}}>Block:</Text> {userInformation.section}</Text>
             </View>
             <View style={styles.studentCourse}>
-                <Text style = {{fontFamily:'Raleway-Regular'}}> <Text style = {{fontFamily:'Raleway-Bold'}}>Course:</Text> {userInformation.course}</Text>
+                <Text style = {{fontFamily:'Raleway-Regular', marginBottom: 8,}}><Text style = {{fontFamily:'Raleway-Bold'}}>Course:</Text> {userInformation.course}</Text>
                 <Text style = {{fontFamily:'Raleway-Regular'}}><Text style = {{fontFamily:'Raleway-Bold'}}>Semester:</Text> Second</Text>
             </View>
             <View style={styles.additionalInformation}>
-                <Text style={{fontFamily:'Raleway-Bold', textAlign: 'center', marginBottom: 10}}>Personal Data</Text>
+                <Text style={{fontFamily:'Raleway-Bold', textAlign: 'center', marginBottom: 14}}>Personal Data</Text>
                 <View style={styles.nameContainer}>
                     <View>
                         <Text style = {{fontFamily:'Raleway-Bold', marginBottom: 5}}>First Name</Text>
@@ -73,13 +73,13 @@ const ProfileScreen = ({ navigation }) => {
                         <Text style = {{fontFamily:'Raleway-Regular', marginBottom: 8}}>{formatDate(userInformation.birthday)}</Text>
                     </View>
 
-                    <View>
-                        <Text style = {{fontFamily:'Raleway-Bold', marginBottom: 5}}>Contact Number</Text>
+                    <View style={styles.contactContainer}> 
+                        <Text style = {{fontFamily:'Raleway-Bold', marginBottom: 5, }}>Contact Number</Text>
                         <Text style = {{fontFamily:'Raleway-Regular', marginBottom: 8}}>{userInformation.personalNumber}</Text>
                     </View>
                 </View>
 
-                <View>
+                <View style={styles.addressContainer}>
                     <Text style = {{fontFamily:'Raleway-Bold', marginBottom: 5}}>Current Address(House#, Street, Brgy, City)</Text>
                     <Text style = {{fontFamily:'Raleway-Regular', marginBottom: 8}}>{userInformation.address}</Text>
                 </View>
@@ -110,67 +110,74 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         position: 'relative',
-        borderWidth: 1,
-        borderColor: 'black',
+        borderWidth: 2,
+        borderColor: 'white',
         borderStyle: 'solid',
-        borderRadius: 25,
+        borderRadius: 8,
         padding: 15,
         marginBottom: 5,
-        backgroundColor: 'rgb(236, 235, 235)'
+        backgroundColor: '#fff',
+        borderColor: 'rgba(0, 0, 0, 0.1)',
     },
     headerImage: {
-        width: windowWidth * 0.4,
-        height: windowWidth * 0.4,
+        width: windowWidth * 0.3,
+        height: windowWidth * 0.3,
         borderRadius: 150,
+        marginTop: 23,
+        marginBottom: 23,
     },
     studentDetails: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        borderWidth: 1,
-        borderColor: 'black',
+        justifyContent: 'space-between',
+        borderWidth: 2,
+        borderColor: 'white',
         borderStyle: 'solid',
-        borderRadius: 25,
+        borderRadius: 8,
         padding: 15,
         marginBottom: 5,
-        backgroundColor: 'rgb(236, 235, 235)'
+        backgroundColor: '#fff',
+        borderColor: 'rgba(0, 0, 0, 0.1)',
     },
     studentCourse: {
         flex: 1,
-        flexDirection: 'row',
-        borderWidth: 1,
-        justifyContent: 'space-around',
-        borderColor: 'black',
+        borderWidth: 2,
+        borderColor: 'white',
         borderStyle: 'solid',
-        borderRadius: 25,
+        borderRadius: 8,
         padding: 15,
         marginBottom: 5,
-        backgroundColor: 'rgb(236, 235, 235)'
+        backgroundColor: '#fff',
+        borderColor: 'rgba(0, 0, 0, 0.1)',
     },
     additionalInformation: {
         flex: 1,
         flexDirection: 'column',
-        borderWidth: 1,
-        borderColor: 'black',
-        borderStyle: 'solid',
-        borderRadius: 25,
+        borderWidth: 2,
+        borderColor: 'white',
+        borderRadius: 8,
         padding: 15,
-        marginBottom: 5,
-        backgroundColor: 'rgb(236, 235, 235)',
+        marginBottom: 8,
+        backgroundColor: '#fff',
+        borderColor: 'rgba(0, 0, 0, 0.1)',
     },
     textAlignCenter: {
         textAlign: 'center',
     },
     nameContainer: {
         flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: 5
+        flexDirection: 'row',  justifyContent: 'space-between',
+        marginBottom: 8
     },
     birthdayContainer: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 5,
+        marginBottom: 8,
     },
+    addressContainer: {
+        marginBottom: 8,
+    },
+    contactContainer: {
+    }
 });
