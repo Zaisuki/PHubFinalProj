@@ -127,3 +127,21 @@ export const submitCheck = async (formData) => {
         });
     return response;
 };
+export const submitConnect = async (taskID, choiceID) => {
+    const response = await axios
+        .post(
+            `${apiURL}/student/connect`,
+            { taskID, choiceID },
+            {
+                withCredentials: true,
+                headers: {
+                    authorization: cookies.get('authorization'),
+                },
+            }
+        )
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+    return response;
+};
