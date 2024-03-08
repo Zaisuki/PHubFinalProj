@@ -84,7 +84,6 @@ export const getClass = async (id: string) => {
                 },
             })
             .exec();
-        console.log('shahs', professorsClass);
         for (const classObj of (professorsClass?.professorHandledClass[0] as any)?.class) {
             result.push(classObj);
         }
@@ -210,20 +209,21 @@ export const getCheckTaskSubmission = async (taskID: string) => {
         return { 'message': 'No Check' };
     }
 };
-export const scoreStudentsConnect = async (data: object) => {
+export const scoreStudentsConnect = async (data: object, task: string) => {
     try {
         Object.entries(data).forEach(async ([student, score]) => {
-            await StudentConnectSubmission.findOneAndUpdate({ student }, { score }, { upsert: true, new: true });
+            let result = await StudentConnectSubmission.findOneAndUpdate({ student, task }, { score }, { upsert: true, new: true });
+            console.log(result);
         });
         return { message: 'Students score updated', httpCode: 200 };
     } catch (error: any) {
         return { message: error.message, httpCode: 500 };
     }
 };
-export const scoreStudentsCheck = async (data: object) => {
+export const scoreStudentsCheck = async (data: object, task: string) => {
     try {
         Object.entries(data).forEach(async ([student, score]) => {
-            await StudentCheckSubmission.findOneAndUpdate({ student }, { score }, { upsert: true, new: true });
+            await StudentCheckSubmission.findOneAndUpdate({ student, task }, { score }, { upsert: true, new: true });
         });
         return { message: 'Students score updated', httpCode: 200 };
     } catch (error: any) {

@@ -176,8 +176,8 @@ export const getCheckTaskSubmissionController = async (req: Request, res: Respon
 };
 export const scoreStudentsConnectController = async (req: Request, res: Response) => {
     try {
-        const { data } = req.body;
-        const result = await scoreStudentsConnect(JSON.parse(data));
+        const { data, taskID } = req.body;
+        const result = await scoreStudentsConnect(JSON.parse(data), taskID);
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error) {
         return res.status(500).json({ 'message': 'Internal Server Error' });
@@ -185,8 +185,8 @@ export const scoreStudentsConnectController = async (req: Request, res: Response
 };
 export const scoreStudentsCheckController = async (req: Request, res: Response) => {
     try {
-        const { data } = req.body;
-        const result = await scoreStudentsCheck(JSON.parse(data));
+        const { data, taskID } = req.body;
+        const result = await scoreStudentsCheck(JSON.parse(data), taskID);
         return res.status(result.httpCode).json({ 'message': result.message });
     } catch (error) {
         return res.status(500).json({ 'message': 'Internal Server Error' });

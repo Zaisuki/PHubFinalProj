@@ -47,11 +47,12 @@ const StudentWork = ({ classType, taskID, pageData }) => {
     const handleReturnScores = async (event) => {
         event.preventDefault();
         const data = Object.fromEntries(Object.entries(scores).filter(([key, value]) => checkboxes.includes(key) && value !== null && !isNaN(value)));
+        console.log(data);
         let result;
         if (classType === 'check') {
-            result = await scoreStudentCheck(JSON.stringify(data));
+            result = await scoreStudentCheck(JSON.stringify(data), taskID);
         } else {
-            result = await scoreStudentConnect(JSON.stringify(data));
+            result = await scoreStudentConnect(JSON.stringify(data), taskID);
         }
         if (result.message === 'Students score updated') {
             const fetchData = async () => {
@@ -80,16 +81,15 @@ const StudentWork = ({ classType, taskID, pageData }) => {
     };
 
     // Determine if all checkboxes are checked
-    useEffect(() => {
-        console.log(checkboxes, scores);
-    }, [checkboxes, scores]);
+    // useEffect(() => {
+    //     console.log(checkboxes, scores);
+    // }, [checkboxes, scores]);
     useEffect(() => {
         const fetchData = async () => {
             try {
                 let response;
                 if (classType === 'check') {
                     response = await getCheckTaskSubmission(taskID);
-                    console.log(response);
                 } else {
                     response = await getConnectTaskSubmission(taskID);
                 }

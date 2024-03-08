@@ -239,11 +239,12 @@ export const editConnectHighScore = async (taskID, editedScore) => {
         });
     return response;
 };
-export const scoreStudentConnect = async (data) => {
+export const scoreStudentConnect = async (data, taskID) => {
+    console.log(taskID);
     const response = await axios
         .put(
             `${apiURL}/professor/connect/task/score`,
-            { data },
+            { data, taskID },
             {
                 withCredentials: true,
                 headers: {
@@ -275,11 +276,11 @@ export const editCheckHighScore = async (taskID, editedScore) => {
         });
     return response;
 };
-export const scoreStudentCheck = async (data) => {
+export const scoreStudentCheck = async (data, taskID) => {
     const response = await axios
         .put(
             `${apiURL}/professor/check/task/score`,
-            { data },
+            { data, taskID },
             {
                 withCredentials: true,
                 headers: {

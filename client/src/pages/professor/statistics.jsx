@@ -10,6 +10,10 @@ import { getClass, getClassStatistics } from '../../services/professor';
 function Statistics() {
     const [radioValue, setRadioValue] = useState('1');
     const [classes, setClasses] = useState([]);
+    const [connectTask, setConnectTask] = useState([]);
+    const [checkTask, setCheckTask] = useState([]);
+    const [students, setStudents] = useState([]);
+    const [currentClassID, setClassID] = useState('');
     const [data, setData] = useState([
         { stud: 'Student No.', name: 'Name' },
         { stud: '', name: '' },
@@ -17,38 +21,39 @@ function Statistics() {
 
     const handleClassChange = async (event) => {
         let classID = event.target.value;
+        setClassID(classID);
         let result = await getClassStatistics(classID);
         result = result.message;
-        result.check.forEach((check, index) => {
-            setData((prevData) => {
-                const newData = [...prevData]; // Copy the previous data array
-                // Update the age property of the first object
-                newData[0] = { ...newData[0], [`check${index + 1}`]: check.postTitle };
-                newData[1] = { ...newData[1], [`check${index + 1}`]: check.highestPossibleScore };
-                return newData; // Set the new data array
+        setData([
+            { stud: 'Student No.', name: 'Name' },
+            { stud: '', name: '' },
+        ]);
+        setStudents([]);
+        setCheckTask([]);
+        setConnectTask([]);
+        if (result.check) {
+            result.check.forEach((check, index) => {
+                setCheckTask((prevData) => [...prevData, check._id]);
+                setData((prevData) => {
+                    const newData = [...prevData];
+                    newData[0] = { ...newData[0], [`check${index + 1}`]: check.postTitle };
+                    newData[1] = { ...newData[1], [`check${index + 1}`]: check.highestPossibleScore };
+                    return newData;
+                });
             });
-        });
-        result.connect.forEach((connect, index) => {
-            setData((prevData) => {
-                const newData = [...prevData]; // Copy the previous data array
-                // Update the age property of the first object
-                newData[0] = { ...newData[0], [`connect${index + 1}`]: connect.postTitle };
-                newData[1] = { ...newData[1], [`connect${index + 1}`]: connect.highestPossibleScore };
-                return newData; // Set the new data array
+        }
+        if (result.connect) {
+            result.connect.forEach((connect, index) => {
+                setConnectTask((prevData) => [...prevData, connect._id]);
+                setData((prevData) => {
+                    const newData = [...prevData];
+                    newData[0] = { ...newData[0], [`connect${index + 1}`]: connect.postTitle };
+                    newData[1] = { ...newData[1], [`connect${index + 1}`]: connect.highestPossibleScore };
+                    return newData;
+                });
             });
-        });
-        result.students.forEach((stud, index) => {
-            console.log(stud);
-            let newData = { studNo: stud.studentID, name: `${stud.firstName} ${stud.middleName} ${stud.lastName}` };
-            resultnstudents.forEach((stud, index) => {});
-            // setData((prevData) => {
-            //     const newData = [...prevData]; // Copy the previous data array
-            //     // Update the age property of the first object
-            //     newData.push()
-            //     return newData; // Set the new data array
-            // });
-        });
-        console.log(result.students);
+        }
+        setStudents(result.students);
     };
     const radios = [
         { name: 'P1', value: '1' },
@@ -63,8 +68,56 @@ function Statistics() {
         XLSX.writeFile(wb, 'output.xlsx');
     };
     useEffect(() => {
-        console.log(data);
-    }, [data]);
+        students.forEach((stud) => {
+            let newData = { studNo: stud.studentID, name: `${stud.firstName} ${stud.middleName} ${stud.lastName}` };
+            checkTask.forEach((value, index) => {
+                if (stud.studentSubjects[0].studentCheckSubmission.length > 0) {
+                    // stud.studentSubjects[0].studentCheckSubmission.some((check, index) => {
+                    //     if (check.task._id === value) {
+                    //         newData[`check${index}`] = check.score ? check.score : 0;
+                    //         return true; // exit loop
+                    //     }
+                    //     return false; // continue loop
+                    // });
+                    const foundCheck = stud.studentSubjects[0].studentCheckSubmission.find((check, index) => {
+                        if (check.task._id === value) {
+                            newData[`check${index}`] = check.score ? check.score : 0;
+                            return true; // exit loop
+                        }
+                        return false; // continue loop
+                    });
+                    if (!foundCheck) {
+                        newData[`check${index}`] = 0;
+                    }
+                } else {
+                    newData[`check${index}`] = 0;
+                }
+            });
+            connectTask.forEach((value, index) => {
+                if (stud.studentSubjects[0].studentConnectSubmission.length > 0) {
+                    // stud.studentSubjects[0].studentConnectSubmission.forEach((connect, index) => {
+                    //     if (connect.task._id === value) {
+                    //         newData[`connect${index}`] = connect.score ? connect.score : 0;
+                    //     }
+                    // });
+                    const foundConnect = stud.studentSubjects[0].studentConnectSubmission.find((connect, index) => {
+                        if (connect.task._id === value) {
+                            newData[`connect${index}`] = connect.score ? connect.score : 0;
+                            return true; // exit loop
+                        }
+                        return false; // continue loop
+                    });
+                    if (!foundConnect) {
+                        newData[`connect${index}`] = 0;
+                    }
+                } else {
+                    newData[`connect${index}`] = 0;
+                }
+            });
+            console.log(newData);
+            setData((prevData) => [...prevData, newData]);
+        });
+    }, [students, checkTask, connectTask]);
 
     useEffect(() => {
         const fetchData = async () => {
