@@ -1,254 +1,307 @@
 @import url(https://fonts.googleapis.com/css?family=Bebas+Neue:regular);
 .feed-post {
-    padding: 4vw;
-    .feed-header {
-        padding: 0;
-        margin-bottom: 20px;
-        background-color: #3a4f24;
-        //border-bottom: 1px solid #a5a5a5;
-        width: 500%;
-        display: flex;
-        justify-content: flex-start;
-        h1 {
-          font-family: "Raleway", sans-serif;
-          font-size: 15px;
-          padding: 10px;
-          margin-left: 10px;
-          margin-top: 10px;
-          color: #ffffff;
-          font-style: italic;
-          font-weight: 500;
+  // padding: 4vw;
+  height: 100%;
+  width: 100%;
+  padding: 2% 1% 1% 1%;
+  display: flex;
+  flex-wrap: wrap;
+  // .feed-header {
+  //   padding: 0;
+  //   // margin-bottom: 20px;
+  //   background-color: #3a4f24;
+  //   //border-bottom: 1px solid #a5a5a5;
+  //   width: 100%;
+  //   h1 {
+  //     font-family: "Raleway", sans-serif;
+  //     font-size: 105px;
+  //     //   padding: 10px;
+  //     margin-left: 10px;
+  //     //   margin-top: 10px;
+  //     color: #ffffff;
+  //     font-style: italic;
+  //     font-weight: 500;
+  //   }
+  //   span {
+  //     font-family: "Raleway", sans-serif;
+  //     font-style: normal;
+  //     color: #dbbc2c;
+  //   }
+  // }
+
+  .row-con {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .feed-announcement {
+    width: 100%;
+    border-radius: 15px;
+    min-height: 120px;
+    margin-bottom: 2%;
+    border: none;
+    border: 1px solid #e0e0e0;
+    padding: 4%;
+    background-color: #ffffff3f;
+    .trash-dd {
+      display: flex;
+      justify-content: space-between;
+      .makeitdrop {
+        background-color: white;
+      }
+      button {
+        background-color: white;
+        border: none;
+      }
+    }
+
+    .header-announcement {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      //   .trash-dd {
+      //     margin-left: auto; /* Adjusted margin */
+      //     cursor: pointer;
+      //     color: #000000;
+      //     background-color: tr;
+      //   }
+      .time {
+        text-align: center;
+        font-size: 10px;
+      }
+      .ann {
+        font-size: 20px;
+        margin-right: 15px;
+      }
+      .date {
+        text-align: center;
+        font-size: 0.5em;
+      }
+    }
+    .fln {
+      font-size: 20px;
+      display: flex;
+      justify-content: right;
+    }
+    p {
+      margin-top: 3%;
+    }
+  }
+
+  .feed-post-one {
+    width: 100%;
+    border-radius: 15px;
+    background-color: rgb(236, 235, 235);
+    border: none;
+    .create {
+      font-size: 30px;
+      text-align: center;
+      margin-top: 5%;
+      font-family: "Raleway", sans-serif;
+      font-weight: 800;
+      font-style: normal;
+    }
+    .h2-text,
+    .h2-text-one {
+      color: gray;
+      background-color: rgb(255, 255, 255);
+      padding: 10px;
+      padding-bottom: 10px;
+      border-radius: 20px;
+      margin: 20px;
+      .title,
+      .description {
+        font-size: 20px;
+        margin: 10px;
+        font-family: "Raleway", sans-serif;
+      }
+      .input-placeholder,
+      .input-placeholder-one {
+        resize: none;
+        outline: none;
+        padding: 10px;
+        margin-left: 5px;
+        width: 100%;
+        border-radius: 20px;
+      }
+      .word-count {
+        padding-right: 10px;
+        font-size: 10px;
+        color: gray;
+        text-align: left;
+        margin-left: 13px;
+        width: 100%; /* Adjusted width */
+      }
+      .effects {
+        justify-content: center;
+        text-align: left;
+        margin-top: 20px;
+        cursor: pointer;
+        margin-left: 20px;
+        .i {
+          background-color: rgb(128, 128, 128);
+          margin: 10px;
+          border-radius: 30px;
+          height: 30px;
+          width: 30px;
+          padding: 5px;
+          color: rgb(0, 0, 0);
         }
-        span {
-          font-family: "Raleway", sans-serif;
-          font-style: normal;
-          color: #dbbc2c;
+        .i:hover {
+          background-color: rgb(0, 0, 0);
+          color: white;
+          animation: waveAnimation 1s ease infinite;
         }
       }
-    .feed-announcement {
-        border-radius: 25px;
-        min-height: 220px;
-        margin-bottom: 2%;
-        border: none;
-        border: 1px solid #e0e0e0;
-        padding: 4vw;
-        position: relative;
-        background-color: #ffffff3f;
-        .trash-dd {
-            display: flex;
-            justify-content: space-between;
-            .makeitdrop{
-                background-color: white;
-            }
-            button{
-                background-color: white;
-                border: none;
-            }
-            
-        }
-        
-        .header-announcement {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .trash-dd {
-                margin-left: auto; /* Adjusted margin */
-                cursor: pointer;
-                color: #000000;
-                background-color: tr;
-            }
-            .time {
-                text-align: center;
-                font-size: 10px;
-                margin: 0;
-                position: absolute;
-                left: 205px;
-                top: 89px;
-            }
-            .fln {
-                font-size: 20px;
-                position: absolute;
-                top: 80px;
-                .tie {
-                    top: 380px;
-                    background-color: rgb(255, 255, 255);
-                    border-radius: 30px;
-                    color: rgb(0, 0, 0);
-                }
-            }
-            .ann {
-                font-size: 20px;
-                margin-top: 0;
-                position: absolute;
-                bottom: 40px;
-            }
-            .date {
-                text-align: center;
-                font-size: 0.5em;
-                margin: 0;
-                position: absolute;
-                left: 650px;
-                top: 10px;
-            }
-        }
     }
-    .feed-post-one {
-        position: relative;
-        left: 10%;
-        border-radius: 40px;
-        background-color: rgb(236, 235, 235);
-        border: none;
-        .create {
-            font-size: 30px;
-            text-align: center;
-            margin-top: 5%;
-            font-family: "Raleway",sans-serif;
-            font-weight: 800;
-            font-style: normal;
-           
-        }
-        .h2-text,
-        .h2-text-one{
-            color: gray;
-            background-color: rgb(255, 255, 255);
-            padding: 10px;
-            padding-bottom: 10px;
-            border-radius: 20px;
-            margin: 20px;
-            .title,
-            .description {
-                margin-left: 20px;
-                font-size: 20px;
-                margin: 10px;
-                font-family: "Raleway",sans-serif;
-            }
-            .input-placeholder,
-            .input-placeholder-one {
-                resize: none;
-                outline: none;
-                padding: 10px;
-                margin-left: 50px;
-                width: 350px;
-                border-radius: 20px;
-            }
-            .word-count {
-                padding-right: 10px;
-                font-size: 10px;
-                color: gray;
-                text-align: right;
-                width: 100%; /* Adjusted width */
-                margin-top: 15px;
-            }
-            .effects {
-                justify-content: center;
-                text-align: left;
-                margin-top: 20px;
-                cursor: pointer;
-                margin-left: 20px;
-                .i {
-                    background-color: rgb(128, 128, 128);
-                    margin: 10px;
-                    border-radius: 30px;
-                    height: 30px;
-                    width: 30px;
-                    padding: 5px;
-                    color: rgb(0, 0, 0);
-                }
-                .i:hover {
-                    background-color: rgb(0, 0, 0);
-                    color: white;
-                    animation: waveAnimation 1s ease infinite;
-                }
-            }
-        }
-        .h2-text-two {
-            color: gray;
-            background-color: rgb(255, 255, 255);
-            padding: 5px;
-            padding-bottom: 10px;
-            border-radius: 20px;
-            height: 50px;
-            width: 90%;
-            margin: 5px;
-            margin-left: 30px;
-            display: flex;
-            justify-content: center;
-           
-         
-            .course{
-                font-size: 20px;
-                margin: 10px;
-                font-family: "Raleway",sans-serif;
-                text-align: center;
-            }
-            .create-post{
-                background-color: white;
-                border: none;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                text-align: center;
-                
-           
-        
-            }
-           
-           
+    .h2-text-two {
+      color: gray;
+      background-color: rgb(255, 255, 255);
+      border-radius: 20px;
+      height: 40px;
+      width: 65%;
+      margin-left: 20%;
+      display: flex;
+      justify-content: center;
 
-        }
-        
-        .h2-text:hover,
-        .h2-text-one:hover,.h2-text-two:hover {
-            animation: waveAnimation 1s ease infinite;
-        }
-        
-        .create-post {
-            color: rgb(0, 0, 0);
-            font-size: 25px;
-            border-radius: 30px;
-            background-color: white;
-            font-size: 15px;
-            margin-left: 420px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            border: none;
-            font-family: "Raleway",sans-serif;
-            .pen{
-                font-size: 20px;
-                
-            }
-        }
-        .create-post:hover {
-            background-color: rgba(124, 151, 2, 0.685);
-            animation: waveAnimation 1s ease infinite;
-            color: white;
-        }
+      .course {
+        margin-top: 7px;
+        font-size: 15px;
+        padding: 1%;
+        font-family: "Raleway", sans-serif;
+        text-align: center;
+      }
+      .create-post {
+        background-color: white;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+      }
     }
-    .feed-post-one:hover {
-        background-color: rgba(33, 78, 1, 0.815);
-        color: white;
+
+    .h2-text:hover,
+    .h2-text-one:hover,
+    .h2-text-two:hover {
+      animation: waveAnimation 1s ease infinite;
     }
+
+    .button-container {
+      display: flex;
+      justify-content: center; /* Horizontally center the content */
+      align-items: center; /* Vertically center the content */
+      .create-post {
+        color: rgb(0, 0, 0);
+        font-size: 25px;
+        border-radius: 30px;
+        background-color: white;
+        font-size: 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: none;
+        font-family: "Raleway", sans-serif;
+        .pen {
+          font-size: 20px;
+          margin-right: 5px;
+        }
+      }
+    }
+    .create-post:hover {
+      background-color: rgba(124, 151, 2, 0.685);
+      animation: waveAnimation 1s ease infinite;
+      color: white;
+    }
+  }
+  .feed-post-one:hover {
+    background-color: rgba(33, 78, 1, 0.815);
+    color: white;
+  }
 }
 
 @keyframes waveAnimation {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 .nav-nav {
-    background-color: white;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-  
-    color: black;
-    animation: float 2s ease infinite;
-    position:fixed; 
-    
+  background-color: white;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+
+  color: black;
+  animation: float 2s ease infinite;
+  position: fixed;
+}
+
+// RESPONSIVENESS
+// for small devices (PHONES & TABLETS)
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .feed-post
+  .row-con {
+    padding: 2% 1% 2% 1%;
+    flex-direction: column-reverse;
+
+    .feed-post-one {
+      margin-bottom: 3%;
+    }
   }
+}
+
+// for medium devices (TABLETS)
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .feed-post
+  .row-con {
+    padding: 2% 6% 2% 6%;
+    flex-direction: column-reverse;
+
+    .feed-post-one {
+      margin-bottom: 3%;
+    }
+  }
+}
+
+// for large devices (LAPTOPS & DESKTOPS)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .feed-post
+  .row-con {
+    padding: 2% 7% 2% 7%;
+    flex-direction: column-reverse;
+
+    .feed-post-one {
+      margin-bottom: 3%;
+    }
+  }
+}
+
+// for extra large devices (Large DESKTOPS)
+@media (min-width: 1200px) and (max-width: 1350px) {
+  .feed-post
+  .row-con {
+    padding: 2% 12% 2% 12%;
+    flex-direction: column-reverse;
+
+    .feed-post-one {
+      margin-bottom: 3%;
+    }
+  }
+}
+
+@media (min-width: 1351px) and (max-width: 1650px) {
+  .feed-post
+  .row-con {
+    padding: 2% 3% 2% 3%;
+
+    .feed-post-one {
+      margin-bottom: 3%;
+    }
+  }
+}

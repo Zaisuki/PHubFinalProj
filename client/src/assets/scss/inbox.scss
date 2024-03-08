@@ -44,8 +44,8 @@
   }
   // lower part holder container
   .str-chat__message-input {
-padding: 2%;
-}
+    padding: 2%;
+  }
   .str-chat__list {
     background-color: rgb(255, 255, 255);
   }
@@ -109,8 +109,7 @@ padding: 2%;
   .str-chat__channel-preview-messenger--active {
     background-color: rgb(236, 235, 235);
     height: 75px;
-    
-}
+  }
 
   // color of number of messages notif
   .str-chat__channel-preview
@@ -120,7 +119,6 @@ padding: 2%;
   }
 }
 
-
 // RESPONSIVENESS
 // for small devices (PHONES & TABLETS)
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -129,10 +127,45 @@ padding: 2%;
       display: none;
     }
   }
+  .str-chat__channel-preview-messenger--last-message {
+    display: none;
+  }
+  .str-chat__channel-list-messenger-react {
+    width: 100%;
+  }
+
+  .inbox {
+    .channel-list {
+      width: 10%;
+    }
+    .main-chat {
+      width: 90%;
+    }
+  }
 }
 
 // for medium devices (TABLETS)
 @media (min-width: 768px) and (max-width: 991.98px) {
+  .str-chat__channel-preview-messenger--name {
+    span {
+      display: none;
+    }
+  }
+  .str-chat__channel-preview-messenger--last-message {
+    display: none;
+  }
+  .str-chat__channel-list-messenger-react {
+    width: 100%;
+  }
+
+  .inbox {
+    .channel-list {
+      width: 13%;
+    }
+    .main-chat {
+      width: 87%;
+    }
+  }
 }
 
 // for large devices (LAPTOPS & DESKTOPS)
