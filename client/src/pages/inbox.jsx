@@ -5,6 +5,7 @@ import 'stream-chat-react/dist/css/v2/index.css';
 import '../assets/scss/inbox.scss';
 import { cookies } from '../services/entry';
 import Card from 'react-bootstrap/Card';
+import Users from '../userTest';
 
 const Inbox = () => {
     const [client, setClient] = useState(null);
@@ -53,6 +54,7 @@ const Inbox = () => {
                 <Card className='main-chat'>
                     <Channel>
                         <Window>
+                           {/* <Users/>*/}
                             <ChannelHeader />
                             <MessageList />
                             <MessageInput />

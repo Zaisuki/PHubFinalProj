@@ -5,6 +5,7 @@ import StudentTask from './studentTask';
 
 const TaskConnect = () => {
     const taskType = 'connect';
+    const [noDueDate, setNoDueDate] = useState([]);
     const [thisWeek, setThisWeek] = useState([]);
     const [nextWeek, setNextWeek] = useState([]);
     const [later, setLater] = useState([]);
@@ -14,6 +15,7 @@ const TaskConnect = () => {
         const fetchData = async () => {
             try {
                 const response = await getConnect();
+                setNoDueDate(response.noDueDate);
                 setThisWeek(response.thisWeek);
                 setNextWeek(response.nextWeek);
                 setLater(response.later);
@@ -27,6 +29,8 @@ const TaskConnect = () => {
 
     return (
         <Accordion defaultActiveKey='0' className='main-holder'>
+    
+            
             <Accordion.Item eventKey='0' className='1st'>
                 <Accordion.Header>This Week</Accordion.Header>
                 <Accordion.Body>
@@ -72,6 +76,18 @@ const TaskConnect = () => {
                         ))
                     ) : (
                         <p style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh', fontSize: '20px', fontFamily: 'Raleway, sans-serif', fontWeight:'500', color:'gray' }}>No connect tasks posted</p>
+                    )}
+                </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey='4' className='3rd'>
+                <Accordion.Header>No due</Accordion.Header>
+                <Accordion.Body>
+                    {missing.length > 0 ? (
+                        missing.map((task) => (
+                            <StudentTask taskType={taskType} data={task} key={task._id} />
+                        ))
+                    ) : (
+                        <p style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh', fontSize: '20px', fontFamily: 'Raleway, sans-serif', fontWeight:'500', color:'gray' }}>No check tasks posted</p>
                     )}
                 </Accordion.Body>
             </Accordion.Item>

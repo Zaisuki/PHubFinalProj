@@ -17,8 +17,7 @@ const StudentWork = ({ classType, taskID, pageData }) => {
     const [scores, setScores] = useState({});
     const [newHighScore, setNewHighScores] = useState('');
     const [highScore, setHighScores] = useState(pageData.highestPossibleScore);
-    // FOR CHECKBOX
-    // Function to handle checkbox click in the body
+
     const handleStudentNameClick = (studentName) => {
         setSelectedStudent(studentName[1]);
     };
@@ -104,7 +103,6 @@ const StudentWork = ({ classType, taskID, pageData }) => {
     }, [classType, taskID, pageData]);
     return (
         <div className='overall-container'>
-            {/* Contents of left part of student-work container */}
             <div className='left-container'>
                 <div className='upper-left-container'>
                     <div className='sub-upper-left-container'>
