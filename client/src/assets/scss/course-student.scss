@@ -1,12 +1,11 @@
 .course-main-container-student {
   padding: 2px;
   .course-header-student {
-    padding: 10px;
+    padding: 0;
     margin-bottom: 2px;
     background-color: #3a4f24;
     width: 100%;
     display: flex;
-    padding-right: 10px;
     justify-content: flex-start;
     h1 {
       font-family: "Raleway", sans-serif;
@@ -27,31 +26,29 @@
 
   .course-container-student {
     width: 100%;
-    padding: 10px;
-    margin: 10px;
-    padding-right: 10%;
-    padding-left: 10%;
-    justify-content: center;
+    padding: 2% 7% 2% 7%;
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    //background-color: #e0ffbf83;
-    transition: box-shadow 0.3s ease;
+    border: none;
 
+    .course-card-student:hover {
+      background-color: #fafafa;
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
     .course-card-student {
       width: 100%;
-
-      display: flex;
-      flex-direction: column;
       padding: 10px;
-      margin: 20px;
-      border: none;
+      margin: 10px 10px 16px 10px;
+      border: 2px solid #d6d4d4 !important;
 
-      background-color: rgba(255, 255, 255, 0.527);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       transition: background-color 0.3s ease, transform 0.3s ease,
         box-shadow 0.3s ease;
-
-      border-radius: 20px;
+      border-radius: 8px;
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
 
       .subject-code-student {
         font-family: "Raleway", sans-serif;
@@ -66,12 +63,10 @@
         }
       }
       button {
-        width: 20%;
-        background-color: #f1ffde;
-        color: black;
+        width: 65px;
         border: none;
-
         border-radius: 20px;
+
         .book-student {
           font-size: 20px;
           display: flex;
@@ -84,20 +79,22 @@
         border: none;
         background-color: #3a4f24;
         .book-student {
-          display: flex;
           color: #ffffff;
         }
       }
       .popo {
         font-family: "Raleway", sans-serif;
       }
-      .card-header-student {
+      .card-header {
         border: none;
-        padding: 1px;
+        padding: 2px;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: #F6F6F6;
+
+        
       }
       .card-title-student {
         text-align: center;
@@ -116,8 +113,4 @@
       }
     }
   }
-}
-.course-card-student:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 40px rgba(0, 0, 0, 0.1);
 }

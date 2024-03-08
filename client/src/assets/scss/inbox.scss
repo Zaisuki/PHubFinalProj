@@ -119,3 +119,26 @@ padding: 2%;
     background-color: #7d8c6c;
   }
 }
+
+
+// RESPONSIVENESS
+// for small devices (PHONES & TABLETS)
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .str-chat__channel-preview-messenger--name {
+    span {
+      display: none;
+    }
+  }
+}
+
+// for medium devices (TABLETS)
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+// for large devices (LAPTOPS & DESKTOPS)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+// for extra large devices (Large DESKTOPS)
+@media (min-width: 1200px) {
+}

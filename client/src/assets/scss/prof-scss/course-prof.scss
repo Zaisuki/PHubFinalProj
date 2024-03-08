@@ -64,6 +64,7 @@
       }
       button {
         width: 65px;
+        border: none;
         border-radius: 20px;
         .book {
           font-size: 16px;
@@ -109,11 +110,4 @@
       }
     }
   }
-  // .course-container:hover {
-  //   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  //   color: #dbbc2c;
-  //   background-color: e0ffbf1e;
-  //   transition: box-shadow 0.3s ease;
-
-  // }
 }
