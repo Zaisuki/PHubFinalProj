@@ -3,64 +3,243 @@
   width: 100%;
 
   .left-container {
-    padding: 20px;
+    padding: 50px;
+    width: 100%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: rgba(242, 255, 227, 0.773);
+    border-radius: 20px;
+    h2 {
+      font-family: "Raleway", sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .sub-content {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .stats {
+        width: 100%;
+        .numbers {
+          width: 100%;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+
+          .turned-in-total {
+            font-family: "Raleway", sans-serif;
+          }
+          .assigned-total {
+            font-family: "Raleway", sans-serif;
+          }
+          .returned-total {
+            font-family: "Raleway", sans-serif;
+          }
+        }
+        .labels {
+          width: 100%;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          .turned-in-label {
+            font-family: "Raleway", sans-serif;
+          }
+          .returned-label {
+            font-family: "Raleway", sans-serif;
+          }
+          .assigned-label {
+            font-family: "Raleway", sans-serif;
+          }
+        }
+      }
+    }
     .upper-left-container {
-      padding: 200px;
+      padding: 5px;
       background-color: rgb(255, 255, 255);
       display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100%;
+      
+      
+
       .button-container {
         display: flex;
         justify-content: center;
+        padding: 10px;
+        flex-direction: row;
         background-color: rgb(255, 255, 255);
-        flex-direction: column;
-        padding: 20px;
-      }
-      .sub-upper-left-container {
         width: 100%;
-        background-color: rgb(255, 255, 255);
-        .stats {
-          width: 100%;
-          .numbers {
-            .turned-in-total {
-                font-family: "Raleway", sans-serif;
-              }
-              .assigned-total {
-                  font-family: "Raleway", sans-serif;
-                }
-                .returned-total {
-                  font-family: "Raleway", sans-serif;
-                }
-          }
-          .labels {
-            .turned-in-label {
-              font-family: "Raleway", sans-serif;
-            }
-            .returned-label {
-                font-family: "Raleway", sans-serif;
-              }
-              .assigned-label {
-                font-family: "Raleway", sans-serif;
-              }
-          }
+        text-align: center;
+        width: 100%;
+
+        .langgam {
+          width: 90%;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 15px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 2px solid #bbbbbb;
+          text-align: center;
         }
 
-        .activity-title {
-          font-family: "Raleway", sans-serif;
-          font-weight: 800;
-          font-size: 80px;
+        .submit-one {
+          border-radius: 20px;
+          width: 100%;
+          margin-right: 50px;
+          margin-bottom: 10px;
+          background-color: #3a4f24;
+        }
+        .submit-two {
+          border-radius: 20px;
+          width: 100%;
+          background-color: #3a4f24;
         }
       }
     }
   }
 }
 
-input[type="number"] {
-  /* Ensure the input is wide enough to prevent clipping */
-  width: 50px;
+.student-table-container {
+  padding: 20px;
+  margin: 50px;
+  
+  .checkme {
+    input.form-check-input {
+      background-color: white;
+    }
+    .form-check-input:checked {
+      background-color: #3a4f24;
+    }
+  }
+  .studentList-zero {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    .monkey{
+        text-align: center;
+    }
+    
+
+    .student-name {
+        
+      .icon {
+        font-family: "Raleway", sans-serif;
+        font-size: 20px;
+      }
+    }
+  }
+  .studentList {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+
+    .student-name {
+      .icon {
+        font-family: "Raleway", sans-serif;
+        font-size: 20px;
+      }
+    }
+  }
+  .studentList-two {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+    .checkin {
+      input.form-check-input {
+        background-color: white;
+      }
+      .form-check-input:checked {
+        background-color: #3a4f24;
+      }
+    }
+    .scoresq {
+      border: 1px solid;
+    }
+
+    .student-name {
+      .icon {
+        font-family: "Raleway", sans-serif;
+        font-size: 20px;
+      }
+    }
+  }
+  .checkbox-selectall {
+    background-color: rgba(201, 207, 196, 0.773);
+   
+    border-radius: 20px;
+    .wrong-turn {
+      text-align: center;
+      background-color: rgba(242, 255, 227, 0.773);
+      font-family: "Raleway", sans-serif;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .graded {
+      text-align: center;
+      background-color: rgba(242, 255, 227, 0.773);
+      font-family: "Raleway", sans-serif;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .frog {
+      text-align: center;
+      background-color: rgba(242, 255, 227, 0.773);
+      font-family: "Raleway", sans-serif;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
 }
-.studentList {
-  display: flex;
-  justify-content: space-around;
-  padding: 10px;
+
+.right-container {
+    width: 100%;
+    margin-left: 100px;
+
+  .berries {
+    text-align: left;
+    font-family: "Raleway",sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 20px;
+    background-color: rgba(242, 255, 227, 0.773);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+
+
+  }
+  .right-sub-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: rgba(242, 255, 227, 0.773);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+
+    .attached-file {
+      .file-con {
+        margin-left: 50px;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .file-preview-two {
+        height: 100px;
+        width: 100px;
+        margin-bottom: 10px;
+      }
+    }
+  }
 }

@@ -194,14 +194,15 @@
         text-align: center;
       }
       .file-container {
-        padding: 30px;
+        padding: 10px;
+        margin-left:100px;
         display: flex;
         flex-wrap: wrap;
         gap: 10px; 
       }
       .file-item {
-        height: 200px;
-        width: 200px;
+        height: 100px;
+        width: 100px;
         overflow: hidden;
         margin-bottom: 10px; 
       }
