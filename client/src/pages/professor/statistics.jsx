@@ -186,7 +186,7 @@ function Statistics() {
                 key={idx}
                 id={`radio-${idx}`}
                 type="radio"
-                variant={idx % 2 ? "outline-dark" : "outline-dark"}
+                variant={idx % 2 ? "light" : "light"}
                 name="radio"
                 value={radio.value}
                 checked={radioValue === radio.value}

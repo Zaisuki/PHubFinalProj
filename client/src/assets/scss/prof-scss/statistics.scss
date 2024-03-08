@@ -54,7 +54,13 @@
       justify-content: space-between;
       .btn-group {
         width: 50%;
-        border: none;
+        border: 2px solid #e4e4e4;
+        margin: 10px;
+  
+        background-color: #ffffff;
+      }
+      .btn-group:active{
+        background-color: #3a4f24;
       }
     }
 
