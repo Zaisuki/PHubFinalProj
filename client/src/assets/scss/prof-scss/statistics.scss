@@ -7,9 +7,16 @@
 
 .card-main{
   padding: 40px;
+  .stat-card{
+    background-color: rgba(33, 61, 0, 0.773);
+    .stat-three{
+      background-color: rgba(242, 255, 227, 0.773);
+    }
+  }
+  
 
   .nav-nav {
-    background-color: white;
+    background-color: rgb(136, 2, 2);
     border-radius: 30px;
     padding: 10px;
     margin: 20px;

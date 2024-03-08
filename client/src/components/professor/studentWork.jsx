@@ -153,14 +153,14 @@ const StudentWork = ({ classType, taskID, pageData }) => {
                 type="submit"
                 onClick={updateScore}
               >
-                Update score
+                <span className="scoreSs">Update score</span>
               </Button>
               <Button
                 className="submit-two"
                 type="submit"
                 onClick={handleReturnScores}
               >
-                Return
+                <span className="scoreSs">Return</span>
               </Button>
             </div>
           </div>
