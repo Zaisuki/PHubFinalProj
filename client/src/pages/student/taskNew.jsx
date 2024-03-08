@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import formatDate from "../../utils/formatDate";
 import ImagePreview from "../../components/imagePreview";
 import LinkPreview from "../../components/linkPreview";
+import ChoicesConnect from "../../components/choicesConnect";
+import convertPercentage from "../../utils/convertPercentage";
 import { FileUploader } from "react-drag-drop-files";
 import { FaTimes } from "react-icons/fa";
 import {
@@ -17,7 +19,7 @@ import {
 } from "../../services/student";
 
 export default function NewTask() {
-    let { taskID, classType } = useParams();
+  let { taskID, classType } = useParams();
   const [pageData, setData] = useState({});
   const [showWindow, setShowWindow] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -28,9 +30,9 @@ export default function NewTask() {
   const handlePlusClick = () => {
     setShowWindow(true);
   };
-  const handleRadioChange = (event) => {	
-setSelectedChoice(event.target.value);		
-    };
+  const handleRadioChange = (event) => {
+    setSelectedChoice(event.target.value);
+  };
 
   const handleCloseClick = () => {
     setShowWindow(false);
@@ -50,7 +52,6 @@ setSelectedChoice(event.target.value);
     if (classType === "check") {
       result = await submitCheck(formData);
     } else if (classType === "connect") {
-      
     }
     if (result.message === "Check submitted") {
       updateForm();
@@ -97,6 +98,10 @@ setSelectedChoice(event.target.value);
     handleCloseClick();
   }, [attachment]);
 
+  function convertpercentage(part, whole) {
+    return (part/whole) * 100;
+    }
+
   return (
     <Container>
       <Row>
@@ -117,9 +122,9 @@ setSelectedChoice(event.target.value);
               {classType.toLowerCase() !== "coach" && (
                 <h5 className="points-label">
                   <span className="points">
-                    {pageData.highestPossibleScore}{" "}
+                    {pageData.highestPossibleScore}
                   </span>
-                  points
+                  {pageData.highestPossibleScore === 1 ? " point" : " points"}
                 </h5>
               )}
               {classType.toLowerCase() !== "coach" && (
@@ -225,7 +230,7 @@ setSelectedChoice(event.target.value);
             </>
           ) : (
             <>
-             <Col xs={12} md={8} lg={4}>
+              <Col xs={12} md={8} lg={4}>
                 <Card className="main-right-card-container">
                   <Card className="submission-card">
                     <h5>Your Work</h5>
@@ -233,7 +238,7 @@ setSelectedChoice(event.target.value);
                     <div className="file-container">
                       {pageData.studentSubmission.map((submission) =>
                         submission.attachment.map((dataPage) => (
-                          <div key={dataPage._id}>
+                          <div className="file-item" key={dataPage._id}>
                             {dataPage.type.startsWith("image") ? (
                               <ImagePreview imageUrl={dataPage.url} />
                             ) : (
@@ -273,8 +278,8 @@ setSelectedChoice(event.target.value);
             </>
           ))}
         {classType.toLowerCase() === "connect" && pageData.postChoices && (
-          <Card className="pool-container">
-            <h4>Pool</h4>
+          <Card className="poll-container">
+            <h4 className="poll">Poll</h4>
 
             {submitted ? (
               <div className="choice-container">
@@ -287,7 +292,7 @@ setSelectedChoice(event.target.value);
                         disabled
                         value={dataPage._id}
                         checked={
-                          pageData.studentSubmission[0].answer._id ===
+                          pageData.studentSubmission[2].answer._id ===
                           dataPage._id
                         }
                       />
