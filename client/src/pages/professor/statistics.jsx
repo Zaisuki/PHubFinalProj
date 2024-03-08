@@ -157,75 +157,76 @@ function Statistics() {
 
   return (
     <div className="mainmain">
-         <div className="stat-header">
+      <div className="stat-header">
         <h1 className="user">
           Welcome to <span>Phinma Statistics</span>.
         </h1>
       </div>
-    <div className="card-main">
-     
-      <Card.Body className="stat-card">
-        <div className="stat-three">
-          <Form.Select
-            className="course-select-stat"
-            onChange={handleClassChange}
-            aria-label="def"
-          >
-            <option className="op">Select a Subject & Block</option>
-            {classes.map((classObj) => (
-              <option className="op" value={classObj._id} key={classObj._id}>
-                {`${classObj.subject.subjectCode}: ${classObj.block}`}
-              </option>
-            ))}
-          </Form.Select>
-
-          <ButtonGroup className="bg-p">
-            {radios.map((radio, idx) => (
-              <ToggleButton
-                className="toggle-p"
-                key={idx}
-                id={`radio-${idx}`}
-                type="radio"
-                variant={idx % 2 ? "light" : "light"}
-                name="radio"
-                value={radio.value}
-                checked={radioValue === radio.value}
-                onChange={(e) => setRadioValue(e.currentTarget.value)}
-              >
-                {radio.name}
-              </ToggleButton>
-            ))}
-          </ButtonGroup>
-        </div>
-      </Card.Body>
-      <div className="statistics-table">
-        <table>
-          <thead>
-            <tr>
-              {Object.keys(data[0]).map((key, index) => (
-                <th className="teehe" key={index}>
-                  {key}
-                </th>
+      <div className="card-main">
+        <Card.Body className="stat-card">
+          <div className="stat-three">
+            <Form.Select
+              className="course-select-stat"
+              onChange={handleClassChange}
+              aria-label="def"
+            >
+              <option className="op">Select a Subject & Block</option>
+              {classes.map((classObj) => (
+                <option className="op" value={classObj._id} key={classObj._id}>
+                  {`${classObj.subject.subjectCode}: ${classObj.block}`}
+                </option>
               ))}
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {Object.values(row).map((value, cellIndex) => (
-                  <td className="teede" key={cellIndex}>
-                    {value}
-                  </td>
+            </Form.Select>
+
+            <ButtonGroup className="bg-p">
+              {radios.map((radio, idx) => (
+                <ToggleButton
+                  className="toggle-p"
+                  key={idx}
+                  id={`radio-${idx}`}
+                  type="radio"
+                  variant={idx % 2 ? "light" : "light"}
+                  name="radio"
+                  value={radio.value}
+                  checked={radioValue === radio.value}
+                  onChange={(e) => setRadioValue(e.currentTarget.value)}
+                >
+                  {radio.name}
+                </ToggleButton>
+              ))}
+            </ButtonGroup>
+          </div>
+        </Card.Body>
+        <div className="statistics-table">
+          <table>
+            <thead>
+              <tr>
+                {Object.keys(data[0]).map((key, index) => (
+                  <th className="teehe" key={index}>
+                    {key}
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
-        <button className="dldl" type="submit" onClick={handleDownload}>
-<span className="dldldl">Download</span>
-        </button>
+            </thead>
+            <tbody>
+              {data.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {Object.values(row).map((value, cellIndex) => (
+                    <td className="teede" key={cellIndex}>
+                      {value}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="butt-con">
+            <button className="dldl" type="submit" onClick={handleDownload}>
+              <span className="dldldl">Download</span>
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   );
 }

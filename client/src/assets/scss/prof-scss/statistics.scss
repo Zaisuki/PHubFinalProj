@@ -2,7 +2,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-.mainmain{
+.mainmain {
   margin: 2px;
   .stat-header {
     padding: 0;
@@ -26,79 +26,82 @@
       font-style: normal;
       color: #dbbc2c;
     }
-    
-    
   }
-.card-main {
-  width: 100%;
-  margin: 2px;
-  padding: 40px;
-
-  
-
-  .stat-card {
-    background: transparent;
+  .card-main {
     width: 100%;
-    border: none;
-    background-color: rgba(242, 255, 227, 0.773);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+    margin: 2px;
     padding: 40px;
-    border-radius: 30px;
 
-    .stat-three {
+    .stat-card {
+      background: transparent;
       width: 100%;
       border: none;
-      display: flex;
-      border-radius: 20px;
-      flex-direction: row;
-      justify-content: space-between;
-      .btn-group {
-        width: 50%;
-        border: 2px solid #e4e4e4;
-        margin: 10px;
-  
-        background-color: #ffffff;
-      }
-      .btn-group:active{
-        background-color: #3a4f24;
-      }
-    }
+      background-color: rgb(236, 235, 235);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 10px;
 
-    
-  }
-  .statistics-table{
-    padding: 40px;
-    background-color: rgba(242, 255, 227, 0.773);
-    margin: 30px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
-    border-radius: 30px;
-    .teehe{
-      font-size: 20px;
-      font-family: "Raleway", sans-serif;
-      margin: 10px;
-      padding: 20px;
+      .stat-three {
+        width: 100%;
+        border: none;
+        display: flex;
+        border-radius: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        .btn-group {
+          width: 50%;
+          border: 2px solid #e4e4e4;
+          margin: 10px;
+
+          background-color: #ffffff;
+        }
+        .btn-group:active {
+          background-color: #3a4f24;
+        }
+      }
     }
-    .teede{
-      font-size: 20px;
-      font-family: "Raleway", sans-serif;
-      margin: 10px;
-      padding: 20px;
-    }
-    .dldl{
-      background-color:#3a4f24;
-      padding: 20px;
-      border-radius: 30px;
+    .statistics-table {
+      padding: 3%;
+      background-color: rgb(236, 235, 235);
       margin: 30px;
-      margin-bottom:0;
-      width: 10%;
-    
-      .dldldl{
+      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+      border: 1px solid #e0e0e0;
+      .teehe {
+        font-size: 20px;
         font-family: "Raleway", sans-serif;
-        color: white;
-
+        margin: 10px;
+        padding: 20px;
+      }
+      .teede {
+        font-size: 20px;
+        font-family: "Raleway", sans-serif;
+        margin: 10px;
+        padding: 20px;
       }
 
+      .butt-con {
+        display: flex;
+        justify-content: center;
+
+        .dldl:hover {
+          background-color: #3a4f24;
+        }
+        .dldl {
+          background-color: white;
+          padding: 20px;
+          border-radius: 30px;
+          width: 60%;
+          height: 57px;
+          margin-bottom: 1%;
+
+          .dldldl {
+            font-family: "Raleway", sans-serif;
+            color: black;
+            font-weight: 700;
+          }
+        }
+      }
     }
   }
-}
 }
