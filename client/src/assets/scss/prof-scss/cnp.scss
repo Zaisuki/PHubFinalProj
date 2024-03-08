@@ -1,13 +1,12 @@
 //COURSE NEW SCSS
 
-
 @import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.mb-3{
+.mb-3 {
   font-size: large;
   font-family: "Raleway", sans-serif;
   font-weight: 800;
@@ -15,11 +14,11 @@
   border: none;
   border-radius: 0px;
   background-color: #3a4f24;
-  button{
+  button {
     color: white;
   }
-  button:hover{
-    color: #dbbc2c ;
+  button:hover {
+    color: #dbbc2c;
     border-radius: 1px;
   }
 }
@@ -36,7 +35,7 @@
     flex-direction: column;
     font-family: "Raleway" sans-serif;
     align-items: center;
-    .pp{
+    .pp {
       font-size: 20px;
       margin-top: 20%;
       width: 100%;
@@ -46,18 +45,21 @@
       text-align: center;
       font-weight: 600;
     }
-    
 
     .card-within {
       width: 100%;
-      margin-bottom: 10px;
-      background-color: #e0ffbf83;
-      border: none;
+      margin-bottom: 15px;
+      border: 2px solid #ebebeb !important;
       display: flex;
       justify-content: center;
       flex-direction: row;
-      
-      .book{
+
+      transition: background-color 0.3s ease, transform 0.3s ease,
+        box-shadow 0.3s ease;
+      border-radius: 8px;
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+
+      .book {
         font-size: 25px;
         display: flex;
         justify-content: center;
@@ -72,9 +74,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        
-
-       
       }
       span {
         font-size: 17px;
@@ -88,7 +87,7 @@
 
       h5 {
         font-size: 11px;
-        font-family: "Raleway" ,sans-serif;
+        font-family: "Raleway", sans-serif;
         display: flex;
         justify-content: flex-end;
         color: black;
@@ -96,31 +95,29 @@
     }
 
     .card-within:hover {
-      border: 2px solid RGB(219, 188, 44);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      background-color: #e0ffbfc5 ;
+      background-color: #fafafa;
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
       animation: floatAnimation 2s infinite ease-in-out alternate;
-      color: #dbbc2c;
-      .book{
-        color: #dbbc2c;
+      .book {
+        color: #4f6931;
       }
     }
   }
 }
 
 .people-tab {
-  padding: 2% 18% 2% 18%;
+  padding: 2% 16% 2% 16%;
   width: 100%;
   display: flex;
   justify-content: center;
-  
-  
-  
+
   .instructor-card {
-    background-color: #e0ffbf83;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #dfdede !important;
     border: none;
-    
-    
+    margin-bottom: 2%;
+
     .card-header {
       font-size: 20px;
       font-weight: 450;
@@ -130,17 +127,15 @@
       text-align: center;
       font-family: "Raleway", sans-serif;
       font-weight: 700;
-      
     }
     .card-body:hover {
-      cursor: pointer;
-      background-color: #e0ffbfc5;
+      cursor: auto;
+      background-color: #e9e9e9;
     }
 
     .card-body {
       display: flex;
       align-items: center;
-      
 
       .name {
         padding: 0;
@@ -159,9 +154,10 @@
   }
 
   .student-card {
-    background-color: #e0ffbf83;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #dfdede !important;
     border: none;
-    .ppp{
+    .ppp {
       font-size: 20px;
       margin-top: 3%;
       width: 100%;
@@ -172,8 +168,7 @@
       text-align: center;
       font-weight: 600;
     }
-    
-    
+
     .card-header {
       font-size: 20px;
       font-weight: 450;
@@ -183,17 +178,15 @@
       text-align: center;
       font-family: "Raleway", sans-serif;
       font-weight: 700;
-      
     }
     .card-body:hover {
-      cursor: pointer;
-      background-color: #e0ffbfc5;
+      cursor: auto;
+      background-color: #e9e9e9;
     }
 
     .card-body {
       display: flex;
       align-items: center;
-      
 
       .name {
         padding: 0;
