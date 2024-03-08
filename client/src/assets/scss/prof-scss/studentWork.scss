@@ -1,17 +1,66 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 .overall-container {
-    input[type='number']::-webkit-inner-spin-button,
-    input[type='number']::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
+  width: 100%;
 
-    input[type='number'] {
-        /* Ensure the input is wide enough to prevent clipping */
-        width: 50px;
-    }
-    .studentList {
+  .left-container {
+    padding: 20px;
+    .upper-left-container {
+      padding: 200px;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      width: 100%;
+      .button-container {
         display: flex;
-        justify-content: space-around;
-        padding: 10px;
+        justify-content: center;
+        background-color: rgb(255, 255, 255);
+        flex-direction: column;
+        padding: 20px;
+      }
+      .sub-upper-left-container {
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        .stats {
+          width: 100%;
+          .numbers {
+            .turned-in-total {
+                font-family: "Raleway", sans-serif;
+              }
+              .assigned-total {
+                  font-family: "Raleway", sans-serif;
+                }
+                .returned-total {
+                  font-family: "Raleway", sans-serif;
+                }
+          }
+          .labels {
+            .turned-in-label {
+              font-family: "Raleway", sans-serif;
+            }
+            .returned-label {
+                font-family: "Raleway", sans-serif;
+              }
+              .assigned-label {
+                font-family: "Raleway", sans-serif;
+              }
+          }
+        }
+
+        .activity-title {
+          font-family: "Raleway", sans-serif;
+          font-weight: 800;
+          font-size: 80px;
+        }
+      }
     }
+  }
+}
+
+input[type="number"] {
+  /* Ensure the input is wide enough to prevent clipping */
+  width: 50px;
+}
+.studentList {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
 }

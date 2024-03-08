@@ -134,18 +134,20 @@ const StudentWork = ({ classType, taskID, pageData }) => {
                             </Container>
                         </div>
                     </div>
-                    <div className='button-container'>
-                        <Button type='submit' onClick={handleReturnScores}>
-                            Return
-                        </Button>
+                   
+                </div>
+                <div className='button-container'>
+                        
                         <div>
                             <input type='text' value={newHighScore} onChange={(e) => setNewHighScores(e.target.value)} style={{ border: '1px solid black' }} />
                             <Button type='submit' onClick={updateScore}>
                                 Update score
                             </Button>
+                            <Button type='submit' onClick={handleReturnScores}>
+                            Return
+                        </Button>
                         </div>
                     </div>
-                </div>
                 <div className='student-table-container'>
                     <div>
                         <div className='checkbox-selectall'>
