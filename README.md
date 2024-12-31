@@ -2,7 +2,7 @@
 
 ## Project Description
 
-Developed exclusively for PHINMA-UPang, Phinma Hub (PHub) is an interactive educational and communication tool. It empowers instructors to assign homework, post announcements, and grade student submissions efficiently.
+Developed exclusively for PHINMA-UPang, PHINMA Hub (PHub) is an interactive educational and communication tool. It empowers instructors to assign homework, post announcements, and grade student submissions efficiently.
 
 ## Target Users
 
