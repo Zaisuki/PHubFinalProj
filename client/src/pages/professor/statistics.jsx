@@ -121,12 +121,14 @@ function Statistics() {
           const foundConnect =
             stud.studentSubjects[0].studentConnectSubmission.find(
               (connect, index) => {
-                if (connect.task._id === value) {
-                  newData[`connect${index}`] = connect.score
-                    ? connect.score
-                    : 0;
-                  return true; // exit loop
-                }
+                if(connect.task){
+                  if (connect.task._id === value) {
+                                    newData[`connect${index}`] = connect.score
+                                      ? connect.score
+                                      : 0;
+                                    return true; // exit loop
+                                  }
+                  }
                 return false; // continue loop
               }
             );

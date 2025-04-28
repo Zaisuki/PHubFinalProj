@@ -95,20 +95,22 @@ function WorkPage() {
                 </Row>
               </Card>
             )}
-            {pageData.postChoices && (
-              <Card className="pool-container">
-                <h4>Pool</h4>
-                <div className="choice-container">
-                  {pageData.postChoices.map((dataPage) => (
-                    <ChoicesConnect
-                      data={dataPage}
-                      totalStudents={pageData.class.totalStudents}
-                      key={dataPage._id}
-                    />
-                  ))}
-                </div>
-              </Card>
-            )}
+            {pageData.postChoices && pageData.postChoices.length > 0 && (
+  <Card className="pool-container p-4 mt-4 mx-auto text-center">
+    <h4 className="mb-4">Poll</h4>
+    <div className="choice-list">
+      {pageData.postChoices.map((dataPage) => (
+        <div className="choice-item" key={dataPage._id}>
+          <ChoicesConnect
+            data={dataPage}
+            totalStudents={pageData.class.totalStudents}
+          />
+        </div>
+      ))}
+    </div>
+  </Card>
+)}
+
           </div>
         </Tab.Pane>
         <Tab.Pane eventKey="student-work">

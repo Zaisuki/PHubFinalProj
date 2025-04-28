@@ -77,6 +77,9 @@ function FeedProf() {
     setIsDescriptionUnderline((prev) => !prev);
   };
 
+  const [selectedCourse, setSelectedCourse] = useState("Select a course");
+
+
   const handleSubmit = async () => {
     if (titleVal !== "" && descriptionVal !== "") {
       const result = await postAnnouncement(titleVal, descriptionVal);
@@ -249,17 +252,19 @@ function FeedProf() {
                   </div>
                 </div>
                 <div className="h2-text-two">
-                  <h2 className="course">Select a course</h2>
+                  
                   <DropdownButton
-                    className="makeitdrop"
-                    id="dropdown-menu-align-right"
-                    align="right"
-                    variant="none"
-                  >
-                    <Dropdown.Item eventKey="1">Everyone</Dropdown.Item>
-                    <Dropdown.Item eventKey="1">ITE 143</Dropdown.Item>
-                    <Dropdown.Item eventKey="1">ITE 143</Dropdown.Item>
-                  </DropdownButton>
+  className="makeitdrop"
+  id="dropdown-course"
+  align="right"
+  title={selectedCourse}
+  variant="none"
+  onSelect={(eventKey) => setSelectedCourse(eventKey)}
+>
+  <Dropdown.Item eventKey="Everyone">Everyone</Dropdown.Item>
+  <Dropdown.Item eventKey="ITE 143">ITE 143</Dropdown.Item>
+  <Dropdown.Item eventKey="ITE 144">ITE 144</Dropdown.Item>
+</DropdownButton>
                 </div>
 
                 <div className="button-container">

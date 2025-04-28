@@ -81,7 +81,7 @@ const StudentWork = ({ classType, taskID, pageData }) => {
       };
 
       fetchData();
-      setHighScores(pageData.highestPossibleScore);
+      
     }
   };
   const handleScoreChange = (event, studentId) => {
